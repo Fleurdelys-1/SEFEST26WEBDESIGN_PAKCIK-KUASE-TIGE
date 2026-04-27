@@ -1,30 +1,56 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Outfit, JetBrains_Mono, Lexend } from "next/font/google";
 import "./globals.css";
+import FloatingLines from '../components/background';
+import Navbar from '../components/navbar';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Lexend({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const outfitMono = JetBrains_Mono({
+  variable: "--font-outfit-mono",
   subsets: ["latin"],
 });
 
-
-// test
 export const metadata = {
   title: "Certify",
   description: "The Future of Certificate Verification",
+  icons: {
+    icon: "/images/certify.png",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${poppins.variable} ${outfit.variable} ${outfitMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col relative">
+        <div className="fixed inset-0 -z-10">
+          <FloatingLines
+            enabledWaves={["top", "middle", "bottom"]}
+            lineCount={8}
+            lineDistance={8}
+            bendRadius={5.0}
+            bendStrength={-2.0}
+            interactive={true}
+            parallax={true}
+            animationSpeed={1}
+            linesGradient={["#005461", "#6f6f6f", "#6a6a6a"]}
+            mixBlendMode={"screen"}
+          />
+        </div>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
