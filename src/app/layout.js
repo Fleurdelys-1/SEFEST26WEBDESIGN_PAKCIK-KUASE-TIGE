@@ -2,9 +2,10 @@ import { Poppins, Outfit, JetBrains_Mono, Lexend } from "next/font/google";
 import "./globals.css";
 import FloatingLines from '../components/background';
 import Navbar from '../components/navbar';
+import { LanguageProvider } from '../context/LanguageContext';
 
 const poppins = Lexend({
-  variable: "--font-poppins",
+  variable: "--font-lexend",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -34,22 +35,24 @@ export default function RootLayout({ children }) {
       className={`${poppins.variable} ${outfit.variable} ${outfitMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col relative">
-        <div className="fixed inset-0 -z-10">
-          <FloatingLines
-            enabledWaves={["top", "middle", "bottom"]}
-            lineCount={8}
-            lineDistance={8}
-            bendRadius={5.0}
-            bendStrength={-2.0}
-            interactive={true}
-            parallax={true}
-            animationSpeed={1}
-            linesGradient={["#005461", "#6f6f6f", "#6a6a6a"]}
-            mixBlendMode={"screen"}
-          />
-        </div>
-        <Navbar />
-        {children}
+        <LanguageProvider>
+          <div className="fixed inset-0 -z-10">
+            <FloatingLines
+              enabledWaves={["top", "middle", "bottom"]}
+              lineCount={8}
+              lineDistance={8}
+              bendRadius={5.0}
+              bendStrength={-2.0}
+              interactive={true}
+              parallax={true}
+              animationSpeed={1}
+              linesGradient={["#005461", "#6f6f6f", "#6a6a6a"]}
+              mixBlendMode={"screen"}
+            />
+          </div>
+          <Navbar />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

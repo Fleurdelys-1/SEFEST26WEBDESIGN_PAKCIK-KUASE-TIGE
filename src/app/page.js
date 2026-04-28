@@ -1,7 +1,13 @@
 
+"use client";
+
+import { useLanguage } from '../context/LanguageContext';
+
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
-    <main className="flex flex-col items-center justify-center min-h-[70vh] w-full select-none">
+    <main className="flex flex-col items-center justify-center min-h-[80vh] w-full select-none">
       <div className="flex items-center gap-2 mb-6">
         <span className="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-white/80 backdrop-blur-md shadow flex items-center gap-2">
           <span
@@ -16,16 +22,16 @@ export default function Home() {
               letterSpacing: '0.04em',
             }}
           >
-            NEW
+            {t('home.badge')}
           </span>
-          Certify Protocol v1.0
+          {t('home.protocol')}
         </span>
       </div>
       <h1 className="text-4xl md:text-5xl font-bold text-[#F4F4F4] text-center mb-8 font-outfit drop-shadow-lg">
-        The Future of Certificate Verification
+        {t('home.title')}
       </h1>
       <p className="text-lg md:text-xl text-[#F4F4F4]/80 text-center max-w-2xl mb-12 font-poppins">
-        Secure, transparent, and tamper-proof certificate verification powered by blockchain technology. Instantly validate authenticity and eliminate fraud in the digital era.
+        {t('home.description')}
       </p>
     </main>
   );

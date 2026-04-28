@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "faq": "FAQ",
+    "contact": "Kontak"
+  },
+  "home": {
+    "badge": "BARU",
+    "protocol": "Certify Protocol v1.0",
+    "title": "Masa Depan Verifikasi Sertifikat",
+    "description": "Verifikasi sertifikat yang aman, transparan, dan anti-pemalsuan yang didukung oleh teknologi blockchain. Validasi keaslian secara instan dan eliminate penipuan di era digital."
+  }
+}
