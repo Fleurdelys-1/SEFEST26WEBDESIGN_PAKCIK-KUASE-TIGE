@@ -1,6 +1,7 @@
 {
   "nav": {
     "home": "Beranda",
+    "validate": "Validasi",
     "about": "Tentang",
     "faq": "FAQ",
     "contact": "Kontak"
@@ -9,6 +10,8 @@
     "badge": "BARU",
     "protocol": "Certify Protocol v1.0",
     "title": "Masa Depan Verifikasi Sertifikat",
-    "description": "Verifikasi sertifikat yang aman, transparan, dan anti-pemalsuan yang didukung oleh teknologi blockchain. Validasi keaslian secara instan dan eliminate penipuan di era digital."
+    "description": "Verifikasi sertifikat yang aman, transparan, dan anti-pemalsuan yang didukung oleh teknologi blockchain. Validasi keaslian secara instan dan eliminate penipuan di era digital.",
+    "register": "Registrasi",
+    "validate": "Validasi"
   }
 }

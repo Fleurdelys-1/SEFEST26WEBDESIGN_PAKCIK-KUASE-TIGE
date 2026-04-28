@@ -18,6 +18,7 @@ export default function Navbar() {
 
 	const navLinks = [
 		{ name: t('nav.home'), href: '/' },
+		{ name: t('nav.validate'), href: '/validate' },
 		{ name: t('nav.about'), href: '/about' },
 		{ name: t('nav.faq'), href: '/faq' },
 		{ name: t('nav.contact'), href: '/contact' },
@@ -31,14 +32,15 @@ export default function Navbar() {
 	};
 
 	return (
-		<nav className="glass-navbar fixed top-5 left-1/2 -translate-x-1/2 w-[90vw] max-w-4xl z-30 flex items-center justify-between px-6 py-3 rounded-2xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg">
-			<div className="flex items-center gap-2">
-				<span className="text-2xl text-[#F4F4F4] flex items-center gap-2 font-poppins">
-					<img src="/images/certify.png" alt="Certify Logo" className="w-7 h-7" />
-					Certify
-				</span>
+		<nav className="fixed top-3 left-0 right-0 z-30 px-0 py-3">
+			{/* Logo & Text - Left Corner - Absolute to viewport */}
+			<div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+				<img src="/images/certify.png" alt="Certify Logo" className="w-7 h-7" />
+				<span className="text-2xl text-[#F4F4F4] font-lexend">Certify</span>
 			</div>
-			<div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2 font-poppins">
+
+			{/* Nav Links - Glass Effect - Centered */}
+			<div className="flex items-center justify-center gap-2 font-lexend px-4 py-2 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg mx-auto max-w-fit">
 				{navLinks.map((link) => {
 					const isActive = pathname === link.href;
 					return (
@@ -64,10 +66,12 @@ export default function Navbar() {
 					);
 				})}
 			</div>
-			<div className="relative">
+
+			{/* Language Dropdown - Right Corner - Absolute to viewport */}
+			<div className="absolute right-4 top-1/2 -translate-y-1/2">
 				<button
 					onClick={() => setIsOpen(!isOpen)}
-					className="p-2 rounded-lg bg-white/10 border border-white/20 shadow hover:bg-white/20 transition backdrop-blur-sm flex items-center gap-1"
+					className="p-3 rounded-lg bg-white/10 border border-white/20 shadow hover:bg-white/20 transition backdrop-blur-sm flex items-center gap-1"
 				>
 					<Languages size={18} className="text-[#F4F4F4]" />
 					<ChevronDown

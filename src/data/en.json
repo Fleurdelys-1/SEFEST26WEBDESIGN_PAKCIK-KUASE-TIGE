@@ -1,6 +1,7 @@
 {
   "nav": {
     "home": "Home",
+    "validate": "Validate",
     "about": "About",
     "faq": "FAQ",
     "contact": "Contact"
@@ -9,6 +10,8 @@
     "badge": "NEW",
     "protocol": "Certify Protocol v1.0",
     "title": "The Future of Certificate Verification",
-    "description": "Secure, transparent, and tamper-proof certificate verification powered by blockchain technology. Instantly validate authenticity and eliminate fraud in the digital era."
+    "description": "Secure, transparent, and tamper-proof certificate verification powered by blockchain technology. Instantly validate authenticity and eliminate fraud in the digital era.",
+    "register": "Registration",
+    "validate": "Validation"
   }
 }
