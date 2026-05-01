@@ -1,7 +1,8 @@
 import { Poppins, Outfit, JetBrains_Mono, Lexend } from "next/font/google";
 import "./globals.css";
-import FloatingLines from '../components/background';
-import Navbar from '../components/navbar';
+import FloatingLines from '../components/ui/background';
+import Navbar from '../components/ui/navbar';
+import Footer from '../components/ui/footer';
 import { LanguageProvider } from '../context/LanguageContext';
 
 const poppins = Lexend({
@@ -34,7 +35,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${poppins.variable} ${outfit.variable} ${outfitMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col relative">
+      <body className="min-h-screen flex flex-col relative">
         <LanguageProvider>
           <div className="fixed inset-0 -z-10">
             <FloatingLines
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
           </div>
           <Navbar />
           {children}
+          <Footer />
         </LanguageProvider>
       </body>
     </html>

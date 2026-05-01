@@ -13,5 +13,27 @@
     "description": "Verifikasi sertifikat yang aman, transparan, dan anti-pemalsuan yang didukung oleh teknologi blockchain. Validasi keaslian secara instan dan eliminate penipuan di era digital.",
     "register": "Registrasi",
     "validate": "Validasi"
+  },
+  "validate": {
+    "badge": "VERIFIKASI",
+    "secure": "Verifikasi Aman",
+    "title": "Validasi Sertifikat",
+    "description": "Masukkan ID sertifikat untuk memverifikasi keasliannya di blockchain. Sistem kami akan memeriksa sertifikat terhadap registry resmi.",
+    "placeholder": "Masukkan ID sertifikat...",
+    "verify": "Verifikasi",
+    "validating": "Memvalidasi...",
+    "valid": "Sertifikat Valid",
+    "validMessage": "Sertifikat ini telah diverifikasi dan asli.",
+    "invalid": "Sertifikat Tidak Valid",
+    "invalidMessage": "Sertifikat ini tidak dapat ditemukan di registry kami.",
+    "certificateId": "ID Sertifikat",
+    "name": "Nama Penerima",
+    "institution": "Institusi",
+    "program": "Program",
+    "graduationDate": "Tanggal Kelulusan",
+    "status": "Status",
+    "certificates": "Sertifikat",
+    "institutions": "Institusi",
+    "validations": "Validasi"
   }
 }

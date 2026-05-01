@@ -4,7 +4,7 @@ import { Languages, ChevronDown, Check } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { useLanguage } from '../../context/LanguageContext';
+import { useLanguage } from '../../../context/LanguageContext';
 
 const languages = [
 	{ code: 'en', name: 'English', nativeName: 'English' },
@@ -32,22 +32,22 @@ export default function Navbar() {
 	};
 
 	return (
-		<nav className="fixed top-3 left-0 right-0 z-30 px-0 py-3">
-			{/* Logo & Text - Left Corner - Absolute to viewport */}
-			<div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
-				<img src="/images/certify.png" alt="Certify Logo" className="w-7 h-7" />
-				<span className="text-2xl text-[#F4F4F4] font-lexend">Certify</span>
+		<nav className="fixed top-0 left-0 right-0 z-30 px-2 sm:px-4 py-5">
+			{/* Logo & Text - Left Corner */}
+			<div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+				<img src="/images/certify.png" alt="Certify Logo" className="w-6 h-6 sm:w-7 sm:h-7" />
+				<span className="text-xl sm:text-2xl text-[#F4F4F4] font-lexend">Certify</span>
 			</div>
 
 			{/* Nav Links - Glass Effect - Centered */}
-			<div className="flex items-center justify-center gap-2 font-lexend px-4 py-2 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg mx-auto max-w-fit">
+			<div className="flex items-center justify-center gap-1 sm:gap-2 font-lexend px-2 sm:px-4 py-2 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg mx-auto max-w-fit">
 				{navLinks.map((link) => {
 					const isActive = pathname === link.href;
 					return (
 						<Link
 							key={link.name}
 							href={link.href}
-							className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+							className={`relative px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
 								isActive
 									? 'text-[#F4F4F4]'
 									: 'text-[#F4F4F4]/80 hover:text-[#F4F4F4]'
@@ -61,14 +61,15 @@ export default function Navbar() {
 										: 'bg-white/0 hover:bg-gradient-to-r hover:from-[#005461]/20 hover:to-[#F4F4F4]/10 hover:border hover:border-white/20 hover:shadow-lg hover:backdrop-blur-md'
 								}`}
 							/>
-							<span className="relative z-10">{link.name}</span>
+							<span className="relative z-10 hidden sm:inline">{link.name}</span>
+							<span className="relative z-10 sm:hidden text-xs">{link.name.charAt(0)}</span>
 						</Link>
 					);
 				})}
 			</div>
 
-			{/* Language Dropdown - Right Corner - Absolute to viewport */}
-			<div className="absolute right-4 top-1/2 -translate-y-1/2">
+			{/* Language Dropdown - Right Corner */}
+			<div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2">
 				<button
 					onClick={() => setIsOpen(!isOpen)}
 					className="p-3 rounded-lg bg-white/10 border border-white/20 shadow hover:bg-white/20 transition backdrop-blur-sm flex items-center gap-1"
@@ -80,12 +81,12 @@ export default function Navbar() {
 					/>
 				</button>
 				{isOpen && (
-					<div className="absolute right-0 mt-2 w-40 rounded-xl bg-gradient-to-b from-[#005461]/90 to-[#003d44]/90 border border-white/30 shadow-lg backdrop-blur-md overflow-hidden">
+					<div className="absolute right-0 mt-2 w-36 sm:w-40 rounded-xl bg-gradient-to-b from-[#005461]/90 to-[#003d44]/90 border border-white/30 shadow-lg backdrop-blur-md overflow-hidden">
 						{languages.map((lang) => (
 							<button
 								key={lang.code}
 								onClick={() => handleLanguageChange(lang)}
-								className="w-full px-4 py-2 text-left text-sm text-[#F4F4F4] hover:bg-white/10 transition flex items-center justify-between"
+								className="w-full px-3 sm:px-4 py-2 text-left text-xs sm:text-sm text-[#F4F4F4] hover:bg-white/10 transition flex items-center justify-between"
 							>
 								<span>{lang.nativeName}</span>
 								{selectedLang.code === lang.code && (

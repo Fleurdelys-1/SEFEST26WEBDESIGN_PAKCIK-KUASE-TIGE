@@ -13,5 +13,27 @@
     "description": "Secure, transparent, and tamper-proof certificate verification powered by blockchain technology. Instantly validate authenticity and eliminate fraud in the digital era.",
     "register": "Registration",
     "validate": "Validation"
+  },
+  "validate": {
+    "badge": "VERIFY",
+    "secure": "Secure Verification",
+    "title": "Validate Certificates",
+    "description": "Enter a certificate ID to verify its authenticity on the blockchain. Our system will check the certificate against the official registry.",
+    "placeholder": "Enter certificate ID...",
+    "verify": "Verify",
+    "validating": "Validating...",
+    "valid": "Valid Certificate",
+    "validMessage": "This certificate has been verified and is authentic.",
+    "invalid": "Invalid Certificate",
+    "invalidMessage": "This certificate could not be found in our registry.",
+    "certificateId": "Certificate ID",
+    "name": "Recipient Name",
+    "institution": "Institution",
+    "program": "Program",
+    "graduationDate": "Graduation Date",
+    "status": "Status",
+    "certificates": "Certificates",
+    "institutions": "Institutions",
+    "validations": "Validations"
   }
 }
