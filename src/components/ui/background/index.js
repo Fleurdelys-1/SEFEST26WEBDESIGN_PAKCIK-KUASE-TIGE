@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from 'react';
+import ShapeGrid from './ShapeGrid';
 import {
   Clock,
   Mesh,
@@ -490,6 +491,11 @@ export default function FloatingLines({
       className="relative w-full h-full overflow-hidden floating-lines-container"
       style={{
         mixBlendMode: mixBlendMode
-      }} />
+      }}
+    >
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+        <ShapeGrid />
+      </div>
+    </div>
   );
 }

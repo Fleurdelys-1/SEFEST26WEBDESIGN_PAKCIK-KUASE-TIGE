@@ -1,9 +1,7 @@
 "use client";
 
 import { Languages, ChevronDown, Check } from 'lucide-react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '../../../context/LanguageContext';
 
 const languages = [
@@ -12,63 +10,100 @@ const languages = [
 ];
 
 export default function Navbar() {
-	const pathname = usePathname();
 	const [isOpen, setIsOpen] = useState(false);
+	const [activeHash, setActiveHash] = useState('#home');
 	const { language, changeLanguage, t } = useLanguage();
 
 	const navLinks = [
-		{ name: t('nav.home'), href: '/' },
-		{ name: t('nav.validate'), href: '/validate' },
-		{ name: t('nav.about'), href: '/about' },
-		{ name: t('nav.faq'), href: '/faq' },
-		{ name: t('nav.contact'), href: '/contact' },
+		{ name: t('nav.home'), href: '#home' },
+		{ name: t('nav.validate'), href: '#validation' },
+		{ name: t('nav.about'), href: '#about' },
+		{ name: t('nav.faq'), href: '#faq' },
+		{ name: t('nav.contact'), href: '#contact' },
 	];
 
 	const selectedLang = languages.find(l => l.code === language) || languages[0];
+
+	useEffect(() => {
+		const sectionIds = ['home', 'validation', 'about', 'faq', 'contact'];
+		
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						setActiveHash(`#${entry.target.id}`);
+					}
+				});
+			},
+			{ threshold: 0.3 }
+		);
+
+		sectionIds.forEach((id) => {
+			const element = document.getElementById(id);
+			if (element) {
+				observer.observe(element);
+			}
+		});
+
+		return () => {
+			sectionIds.forEach((id) => {
+				const element = document.getElementById(id);
+				if (element) {
+					observer.unobserve(element);
+				}
+			});
+		};
+	}, []);
 
 	const handleLanguageChange = (lang) => {
 		changeLanguage(lang.code);
 		setIsOpen(false);
 	};
 
+	const handleNavClick = (e, href) => {
+		e.preventDefault();
+		const targetId = href.replace('#', '');
+		const element = document.getElementById(targetId);
+		
+		if (element) {
+			element.scrollIntoView({ behavior: 'smooth' });
+		}
+	};
+
 	return (
 		<nav className="fixed top-0 left-0 right-0 z-30 px-2 sm:px-4 py-5">
-			{/* Logo & Text - Left Corner */}
 			<div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
 				<img src="/images/certify.png" alt="Certify Logo" className="w-6 h-6 sm:w-7 sm:h-7" />
 				<span className="text-xl sm:text-2xl text-[#F4F4F4] font-lexend">Certify</span>
 			</div>
 
-			{/* Nav Links - Glass Effect - Centered */}
 			<div className="flex items-center justify-center gap-1 sm:gap-2 font-lexend px-2 sm:px-4 py-2 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg mx-auto max-w-fit">
 				{navLinks.map((link) => {
-					const isActive = pathname === link.href;
+					const isActive = activeHash === link.href;
 					return (
-						<Link
+						<button
 							key={link.name}
-							href={link.href}
-							className={`relative px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
+							onClick={(e) => handleNavClick(e, link.href)}
+							className={`group relative px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
 								isActive
 									? 'text-[#F4F4F4]'
-									: 'text-[#F4F4F4]/80 hover:text-[#F4F4F4]'
+									: 'text-[#F4F4F4]/80'
 							}`}
 						>
-							{/* Glass effect background */}
 							<span
 								className={`absolute inset-0 rounded-xl transition-all duration-300 ${
 									isActive
 										? 'bg-gradient-to-r from-[#005461]/30 to-[#F4F4F4]/20 border border-white/30 shadow-lg backdrop-blur-md'
-										: 'bg-white/0 hover:bg-gradient-to-r hover:from-[#005461]/20 hover:to-[#F4F4F4]/10 hover:border hover:border-white/20 hover:shadow-lg hover:backdrop-blur-md'
+										: 'bg-white/0 group-hover:bg-gradient-to-r group-hover:from-[#005461]/20 group-hover:to-[#F4F4F4]/10 group-hover:border group-hover:border-white/20 group-hover:shadow-lg group-hover:backdrop-blur-md'
 								}`}
 							/>
 							<span className="relative z-10 hidden sm:inline">{link.name}</span>
 							<span className="relative z-10 sm:hidden text-xs">{link.name.charAt(0)}</span>
-						</Link>
+						</button>
 					);
 				})}
 			</div>
 
-			{/* Language Dropdown - Right Corner */}
 			<div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2">
 				<button
 					onClick={() => setIsOpen(!isOpen)}

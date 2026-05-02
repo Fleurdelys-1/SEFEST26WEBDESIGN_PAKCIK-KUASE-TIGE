@@ -34,6 +34,61 @@
     "status": "Status",
     "certificates": "Sertifikat",
     "institutions": "Institusi",
-    "validations": "Validasi"
+    "validations": "Validasi",
+    "tabs": {
+      "manual": "Pencarian Manual (ID/Hash)",
+      "manualShort": "Manual",
+      "pdf": "Validasi File PDF",
+      "pdfShort": "PDF",
+      "qr": "Validasi QR",
+      "qrShort": "QR"
+    },
+    "manual": {
+      "title": "Pencarian Manual",
+      "description": "Masukkan ID sertifikat atau hash Anda untuk memverifikasi keasliannya"
+    },
+    "pdf": {
+      "title": "Validasi File PDF",
+      "description": "Seret file PDF asli di sini untuk memvalidasi",
+      "security": "Pemrosesan Lokal Pribadi SHA-256"
+    },
+    "qr": {
+      "badge": "Pemindaian Seluler",
+      "title": "Validasi Kode QR",
+      "description": "Untuk memverifikasi sertifikat yang diterbitkan, cukup arahkan kamera ponsel cerdas Anda ke kode QR. Sistem akan secara otomatis mengenali URL validasi dan menampilkan laporan keaslian di browser seluler Anda, memastikan kredensial tersebut asli dan terdaftar di blockchain.",
+      "certificateName": "Sertifikat UIJ",
+      "certificateId": "ID: CERT-B6F9316C1C14"
+    }
+  },
+  "footer": {
+    "company": "Perusahaan",
+    "product": "Produk",
+    "resources": "Sumber Daya",
+    "legal": "Hukum",
+    "stayUpdated": "Tetap Terupdate",
+    "description": "Masa depan verifikasi sertifikat. Verifikasi yang aman, transparan, dan anti-pemalsuan yang didukung oleh teknologi blockchain.",
+    "features": {
+      "security": "Keamanan Tingkat Bank",
+      "instant": "Verifikasi Instan",
+      "global": "Standar Global"
+    },
+    "newsletter": {
+      "description": "Berlangganan newsletter kami untuk pembaruan dan fitur terbaru.",
+      "placeholder": "Masukkan email Anda",
+      "subscribed": "✓ Berhasil berlangganan!"
+    },
+    "contact": {
+      "email": "hello@certify.io",
+      "location": "Padang, Indonesia"
+    },
+    "copyright": "Semua hak dilindungi.",
+    "privacyPolicy": "Kebijakan Privasi",
+    "termsOfService": "Ketentuan Layanan",
+    "protocol": "Certify Protocol v1.0",
+    "register": "Daftar",
+    "featuresLink": "Fitur",
+    "faq": "FAQ",
+    "documentation": "Dokumentasi",
+    "support": "Bantuan"
   }
 }

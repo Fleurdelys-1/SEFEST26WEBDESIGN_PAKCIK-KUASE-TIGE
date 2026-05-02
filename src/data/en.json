@@ -34,6 +34,61 @@
     "status": "Status",
     "certificates": "Certificates",
     "institutions": "Institutions",
-    "validations": "Validations"
+    "validations": "Validations",
+    "tabs": {
+      "manual": "Manual Search (ID/Hash)",
+      "manualShort": "Manual",
+      "pdf": "Validate PDF File",
+      "pdfShort": "PDF",
+      "qr": "Validate QR",
+      "qrShort": "QR"
+    },
+    "manual": {
+      "title": "Manual Search",
+      "description": "Enter your certificate ID or hash to verify its authenticity"
+    },
+    "pdf": {
+      "title": "PDF File Validation",
+      "description": "Drag the original PDF Here to validate",
+      "security": "Private Local Processing SHA-256"
+    },
+    "qr": {
+      "badge": "Mobile Scanning",
+      "title": "QR Code Validation",
+      "description": "To verify issued certificates, simply point your smart phone camera at the QR code. The system will automatically recognize the validation URL and display an authenticity report in your mobile browser, ensuring the credentials are genuine and registered on the blockchain.",
+      "certificateName": "Certificate UIJ",
+      "certificateId": "ID: CERT-B6F9316C1C14"
+    }
+  },
+  "footer": {
+    "company": "Company",
+    "product": "Product",
+    "resources": "Resources",
+    "legal": "Legal",
+    "stayUpdated": "Stay Updated",
+    "description": "The future of certificate verification. Secure, transparent, and tamper-proof verification powered by blockchain technology.",
+    "features": {
+      "security": "Bank-Grade Security",
+      "instant": "Instant Verification",
+      "global": "Global Standards"
+    },
+    "newsletter": {
+      "description": "Subscribe to our newsletter for the latest updates and features.",
+      "placeholder": "Enter your email",
+      "subscribed": "✓ Subscribed successfully!"
+    },
+    "contact": {
+      "email": "hello@certify.io",
+      "location": "Padang, Indonesia"
+    },
+    "copyright": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "protocol": "Certify Protocol v1.0",
+    "register": "Register",
+    "featuresLink": "Features",
+    "faq": "FAQ",
+    "documentation": "Documentation",
+    "support": "Support"
   }
 }
