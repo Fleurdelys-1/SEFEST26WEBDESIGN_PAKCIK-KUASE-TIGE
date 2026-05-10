@@ -136,7 +136,7 @@ export default function Validation() {
                   border: '1px solid rgba(0, 183, 181, 0.2)',
                   borderRadius: '1rem',
                   boxShadow: '0 0 20px rgba(0, 183, 181, 0.05)',
-                  padding: '1rem',
+                  padding: '0.75rem',
                 }}
               >
                 <div className="flex items-center gap-3">
