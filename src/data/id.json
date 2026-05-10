@@ -10,12 +10,34 @@
     "badge": "BARU",
     "protocol": "Certify Protocol v1.0",
     "title": "Masa Depan Verifikasi Sertifikat",
+    "titleTop": "Ini",
+    "titleBottom": "Verifikasi Sertifikat",
+    "rotatingTexts": ["Masa Depan", "Inovasi", "Era Baru"],
     "description": "Verifikasi sertifikat yang aman, transparan, dan anti-pemalsuan yang didukung oleh teknologi blockchain. Validasi keaslian secara instan dan eliminate penipuan di era digital.",
     "register": "Registrasi",
     "validate": "Validasi"
   },
+  "about": {
+    "badge": "TENTANG",
+    "title": "Mengapa Certify?",
+    "subtitle": "Dirancang untuk kepercayaan sertifikat yang aman dan transparan di era web3, dengan verifikasi lancar antar penerbit dan penerima.",
+    "cards": {
+      "secure": {
+        "title": "Aman Secara Bawaan",
+        "description": "Verifikasi berbasis blockchain dan catatan tak dapat diubah menjaga setiap kredensial tetap anti-pemalsuan." 
+      },
+      "trust": {
+        "title": "Kepercayaan Terdesentralisasi",
+        "description": "Bukti keaslian yang siap diaudit dan bekerja lintas institusi serta ekosistem." 
+      },
+      "instant": {
+        "title": "Validasi Instan",
+        "description": "Pemeriksaan sertifikat cepat dengan antarmuka bersih, dibangun untuk alur kerja web3 modern." 
+      }
+    }
+  },
   "validate": {
-    "badge": "VERIFIKASI",
+    "badge": "VALIDASI",
     "secure": "Verifikasi Aman",
     "title": "Validasi Sertifikat",
     "description": "Masukkan ID sertifikat untuk memverifikasi keasliannya di blockchain. Sistem kami akan memeriksa sertifikat terhadap registry resmi.",
@@ -59,6 +81,79 @@
       "certificateName": "Sertifikat UIJ",
       "certificateId": "ID: CERT-B6F9316C1C14"
     }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Pertanyaan yang Sering Diajukan",
+    "subtitle": "Lihat pertanyaan umum tentang Certify, verifikasi, dan kepercayaan web3, serta pahami bagaimana pengalaman verifikasi kami bekerja.",
+    "tabs": [
+      { "key": "general", "label": "Umum" },
+      { "key": "security", "label": "Keamanan" },
+      { "key": "verification", "label": "Verifikasi" }
+    ],
+    "items": {
+      "general": [
+        {
+          "question": "Apa itu Certify?",
+          "answer": "Certify adalah platform verifikasi sertifikat berbasis blockchain yang membuat pengecekan keaslian menjadi instan, aman, dan transparan."
+        },
+        {
+          "question": "Bagaimana cara verifikasinya?",
+          "answer": "Sistem kami memverifikasi sertifikat dengan memeriksa catatan digital terhadap registry blockchain yang tidak dapat diubah, memastikan kredensial valid dan tidak dimodifikasi."
+        },
+        {
+          "question": "Apakah data saya privat?",
+          "answer": "Ya. Certify fokus pada validasi bukti yang aman sambil menjaga data pribadi tetap privat dengan lookup terenkripsi dan metadata on-chain yang minimal."
+        }
+      ],
+      "security": [
+        {
+          "question": "Apakah data sertifikat disimpan di chain?",
+          "answer": "Hanya hash bukti dan metadata verifikasi yang disimpan on-chain. Detail sertifikat sensitif tetap off-chain untuk menjaga privasi sambil mempertahankan integritas."
+        },
+        {
+          "question": "Bisakah sertifikat dimanipulasi?",
+          "answer": "Tidak. Setelah sertifikat diterbitkan dan di-hash di blockchain, setiap modifikasi akan gagal diverifikasi karena bukti on-chain tidak lagi cocok."
+        },
+        {
+          "question": "Apa yang membuat ini web3-native?",
+          "answer": "Certify memanfaatkan kepercayaan terdesentralisasi dan ketidakberubahan blockchain agar sertifikasi dapat diverifikasi lintas organisasi tanpa bergantung pada otoritas terpusat."
+        }
+      ],
+      "verification": [
+        {
+          "question": "Seberapa cepat verifikasinya?",
+          "answer": "Verifikasi berlangsung instan dengan alur kueri yang dioptimalkan, memberi pengguna konfirmasi langsung apakah sertifikat asli."
+        },
+        {
+          "question": "Bisakah saya verifikasi dengan QR atau ID?",
+          "answer": "Ya. Certify dirancang untuk beberapa alur verifikasi, termasuk scan QR, pengecekan ID/hash manual, dan validasi PDF di masa depan."
+        },
+        {
+          "question": "Siapa yang bisa menggunakan Certify?",
+          "answer": "Pelajar, penerbit, pemberi kerja, dan auditor bisa menggunakan Certify untuk memvalidasi kredensial dengan cepat dan mempercayai hasilnya dengan bukti berbasis blockchain."
+        }
+      ]
+    }
+  },
+  "contact": {
+    "badge": "Kontak",
+    "title": "Lets Build Trust On Chain.",
+    "subtitle": "Butuh bantuan dengan sertifikat on-chain? Mari buat kepercayaan lebih transparan bersama.",
+    "emailLabel": "Email kami langsung",
+    "manualTitle": "Permintaan email manual",
+    "emailDescription": "Kirim permintaan Anda ke tim kami dan kami akan merespons dengan dukungan Web3-aware.",
+    "manualLabel": "Hubungi melalui",
+    "manualEmail": "contact@certify.io",
+    "manualHint": "Tempel pesan Anda di email client atau gunakan form untuk kirim langsung.",
+    "formBadge": "Hubungkan",
+    "formTitle": "Chat dengan tim kami",
+    "formSubtitle": "Beritahu kami kebutuhan Anda dan kami akan bantu verifikasi sertifikat dan dukungan.",
+    "namePlaceholder": "Nama Anda",
+    "emailPlaceholder": "Email Anda",
+    "messagePlaceholder": "Cerita kebutuhan Anda",
+    "submit": "Kirim pesan",
+    "success": "Pesan berhasil dikirim."
   },
   "footer": {
     "company": "Perusahaan",

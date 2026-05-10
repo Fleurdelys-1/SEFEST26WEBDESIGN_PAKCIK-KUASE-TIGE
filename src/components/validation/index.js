@@ -25,8 +25,9 @@ export default function Validation() {
   };
 
   return (
-    <section id="validation" className="w-full py-16 sm:py-24 px-4 sm:px-8 md:px-16 lg:px-24">
-      <div className="max-w-5xl mx-auto">
+    <section id="validation" className="w-full py-16 sm:py-24 px-4 sm:px-8 md:px-16 lg:px-24 relative overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#00B7B5]/10 to-transparent pointer-events-none rounded-t-[100px]" />
+      <div className="max-w-5xl mx-auto relative z-10">
         <div className="flex justify-center mb-6 sm:mb-8">
           <span
             className="px-6 py-2 rounded-full text-xs sm:text-sm font-bold text-white/90 backdrop-blur-md shadow flex items-center gap-2"
@@ -61,18 +62,16 @@ export default function Validation() {
           <div className="flex flex-col sm:flex-row gap-1">
             <button
               onClick={() => setActiveTab('manual')}
-              className={`group flex-1 relative px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 ${
-                activeTab === 'manual'
+              className={`group flex-1 relative px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 ${activeTab === 'manual'
                   ? 'text-white'
                   : 'text-white/60 hover:text-white'
-              }`}
+                }`}
             >
               <span
-                className={`absolute inset-0 rounded-xl transition-all duration-300 ${
-                  activeTab === 'manual'
+                className={`absolute inset-0 rounded-xl transition-all duration-300 ${activeTab === 'manual'
                     ? 'bg-gradient-to-r from-[#005461]/30 to-[#F4F4F4]/20 border border-white/30 shadow-lg backdrop-blur-md'
                     : 'bg-white/0 group-hover:bg-gradient-to-r group-hover:from-[#005461]/20 group-hover:to-[#F4F4F4]/10 group-hover:border group-hover:border-white/20 group-hover:shadow-lg group-hover:backdrop-blur-md'
-                }`}
+                  }`}
               />
               <Search className="w-4 h-4 relative z-10" />
               <span className="hidden sm:inline relative z-10">{t('validate.tabs.manual')}</span>
@@ -81,18 +80,16 @@ export default function Validation() {
 
             <button
               onClick={() => setActiveTab('pdf')}
-              className={`group flex-1 relative px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 ${
-                activeTab === 'pdf'
+              className={`group flex-1 relative px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 ${activeTab === 'pdf'
                   ? 'text-white'
                   : 'text-white/60 hover:text-white'
-              }`}
+                }`}
             >
               <span
-                className={`absolute inset-0 rounded-xl transition-all duration-300 ${
-                  activeTab === 'pdf'
+                className={`absolute inset-0 rounded-xl transition-all duration-300 ${activeTab === 'pdf'
                     ? 'bg-gradient-to-r from-[#005461]/30 to-[#F4F4F4]/20 border border-white/30 shadow-lg backdrop-blur-md'
                     : 'bg-white/0 group-hover:bg-gradient-to-r group-hover:from-[#005461]/20 group-hover:to-[#F4F4F4]/10 group-hover:border group-hover:border-white/20 group-hover:shadow-lg group-hover:backdrop-blur-md'
-                }`}
+                  }`}
               />
               <FileUp className="w-4 h-4 relative z-10" />
               <span className="hidden sm:inline relative z-10">{t('validate.tabs.pdf')}</span>
@@ -101,18 +98,16 @@ export default function Validation() {
 
             <button
               onClick={() => setActiveTab('qr')}
-              className={`group flex-1 relative px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 ${
-                activeTab === 'qr'
+              className={`group flex-1 relative px-4 sm:px-6 py-3 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 ${activeTab === 'qr'
                   ? 'text-white'
                   : 'text-white/60 hover:text-white'
-              }`}
+                }`}
             >
               <span
-                className={`absolute inset-0 rounded-xl transition-all duration-300 ${
-                  activeTab === 'qr'
+                className={`absolute inset-0 rounded-xl transition-all duration-300 ${activeTab === 'qr'
                     ? 'bg-gradient-to-r from-[#005461]/30 to-[#F4F4F4]/20 border border-white/30 shadow-lg backdrop-blur-md'
                     : 'bg-white/0 group-hover:bg-gradient-to-r group-hover:from-[#005461]/20 group-hover:to-[#F4F4F4]/10 group-hover:border group-hover:border-white/20 group-hover:shadow-lg group-hover:backdrop-blur-md'
-                }`}
+                  }`}
               />
               <QrCode className="w-4 h-4 relative z-10" />
               <span className="hidden sm:inline relative z-10">{t('validate.tabs.qr')}</span>
@@ -133,20 +128,6 @@ export default function Validation() {
         >
           {activeTab === 'manual' && (
             <div className="space-y-6">
-              <div className="flex items-center justify-center">
-                <div
-                  className="p-4 rounded-2xl"
-                  style={{
-                    background: 'rgba(0, 84, 97, 0.3)',
-                    border: '1px solid rgba(0, 183, 181, 0.3)',
-                  }}
-                >
-                  <Search className="w-8 h-8 text-cyan-400" />
-                </div>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-center text-white font-outfit">
-                {t('validate.manual.title')}
-              </h3>
               <div
                 className="relative group"
                 style={{
@@ -228,7 +209,7 @@ export default function Validation() {
                   {t('validate.qr.badge')}
                 </span>
               </div>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 items-center">
                 <div className="flex justify-center sm:justify-start">
                   <div
@@ -283,6 +264,51 @@ export default function Validation() {
             </div>
           )}
         </div>
+
+        {activeTab === 'manual' && (
+          <div
+            className="max-w-3xl mx-auto mt-8 p-6 sm:p-8 rounded-3xl"
+            style={{
+              background: 'rgba(255, 255, 255, 0.04)',
+              backdropFilter: 'blur(15px)',
+              border: '2px dashed rgba(0, 183, 181, 0.3)',
+              boxShadow: '0 0 30px rgba(0, 183, 181, 0.15), inset 0 1px 0 rgba(255,255,255,0.05)',
+            }}
+          >
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-5 h-5 flex items-center justify-center">
+                <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full" />
+              </div>
+              <p className="text-xs sm:text-sm font-bold text-cyan-400 uppercase tracking-wider">
+                RUN A CRYPTOGRAPHIC VALIDATION TEST WITH REAL CERTIFICATE DATA:
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div
+                className="flex-1 px-6 py-4 rounded-2xl flex items-center gap-3"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(0, 183, 181, 0.3)',
+                  boxShadow: '0 0 20px rgba(0, 183, 181, 0.08)',
+                }}
+              >
+                <span className="text-sm font-bold text-cyan-400">ID:</span>
+                <span className="font-mono font-semibold text-white">CERT-B6F9116C1C14</span>
+              </div>
+              <div
+                className="flex-1 px-6 py-4 rounded-2xl flex items-center gap-3"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(0, 183, 181, 0.3)',
+                  boxShadow: '0 0 20px rgba(0, 183, 181, 0.08)',
+                }}
+              >
+                <span className="text-sm font-bold text-cyan-400">Hash:</span>
+                <span className="font-mono font-semibold text-cyan-300">68d13e...aaf</span>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

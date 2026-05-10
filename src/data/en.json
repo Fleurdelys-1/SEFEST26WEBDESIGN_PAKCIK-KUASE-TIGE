@@ -10,12 +10,34 @@
     "badge": "NEW",
     "protocol": "Certify Protocol v1.0",
     "title": "The Future of Certificate Verification",
+    "titleTop": "The",
+    "titleBottom": "of Certificate Verification",
+    "rotatingTexts": ["Future", "Innovation", "Next Era"],
     "description": "Secure, transparent, and tamper-proof certificate verification powered by blockchain technology. Instantly validate authenticity and eliminate fraud in the digital era.",
     "register": "Registration",
     "validate": "Validation"
   },
+  "about": {
+    "badge": "ABOUT",
+    "title": "Why Certify?",
+    "subtitle": "Built for secure, transparent certificate trust in the web3 era, with seamless verification across issuers and recipients.",
+    "cards": {
+      "secure": {
+        "title": "Secure by Design",
+        "description": "Blockchain-native verification and immutable records keep every credential tamper-proof." 
+      },
+      "trust": {
+        "title": "Decentralized Trust",
+        "description": "Audit-ready proof of authenticity that works across institutions and ecosystems." 
+      },
+      "instant": {
+        "title": "Instant Validation",
+        "description": "Quick certificate checks with a clean UX, built for modern web3 workflows." 
+      }
+    }
+  },
   "validate": {
-    "badge": "VERIFY",
+    "badge": "VALIDATION",
     "secure": "Secure Verification",
     "title": "Validate Certificates",
     "description": "Enter a certificate ID to verify its authenticity on the blockchain. Our system will check the certificate against the official registry.",
@@ -59,6 +81,79 @@
       "certificateName": "Certificate UIJ",
       "certificateId": "ID: CERT-B6F9316C1C14"
     }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently Asked Question",
+    "subtitle": "Browse common questions about Certify, verification, and web3 trust, and learn how our secure verification experience works.",
+    "tabs": [
+      { "key": "general", "label": "General" },
+      { "key": "security", "label": "Security" },
+      { "key": "verification", "label": "Verification" }
+    ],
+    "items": {
+      "general": [
+        {
+          "question": "What is Certify?",
+          "answer": "Certify is a blockchain-native certificate verification platform that makes authenticity checks instant, secure, and transparent."
+        },
+        {
+          "question": "How does verification work?",
+          "answer": "Our system verifies certificates by checking the digital record against an immutable blockchain registry, ensuring the credential is valid and unaltered."
+        },
+        {
+          "question": "Is my data private?",
+          "answer": "Yes. Certify focuses on secure proof validation while keeping personal data private with encrypted registry lookups and minimal on-chain metadata."
+        }
+      ],
+      "security": [
+        {
+          "question": "Is the certificate data stored on chain?",
+          "answer": "Only proof hashes and verification metadata are stored on chain. Sensitive certificate details remain off-chain to preserve privacy while maintaining integrity."
+        },
+        {
+          "question": "Can certificates be tampered with?",
+          "answer": "No. Once a certificate is issued and hashed on the blockchain, any modification will fail verification because the on-chain proof no longer matches."
+        },
+        {
+          "question": "What makes it web3-native?",
+          "answer": "Certify leverages decentralized trust and blockchain immutability so certification can be validated across organizations without relying on a single centralized authority."
+        }
+      ],
+      "verification": [
+        {
+          "question": "How fast is the verification?",
+          "answer": "Verifications happen instantly with our optimized query flow, giving users immediate confirmation whether the certificate is authentic."
+        },
+        {
+          "question": "Can I verify with QR or ID?",
+          "answer": "Yes. Certify is designed for multiple verification flows, including QR scanning, manual ID/hash checking, and future PDF validations."
+        },
+        {
+          "question": "Who can use Certify?",
+          "answer": "Students, issuers, employers, and auditors can use Certify to validate credentials quickly and trust the results with blockchain-backed proof."
+        }
+      ]
+    }
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Lets Build Trust On Chain.",
+    "subtitle": "Need help with on-chain certificates? Let’s make trust transparent together, every step of the way.",
+    "emailLabel": "Email us directly",
+    "manualTitle": "Manual email request",
+    "emailDescription": "Send your request to our team and we’ll respond with secure, Web3-aware support.",
+    "manualLabel": "Reach out at",
+    "manualEmail": "contact@certify.io",
+    "manualHint": "Paste your message in your email client or use the form to submit directly.",
+    "formBadge": "Connect",
+    "formTitle": "Chat with our team",
+    "formSubtitle": "Tell us what you need and we’ll help you with certificate verification and support.",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Your email",
+    "messagePlaceholder": "Tell us how we can help",
+    "submit": "Send message",
+    "success": "Message submitted."
   },
   "footer": {
     "company": "Company",
