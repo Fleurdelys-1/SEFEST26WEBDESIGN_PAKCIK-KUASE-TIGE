@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { FileUp, QrCode, Search, Upload, Lock, CheckCircle2 } from 'lucide-react';
+import { FileUp, QrCode, Search, Upload, Lock, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export default function Validation() {
   const { t } = useLanguage();
@@ -166,6 +166,18 @@ export default function Validation() {
                   </button>
                 </div>
               </div>
+
+              <div
+                className="p-4 rounded-xl"
+                style={{
+                  background: 'rgba(0, 183, 181, 0.08)',
+                  border: '1px solid rgba(0, 183, 181, 0.3)',
+                }}
+              >
+                <p className="text-xs sm:text-sm text-white/80 font-poppins leading-relaxed">
+                  <span className="font-bold text-cyan-400">Tip:</span> You can search using your certificate ID (e.g., CERT-XXXXXXXXX) or the unique hash provided on your certificate document.
+                </p>
+              </div>
             </div>
           )}
 
@@ -269,9 +281,9 @@ export default function Validation() {
           <div
             className="max-w-3xl mx-auto mt-8 p-6 sm:p-8 rounded-3xl"
             style={{
-              background: 'rgba(255, 255, 255, 0.04)',
+              background: 'rgba(0, 183, 181, 0.08)',
               backdropFilter: 'blur(15px)',
-              border: '2px dashed rgba(0, 183, 181, 0.3)',
+              border: '2px dashed rgba(0, 183, 181, 0.4)',
               boxShadow: '0 0 30px rgba(0, 183, 181, 0.15), inset 0 1px 0 rgba(255,255,255,0.05)',
             }}
           >
@@ -285,26 +297,28 @@ export default function Validation() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <div
-                className="flex-1 px-6 py-4 rounded-2xl flex items-center gap-3"
+                className="group relative flex-1 px-6 py-4 rounded-2xl flex items-center gap-3 cursor-pointer transition-all duration-300 hover:scale-105"
                 style={{
                   background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(0, 183, 181, 0.3)',
-                  boxShadow: '0 0 20px rgba(0, 183, 181, 0.08)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  boxShadow: '0 0 20px rgba(255, 255, 255, 0.1)',
                 }}
               >
                 <span className="text-sm font-bold text-cyan-400">ID:</span>
                 <span className="font-mono font-semibold text-white">CERT-B6F9116C1C14</span>
+                <ArrowRight className="w-4 h-4 text-white/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-auto" />
               </div>
               <div
-                className="flex-1 px-6 py-4 rounded-2xl flex items-center gap-3"
+                className="group relative flex-1 px-6 py-4 rounded-2xl flex items-center gap-3 cursor-pointer transition-all duration-300 hover:scale-105"
                 style={{
                   background: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(0, 183, 181, 0.3)',
-                  boxShadow: '0 0 20px rgba(0, 183, 181, 0.08)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  boxShadow: '0 0 20px rgba(255, 255, 255, 0.1)',
                 }}
               >
                 <span className="text-sm font-bold text-cyan-400">Hash:</span>
                 <span className="font-mono font-semibold text-cyan-300">68d13e...aaf</span>
+                <ArrowRight className="w-4 h-4 text-white/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-auto" />
               </div>
             </div>
           </div>

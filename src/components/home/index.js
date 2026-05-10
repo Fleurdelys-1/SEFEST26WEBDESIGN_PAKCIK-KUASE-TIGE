@@ -62,6 +62,40 @@ export default function Home() {
     }
   };
 
+  const buttonContainerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      }
+    }
+  };
+
+  const imageVariants = {
+    hidden: { y: 40, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.9,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const buttonVariants = {
+    hidden: { y: -24, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <>
       <main id="home" className="flex flex-col items-start justify-start min-h-screen w-full select-none px-4 sm:px-6 lg:px-8 xl:px-12 pt-32 sm:pt-40 md:pt-48 pb-16 lg:relative">
@@ -140,11 +174,31 @@ export default function Home() {
           </motion.span>
         </h1>
         <p className="text-base sm:text-lg md:text-xl text-[#F4F4F4]/80 text-left max-w-xl md:max-w-2xl mb-8 font-poppins">
-          {t('home.description')}
+          {t('home.description').split(' ').map((word, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                delay: index * 0.08,
+                duration: 0.6,
+                ease: "easeOut"
+              }}
+              className="inline-block mr-1"
+            >
+              {word}
+            </motion.span>
+          ))}
         </p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <button
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4"
+          initial="hidden"
+          animate="visible"
+          variants={buttonContainerVariants}
+        >
+          <motion.button
             className="group relative px-6 sm:px-8 py-3 sm:py-4 rounded-[2rem] font-semibold text-[#F4F4F4] overflow-hidden transition-all duration-300 hover:scale-105"
+            variants={buttonVariants}
             style={{
               background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(0, 183, 181, 0.12) 70%, rgba(255,255,255,0.08) 100%)',
               backdropFilter: 'blur(18px)',
@@ -159,9 +213,10 @@ export default function Home() {
               <UserPlus className="w-5 h-5" />
               {t('home.register')}
             </span>
-          </button>
-          <button
+          </motion.button>
+          <motion.button
             className="group relative px-6 sm:px-8 py-3 sm:py-4 rounded-[2rem] font-semibold text-[#F4F4F4] overflow-hidden transition-all duration-300 hover:scale-105"
+            variants={buttonVariants}
             style={{
               background: 'rgba(255, 255, 255, 0.05)',
               backdropFilter: 'blur(12px)',
@@ -176,9 +231,16 @@ export default function Home() {
               <ShieldCheck className="w-5 h-5" />
               {t('home.validate')}
             </span>
-          </button>
-        </div>
-        <img src="/images/certify-3d.png" alt="Home Illustration" className="mt-16 lg:absolute lg:right-0 lg:top-0 lg:mt-0 w-full lg:w-4/5 lg:max-w-4xl max-w-3xl object-contain -z-10" />
+          </motion.button>
+        </motion.div>
+        <motion.img
+          src="/images/certify-3d.png"
+          alt="Home Illustration"
+          className="mt-16 lg:absolute lg:right-[-100px] lg:top-0 lg:mt-0 w-full lg:w-4/5 lg:max-w-4xl max-w-3xl object-contain -z-10"
+          initial="hidden"
+          animate="visible"
+          variants={imageVariants}
+        />
       </main>
     </>
   );

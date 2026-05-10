@@ -78,6 +78,50 @@ export default function Navbar() {
 		visible: { opacity: 1, y: 0, transition: { duration: 0.18, ease: 'easeOut' } },
 	};
 
+	const navListVariants = {
+		hidden: { opacity: 0, y: -20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.35,
+				ease: 'easeOut',
+				when: 'beforeChildren',
+				delayChildren: 0.18,
+				staggerChildren: 0.08,
+			},
+		},
+	};
+
+	const navItemVariants = {
+		hidden: { opacity: 0, y: -18 },
+		visible: { opacity: 1, y: 0, transition: { duration: 0.28, ease: 'easeOut' } },
+	};
+
+	const switchButtonVariants = {
+		hidden: { x: 16, opacity: 0 },
+		visible: {
+			x: 0,
+			opacity: 1,
+			transition: {
+				duration: 0.35,
+				ease: 'easeOut',
+				when: 'beforeChildren',
+				delayChildren: 0.12,
+				staggerChildren: 0.08,
+			},
+		},
+	};
+
+	const switchIconVariants = {
+		hidden: { y: -10, opacity: 0 },
+		visible: {
+			y: 0,
+			opacity: 1,
+			transition: { duration: 0.3, ease: 'easeOut' },
+		},
+	};
+
 	useEffect(() => {
 		const sectionIds = ['home', 'validation', 'about', 'faq', 'contact'];
 		
@@ -131,13 +175,19 @@ export default function Navbar() {
 				<motion.span className="text-xl sm:text-2xl text-[#F4F4F4] font-lexend" variants={textVariants}>Certify</motion.span>
 			</motion.div>
 
-			<div className="flex items-center justify-center gap-1 sm:gap-2 font-lexend px-2 sm:px-4 py-2 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg mx-auto max-w-fit">
+<motion.div
+				className="flex items-center justify-center gap-1 sm:gap-2 font-lexend px-2 sm:px-4 py-2 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg mx-auto max-w-fit"
+				variants={navListVariants}
+				initial="hidden"
+				animate="visible"
+			>
 				{navLinks.map((link) => {
 					const isActive = activeHash === link.href;
 					return (
-						<button
+						<motion.button
 							key={link.name}
 							onClick={(e) => handleNavClick(e, link.href)}
+							variants={navItemVariants}
 							className={`group relative overflow-hidden px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
 								isActive
 									? 'text-[#F4F4F4]'
@@ -153,22 +203,29 @@ export default function Navbar() {
 							/>
 							<span className="relative z-10 hidden sm:inline">{link.name}</span>
 							<span className="relative z-10 sm:hidden text-xs">{link.name.charAt(0)}</span>
-						</button>
+						</motion.button>
 					);
 				})}
-			</div>
+			</motion.div>
 
 			<div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2">
-				<button
+				<motion.button
 					onClick={() => setIsOpen(!isOpen)}
+					variants={switchButtonVariants}
+					initial="hidden"
+					animate="visible"
 					className="p-3 rounded-lg bg-white/10 border border-white/20 shadow hover:bg-white/20 transition backdrop-blur-sm flex items-center gap-1"
 				>
-					<Languages size={18} className="text-[#F4F4F4]" />
-					<ChevronDown
-						size={14}
-						className={`text-[#F4F4F4] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-					/>
-				</button>
+					<motion.span variants={switchIconVariants} className="flex items-center">
+						<Languages size={18} className="text-[#F4F4F4]" />
+					</motion.span>
+					<motion.span variants={switchIconVariants} className="flex items-center">
+						<ChevronDown
+							size={14}
+							className={`text-[#F4F4F4] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+						/>
+					</motion.span>
+				</motion.button>
 				<AnimatePresence>
 					{isOpen && (
 						<motion.div
