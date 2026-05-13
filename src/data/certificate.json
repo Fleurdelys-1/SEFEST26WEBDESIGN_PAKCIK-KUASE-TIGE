@@ -1,0 +1,110 @@
+{
+  "certificates": [
+    {
+      "id": "CERT-C14B116C16F9",
+      "status": "ACTIVE",
+      "statusReason": "File integrity validation processed successfully.",
+      "hash": "bdab84b566f9460c7b27e616ca85d18d96fd07d7b25f1eae65104d2359cb9ce1",
+      "userInformation": {
+        "fullName": "Afif Asmalendra Putra",
+        "idNumber": "123245618",
+        "email": "afif.asmalendra@gmail.com",
+        "country": "INDONESIA (ID)"
+      },
+      "programDetail": {
+        "courseName": "Nicegang Premium Membership Certificate - NiceGang University",
+        "academicEventCode": "NG-0326-015",
+        "level": "Advance",
+        "language": "Indonesian",
+        "grade": "Approved"
+      },
+      "issuingInstitution": {
+        "name": "Niceguy and Nasihuy Institute",
+        "modality": "Online (Synchronous)"
+      },
+      "dates": {
+        "issueDate": "2026-04-05",
+        "studyPeriodStart": "2026-03-05",
+        "studyPeriodEnd": "2026-04-05"
+      },
+      "credentials": {
+        "instructors": [
+          "Muhammad Jannah"
+        ],
+        "signatories": [
+          "Rukhadevata"
+        ]
+      },
+      "blockchainEvidence": {
+        "smartContractVerified": true,
+        "txA": {
+          "hash": "0xa1090c9cf8539dc7d90dd5ccbb7ff9e24270a984f5c7d27c732b73a25c33c74a",
+          "type": "IDENTITY_RECORD",
+          "scanLink": "https://amoy.polygonscan.com/tx/0xa1090c9cf8539dc7d90dd5ccbb7ff9e24270a984f5c7d27c732b73a25c33c74a"
+        },
+        "txB": {
+          "hash": "0x2f618237905d77852c210b1f7f917d827baa68efd7fd1882a4f119c8fb643105",
+          "type": "IDENTITY_RECORD",
+          "scanLink": "https://amoy.polygonscan.com/tx/0x2f618237905d77852c210b1f7f917d827baa68efd7fd1882a4f119c8fb643105"
+        }
+      },
+      "validationStatus": {
+        "fileIntegrityValidated": true,
+        "signatureVerified": true
+      }
+    },
+    {
+      "id": "CERT-REVOKED-001",
+      "status": "REVOKED",
+      "statusReason": "Certificate invalidated due to tampering detected during validation.",
+      "hash": "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f",
+      "userInformation": {
+        "fullName": "John Doe",
+        "idNumber": "987654321",
+        "email": "john.doe@example.com",
+        "country": "INDONESIA (ID)"
+      },
+      "programDetail": {
+        "courseName": "Advanced Blockchain Development - Tech Academy",
+        "academicEventCode": "TA-0126-042",
+        "level": "Expert",
+        "language": "English",
+        "grade": "Approved"
+      },
+      "issuingInstitution": {
+        "name": "Tech Academy Institute",
+        "modality": "Online (Synchronous)"
+      },
+      "dates": {
+        "issueDate": "2026-02-15",
+        "studyPeriodStart": "2026-01-10",
+        "studyPeriodEnd": "2026-02-15"
+      },
+      "credentials": {
+        "instructors": [
+          "Dr. Ahmad Hassan"
+        ],
+        "signatories": [
+          "Prof. Bambang Sutrisno"
+        ]
+      },
+      "blockchainEvidence": {
+        "smartContractVerified": false,
+        "txA": {
+          "hash": "0x3c729a1b2d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e",
+          "type": "IDENTITY_RECORD",
+          "scanLink": "https://amoy.polygonscan.com/tx/0x3c729a1b2d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e"
+        },
+        "txB": {
+          "hash": "0x4d83ae2c3e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f",
+          "type": "IDENTITY_RECORD",
+          "scanLink": "https://amoy.polygonscan.com/tx/0x4d83ae2c3e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f"
+        }
+      },
+      "validationStatus": {
+        "fileIntegrityValidated": false,
+        "signatureVerified": false
+      }
+    }
+  ]
+}

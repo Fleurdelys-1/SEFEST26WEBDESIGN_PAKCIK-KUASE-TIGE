@@ -24,14 +24,14 @@ export default function Contact() {
     
     setIsLoading(true);
     
-    // Simulate API call
+
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     setIsLoading(false);
     setIsSubmitted(true);
     setFormData({ name: "", email: "", message: "" });
     
-    // Reset success state after 3 seconds
+
     setTimeout(() => {
       setIsSubmitted(false);
     }, 3000);

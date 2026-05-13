@@ -79,7 +79,9 @@
       "title": "QR Code Validation",
       "description": "To verify issued certificates, simply point your smart phone camera at the QR code. The system will automatically recognize the validation URL and display an authenticity report in your mobile browser, ensuring the credentials are genuine and registered on the blockchain.",
       "certificateName": "Certificate UIJ",
-      "certificateId": "ID: CERT-B6F9316C1C14"
+      "certificateId": "ID: CERT-B6F9316C1C14",
+      "secure": "Secure QR validation with blockchain proof",
+      "instant": "Instant authenticity check on scan"
     }
   },
   "faq": {

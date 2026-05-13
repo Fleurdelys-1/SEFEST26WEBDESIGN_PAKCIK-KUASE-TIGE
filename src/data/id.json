@@ -79,7 +79,9 @@
       "title": "Validasi Kode QR",
       "description": "Untuk memverifikasi sertifikat yang diterbitkan, cukup arahkan kamera ponsel cerdas Anda ke kode QR. Sistem akan secara otomatis mengenali URL validasi dan menampilkan laporan keaslian di browser seluler Anda, memastikan kredensial tersebut asli dan terdaftar di blockchain.",
       "certificateName": "Sertifikat UIJ",
-      "certificateId": "ID: CERT-B6F9316C1C14"
+      "certificateId": "ID: CERT-B6F9316C1C14",
+      "secure": "Validasi QR aman dengan bukti blockchain",
+      "instant": "Pemeriksaan keaslian instan saat dipindai"
     }
   },
   "faq": {

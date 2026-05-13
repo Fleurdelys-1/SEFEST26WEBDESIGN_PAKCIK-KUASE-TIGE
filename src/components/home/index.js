@@ -1,12 +1,25 @@
 "use client";
 
+import { useRouter } from 'next/navigation';
 import { useLanguage } from '../../context/LanguageContext';
 import { ShieldCheck, UserPlus } from 'lucide-react';
 import RotatingText from '../ui/text/RotatingText'
 import { motion } from 'framer-motion';
 
 export default function Home() {
+  const router = useRouter();
   const { t } = useLanguage();
+
+  const handleRegister = () => {
+    router.push('/register');
+  };
+
+  const handleValidate = () => {
+    const element = document.getElementById('validation');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const containerVariants = {
     hidden: {},
@@ -197,6 +210,7 @@ export default function Home() {
           variants={buttonContainerVariants}
         >
           <motion.button
+            onClick={handleRegister}
             className="group relative px-6 sm:px-8 py-3 sm:py-4 rounded-[2rem] font-semibold text-[#F4F4F4] overflow-hidden transition-all duration-300 hover:scale-105"
             variants={buttonVariants}
             style={{
@@ -215,6 +229,7 @@ export default function Home() {
             </span>
           </motion.button>
           <motion.button
+            onClick={handleValidate}
             className="group relative px-6 sm:px-8 py-3 sm:py-4 rounded-[2rem] font-semibold text-[#F4F4F4] overflow-hidden transition-all duration-300 hover:scale-105"
             variants={buttonVariants}
             style={{
