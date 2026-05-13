@@ -61,7 +61,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
     isInitialLoad.current = false;
   }, []);
 
-
+  // Scroll to validation section after search result is available
   useEffect(() => {
     if (!searchResult || !initialQueryValue?.trim()) return;
 
@@ -449,7 +449,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
               style={{ transformOrigin: 'top center' }}
             >
               <div className="space-y-6">
-
+                {/* Search Input - Always Visible */}
                 <motion.div
                   className="flex flex-col sm:flex-row items-center gap-3 px-4 py-3 rounded-xl"
                   style={glassCardStyle}
@@ -488,7 +488,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                   </motion.button>
                 </motion.div>
 
-
+                {/* Example Buttons - Show when no result */}
                 {!searchResult && (
                   <motion.div
                     className="max-w-3xl mx-auto mt-0 p-3 sm:p-4 rounded-2xl"
@@ -500,7 +500,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                   >
                     <div className="flex items-center gap-2 mb-3">
                       <div className="w-3 h-3 flex items-center justify-center">
-                        <div className="w-1 h-1 bg-[#00B7B5] rounded-full animate-pulse" />
+                        <div className="w-1 h-1 bg-[#00B7B5] rounded-full" />
                       </div>
                       <motion.p className="text-xs font-bold text-[#F4F4F4] uppercase tracking-wider" variants={cryptoTextVariants}>
                         RUN A CRYPTOGRAPHIC VALIDATION TEST WITH REAL CERTIFICATE DATA:
@@ -541,7 +541,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                   </motion.div>
                 )}
 
-
+                {/* Results - Show when found */}
                 {showManualResult && (
                   <motion.div
                     initial="hidden"
@@ -620,7 +620,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                         >
                           <div className="rounded-xl p-4" style={resultGlassStyle}>
                             <div className="flex items-center gap-2 mb-3">
-                              <div className="w-2 h-2 bg-[#00B7B5] rounded-full animate-pulse" />
+                              <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                               <p className="text-xs font-bold text-white/60 uppercase tracking-widest">User Information</p>
                             </div>
                             <div className="space-y-3">
@@ -645,7 +645,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
 
                           <div className="rounded-xl p-4" style={resultGlassStyle}>
                             <div className="flex items-center gap-2 mb-3">
-                              <div className="w-2 h-2 bg-[#00B7B5] rounded-full animate-pulse" />
+                              <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                               <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Program Detail</p>
                             </div>
                             <div className="space-y-3">
@@ -676,7 +676,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
 
                           <div className="rounded-xl p-4" style={resultGlassStyle}>
                             <div className="flex items-center gap-2 mb-3">
-                              <div className="w-2 h-2 bg-[#00B7B5] rounded-full animate-pulse" />
+                              <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                               <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Certificates Details</p>
                             </div>
                             <div className="space-y-3">
@@ -706,7 +706,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           style={resultGlassStyle}
                         >
                           <div className="flex items-center gap-2 mb-4">
-                            <div className="w-2 h-2 bg-[#00B7B5] rounded-full animate-pulse" />
+                            <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                             <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Credentials</p>
                           </div>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -1053,7 +1053,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                       >
                         <div className="rounded-xl p-4" style={resultGlassStyle}>
                           <div className="flex items-center gap-2 mb-3">
-                            <div className="w-2 h-2 bg-[#00B7B5] rounded-full animate-pulse" />
+                            <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                             <p className="text-xs font-bold text-white/60 uppercase tracking-widest">User Information</p>
                           </div>
                           <div className="space-y-3">
@@ -1078,7 +1078,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
 
                         <div className="rounded-xl p-4" style={resultGlassStyle}>
                           <div className="flex items-center gap-2 mb-3">
-                            <div className="w-2 h-2 bg-[#00B7B5] rounded-full animate-pulse" />
+                            <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                             <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Program Detail</p>
                           </div>
                           <div className="space-y-3">
@@ -1109,7 +1109,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
 
                         <div className="rounded-xl p-4" style={resultGlassStyle}>
                           <div className="flex items-center gap-2 mb-3">
-                            <div className="w-2 h-2 bg-[#00B7B5] rounded-full animate-pulse" />
+                            <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                             <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Certificates Details</p>
                           </div>
                           <div className="space-y-3">
@@ -1139,7 +1139,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                         style={resultGlassStyle}
                       >
                         <div className="flex items-center gap-2 mb-4">
-                          <div className="w-2 h-2 bg-[#00B7B5] rounded-full animate-pulse" />
+                          <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                           <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Credentials</p>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
