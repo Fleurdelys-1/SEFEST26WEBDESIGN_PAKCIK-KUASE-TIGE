@@ -132,3 +132,105 @@ body {
     @apply font-mono;
   }
 }
+
+/* Custom Calendar Styling */
+.rdp {
+  --rdp-cell-size: 40px;
+  --rdp-accent-color: #F4F4F4;
+  --rdp-background-color: rgba(244, 244, 244, 0.1);
+  color: #F4F4F4;
+}
+
+.rdp-caption {
+  color: #F4F4F4;
+  font-weight: 600;
+  padding: 0.5rem;
+}
+
+.rdp-caption_label {
+  color: #F4F4F4;
+  font-weight: 600;
+}
+
+.rdp-head_cell {
+  color: #F4F4F4;
+  font-weight: 500;
+  opacity: 0.8;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.rdp-cell {
+  padding: 0;
+}
+
+.rdp-day {
+  border-radius: 6px;
+  color: #F4F4F4;
+  transition: all 0.2s ease;
+}
+
+.rdp-day:hover:not([disabled]):not(.rdp-day_selected) {
+  background-color: rgba(0, 183, 181, 0.15);
+  color: #00b7b5;
+}
+
+.rdp-day_selected {
+  background-color: #F4F4F4;
+  color: #0a1a1f;
+  font-weight: 600;
+}
+
+.rdp-day_today {
+  font-weight: 600;
+  color: #00b7b5;
+  border: 2px solid #00b7b5;
+}
+
+.rdp-day_outside {
+  color: #F4F4F4;
+  opacity: 0.3;
+}
+
+.rdp-button {
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+
+.rdp-button:hover:not([disabled]) {
+  background-color: rgba(0, 183, 181, 0.1);
+}
+
+.rdp-day_range_middle {
+  background-color: rgba(0, 183, 181, 0.2);
+  color: #F4F4F4;
+  border-radius: 0;
+}
+
+.rdp-day_range_start,
+.rdp-day_range_end {
+  background-color: #F4F4F4;
+  color: #0a1a1f;
+  font-weight: 600;
+}
+
+.rdp-months {
+  gap: 1.5rem;
+}
+
+.rdp-month {
+  margin: 0;
+}
+
+/* Navigation buttons */
+.rdp-nav_button {
+  color: #F4F4F4;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.rdp-nav_button:hover {
+  background-color: rgba(244, 244, 244, 0.1);
+}

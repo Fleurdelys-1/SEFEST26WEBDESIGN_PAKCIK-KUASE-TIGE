@@ -1,8 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, Mail } from "lucide-react";
+import { ChevronLeft, Mail, CalendarIcon } from "lucide-react";
 import Link from "next/link";
+import { addDays, format } from "date-fns";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 const initialForm = {
   name: "",
@@ -14,11 +22,45 @@ const initialForm = {
   issuingInstitution: "",
   language: "English",
   level: "Intermediate",
-  certificateIssue: "2026-04-12",
+  certificateIssue: null,
   modality: "Online (Synchronous)",
-  studyPeriod: "2026-03-26 - 2026-04-12",
-  instructors: "Afif Digidaw",
-  signer: "Fabil JS Suki",
+  studyPeriod: null,
+  instructors: "",
+  signer: "",
+};
+
+const requiredFields = [
+  "name",
+  "number",
+  "digitalContact",
+  "region",
+  "certificateName",
+  "eventCode",
+  "issuingInstitution",
+  "language",
+  "level",
+  "certificateIssue",
+  "modality",
+  "studyPeriod",
+  "instructors",
+  "signer",
+];
+
+const fieldLabels = {
+  name: "Name",
+  number: "Number",
+  digitalContact: "Digital Contact",
+  region: "Region",
+  certificateName: "Name Certificated",
+  eventCode: "Event Code",
+  issuingInstitution: "Issuing Institution",
+  language: "Language",
+  level: "Level",
+  certificateIssue: "Certificated Issue",
+  modality: "Modality",
+  studyPeriod: "Study Period",
+  instructors: "Instructors",
+  signer: "Signer / Authorities",
 };
 
 const languageOptions = ["English", "Indonesian"];
@@ -29,27 +71,74 @@ const modalityOptions = [
   "Offline",
 ];
 
-const inputClass =
-  "mt-1 w-full px-3 py-2 rounded-lg bg-[#0a1a1f]/60 border border-white/10 text-[#F4F4F4] placeholder-[#F4F4F4]/30 text-sm focus:outline-none focus:border-[#00b7b5]/60 focus:ring-1 focus:ring-[#00b7b5]/20 transition-all";
-
-const selectClass =
-  "mt-1 w-full px-3 py-2 rounded-lg bg-[#0a1a1f]/60 border border-white/10 text-[#F4F4F4] text-sm focus:outline-none focus:border-[#00b7b5]/60 focus:ring-1 focus:ring-[#00b7b5]/20 transition-all appearance-none cursor-pointer";
+const formatDateInput = (value) => {
+  const digits = value.replace(/\D/g, "").slice(0, 8);
+  if (digits.length <= 2) return digits;
+  if (digits.length <= 4) return `${digits.slice(0, 2)}/${digits.slice(2)}`;
+  return `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
+};
 
 const labelClass =
   "flex flex-col text-[11px] text-[#F4F4F4]/60 font-medium tracking-wide";
 
+const LabelText = ({ children }) => (
+  <span className="flex items-center gap-0.5">{children}</span>
+);
+
 export default function RegisterPage() {
   const [form, setForm] = useState(initialForm);
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
+  const validate = (data) => {
+    const newErrors = {};
+    requiredFields.forEach((field) => {
+      if (field === "certificateIssue") {
+        if (!data[field]) {
+          newErrors[field] = `${fieldLabels[field]} is required`;
+        }
+      } else if (field === "studyPeriod") {
+        if (!data[field] || !data[field].from || !data[field].to) {
+          newErrors[field] = `${fieldLabels[field]} is required`;
+        }
+      } else if (!data[field] || data[field].toString().trim() === "") {
+        newErrors[field] = `${fieldLabels[field]} is required`;
+      }
+    });
+    return newErrors;
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    let formatted = value;
+    if (name === "certificateIssue") formatted = formatDateInput(value);
+    const updatedForm = { ...form, [name]: formatted };
+    setForm(updatedForm);
+    if (touched[name]) {
+      const newErrors = validate(updatedForm);
+      setErrors((prev) => ({ ...prev, [name]: newErrors[name] }));
+    }
+  };
+
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+    const newErrors = validate(form);
+    setErrors((prev) => ({ ...prev, [name]: newErrors[name] }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const allTouched = requiredFields.reduce(
+      (acc, f) => ({ ...acc, [f]: true }),
+      {},
+    );
+    setTouched(allTouched);
+    const newErrors = validate(form);
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) return;
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
@@ -58,9 +147,61 @@ export default function RegisterPage() {
     }, 1200);
   };
 
+  const getInputClass = (field) =>
+    `mt-1 w-full px-3 py-2 rounded-lg bg-[#0a1a1f]/60 border text-[#F4F4F4] placeholder-[#F4F4F4]/30 text-sm focus:outline-none focus:ring-1 transition-all [&::-webkit-calendar-picker-indicator]:invert-[0.5] [&::-webkit-calendar-picker-indicator]:cursor-pointer ${
+      touched[field] && errors[field]
+        ? "border-red-500/60 focus:border-red-500/80 focus:ring-red-500/20"
+        : "border-white/10 focus:border-[#00b7b5]/60 focus:ring-[#00b7b5]/20"
+    }`;
+
+  const getSelectClass = (field) =>
+    `mt-1 w-full px-3 py-2 rounded-lg bg-[#0a1a1f]/60 border text-[#F4F4F4] text-sm focus:outline-none focus:ring-1 transition-all appearance-none cursor-pointer ${
+      touched[field] && errors[field]
+        ? "border-red-500/60 focus:border-red-500/80 focus:ring-red-500/20"
+        : "border-white/10 focus:border-[#00b7b5]/60 focus:ring-[#00b7b5]/20"
+    }`;
+
+  const getGlassInputClass = (field) =>
+    `mt-1 w-full px-3 py-2 rounded-lg text-[#F4F4F4] placeholder-[#F4F4F4]/25 text-sm focus:outline-none focus:ring-1 transition-all ${
+      touched[field] && errors[field]
+        ? "border border-red-500/60 focus:ring-red-500/20"
+        : "focus:ring-[#00b7b5]/30"
+    }`;
+
+  const getGlassInputStyle = (field) => ({
+    background:
+      touched[field] && errors[field]
+        ? "rgba(239,68,68,0.07)"
+        : "rgba(255,255,255,0.06)",
+    border:
+      touched[field] && errors[field]
+        ? "1px solid rgba(239,68,68,0.45)"
+        : "1px solid rgba(255,255,255,0.10)",
+    backdropFilter: "blur(6px)",
+  });
+
+  const ErrorMsg = ({ field }) =>
+    touched[field] && errors[field] ? (
+      <span className="text-[10px] text-red-400 mt-0.5 flex items-center gap-1">
+        <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+          <circle cx="6" cy="6" r="5.5" stroke="currentColor" strokeWidth="1" />
+          <path
+            d="M6 3.5v3M6 8v.5"
+            stroke="currentColor"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
+        </svg>
+        {errors[field]}
+      </span>
+    ) : null;
+
+  const RequiredMark = () => (
+    <span className="text-[#00b7b5] leading-none">*</span>
+  );
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 pt-20 pb-8 bg-transparent relative">
-      {/* Back to Home */}
       <div className="w-full max-w-6xl flex items-start mb-3">
         <Link
           href="/"
@@ -71,9 +212,9 @@ export default function RegisterPage() {
         </Link>
       </div>
 
-      {/* Main Card */}
       <form
         onSubmit={handleSubmit}
+        noValidate
         className="w-full max-w-6xl rounded-2xl border border-white/10 shadow-2xl overflow-hidden relative z-10"
         style={{
           background:
@@ -83,7 +224,6 @@ export default function RegisterPage() {
         }}
       >
         <div className="grid grid-cols-[300px_1fr]">
-          {/* ── LEFT PANEL: Glassmorphism ── */}
           <div
             className="flex flex-col gap-4 p-7 relative"
             style={{
@@ -96,7 +236,6 @@ export default function RegisterPage() {
                 "inset 0 1px 0 rgba(255,255,255,0.08), inset -1px 0 0 rgba(0,183,181,0.06)",
             }}
           >
-            {/* Glow orb top-left for depth */}
             <div
               className="absolute top-0 left-0 w-56 h-56 pointer-events-none"
               style={{
@@ -105,7 +244,6 @@ export default function RegisterPage() {
                 transform: "translate(-30%, -30%)",
               }}
             />
-            {/* Subtle bottom glow */}
             <div
               className="absolute bottom-0 right-0 w-40 h-40 pointer-events-none"
               style={{
@@ -115,7 +253,6 @@ export default function RegisterPage() {
               }}
             />
 
-            {/* Header */}
             <div className="flex items-start gap-3 mb-1 relative z-10">
               <span
                 className="inline-flex items-center justify-center p-2 rounded-lg flex-shrink-0"
@@ -135,12 +272,10 @@ export default function RegisterPage() {
                   />
                 </svg>
               </span>
-              <div>
-                <div className="text-[15px] font-bold text-[#F4F4F4] leading-tight drop-shadow-sm">
-                  Lets Register
-                  <br />
-                  Your Certificate
-                </div>
+              <div className="text-[15px] font-bold text-[#F4F4F4] leading-tight drop-shadow-sm">
+                Lets Register
+                <br />
+                Your Certificate
               </div>
             </div>
 
@@ -152,79 +287,44 @@ export default function RegisterPage() {
               USER INFORMATION
             </div>
 
-            {/* Glass inputs — slightly lighter tint */}
-            <label className={`${labelClass} relative z-10`}>
-              Name
-              <input
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-                className="mt-1 w-full px-3 py-2 rounded-lg text-[#F4F4F4] placeholder-[#F4F4F4]/25 text-sm focus:outline-none focus:ring-1 focus:ring-[#00b7b5]/30 transition-all"
-                style={{
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.10)",
-                  backdropFilter: "blur(6px)",
-                }}
-              />
-            </label>
+            {[
+              { field: "name", label: "Name", placeholder: "Your Name" },
+              {
+                field: "number",
+                label: "Number",
+                placeholder: "Phone or ID Number",
+              },
+              {
+                field: "digitalContact",
+                label: "Digital Contact",
+                placeholder: "Email or Social Media",
+              },
+              { field: "region", label: "Region", placeholder: "Region" },
+            ].map(({ field, label, placeholder }) => (
+              <label key={field} className={`${labelClass} relative z-10`}>
+                <LabelText>
+                  {label}
+                  <RequiredMark />
+                </LabelText>
+                <input
+                  name={field}
+                  value={form[field]}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  placeholder={placeholder}
+                  className={getGlassInputClass(field)}
+                  style={getGlassInputStyle(field)}
+                />
+                <ErrorMsg field={field} />
+              </label>
+            ))}
 
-            <label className={`${labelClass} relative z-10`}>
-              Number
-              <input
-                name="number"
-                value={form.number}
-                onChange={handleChange}
-                placeholder="Phone or ID Number"
-                className="mt-1 w-full px-3 py-2 rounded-lg text-[#F4F4F4] placeholder-[#F4F4F4]/25 text-sm focus:outline-none focus:ring-1 focus:ring-[#00b7b5]/30 transition-all"
-                style={{
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.10)",
-                  backdropFilter: "blur(6px)",
-                }}
-              />
-            </label>
-
-            <label className={`${labelClass} relative z-10`}>
-              Digital Contact
-              <input
-                name="digitalContact"
-                value={form.digitalContact}
-                onChange={handleChange}
-                placeholder="Email or Social Media"
-                className="mt-1 w-full px-3 py-2 rounded-lg text-[#F4F4F4] placeholder-[#F4F4F4]/25 text-sm focus:outline-none focus:ring-1 focus:ring-[#00b7b5]/30 transition-all"
-                style={{
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.10)",
-                  backdropFilter: "blur(6px)",
-                }}
-              />
-            </label>
-
-            <label className={`${labelClass} relative z-10`}>
-              Region
-              <input
-                name="region"
-                value={form.region}
-                onChange={handleChange}
-                placeholder="Region"
-                className="mt-1 w-full px-3 py-2 rounded-lg text-[#F4F4F4] placeholder-[#F4F4F4]/25 text-sm focus:outline-none focus:ring-1 focus:ring-[#00b7b5]/30 transition-all"
-                style={{
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.10)",
-                  backdropFilter: "blur(6px)",
-                }}
-              />
-            </label>
-
-            {/* Email footer */}
             <div className="mt-auto pt-6 flex items-center gap-2 text-[#F4F4F4]/50 text-xs relative z-10">
               <Mail size={13} className="text-[#00b7b5]" />
               <span>certify@gmail.com</span>
             </div>
           </div>
 
-          {/* ── RIGHT PANEL: Program Detail ── */}
           <div className="flex flex-col p-7 gap-4">
             <div className="flex items-center gap-2 mb-1">
               <div className="flex flex-col gap-[3px]">
@@ -238,46 +338,65 @@ export default function RegisterPage() {
 
             <div className="grid grid-cols-2 gap-x-6 gap-y-4">
               <label className={labelClass}>
-                Name Certificated
+                <LabelText>
+                  Name Certificated
+                  <RequiredMark />
+                </LabelText>
                 <input
                   name="certificateName"
                   value={form.certificateName}
                   onChange={handleChange}
-                  className={inputClass}
+                  onBlur={handleBlur}
+                  className={getInputClass("certificateName")}
                   placeholder="Certificate Name"
                 />
+                <ErrorMsg field="certificateName" />
               </label>
 
               <label className={labelClass}>
-                Event Code
+                <LabelText>
+                  Event Code
+                  <RequiredMark />
+                </LabelText>
                 <input
                   name="eventCode"
                   value={form.eventCode}
                   onChange={handleChange}
-                  className={inputClass}
+                  onBlur={handleBlur}
+                  className={getInputClass("eventCode")}
                   placeholder="Event Code"
                 />
+                <ErrorMsg field="eventCode" />
               </label>
 
               <label className={labelClass}>
-                Issuing Institution
+                <LabelText>
+                  Issuing Institution
+                  <RequiredMark />
+                </LabelText>
                 <input
                   name="issuingInstitution"
                   value={form.issuingInstitution}
                   onChange={handleChange}
-                  className={inputClass}
+                  onBlur={handleBlur}
+                  className={getInputClass("issuingInstitution")}
                   placeholder="Institution Name"
                 />
+                <ErrorMsg field="issuingInstitution" />
               </label>
 
               <label className={labelClass}>
-                Language
+                <LabelText>
+                  Language
+                  <RequiredMark />
+                </LabelText>
                 <div className="relative">
                   <select
                     name="language"
                     value={form.language}
                     onChange={handleChange}
-                    className={selectClass}
+                    onBlur={handleBlur}
+                    className={getSelectClass("language")}
                   >
                     {languageOptions.map((opt) => (
                       <option key={opt} value={opt} className="bg-[#0a1a1f]">
@@ -290,16 +409,21 @@ export default function RegisterPage() {
                     className="absolute right-2 top-1/2 -translate-y-1/2 -rotate-90 text-[#F4F4F4]/40 pointer-events-none mt-0.5"
                   />
                 </div>
+                <ErrorMsg field="language" />
               </label>
 
               <label className={labelClass}>
-                Level
+                <LabelText>
+                  Level
+                  <RequiredMark />
+                </LabelText>
                 <div className="relative">
                   <select
                     name="level"
                     value={form.level}
                     onChange={handleChange}
-                    className={selectClass}
+                    onBlur={handleBlur}
+                    className={getSelectClass("level")}
                   >
                     {levelOptions.map((opt) => (
                       <option key={opt} value={opt} className="bg-[#0a1a1f]">
@@ -312,27 +436,114 @@ export default function RegisterPage() {
                     className="absolute right-2 top-1/2 -translate-y-1/2 -rotate-90 text-[#F4F4F4]/40 pointer-events-none mt-0.5"
                   />
                 </div>
+                <ErrorMsg field="level" />
               </label>
 
-              <label className={labelClass}>
-                Certificated Issue
-                <input
-                  name="certificateIssue"
-                  type="date"
-                  value={form.certificateIssue}
-                  onChange={handleChange}
-                  className={inputClass}
-                />
-              </label>
+              <div className={labelClass}>
+                <LabelText>
+                  Certificated Issue
+                  <RequiredMark />
+                </LabelText>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={`justify-start px-3 py-2 rounded-lg font-normal w-full text-[#F4F4F4] text-sm ${
+                        touched["certificateIssue"] &&
+                        errors["certificateIssue"]
+                          ? "border-red-500/60 focus:border-red-500/80"
+                          : "border-white/10"
+                      }`}
+                      style={{
+                        background:
+                          touched["certificateIssue"] &&
+                          errors["certificateIssue"]
+                            ? "rgba(239,68,68,0.07)"
+                            : "rgba(10,26,31,0.6)",
+                        border:
+                          touched["certificateIssue"] &&
+                          errors["certificateIssue"]
+                            ? "1px solid rgba(239,68,68,0.45)"
+                            : "1px solid rgba(255,255,255,0.10)",
+                      }}
+                    >
+                      <CalendarIcon size={16} className="mr-2" />
+                      {form.certificateIssue ? (
+                        format(form.certificateIssue, "MMM dd, yyyy")
+                      ) : (
+                        <span className="text-[#F4F4F4]/30">MM/DD/YY</span>
+                      )}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent
+                    className="w-auto p-4"
+                    align="start"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, rgba(5,20,25,0.95) 0%, rgba(10,30,38,0.92) 100%)",
+                      border: "1px solid rgba(0,183,181,0.2)",
+                      borderRadius: "12px",
+                      boxShadow: "0 8px 32px rgba(0,183,181,0.1)",
+                    }}
+                  >
+                    <Calendar
+                      mode="single"
+                      selected={form.certificateIssue}
+                      onSelect={(date) => {
+                        setForm((prev) => ({
+                          ...prev,
+                          certificateIssue: date,
+                        }));
+                        if (touched["certificateIssue"]) {
+                          const newErrors = validate({
+                            ...form,
+                            certificateIssue: date,
+                          });
+                          setErrors((prev) => ({
+                            ...prev,
+                            certificateIssue: newErrors["certificateIssue"],
+                          }));
+                        }
+                      }}
+                      initialFocus
+                      className="rounded-lg border-0 bg-transparent"
+                    />
+                  </PopoverContent>
+                </Popover>
+                {touched["certificateIssue"] && errors["certificateIssue"] ? (
+                  <span className="text-[10px] text-red-400 mt-0.5 flex items-center gap-1">
+                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+                      <circle
+                        cx="6"
+                        cy="6"
+                        r="5.5"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                      />
+                      <path
+                        d="M6 3.5v3M6 8v.5"
+                        stroke="currentColor"
+                        strokeWidth="1.2"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                    {errors["certificateIssue"]}
+                  </span>
+                ) : null}
+              </div>
 
               <label className={labelClass}>
-                Modality
+                <LabelText>
+                  Modality
+                  <RequiredMark />
+                </LabelText>
                 <div className="relative">
                   <select
                     name="modality"
                     value={form.modality}
                     onChange={handleChange}
-                    className={selectClass}
+                    onBlur={handleBlur}
+                    className={getSelectClass("modality")}
                   >
                     {modalityOptions.map((opt) => (
                       <option key={opt} value={opt} className="bg-[#0a1a1f]">
@@ -345,55 +556,176 @@ export default function RegisterPage() {
                     className="absolute right-2 top-1/2 -translate-y-1/2 -rotate-90 text-[#F4F4F4]/40 pointer-events-none mt-0.5"
                   />
                 </div>
+                <ErrorMsg field="modality" />
               </label>
 
-              <label className={labelClass}>
-                Study Period
-                <input
-                  name="studyPeriod"
-                  value={form.studyPeriod}
-                  onChange={handleChange}
-                  className={inputClass}
-                  placeholder="YYYY-MM-DD - YYYY-MM-DD"
-                />
-              </label>
+              <div className={labelClass}>
+                <LabelText>
+                  Study Period
+                  <RequiredMark />
+                </LabelText>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className={`justify-start px-3 py-2 rounded-lg font-normal w-full text-[#F4F4F4] text-sm ${
+                        touched["studyPeriod"] && errors["studyPeriod"]
+                          ? "border-red-500/60 focus:border-red-500/80"
+                          : "border-white/10"
+                      }`}
+                      style={{
+                        background:
+                          touched["studyPeriod"] && errors["studyPeriod"]
+                            ? "rgba(239,68,68,0.07)"
+                            : "rgba(10,26,31,0.6)",
+                        border:
+                          touched["studyPeriod"] && errors["studyPeriod"]
+                            ? "1px solid rgba(239,68,68,0.45)"
+                            : "1px solid rgba(255,255,255,0.10)",
+                      }}
+                    >
+                      <CalendarIcon size={16} className="mr-2" />
+                      {form.studyPeriod?.from ? (
+                        form.studyPeriod.to ? (
+                          <>
+                            {format(form.studyPeriod.from, "MMM dd, yyyy")} -{" "}
+                            {format(form.studyPeriod.to, "MMM dd, yyyy")}
+                          </>
+                        ) : (
+                          format(form.studyPeriod.from, "MMM dd, yyyy")
+                        )
+                      ) : (
+                        <span className="text-[#F4F4F4]/30">
+                          MM/DD/YY - MM/DD/YY
+                        </span>
+                      )}
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent
+                    className="w-auto p-4"
+                    align="start"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, rgba(5,20,25,0.95) 0%, rgba(10,30,38,0.92) 100%)",
+                      border: "1px solid rgba(0,183,181,0.2)",
+                      borderRadius: "12px",
+                      boxShadow: "0 8px 32px rgba(0,183,181,0.1)",
+                    }}
+                  >
+                    <Calendar
+                      mode="range"
+                      defaultMonth={form.studyPeriod?.from}
+                      selected={form.studyPeriod}
+                      onSelect={(date) => {
+                        setForm((prev) => ({ ...prev, studyPeriod: date }));
+                        if (touched["studyPeriod"]) {
+                          const newErrors = validate({
+                            ...form,
+                            studyPeriod: date,
+                          });
+                          setErrors((prev) => ({
+                            ...prev,
+                            studyPeriod: newErrors["studyPeriod"],
+                          }));
+                        }
+                      }}
+                      numberOfMonths={2}
+                      className="rounded-lg border-0 bg-transparent"
+                    />
+                  </PopoverContent>
+                </Popover>
+                {touched["studyPeriod"] && errors["studyPeriod"] ? (
+                  <span className="text-[10px] text-red-400 mt-0.5 flex items-center gap-1">
+                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+                      <circle
+                        cx="6"
+                        cy="6"
+                        r="5.5"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                      />
+                      <path
+                        d="M6 3.5v3M6 8v.5"
+                        stroke="currentColor"
+                        strokeWidth="1.2"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                    {errors["studyPeriod"]}
+                  </span>
+                ) : null}
+              </div>
 
               <label className={labelClass}>
-                Instructors
+                <LabelText>
+                  Instructors
+                  <RequiredMark />
+                </LabelText>
                 <input
                   name="instructors"
                   value={form.instructors}
                   onChange={handleChange}
-                  className={inputClass}
+                  onBlur={handleBlur}
+                  className={getInputClass("instructors")}
                   placeholder="Instructor Name"
                 />
+                <ErrorMsg field="instructors" />
               </label>
 
               <label className={labelClass}>
-                Signer / Authorities
+                <LabelText>
+                  Signer / Authorities
+                  <RequiredMark />
+                </LabelText>
                 <input
                   name="signer"
                   value={form.signer}
                   onChange={handleChange}
-                  className={inputClass}
+                  onBlur={handleBlur}
+                  className={getInputClass("signer")}
                   placeholder="Signer Name"
                 />
+                <ErrorMsg field="signer" />
               </label>
             </div>
 
-            {/* SEND button */}
-            <div className="flex items-end mt-auto pt-2">
+            <div className="flex items-center justify-between mt-auto pt-2">
+              {Object.keys(errors).length > 0 &&
+              Object.keys(touched).length > 0 ? (
+                <span className="text-[11px] text-red-400 flex items-center gap-1.5">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <circle
+                      cx="6"
+                      cy="6"
+                      r="5.5"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                    />
+                    <path
+                      d="M6 3.5v3M6 8v.5"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  {Object.keys(errors).length} field
+                  {Object.keys(errors).length > 1 ? "s" : ""} required
+                </span>
+              ) : (
+                <span />
+              )}
+
               <button
                 type="submit"
                 disabled={loading}
-                className="px-10 py-2.5 rounded-full text-white text-sm font-bold tracking-widest shadow-lg hover:opacity-90 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
+                className="px-10 py-2.5 rounded-full text-white text-sm font-bold tracking-widest shadow-lg hover:opacity-90 active:scale-95 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                 style={{
                   background:
                     "linear-gradient(90deg, #004f5e 0%, #00b7b5 100%)",
                   boxShadow: "0 0 20px 0 rgba(0,183,181,0.25)",
                 }}
               >
-                {loading ? "SENDING..." : success ? "SENT!" : "SEND"}
+                {loading ? "SENDING..." : success ? "✓ SENT!" : "SEND"}
               </button>
             </div>
           </div>
