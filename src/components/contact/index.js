@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Sparkles, Send, CheckCircle, Loader2 } from "lucide-react";
+import { Mail, Sparkles, Send, CheckCircle, Loader2, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 
@@ -9,29 +9,36 @@ export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" }));
     setIsSubmitted(false);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = t("contact.errorName");
+    if (!formData.email.trim()) newErrors.email = t("contact.errorEmail");
+    if (!formData.message.trim()) newErrors.message = t("contact.errorMessage");
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
-    
-    setIsLoading(true);
-    
 
+    setIsLoading(true);
+
+    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 2000));
-    
+
     setIsLoading(false);
     setIsSubmitted(true);
     setFormData({ name: "", email: "", message: "" });
-    
 
+    // Reset success state after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
     }, 3000);
@@ -63,17 +70,19 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="group rounded-[32px] border border-white/10 bg-gradient-to-br from-white/8 to-white/3 p-8 shadow-[0_40px_120px_rgba(0,0,0,0.15)] backdrop-blur-xl min-h-[320px] flex flex-col justify-between overflow-hidden relative hover:border-[#00B7B5]/30 transition-all duration-300">
+            <div className="group rounded-[32px] border border-white/10 bg-gradient-to-br from-white/8 to-white/3 p-8 shadow-[0_40px_120px_rgba(0,0,0,0.15)] backdrop-blur-xl min-h-[280px] flex flex-col justify-center gap-10 overflow-hidden relative hover:border-[#00B7B5]/30 transition-all duration-300">
               <div className="absolute inset-0 bg-gradient-to-br from-[#00B7B5]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              <div className="relative z-10 space-y-8">
-                <div className="inline-flex h-16 w-16 items-center justify-center rounded-[20px] bg-gradient-to-br from-[#00B7B5]/25 to-[#00B7B5]/10 border border-[#00B7B5]/40 shadow-lg shadow-[#00B7B5]/10 group-hover:shadow-[#00B7B5]/20 transition-all duration-300">
-                  <Mail className="h-8 w-8 text-[#00B7B5] group-hover:text-[#00B7B5]/90 transition-colors" />
-                </div>
 
-                <div className="space-y-3">
-                  <p className="text-xs uppercase tracking-[0.28em] text-[#F4F4F4]/50 font-semibold">{t("contact.emailLabel")}</p>
-                  <p className="text-2xl sm:text-3xl font-bold text-[#F4F4F4] break-all">{t("contact.manualEmail")}</p>
+              <div className="relative z-10 space-y-8">
+                <div className="flex items-center gap-5 sm:gap-6">
+                  <div className="inline-flex shrink-0 h-16 w-16 items-center justify-center rounded-[20px] bg-gradient-to-br from-[#00B7B5]/25 to-[#00B7B5]/10 border border-[#00B7B5]/40 shadow-lg shadow-[#00B7B5]/10 group-hover:shadow-[#00B7B5]/20 transition-all duration-300">
+                    <Mail className="h-8 w-8 text-[#00B7B5] group-hover:text-[#00B7B5]/90 transition-colors" />
+                  </div>
+
+                  <div className="space-y-1 sm:space-y-2">
+                    <p className="text-[10px] sm:text-xs uppercase tracking-[0.28em] text-[#F4F4F4]/50 font-semibold">{t("contact.emailLabel")}</p>
+                    <p className="text-lg sm:text-xl md:text-2xl font-bold text-[#F4F4F4] break-all">{t("contact.manualEmail")}</p>
+                  </div>
                 </div>
 
                 <div className="h-px bg-gradient-to-r from-[#00B7B5]/30 via-[#00B7B5]/10 to-transparent" />
@@ -81,11 +90,11 @@ export default function Contact() {
 
               <div className="relative z-10 space-y-3">
                 <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-gradient-to-r from-[#005461]/30 to-[#F4F4F4]/20 border border-white/30 shadow-sm" />
-                  <p className="text-xs text-[#F4F4F4]/60">24/7 Support Available</p>
+                  <div className="h-2 w-2 rounded-full bg-[#00b7b5] animate-pulse shadow-[0_0_8px_#00b7b5]" />
+                  <p className="text-xs text-[#F4F4F4]/60">{t("contact.supportAvailable")}</p>
                 </div>
                 <p className="text-sm leading-relaxed text-[#F4F4F4]/50">
-                  Reach out to us anytime. We're here to help and answer any questions you might have.
+                  {t("contact.supportDescription")}
                 </p>
               </div>
             </div>
@@ -107,8 +116,8 @@ export default function Contact() {
                     <Loader2 className="h-10 w-10 text-cyan-300 animate-spin" />
                   </div>
                   <div className="space-y-2">
-                    <h4 className="text-xl font-semibold text-[#F4F4F4]">Sending your message...</h4>
-                    <p className="text-sm text-[#F4F4F4]/60">Please wait while we process your request</p>
+                    <h4 className="text-xl font-semibold text-[#F4F4F4]">{t("contact.sendingTitle")}</h4>
+                    <p className="text-sm text-[#F4F4F4]/60">{t("contact.sendingSubtitle")}</p>
                   </div>
                 </div>
               )}
@@ -119,48 +128,66 @@ export default function Contact() {
                     <CheckCircle className="h-10 w-10 text-green-300" />
                   </div>
                   <div className="space-y-2">
-                    <h4 className="text-xl font-semibold text-[#F4F4F4]">Message sent successfully!</h4>
-                    <p className="text-sm text-[#F4F4F4]/60">Thank you for reaching out. We'll get back to you soon.</p>
+                    <h4 className="text-xl font-semibold text-[#F4F4F4]">{t("contact.successTitle")}</h4>
+                    <p className="text-sm text-[#F4F4F4]/60">{t("contact.successSubtitle")}</p>
                   </div>
                 </div>
               )}
 
               {!isLoading && !isSubmitted && (
                 <form className="space-y-5" onSubmit={handleSubmit}>
-                  <label className="block">
-                    <span className="mb-2 block text-sm font-medium text-[#F4F4F4]/80">{t("contact.namePlaceholder")}</span>
+                  <div className="block">
+                    <span className="mb-2 block text-sm font-medium text-[#F4F4F4]/80">{t("contact.nameLabel")}</span>
                     <input
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       placeholder={t("contact.namePlaceholder")}
-                      className="w-full rounded-3xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-[#F4F4F4] outline-none transition focus:border-cyan-300/70 focus:ring-2 focus:ring-cyan-300/10"
+                      className={`w-full rounded-3xl border ${errors.name ? 'border-red-500/70 ring-2 ring-red-500/20' : 'border-white/10'} bg-white/5 px-4 py-3 text-sm text-[#F4F4F4] outline-none transition focus:border-cyan-300/70 focus:ring-2 focus:ring-cyan-300/10`}
                     />
-                  </label>
+                    {errors.name && (
+                      <p className="mt-2 flex items-center gap-1.5 text-xs text-red-400">
+                        <AlertCircle className="h-3.5 w-3.5 shrink-0" />
+                        {errors.name}
+                      </p>
+                    )}
+                  </div>
 
-                  <label className="block">
-                    <span className="mb-2 block text-sm font-medium text-[#F4F4F4]/80">{t("contact.emailPlaceholder")}</span>
+                  <div className="block">
+                    <span className="mb-2 block text-sm font-medium text-[#F4F4F4]/80">{t("contact.emailLabel2")}</span>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                       placeholder={t("contact.emailPlaceholder")}
-                      className="w-full rounded-3xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-[#F4F4F4] outline-none transition focus:border-cyan-300/70 focus:ring-2 focus:ring-cyan-300/10"
+                      className={`w-full rounded-3xl border ${errors.email ? 'border-red-500/70 ring-2 ring-red-500/20' : 'border-white/10'} bg-white/5 px-4 py-3 text-sm text-[#F4F4F4] outline-none transition focus:border-cyan-300/70 focus:ring-2 focus:ring-cyan-300/10`}
                     />
-                  </label>
+                    {errors.email && (
+                      <p className="mt-2 flex items-center gap-1.5 text-xs text-red-400">
+                        <AlertCircle className="h-3.5 w-3.5 shrink-0" />
+                        {errors.email}
+                      </p>
+                    )}
+                  </div>
 
-                  <label className="block">
-                    <span className="mb-2 block text-sm font-medium text-[#F4F4F4]/80">{t("contact.messagePlaceholder")}</span>
+                  <div className="block">
+                    <span className="mb-2 block text-sm font-medium text-[#F4F4F4]/80">{t("contact.messageLabel")}</span>
                     <textarea
                       name="message"
                       rows="6"
                       value={formData.message}
                       onChange={handleChange}
                       placeholder={t("contact.messagePlaceholder")}
-                      className="h-40 w-full rounded-3xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-[#F4F4F4] outline-none transition focus:border-cyan-300/70 focus:ring-2 focus:ring-cyan-300/10 resize-none"
+                      className={`h-40 w-full rounded-3xl border ${errors.message ? 'border-red-500/70 ring-2 ring-red-500/20' : 'border-white/10'} bg-white/5 px-4 py-3 text-sm text-[#F4F4F4] outline-none transition focus:border-cyan-300/70 focus:ring-2 focus:ring-cyan-300/10 resize-none`}
                     />
-                  </label>
+                    {errors.message && (
+                      <p className="mt-2 flex items-center gap-1.5 text-xs text-red-400">
+                        <AlertCircle className="h-3.5 w-3.5 shrink-0" />
+                        {errors.message}
+                      </p>
+                    )}
+                  </div>
 
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <button

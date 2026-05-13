@@ -12,7 +12,11 @@
     "title": "The Future of Certificate Verification",
     "titleTop": "The",
     "titleBottom": "of Certificate Verification",
-    "rotatingTexts": ["Future", "Innovation", "Next Era"],
+    "rotatingTexts": [
+      "Future",
+      "Innovation",
+      "Next Era"
+    ],
     "description": "Secure, transparent, and tamper-proof certificate verification powered by blockchain technology. Instantly validate authenticity and eliminate fraud in the digital era.",
     "register": "Registration",
     "validate": "Validation"
@@ -24,15 +28,15 @@
     "cards": {
       "secure": {
         "title": "Secure by Design",
-        "description": "Blockchain-native verification and immutable records keep every credential tamper-proof." 
+        "description": "Blockchain-native verification and immutable records keep every credential tamper-proof."
       },
       "trust": {
         "title": "Decentralized Trust",
-        "description": "Audit-ready proof of authenticity that works across institutions and ecosystems." 
+        "description": "Audit-ready proof of authenticity that works across institutions and ecosystems."
       },
       "instant": {
         "title": "Instant Validation",
-        "description": "Quick certificate checks with a clean UX, built for modern web3 workflows." 
+        "description": "Quick certificate checks with a clean UX, built for modern web3 workflows."
       }
     }
   },
@@ -89,51 +93,84 @@
     "title": "Frequently Asked Question",
     "subtitle": "Browse common questions about Certify, verification, and web3 trust, and learn how our secure verification experience works.",
     "tabs": [
-      { "key": "general", "label": "General" },
-      { "key": "security", "label": "Security" },
-      { "key": "verification", "label": "Verification" }
+      {
+        "key": "general",
+        "label": "General"
+      },
+      {
+        "key": "security",
+        "label": "Security"
+      },
+      {
+        "key": "verification",
+        "label": "Verification"
+      }
     ],
     "items": {
       "general": [
         {
           "question": "What is Certify?",
-          "answer": "Certify is a blockchain-native certificate verification platform that makes authenticity checks instant, secure, and transparent."
+          "answer": "Certify is a blockchain-native certificate verification platform that makes authenticity checks instant, secure, and transparent. It provides a fast, user-friendly experience for anyone needing to confirm credentials without manual paperwork."
         },
         {
           "question": "How does verification work?",
-          "answer": "Our system verifies certificates by checking the digital record against an immutable blockchain registry, ensuring the credential is valid and unaltered."
+          "answer": "Our system verifies certificates by checking the digital record against an immutable blockchain registry, ensuring the credential is valid and unaltered. This means every verification is backed by a tamper-proof proof record."
         },
         {
           "question": "Is my data private?",
-          "answer": "Yes. Certify focuses on secure proof validation while keeping personal data private with encrypted registry lookups and minimal on-chain metadata."
+          "answer": "Yes. Certify focuses on secure proof validation while keeping personal data private with encrypted registry lookups and minimal on-chain metadata. Only the information required for validation is used."
+        },
+        {
+          "question": "What types of certificates can be verified?",
+          "answer": "Certify supports various credentials including academic degrees, professional certifications, training completion certificates, and digital skill badges issued across different institutions. It can support records from schools, employers, and credential issuers worldwide."
+        },
+        {
+          "question": "How do I get started with Certify?",
+          "answer": "Simply navigate to our validation page, enter your certificate ID or upload your PDF, and our system will instantly verify its authenticity against our secure blockchain registry. No special software is required to get started."
         }
       ],
       "security": [
         {
           "question": "Is the certificate data stored on chain?",
-          "answer": "Only proof hashes and verification metadata are stored on chain. Sensitive certificate details remain off-chain to preserve privacy while maintaining integrity."
+          "answer": "Only proof hashes and verification metadata are stored on chain. Sensitive certificate details remain off-chain to preserve privacy while maintaining integrity, and this design keeps personal data protected while preserving a secure audit trail."
         },
         {
           "question": "Can certificates be tampered with?",
-          "answer": "No. Once a certificate is issued and hashed on the blockchain, any modification will fail verification because the on-chain proof no longer matches."
+          "answer": "No. Once a certificate is issued and hashed on the blockchain, any modification will fail verification because the on-chain proof no longer matches. That makes tampering immediately detectable."
         },
         {
           "question": "What makes it web3-native?",
-          "answer": "Certify leverages decentralized trust and blockchain immutability so certification can be validated across organizations without relying on a single centralized authority."
+          "answer": "Certify leverages decentralized trust and blockchain immutability so certification can be validated across organizations without relying on a single centralized authority. It makes the whole process more resilient and transparent."
+        },
+        {
+          "question": "How does Certify protect against fraud?",
+          "answer": "Our multi-layer security approach uses cryptographic hashing, blockchain immutability, and distributed verification to eliminate counterfeiting and fraudulent credentials. Every check is independent, making fraud much harder to slip through."
+        },
+        {
+          "question": "Is Certify compliant with data protection regulations?",
+          "answer": "Yes. Certify is designed to comply with GDPR, CCPA, and other data protection standards through encrypted processing, minimal data storage, and user-controlled verification. That lets organizations meet privacy requirements while still offering fast credential checks."
         }
       ],
       "verification": [
         {
           "question": "How fast is the verification?",
-          "answer": "Verifications happen instantly with our optimized query flow, giving users immediate confirmation whether the certificate is authentic."
+          "answer": "Verifications happen instantly with our optimized query flow, giving users immediate confirmation whether the certificate is authentic. Most checks complete in seconds, so users don't need to wait."
         },
         {
           "question": "Can I verify with QR or ID?",
-          "answer": "Yes. Certify is designed for multiple verification flows, including QR scanning, manual ID/hash checking, and future PDF validations."
+          "answer": "Yes. Certify is designed for multiple verification flows, including QR scanning, manual ID/hash checking, and future PDF validations. This flexibility fits both digital and print workflows."
         },
         {
           "question": "Who can use Certify?",
-          "answer": "Students, issuers, employers, and auditors can use Certify to validate credentials quickly and trust the results with blockchain-backed proof."
+          "answer": "Students, issuers, employers, and auditors can use Certify to validate credentials quickly and trust the results with blockchain-backed proof. It works well for hiring, admissions, and background checks."
+        },
+        {
+          "question": "Can third parties verify certificates on my behalf?",
+          "answer": "Absolutely. Employers, educational institutions, and government agencies can verify any Certify certificate independently without needing the certificate holder's permission. That makes it easy to confirm credentials at scale."
+        },
+        {
+          "question": "What happens if verification fails?",
+          "answer": "If a certificate fails verification, the system will provide a detailed report explaining why the credential could not be validated, helping identify potential issues or forgeries. This makes it easier to resolve mistakes or detect fraud quickly."
         }
       ]
     }
@@ -141,20 +178,32 @@
   "contact": {
     "badge": "Contact",
     "title": "Lets Build Trust On Chain.",
-    "subtitle": "Need help with on-chain certificates? Let’s make trust transparent together, every step of the way.",
+    "subtitle": "Need help with on-chain certificates or have questions about certificate verification? Let's make trust transparent together, every step of the way. Our team is ready to support your journey in building secure and authentic credentials.",
     "emailLabel": "Email us directly",
     "manualTitle": "Manual email request",
     "emailDescription": "Send your request to our team and we’ll respond with secure, Web3-aware support.",
     "manualLabel": "Reach out at",
-    "manualEmail": "contact@certify.io",
+    "manualEmail": "hello@certify.io",
     "manualHint": "Paste your message in your email client or use the form to submit directly.",
+    "supportAvailable": "24/7 Support Available",
+    "supportDescription": "Reach out to us anytime. We're here to help and answer any questions you might have.",
     "formBadge": "Connect",
     "formTitle": "Chat with our team",
-    "formSubtitle": "Tell us what you need and we’ll help you with certificate verification and support.",
-    "namePlaceholder": "Your name",
-    "emailPlaceholder": "Your email",
-    "messagePlaceholder": "Tell us how we can help",
+    "formSubtitle": "Tell us what you need and we'll help you with certificate verification and support.",
+    "nameLabel": "Full Name",
+    "namePlaceholder": "e.g. John Doe",
+    "emailLabel2": "Email Address",
+    "emailPlaceholder": "e.g. john@example.com",
+    "messageLabel": "Your Message",
+    "messagePlaceholder": "Describe your question or request here...",
+    "sendingTitle": "Sending your message...",
+    "sendingSubtitle": "Please wait while we process your request",
+    "successTitle": "Message sent successfully!",
+    "successSubtitle": "Thank you for reaching out. We'll get back to you soon.",
     "submit": "Send message",
+    "errorName": "Please enter your full name",
+    "errorEmail": "Please enter a valid email address",
+    "errorMessage": "Please enter your message",
     "success": "Message submitted."
   },
   "footer": {

@@ -3,7 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-
+/* Apply Poppins font globally */
 body {
   font-family: var(--font-lexend), sans-serif;
 }
@@ -125,9 +125,11 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-mono;
   }

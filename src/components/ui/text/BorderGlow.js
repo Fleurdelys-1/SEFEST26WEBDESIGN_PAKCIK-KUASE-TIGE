@@ -115,15 +115,20 @@ const BorderGlow = ({
     setCursorAngle(angleStart);
 
     animateValue({ duration: 500, onUpdate: v => setEdgeProximity(v / 100) });
-    animateValue({ ease: easeInCubic, duration: 1500, end: 50, onUpdate: v => {
-      setCursorAngle((angleEnd - angleStart) * (v / 100) + angleStart);
-    }});
-    animateValue(
-      { ease: easeOutCubic, delay: 1500, duration: 2250, start: 50, end: 100, onUpdate: v => {
+    animateValue({
+      ease: easeInCubic, duration: 1500, end: 50, onUpdate: v => {
         setCursorAngle((angleEnd - angleStart) * (v / 100) + angleStart);
-      }}
+      }
+    });
+    animateValue(
+      {
+        ease: easeOutCubic, delay: 1500, duration: 2250, start: 50, end: 100, onUpdate: v => {
+          setCursorAngle((angleEnd - angleStart) * (v / 100) + angleStart);
+        }
+      }
     );
-    animateValue({ ease: easeInCubic, delay: 2500, duration: 1500, start: 100, end: 0,
+    animateValue({
+      ease: easeInCubic, delay: 2500, duration: 1500, start: 100, end: 0,
       onUpdate: v => setEdgeProximity(v / 100),
       onEnd: () => setSweepActive(false),
     });
@@ -156,7 +161,7 @@ const BorderGlow = ({
         transform: 'translate3d(0, 0, 0.01px)',
         boxShadow: 'rgba(0,0,0,0.1) 0 1px 2px, rgba(0,0,0,0.1) 0 2px 4px, rgba(0,0,0,0.1) 0 4px 8px, rgba(0,0,0,0.1) 0 8px 16px, rgba(0,0,0,0.1) 0 16px 32px, rgba(0,0,0,0.1) 0 32px 64px',
       }}>
-
+      {/* mesh gradient border */}
       <div
         className="absolute inset-0 rounded-[inherit] -z-[1]"
         style={{
@@ -171,7 +176,7 @@ const BorderGlow = ({
           WebkitMaskImage: `conic-gradient(from ${angleDeg} at center, black ${coneSpread}%, transparent ${coneSpread + 15}%, transparent ${100 - coneSpread - 15}%, black ${100 - coneSpread}%)`,
           transition: isVisible ? 'opacity 0.25s ease-out' : 'opacity 0.75s ease-in-out',
         }} />
-
+      {/* mesh gradient fill near edges */}
       <div
         className="absolute inset-0 rounded-[inherit] -z-[1]"
         style={{
@@ -201,7 +206,7 @@ const BorderGlow = ({
           mixBlendMode: 'soft-light',
           transition: isVisible ? 'opacity 0.25s ease-out' : 'opacity 0.75s ease-in-out',
         }} />
-
+      {/* outer glow */}
       <span
         className="absolute pointer-events-none z-[1] rounded-[inherit]"
         style={{

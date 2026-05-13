@@ -79,50 +79,43 @@ export default function FAQ() {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[minmax(280px,0.55fr)_minmax(320px,0.45fr)]">
-          <div className="relative space-y-4 pl-6">
-            <div className="absolute left-0 top-6 bottom-6 w-px bg-gradient-to-b from-cyan-300/70 via-white/0 to-cyan-300/70" />
+          <div className="relative space-y-4 sm:space-y-6 pl-6">
+            <div 
+              className="absolute left-0 w-px bg-gradient-to-b from-cyan-300/70 via-white/0 to-cyan-300/70"
+              style={{
+                top: '1.5rem',
+                height: `calc(100% - 3rem)`
+              }}
+            />
             {faqs.map((faq, index) => {
               const isOpen = index === activeIndex;
               return (
-                <div
+                <button
                   key={faq.question}
-                  className={`overflow-hidden rounded-[32px] border border-white/10 bg-white/5 transition duration-300 ${
+                  onClick={() => setActiveIndex(index)}
+                  className={`w-full overflow-hidden rounded-[32px] border border-white/10 bg-white/5 transition duration-300 text-left ${
                     isOpen ? "shadow-[0_28px_100px_rgba(0,183,181,0.16)]" : "hover:border-cyan-300/30 hover:bg-white/10"
                   }`}
+                  type="button"
                 >
-                  <button
-                    type="button"
-                    onClick={() => setActiveIndex(index)}
-                    className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left"
-                  >
-                    <div>
-                      <p className="text-base sm:text-lg font-semibold text-[#F4F4F4]">
-                        {faq.question}
-                      </p>
-                    </div>
+                  <div className="flex w-full items-center justify-between gap-4 px-5 py-5">
+                    <p className="text-base sm:text-lg font-semibold text-[#F4F4F4]">
+                      {faq.question}
+                    </p>
                     <ChevronDown
-                      className={`h-5 w-5 text-[#F4F4F4] transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : "rotate-0"
+                      className={`h-5 w-5 text-[#F4F4F4] transition-transform duration-300 flex-shrink-0 ${
+                        isOpen ? "-rotate-90" : "rotate-0"
                       }`}
                     />
-                  </button>
-                  <div
-                    className={`overflow-hidden px-5 transition-[max-height,opacity] duration-300 ease-out ${
-                      isOpen ? "max-h-96 opacity-100 pb-5" : "max-h-0 opacity-0"
-                    }`}
-                  >
-                    <p className="text-sm leading-7 text-[#F4F4F4]/70">
-                      {faq.answer}
-                    </p>
                   </div>
-                </div>
+                </button>
               );
             })}
           </div>
 
-          <article className="relative rounded-[40px] border border-white/10 bg-gradient-to-br from-[#051d24]/80 via-[#061f26]/80 to-[#062c33]/80 p-8 shadow-[0_40px_120px_rgba(0,0,0,0.18)] backdrop-blur-xl">
-            <div className="absolute inset-0 rounded-[40px] bg-gradient-to-br from-[#00b7b5]/10 via-transparent to-[#ffffff]/10 opacity-40 pointer-events-none" />
-            <div className="relative z-10 flex h-full flex-col justify-between gap-6">
+          <article className="relative rounded-[48px] border border-white/10 bg-white/5 p-8 shadow-[0_40px_120px_rgba(0,0,0,0.18)] backdrop-blur-xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0f262d]/80 via-[#081218]/20 to-[#10252c]/70 opacity-80" />
+            <div className="relative z-10 flex flex-col justify-start gap-4">
               <div>
                 <span className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-[#F4F4F4] backdrop-blur-md border border-white/10">
                   {t("faq.badge")}
@@ -134,12 +127,15 @@ export default function FAQ() {
                   {currentFaq.answer}
                 </p>
               </div>
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-5 text-sm text-[#F4F4F4]/70">
-                <p className="font-medium text-[#F4F4F4] mb-2">Need more clarity?</p>
-                <p>Tap another category or question to discover more about Certify’s validation flow, security, and web3-native design.</p>
-              </div>
             </div>
           </article>
+
+          <div className="lg:col-span-2">
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-5 text-sm text-[#F4F4F4]/70">
+              <p className="font-medium text-[#F4F4F4] mb-2">Need more clarity?</p>
+              <p>Tap another category or question to discover more about Certify’s validation flow, security, and web3-native design.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
