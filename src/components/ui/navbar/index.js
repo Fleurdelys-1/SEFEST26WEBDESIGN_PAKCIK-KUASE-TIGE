@@ -207,14 +207,14 @@ export default function Navbar() {
 							key={link.name}
 							onClick={(e) => handleNavClick(e, link.href)}
 							variants={navItemVariants}
-							className={`group relative overflow-hidden px-2 sm:px-4 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ${
+							className={`group relative overflow-hidden px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 ${
 								isActive
 									? 'text-[#F4F4F4]'
 									: 'text-[#F4F4F4]/80'
 							}`}
 						>
 							<span
-								className={`absolute inset-y-0 left-0 rounded-xl transition-all duration-300 ease-out ${
+								className={`absolute inset-y-0 left-0 rounded-lg transition-all duration-300 ease-out ${
 									isActive
 										? 'w-full bg-gradient-to-r from-[#005461]/30 to-[#F4F4F4]/20 border border-white/30 shadow-lg backdrop-blur-md'
 										: 'w-0 group-hover:w-full bg-white/0 group-hover:bg-gradient-to-r group-hover:from-[#005461]/20 group-hover:to-[#F4F4F4]/10 group-hover:border group-hover:border-white/20 group-hover:shadow-lg group-hover:backdrop-blur-md'
@@ -227,37 +227,41 @@ export default function Navbar() {
 				})}
 			</motion.div>
 
-			<div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
-				<motion.button
-					onClick={handleRegister}
-					variants={switchButtonVariants}
-					initial="hidden"
-					animate="visible"
-					className="px-3 sm:px-4 py-2 rounded-lg bg-[#00b7b5]/20 border border-[#00b7b5]/50 text-[#F4F4F4] text-xs sm:text-sm font-medium hover:bg-[#00b7b5]/30 hover:border-[#00b7b5]/70 transition backdrop-blur-sm"
-				>
-					{t('nav.register')}
-				</motion.button>
+			<motion.div 
+				className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 flex items-center gap-1 sm:gap-2 font-lexend px-2 sm:px-4 py-2 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg"
+				variants={switchButtonVariants}
+				initial="hidden"
+				animate="visible"
+			>
 				<motion.button
 					onClick={() => setIsOpen(!isOpen)}
-					variants={switchButtonVariants}
-					initial="hidden"
-					animate="visible"
-					className="p-3 rounded-lg bg-white/10 border border-white/20 shadow hover:bg-white/20 transition backdrop-blur-sm flex items-center gap-1"
+					variants={switchIconVariants}
+					className="group relative overflow-hidden px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg text-[#F4F4F4] transition-all duration-300 flex items-center gap-1 hover:bg-white/10"
 				>
-					<motion.span variants={switchIconVariants} className="flex items-center">
-						<Languages size={18} className="text-[#F4F4F4]" />
-					</motion.span>
-					<motion.span variants={switchIconVariants} className="flex items-center">
-						<ChevronDown
-							size={14}
-							className={`text-[#F4F4F4] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-						/>
-					</motion.span>
+					<Languages size={16} className="text-[#F4F4F4]" />
+					<ChevronDown
+						size={12}
+						className={`text-[#F4F4F4] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+					/>
 				</motion.button>
+
+				<div className="w-px h-5 bg-white/10" />
+
+				<motion.button
+					onClick={handleRegister}
+					variants={switchIconVariants}
+					className="group relative overflow-hidden px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium text-[#F4F4F4] transition-all duration-300"
+				>
+					<span
+						className="absolute inset-0 rounded-lg transition-all duration-300 ease-out bg-gradient-to-r from-[#005461]/30 to-[#F4F4F4]/20 border border-white/30 shadow-lg backdrop-blur-md"
+					/>
+					<span className="relative z-10">{t('nav.register')}</span>
+				</motion.button>
+
 				<AnimatePresence>
 					{isOpen && (
 						<motion.div
-							className="absolute right-0 mt-2 w-36 sm:w-40 rounded-xl bg-gradient-to-b from-[#005461]/90 to-[#003d44]/90 border border-white/30 shadow-lg backdrop-blur-md overflow-hidden origin-top-right"
+							className="absolute right-0 top-full mt-2 w-36 sm:w-40 rounded-xl bg-gradient-to-b from-[#005461]/90 to-[#003d44]/90 border border-white/30 shadow-lg backdrop-blur-md overflow-hidden origin-top-right"
 							initial="hidden"
 							animate="visible"
 							exit="exit"
@@ -279,7 +283,7 @@ export default function Navbar() {
 						</motion.div>
 					)}
 				</AnimatePresence>
-			</div>
+			</motion.div>
 		</nav>
 	);
 }
