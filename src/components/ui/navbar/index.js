@@ -18,36 +18,6 @@ export default function Navbar() {
 	const [activeHash, setActiveHash] = useState(null);
 	const { language, changeLanguage, t } = useLanguage();
 
-	const badgeVariants = {
-		hidden: { opacity: 0, filter: "blur(10px)" },
-		visible: { opacity: 1, filter: "blur(0px)", transition: { duration: 0.8 } }
-	};
-
-	const logoVariants = {
-		hidden: { x: -50, opacity: 0 },
-		visible: {
-			x: 0,
-			opacity: 1,
-			transition: {
-				delay: 0.2,
-				duration: 0.6,
-				ease: 'easeOut',
-			},
-		},
-	};
-
-	const textVariants = {
-		hidden: { x: -50, opacity: 0 },
-		visible: {
-			x: 0,
-			opacity: 1,
-			transition: {
-				delay: 0.8,
-				duration: 0.6,
-				ease: 'easeOut',
-			},
-		},
-	};
 
 	const navLinks = [
 		{ name: t('nav.home'), href: '#home' },
@@ -189,10 +159,6 @@ export default function Navbar() {
 
 	return (
 		<nav className="fixed top-0 left-0 right-0 z-30 px-2 sm:px-4 py-5">
-			<motion.div className="absolute left-10 sm:left-12 top-1/2 -translate-y-1/2 flex items-center gap-2" variants={badgeVariants} initial="hidden" animate="visible">
-				<motion.img src="/images/certify.png" alt="Certify Logo" className="w-6 h-6 sm:w-7 sm:h-7" variants={logoVariants} />
-				<motion.span className="text-xl sm:text-2xl text-[#F4F4F4] font-lexend" variants={textVariants}>Certify</motion.span>
-			</motion.div>
 
 <motion.div
 				className="flex items-center justify-center gap-1 sm:gap-2 font-lexend px-2 sm:px-4 py-2 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg mx-auto max-w-fit"

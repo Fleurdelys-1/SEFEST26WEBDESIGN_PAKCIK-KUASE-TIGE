@@ -24,22 +24,50 @@
   },
   "about": {
     "badge": "ABOUT",
-    "title": "Why Certify?",
-    "subtitle": "Built for secure, transparent certificate trust in the web3 era, with seamless verification across issuers and recipients.",
+    "title": "The future of certificate",
+    "titleHighlight": "trust",
+    "subtitle": "Certify exists because trust shouldn't be this complicated. We take your certificates off paper and put them somewhere permanent so anyone, anywhere, can verify them instantly. Forever.",
     "cards": {
-      "secure": {
-        "title": "Secure by Design",
-        "description": "Blockchain-native verification and immutable records keep every credential tamper-proof."
+      "security": {
+        "title": "Blockchain Security",
+        "description": "Certificate data is secure and cannot be manipulated"
       },
-      "trust": {
-        "title": "Decentralized Trust",
-        "description": "Audit-ready proof of authenticity that works across institutions and ecosystems."
+      "tamper": {
+        "title": "Tamper-Proof Records",
+        "description": "All data is permanently stored on the blockchain."
       },
       "instant": {
-        "title": "Instant Validation",
-        "description": "Quick certificate checks with a clean UX, built for modern web3 workflows."
+        "title": "Instant Verification",
+        "description": "Fast real-time certificate validation."
+      },
+      "trusted": {
+        "title": "Trusted Institutions",
+        "description": "Used by trusted institutions and organizations."
       }
-    }
+    },
+    "stats": {
+      "satisfaction": {
+        "value": "97%",
+        "label": "Client Satisfaction"
+      },
+      "active": {
+        "value": "52",
+        "label": "Certificates Active"
+      },
+      "experience": {
+        "value": "4+",
+        "label": "Years of Experience"
+      },
+      "records": {
+        "value": "50+",
+        "label": "On-chain Records"
+      }
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "\"To create a future where every credential you've earned is permanently yours tamper-proof, instantly verifiable by anyone in the world, and no longer dependent on the institution that issued it still picking up the phone.\""
+    },
+    "register": "Register Here"
   },
   "validate": {
     "badge": "VALIDATION",

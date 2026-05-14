@@ -24,22 +24,50 @@
   },
   "about": {
     "badge": "TENTANG",
-    "title": "Mengapa Certify?",
-    "subtitle": "Dirancang untuk kepercayaan sertifikat yang aman dan transparan di era web3, dengan verifikasi lancar antar penerbit dan penerima.",
+    "title": "Masa depan kepercayaan",
+    "titleHighlight": "sertifikat",
+    "subtitle": "Certify hadir karena kepercayaan tidak seharusnya serumit ini. Kami memindahkan sertifikat Anda dari kertas dan menempatkannya di tempat permanen sehingga siapa pun, di mana pun, dapat memverifikasinya secara instan. Selamanya.",
     "cards": {
-      "secure": {
-        "title": "Aman Secara Bawaan",
-        "description": "Verifikasi berbasis blockchain dan catatan tak dapat diubah menjaga setiap kredensial tetap anti-pemalsuan."
+      "security": {
+        "title": "Keamanan Blockchain",
+        "description": "Data sertifikat aman dan tidak dapat dimanipulasi"
       },
-      "trust": {
-        "title": "Kepercayaan Terdesentralisasi",
-        "description": "Bukti keaslian yang siap diaudit dan bekerja lintas institusi serta ekosistem."
+      "tamper": {
+        "title": "Catatan Anti-Pemalsuan",
+        "description": "Semua data disimpan secara permanen di blockchain."
       },
       "instant": {
-        "title": "Validasi Instan",
-        "description": "Pemeriksaan sertifikat cepat dengan antarmuka bersih, dibangun untuk alur kerja web3 modern."
+        "title": "Verifikasi Instan",
+        "description": "Validasi sertifikat cepat secara real-time."
+      },
+      "trusted": {
+        "title": "Institusi Terpercaya",
+        "description": "Digunakan oleh institusi dan organisasi terpercaya."
       }
-    }
+    },
+    "stats": {
+      "satisfaction": {
+        "value": "97%",
+        "label": "Kepuasan Klien"
+      },
+      "active": {
+        "value": "52",
+        "label": "Sertifikat Aktif"
+      },
+      "experience": {
+        "value": "4+",
+        "label": "Tahun Pengalaman"
+      },
+      "records": {
+        "value": "50+",
+        "label": "Catatan On-chain"
+      }
+    },
+    "vision": {
+      "title": "Visi Kami",
+      "description": "\"Menciptakan masa depan di mana setiap kredensial yang Anda peroleh menjadi milik Anda secara permanen anti-pemalsuan, dapat diverifikasi secara instan oleh siapa saja di dunia, dan tidak lagi bergantung pada institusi penerbit yang masih harus mengangkat telepon.\""
+    },
+    "register": "Daftar Disini"
   },
   "validate": {
     "badge": "VALIDASI",

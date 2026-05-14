@@ -109,9 +109,49 @@ export default function Home() {
     }
   };
 
+  const logoContainerVariants = {
+    hidden: { opacity: 0, filter: "blur(10px)" },
+    visible: { opacity: 1, filter: "blur(0px)", transition: { duration: 0.8 } }
+  };
+
+  const navLogoVariants = {
+    hidden: { x: -50, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.2,
+        duration: 0.6,
+        ease: 'easeOut',
+      },
+    },
+  };
+
+  const navTextVariants = {
+    hidden: { x: -50, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.8,
+        duration: 0.6,
+        ease: 'easeOut',
+      },
+    },
+  };
+
   return (
     <>
-      <main id="home" className="flex flex-col items-start justify-start min-h-screen w-full select-none px-4 sm:px-6 lg:px-8 xl:px-12 pt-32 sm:pt-40 md:pt-48 pb-16 lg:relative">
+      <main id="home" className="relative flex flex-col items-start justify-start min-h-screen w-full select-none px-4 sm:px-6 lg:px-8 xl:px-12 pt-32 sm:pt-40 md:pt-48 pb-16">
+        <motion.div 
+          className="absolute left-10 sm:left-12 top-[38px] -translate-y-1/2 flex items-center gap-2 z-30" 
+          variants={logoContainerVariants} 
+          initial="hidden" 
+          animate="visible"
+        >
+          <motion.img src="/images/certify.png" alt="Certify Logo" className="w-6 h-6 sm:w-7 sm:h-7" variants={navLogoVariants} />
+          <motion.span className="text-xl sm:text-2xl text-[#F4F4F4] font-lexend" variants={navTextVariants}>Certify</motion.span>
+        </motion.div>
         <motion.div 
           className="flex items-center gap-2 mb-6 sm:mb-8"
           initial="hidden"
