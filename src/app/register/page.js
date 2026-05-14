@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, Mail, CalendarIcon } from "lucide-react";
+import { ChevronLeft, Mail, CalendarIcon, Check } from "lucide-react";
 import Link from "next/link";
 import { addDays, format } from "date-fns";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { motion, AnimatePresence } from "framer-motion";
 
 const initialForm = {
   name: "",
@@ -85,12 +86,39 @@ const LabelText = ({ children }) => (
   <span className="flex items-center gap-0.5">{children}</span>
 );
 
+const dropdownVariants = {
+  hidden: { opacity: 0, y: -12, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.24,
+      ease: "easeOut",
+      when: "beforeChildren",
+      delayChildren: 0.06,
+      staggerChildren: 0.04,
+    },
+  },
+  exit: { opacity: 0, y: -8, transition: { duration: 0.18, ease: "easeIn" } },
+};
+
+const dropdownItemVariants = {
+  hidden: { opacity: 0, x: -8 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.16, ease: "easeOut" },
+  },
+};
+
 export default function RegisterPage() {
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [openDropdowns, setOpenDropdowns] = useState({});
 
   const validate = (data) => {
     const newErrors = {};
@@ -199,6 +227,82 @@ export default function RegisterPage() {
   const RequiredMark = () => (
     <span className="text-[#00b7b5] leading-none">*</span>
   );
+
+  const CustomDropdown = ({ field, options, value }) => {
+    const isOpen = openDropdowns[field] || false;
+
+    const toggleDropdown = (e) => {
+      e.preventDefault();
+      setOpenDropdowns((prev) => ({ ...prev, [field]: !isOpen }));
+    };
+
+    const handleSelect = (option) => {
+      const newForm = { ...form, [field]: option };
+      setForm(newForm);
+      setOpenDropdowns((prev) => ({ ...prev, [field]: false }));
+      if (touched[field]) {
+        const newErrors = validate(newForm);
+        setErrors((prev) => ({ ...prev, [field]: newErrors[field] }));
+      }
+    };
+
+    return (
+      <div className="relative mt-1">
+        <motion.button
+          onClick={toggleDropdown}
+          className={`w-full px-3 py-2 rounded-lg text-[#F4F4F4] text-sm focus:outline-none focus:ring-1 transition-all flex items-center justify-between text-left ${
+            touched[field] && errors[field]
+              ? "border-red-500/60 focus:border-red-500/80 focus:ring-red-500/20"
+              : "border-white/10 focus:border-[#00b7b5]/60 focus:ring-[#00b7b5]/20"
+          }`}
+          style={{
+            background:
+              touched[field] && errors[field]
+                ? "rgba(239,68,68,0.07)"
+                : "rgba(10,26,31,0.6)",
+            border:
+              touched[field] && errors[field]
+                ? "1px solid rgba(239,68,68,0.45)"
+                : "1px solid rgba(255,255,255,0.10)",
+          }}
+        >
+          <span>{value}</span>
+          <motion.div
+            animate={{ rotate: isOpen ? 180 : 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <ChevronLeft size={14} className="text-[#F4F4F4]/40 -rotate-90" />
+          </motion.div>
+        </motion.button>
+
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className="absolute top-full left-0 right-0 mt-2 rounded-lg bg-gradient-to-b from-[#005461]/90 to-[#003d44]/90 border border-white/30 shadow-lg backdrop-blur-md overflow-hidden z-50"
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={dropdownVariants}
+            >
+              {options.map((option) => (
+                <motion.button
+                  key={option}
+                  onClick={() => handleSelect(option)}
+                  variants={dropdownItemVariants}
+                  className="w-full px-3 py-2 text-left text-xs sm:text-sm text-[#F4F4F4] hover:bg-white/10 transition flex items-center justify-between"
+                >
+                  <span>{option}</span>
+                  {value === option && (
+                    <Check size={14} className="text-[#F4F4F4]" />
+                  )}
+                </motion.button>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    );
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 pt-20 pb-8 bg-transparent relative">
@@ -326,408 +430,432 @@ export default function RegisterPage() {
           </div>
 
           <div className="flex flex-col p-7 gap-4">
-            <div className="flex items-center gap-2 mb-1">
-              <div className="flex flex-col gap-[3px]">
-                <div className="w-5 h-[3px] rounded bg-[#00b7b5]" />
-                <div className="w-3 h-[3px] rounded bg-[#00b7b5]/50" />
-              </div>
-              <span className="text-[10px] text-[#00b7b5] font-bold tracking-widest">
-                PROGRAM DETAIL
-              </span>
-            </div>
-
-            <div className="grid grid-cols-2 gap-x-6 gap-y-4">
-              <label className={labelClass}>
-                <LabelText>
-                  Name Certificated
-                  <RequiredMark />
-                </LabelText>
-                <input
-                  name="certificateName"
-                  value={form.certificateName}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={getInputClass("certificateName")}
-                  placeholder="Certificate Name"
-                />
-                <ErrorMsg field="certificateName" />
-              </label>
-
-              <label className={labelClass}>
-                <LabelText>
-                  Event Code
-                  <RequiredMark />
-                </LabelText>
-                <input
-                  name="eventCode"
-                  value={form.eventCode}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={getInputClass("eventCode")}
-                  placeholder="Event Code"
-                />
-                <ErrorMsg field="eventCode" />
-              </label>
-
-              <label className={labelClass}>
-                <LabelText>
-                  Issuing Institution
-                  <RequiredMark />
-                </LabelText>
-                <input
-                  name="issuingInstitution"
-                  value={form.issuingInstitution}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={getInputClass("issuingInstitution")}
-                  placeholder="Institution Name"
-                />
-                <ErrorMsg field="issuingInstitution" />
-              </label>
-
-              <label className={labelClass}>
-                <LabelText>
-                  Language
-                  <RequiredMark />
-                </LabelText>
-                <div className="relative">
-                  <select
-                    name="language"
-                    value={form.language}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={getSelectClass("language")}
-                  >
-                    {languageOptions.map((opt) => (
-                      <option key={opt} value={opt} className="bg-[#0a1a1f]">
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
-                  <ChevronLeft
-                    size={14}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 -rotate-90 text-[#F4F4F4]/40 pointer-events-none mt-0.5"
-                  />
-                </div>
-                <ErrorMsg field="language" />
-              </label>
-
-              <label className={labelClass}>
-                <LabelText>
-                  Level
-                  <RequiredMark />
-                </LabelText>
-                <div className="relative">
-                  <select
-                    name="level"
-                    value={form.level}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={getSelectClass("level")}
-                  >
-                    {levelOptions.map((opt) => (
-                      <option key={opt} value={opt} className="bg-[#0a1a1f]">
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
-                  <ChevronLeft
-                    size={14}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 -rotate-90 text-[#F4F4F4]/40 pointer-events-none mt-0.5"
-                  />
-                </div>
-                <ErrorMsg field="level" />
-              </label>
-
-              <div className={labelClass}>
-                <LabelText>
-                  Certificated Issue
-                  <RequiredMark />
-                </LabelText>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className={`justify-start px-3 py-2 rounded-lg font-normal w-full text-[#F4F4F4] text-sm ${
-                        touched["certificateIssue"] &&
-                        errors["certificateIssue"]
-                          ? "border-red-500/60 focus:border-red-500/80"
-                          : "border-white/10"
-                      }`}
-                      style={{
-                        background:
-                          touched["certificateIssue"] &&
-                          errors["certificateIssue"]
-                            ? "rgba(239,68,68,0.07)"
-                            : "rgba(10,26,31,0.6)",
-                        border:
-                          touched["certificateIssue"] &&
-                          errors["certificateIssue"]
-                            ? "1px solid rgba(239,68,68,0.45)"
-                            : "1px solid rgba(255,255,255,0.10)",
-                      }}
-                    >
-                      <CalendarIcon size={16} className="mr-2" />
-                      {form.certificateIssue ? (
-                        format(form.certificateIssue, "MMM dd, yyyy")
-                      ) : (
-                        <span className="text-[#F4F4F4]/30">MM/DD/YY</span>
-                      )}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent
-                    className="w-auto p-4"
-                    align="start"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, rgba(5,20,25,0.95) 0%, rgba(10,30,38,0.92) 100%)",
-                      border: "1px solid rgba(0,183,181,0.2)",
-                      borderRadius: "12px",
-                      boxShadow: "0 8px 32px rgba(0,183,181,0.1)",
-                    }}
-                  >
-                    <Calendar
-                      mode="single"
-                      selected={form.certificateIssue}
-                      onSelect={(date) => {
-                        setForm((prev) => ({
-                          ...prev,
-                          certificateIssue: date,
-                        }));
-                        if (touched["certificateIssue"]) {
-                          const newErrors = validate({
-                            ...form,
-                            certificateIssue: date,
-                          });
-                          setErrors((prev) => ({
-                            ...prev,
-                            certificateIssue: newErrors["certificateIssue"],
-                          }));
-                        }
-                      }}
-                      initialFocus
-                      className="rounded-lg border-0 bg-transparent"
-                    />
-                  </PopoverContent>
-                </Popover>
-                {touched["certificateIssue"] && errors["certificateIssue"] ? (
-                  <span className="text-[10px] text-red-400 mt-0.5 flex items-center gap-1">
-                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-                      <circle
-                        cx="6"
-                        cy="6"
-                        r="5.5"
-                        stroke="currentColor"
-                        strokeWidth="1"
-                      />
-                      <path
-                        d="M6 3.5v3M6 8v.5"
-                        stroke="currentColor"
-                        strokeWidth="1.2"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                    {errors["certificateIssue"]}
-                  </span>
-                ) : null}
-              </div>
-
-              <label className={labelClass}>
-                <LabelText>
-                  Modality
-                  <RequiredMark />
-                </LabelText>
-                <div className="relative">
-                  <select
-                    name="modality"
-                    value={form.modality}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={getSelectClass("modality")}
-                  >
-                    {modalityOptions.map((opt) => (
-                      <option key={opt} value={opt} className="bg-[#0a1a1f]">
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
-                  <ChevronLeft
-                    size={14}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 -rotate-90 text-[#F4F4F4]/40 pointer-events-none mt-0.5"
-                  />
-                </div>
-                <ErrorMsg field="modality" />
-              </label>
-
-              <div className={labelClass}>
-                <LabelText>
-                  Study Period
-                  <RequiredMark />
-                </LabelText>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className={`justify-start px-3 py-2 rounded-lg font-normal w-full text-[#F4F4F4] text-sm ${
-                        touched["studyPeriod"] && errors["studyPeriod"]
-                          ? "border-red-500/60 focus:border-red-500/80"
-                          : "border-white/10"
-                      }`}
-                      style={{
-                        background:
-                          touched["studyPeriod"] && errors["studyPeriod"]
-                            ? "rgba(239,68,68,0.07)"
-                            : "rgba(10,26,31,0.6)",
-                        border:
-                          touched["studyPeriod"] && errors["studyPeriod"]
-                            ? "1px solid rgba(239,68,68,0.45)"
-                            : "1px solid rgba(255,255,255,0.10)",
-                      }}
-                    >
-                      <CalendarIcon size={16} className="mr-2" />
-                      {form.studyPeriod?.from ? (
-                        form.studyPeriod.to ? (
-                          <>
-                            {format(form.studyPeriod.from, "MMM dd, yyyy")} -{" "}
-                            {format(form.studyPeriod.to, "MMM dd, yyyy")}
-                          </>
-                        ) : (
-                          format(form.studyPeriod.from, "MMM dd, yyyy")
-                        )
-                      ) : (
-                        <span className="text-[#F4F4F4]/30">
-                          MM/DD/YY - MM/DD/YY
-                        </span>
-                      )}
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent
-                    className="w-auto p-4"
-                    align="start"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, rgba(5,20,25,0.95) 0%, rgba(10,30,38,0.92) 100%)",
-                      border: "1px solid rgba(0,183,181,0.2)",
-                      borderRadius: "12px",
-                      boxShadow: "0 8px 32px rgba(0,183,181,0.1)",
-                    }}
-                  >
-                    <Calendar
-                      mode="range"
-                      defaultMonth={form.studyPeriod?.from}
-                      selected={form.studyPeriod}
-                      onSelect={(date) => {
-                        setForm((prev) => ({ ...prev, studyPeriod: date }));
-                        if (touched["studyPeriod"]) {
-                          const newErrors = validate({
-                            ...form,
-                            studyPeriod: date,
-                          });
-                          setErrors((prev) => ({
-                            ...prev,
-                            studyPeriod: newErrors["studyPeriod"],
-                          }));
-                        }
-                      }}
-                      numberOfMonths={2}
-                      className="rounded-lg border-0 bg-transparent"
-                    />
-                  </PopoverContent>
-                </Popover>
-                {touched["studyPeriod"] && errors["studyPeriod"] ? (
-                  <span className="text-[10px] text-red-400 mt-0.5 flex items-center gap-1">
-                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
-                      <circle
-                        cx="6"
-                        cy="6"
-                        r="5.5"
-                        stroke="currentColor"
-                        strokeWidth="1"
-                      />
-                      <path
-                        d="M6 3.5v3M6 8v.5"
-                        stroke="currentColor"
-                        strokeWidth="1.2"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                    {errors["studyPeriod"]}
-                  </span>
-                ) : null}
-              </div>
-
-              <label className={labelClass}>
-                <LabelText>
-                  Instructors
-                  <RequiredMark />
-                </LabelText>
-                <input
-                  name="instructors"
-                  value={form.instructors}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={getInputClass("instructors")}
-                  placeholder="Instructor Name"
-                />
-                <ErrorMsg field="instructors" />
-              </label>
-
-              <label className={labelClass}>
-                <LabelText>
-                  Signer / Authorities
-                  <RequiredMark />
-                </LabelText>
-                <input
-                  name="signer"
-                  value={form.signer}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={getInputClass("signer")}
-                  placeholder="Signer Name"
-                />
-                <ErrorMsg field="signer" />
-              </label>
-            </div>
-
-            <div className="flex items-center justify-between mt-auto pt-2">
-              {Object.keys(errors).length > 0 &&
-              Object.keys(touched).length > 0 ? (
-                <span className="text-[11px] text-red-400 flex items-center gap-1.5">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <circle
-                      cx="6"
-                      cy="6"
-                      r="5.5"
-                      stroke="currentColor"
-                      strokeWidth="1"
-                    />
-                    <path
-                      d="M6 3.5v3M6 8v.5"
-                      stroke="currentColor"
-                      strokeWidth="1.2"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  {Object.keys(errors).length} field
-                  {Object.keys(errors).length > 1 ? "s" : ""} required
-                </span>
-              ) : (
-                <span />
+            <AnimatePresence mode="wait">
+              {success && !loading && (
+                <motion.div
+                  key="register-success"
+                  initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
+                  transition={{ duration: 0.4 }}
+                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#00B7B5]/10 via-[#0a2d33]/20 to-transparent p-6 shadow-[0_30px_90px_rgba(0,183,181,0.12)] backdrop-blur-xl"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#00B7B5]/10 to-transparent opacity-80" />
+                  <div className="relative z-10 flex flex-col items-center justify-center gap-4 text-center">
+                    <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#00B7B5]/10 border border-[#00B7B5]/20 shadow-lg shadow-[#00B7B5]/10">
+                      <Check className="h-8 w-8 text-[#00B7B5]" />
+                    </div>
+                    <p className="text-lg font-bold text-[#F4F4F4]">
+                      Registration sent successfully!
+                    </p>
+                    <p className="max-w-[23rem] text-sm text-[#F4F4F4]/70">
+                      Thank you for registering. We’ll review your details and
+                      contact you soon.
+                    </p>
+                  </div>
+                </motion.div>
               )}
 
-              <button
-                type="submit"
-                disabled={loading}
-                className="px-10 py-2.5 rounded-full text-white text-sm font-bold tracking-widest shadow-lg hover:opacity-90 active:scale-95 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
-                style={{
-                  background:
-                    "linear-gradient(90deg, #004f5e 0%, #00b7b5 100%)",
-                  boxShadow: "0 0 20px 0 rgba(0,183,181,0.25)",
-                }}
-              >
-                {loading ? "SENDING..." : success ? "✓ SENT!" : "SEND"}
-              </button>
-            </div>
+              {!success && (
+                <motion.div
+                  key="register-form"
+                  initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
+                  transition={{ duration: 0.4 }}
+                  className="flex flex-col gap-4"
+                >
+                  <div className="flex items-center gap-2 mb-1">
+                    <div className="flex flex-col gap-[3px]">
+                      <div className="w-5 h-[3px] rounded bg-[#00b7b5]" />
+                      <div className="w-3 h-[3px] rounded bg-[#00b7b5]/50" />
+                    </div>
+                    <span className="text-[10px] text-[#00b7b5] font-bold tracking-widest">
+                      PROGRAM DETAIL
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+                    <label className={labelClass}>
+                      <LabelText>
+                        Name Certificated
+                        <RequiredMark />
+                      </LabelText>
+                      <input
+                        name="certificateName"
+                        value={form.certificateName}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={getInputClass("certificateName")}
+                        placeholder="Certificate Name"
+                      />
+                      <ErrorMsg field="certificateName" />
+                    </label>
+
+                    <label className={labelClass}>
+                      <LabelText>
+                        Event Code
+                        <RequiredMark />
+                      </LabelText>
+                      <input
+                        name="eventCode"
+                        value={form.eventCode}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={getInputClass("eventCode")}
+                        placeholder="Event Code"
+                      />
+                      <ErrorMsg field="eventCode" />
+                    </label>
+
+                    <label className={labelClass}>
+                      <LabelText>
+                        Issuing Institution
+                        <RequiredMark />
+                      </LabelText>
+                      <input
+                        name="issuingInstitution"
+                        value={form.issuingInstitution}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={getInputClass("issuingInstitution")}
+                        placeholder="Institution Name"
+                      />
+                      <ErrorMsg field="issuingInstitution" />
+                    </label>
+
+                    <label className={labelClass}>
+                      <LabelText>
+                        Language
+                        <RequiredMark />
+                      </LabelText>
+                      <CustomDropdown
+                        field="language"
+                        options={languageOptions}
+                        value={form.language}
+                      />
+                      <ErrorMsg field="language" />
+                    </label>
+
+                    <label className={labelClass}>
+                      <LabelText>
+                        Level
+                        <RequiredMark />
+                      </LabelText>
+                      <CustomDropdown
+                        field="level"
+                        options={levelOptions}
+                        value={form.level}
+                      />
+                      <ErrorMsg field="level" />
+                    </label>
+
+                    <div className={labelClass}>
+                      <LabelText>
+                        Certificated Issue
+                        <RequiredMark />
+                      </LabelText>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <Button
+                            variant="outline"
+                            className={`mt-1 justify-start px-3 h-9 rounded-lg font-normal w-full text-[#F4F4F4] text-sm !text-white !border-white/10 !bg-[rgba(10,26,31,0.6)] focus:!bg-[#005461]/25 focus:!text-white focus-visible:!bg-[#005461]/25 [aria-expanded=true]:!bg-[#005461]/40 [aria-expanded=true]:!text-white transition-all ${
+                              touched["certificateIssue"] &&
+                              errors["certificateIssue"]
+                                ? "border-red-500/60 focus:border-red-500/80"
+                                : "border-white/10"
+                            }`}
+                            style={{
+                              background:
+                                touched["certificateIssue"] &&
+                                errors["certificateIssue"]
+                                  ? "rgba(239,68,68,0.07)"
+                                  : "rgba(10,26,31,0.6)",
+                              border:
+                                touched["certificateIssue"] &&
+                                errors["certificateIssue"]
+                                  ? "1px solid rgba(239,68,68,0.45)"
+                                  : "1px solid rgba(255,255,255,0.10)",
+                            }}
+                          >
+                            <CalendarIcon size={16} className="mr-2" />
+                            {form.certificateIssue ? (
+                              format(form.certificateIssue, "MMM dd, yyyy")
+                            ) : (
+                              <span className="text-[#F4F4F4]/30">
+                                MM/DD/YY
+                              </span>
+                            )}
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent
+                          className="w-auto p-4"
+                          align="start"
+                          style={{
+                            background:
+                              "linear-gradient(135deg, rgba(5,20,25,0.95) 0%, rgba(10,30,38,0.92) 100%)",
+                            border: "1px solid rgba(0,183,181,0.2)",
+                            borderRadius: "12px",
+                            boxShadow: "0 8px 32px rgba(0,183,181,0.1)",
+                          }}
+                        >
+                          <Calendar
+                            mode="single"
+                            selected={form.certificateIssue}
+                            onSelect={(date) => {
+                              setForm((prev) => ({
+                                ...prev,
+                                certificateIssue: date,
+                              }));
+                              if (touched["certificateIssue"]) {
+                                const newErrors = validate({
+                                  ...form,
+                                  certificateIssue: date,
+                                });
+                                setErrors((prev) => ({
+                                  ...prev,
+                                  certificateIssue:
+                                    newErrors["certificateIssue"],
+                                }));
+                              }
+                            }}
+                            initialFocus
+                            className="rounded-lg border-0 bg-transparent"
+                          />
+                        </PopoverContent>
+                      </Popover>
+                      {touched["certificateIssue"] &&
+                      errors["certificateIssue"] ? (
+                        <span className="text-[10px] text-red-400 mt-0.5 flex items-center gap-1">
+                          <svg
+                            width="10"
+                            height="10"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                          >
+                            <circle
+                              cx="6"
+                              cy="6"
+                              r="5.5"
+                              stroke="currentColor"
+                              strokeWidth="1"
+                            />
+                            <path
+                              d="M6 3.5v3M6 8v.5"
+                              stroke="currentColor"
+                              strokeWidth="1.2"
+                              strokeLinecap="round"
+                            />
+                          </svg>
+                          {errors["certificateIssue"]}
+                        </span>
+                      ) : null}
+                    </div>
+
+                    <label className={labelClass}>
+                      <LabelText>
+                        Modality
+                        <RequiredMark />
+                      </LabelText>
+                      <CustomDropdown
+                        field="modality"
+                        options={modalityOptions}
+                        value={form.modality}
+                      />
+                      <ErrorMsg field="modality" />
+                    </label>
+
+                    <div className={labelClass}>
+                      <LabelText>
+                        Study Period
+                        <RequiredMark />
+                      </LabelText>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <Button
+                            variant="outline"
+                            className={`mt-1 justify-start px-3 h-9 rounded-lg font-normal w-full text-[#F4F4F4] text-sm !text-white !border-white/10 !bg-[rgba(10,26,31,0.6)] focus:!bg-[#005461]/25 focus:!text-white focus-visible:!bg-[#005461]/25 [aria-expanded=true]:!bg-[#005461]/40 [aria-expanded=true]:!text-white transition-all ${
+                              touched["studyPeriod"] && errors["studyPeriod"]
+                                ? "border-red-500/60 focus:border-red-500/80"
+                                : "border-white/10"
+                            }`}
+                            style={{
+                              background:
+                                touched["studyPeriod"] && errors["studyPeriod"]
+                                  ? "rgba(239,68,68,0.07)"
+                                  : "rgba(10,26,31,0.6)",
+                              border:
+                                touched["studyPeriod"] && errors["studyPeriod"]
+                                  ? "1px solid rgba(239,68,68,0.45)"
+                                  : "1px solid rgba(255,255,255,0.10)",
+                            }}
+                          >
+                            <CalendarIcon size={16} className="mr-2" />
+                            {form.studyPeriod?.from ? (
+                              form.studyPeriod.to ? (
+                                <>
+                                  {format(
+                                    form.studyPeriod.from,
+                                    "MMM dd, yyyy",
+                                  )}{" "}
+                                  -{" "}
+                                  {format(form.studyPeriod.to, "MMM dd, yyyy")}
+                                </>
+                              ) : (
+                                format(form.studyPeriod.from, "MMM dd, yyyy")
+                              )
+                            ) : (
+                              <span className="text-[#F4F4F4]/30">
+                                MM/DD/YY - MM/DD/YY
+                              </span>
+                            )}
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent
+                          className="w-auto p-4"
+                          align="start"
+                          style={{
+                            background:
+                              "linear-gradient(135deg, rgba(5,20,25,0.95) 0%, rgba(10,30,38,0.92) 100%)",
+                            border: "1px solid rgba(0,183,181,0.2)",
+                            borderRadius: "12px",
+                            boxShadow: "0 8px 32px rgba(0,183,181,0.1)",
+                          }}
+                        >
+                          <Calendar
+                            mode="range"
+                            defaultMonth={form.studyPeriod?.from}
+                            selected={form.studyPeriod}
+                            onSelect={(date) => {
+                              setForm((prev) => ({
+                                ...prev,
+                                studyPeriod: date,
+                              }));
+                              if (touched["studyPeriod"]) {
+                                const newErrors = validate({
+                                  ...form,
+                                  studyPeriod: date,
+                                });
+                                setErrors((prev) => ({
+                                  ...prev,
+                                  studyPeriod: newErrors["studyPeriod"],
+                                }));
+                              }
+                            }}
+                            numberOfMonths={2}
+                            className="rounded-lg border-0 bg-transparent"
+                          />
+                        </PopoverContent>
+                      </Popover>
+                      {touched["studyPeriod"] && errors["studyPeriod"] ? (
+                        <span className="text-[10px] text-red-400 mt-0.5 flex items-center gap-1">
+                          <svg
+                            width="10"
+                            height="10"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                          >
+                            <circle
+                              cx="6"
+                              cy="6"
+                              r="5.5"
+                              stroke="currentColor"
+                              strokeWidth="1"
+                            />
+                            <path
+                              d="M6 3.5v3M6 8v.5"
+                              stroke="currentColor"
+                              strokeWidth="1.2"
+                              strokeLinecap="round"
+                            />
+                          </svg>
+                          {errors["studyPeriod"]}
+                        </span>
+                      ) : null}
+                    </div>
+
+                    <label className={labelClass}>
+                      <LabelText>
+                        Instructors
+                        <RequiredMark />
+                      </LabelText>
+                      <input
+                        name="instructors"
+                        value={form.instructors}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={getInputClass("instructors")}
+                        placeholder="Instructor Name"
+                      />
+                      <ErrorMsg field="instructors" />
+                    </label>
+
+                    <label className={labelClass}>
+                      <LabelText>
+                        Signer / Authorities
+                        <RequiredMark />
+                      </LabelText>
+                      <input
+                        name="signer"
+                        value={form.signer}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={getInputClass("signer")}
+                        placeholder="Signer Name"
+                      />
+                      <ErrorMsg field="signer" />
+                    </label>
+                  </div>
+
+                  <div className="flex items-center justify-between mt-auto pt-2">
+                    {Object.keys(errors).length > 0 &&
+                    Object.keys(touched).length > 0 ? (
+                      <span className="text-[11px] text-red-400 flex items-center gap-1.5">
+                        <svg
+                          width="12"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          fill="none"
+                        >
+                          <circle
+                            cx="6"
+                            cy="6"
+                            r="5.5"
+                            stroke="currentColor"
+                            strokeWidth="1"
+                          />
+                          <path
+                            d="M6 3.5v3M6 8v.5"
+                            stroke="currentColor"
+                            strokeWidth="1.2"
+                            strokeLinecap="round"
+                          />
+                        </svg>
+                        {Object.keys(errors).length} field
+                        {Object.keys(errors).length > 1 ? "s" : ""} required
+                      </span>
+                    ) : (
+                      <span />
+                    )}
+
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="inline-flex items-center justify-center gap-3 rounded-3xl bg-gradient-to-r from-[#005461]/30 to-[#F4F4F4]/20 border border-white/30 shadow-lg backdrop-blur-md px-8 py-4 text-sm font-semibold text-[#F4F4F4] transition-all duration-200 hover:from-[#005461]/40 hover:to-[#F4F4F4]/30 hover:border-white/40 hover:shadow-xl hover:shadow-[#00B7B5]/25 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
+                      style={{
+                        background:
+                          "linear-gradient(90deg, rgba(0,84,97,0.30) 0%, rgba(244,244,244,0.15) 100%)",
+                        border: "1px solid rgba(255,255,255,0.30)",
+                        boxShadow: "0 18px 35px -16px rgba(0,183,181,0.25)",
+                        backdropFilter: "blur(18px)",
+                      }}
+                    >
+                      {loading ? "SENDING..." : success ? "✓ SENT!" : "SEND"}
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </form>
