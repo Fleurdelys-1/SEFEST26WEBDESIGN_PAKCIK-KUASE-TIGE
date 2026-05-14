@@ -2,6 +2,7 @@
 
 import { Languages, ChevronDown, Check } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import { useLanguage } from '../../../context/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -11,8 +12,10 @@ const languages = [
 ];
 
 export default function Navbar() {
+	const router = useRouter();
+	const pathname = usePathname();
 	const [isOpen, setIsOpen] = useState(false);
-	const [activeHash, setActiveHash] = useState('#home');
+	const [activeHash, setActiveHash] = useState(null);
 	const { language, changeLanguage, t } = useLanguage();
 
 	const badgeVariants = {
@@ -123,6 +126,12 @@ export default function Navbar() {
 	};
 
 	useEffect(() => {
+		// Reset activeHash when not on home page
+		if (pathname !== '/') {
+			setActiveHash(null);
+			return;
+		}
+
 		const sectionIds = ['home', 'validation', 'about', 'faq', 'contact'];
 		
 		const observer = new IntersectionObserver(
@@ -151,20 +160,30 @@ export default function Navbar() {
 				}
 			});
 		};
-	}, []);
+	}, [pathname]);
 
 	const handleLanguageChange = (lang) => {
 		changeLanguage(lang.code);
 		setIsOpen(false);
 	};
 
+	const handleRegister = () => {
+		router.push('/register');
+	};
+
 	const handleNavClick = (e, href) => {
 		e.preventDefault();
 		const targetId = href.replace('#', '');
-		const element = document.getElementById(targetId);
-		
-		if (element) {
-			element.scrollIntoView({ behavior: 'smooth' });
+
+		if (pathname === '/') {
+			// If on home page, scroll to section
+			const element = document.getElementById(targetId);
+			if (element) {
+				element.scrollIntoView({ behavior: 'smooth' });
+			}
+		} else {
+			// If on other page (register, verify, etc), navigate to home with hash
+			router.push(`/#${targetId}`);
 		}
 	};
 
@@ -208,7 +227,16 @@ export default function Navbar() {
 				})}
 			</motion.div>
 
-			<div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2">
+			<div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
+				<motion.button
+					onClick={handleRegister}
+					variants={switchButtonVariants}
+					initial="hidden"
+					animate="visible"
+					className="px-3 sm:px-4 py-2 rounded-lg bg-[#00b7b5]/20 border border-[#00b7b5]/50 text-[#F4F4F4] text-xs sm:text-sm font-medium hover:bg-[#00b7b5]/30 hover:border-[#00b7b5]/70 transition backdrop-blur-sm"
+				>
+					{t('nav.register')}
+				</motion.button>
 				<motion.button
 					onClick={() => setIsOpen(!isOpen)}
 					variants={switchButtonVariants}

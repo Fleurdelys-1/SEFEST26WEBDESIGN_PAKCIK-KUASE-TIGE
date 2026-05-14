@@ -102,53 +102,53 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.7,
-        ease: 'easeOut',
+        duration: 0.35,
+        ease: [0.34, 1.56, 0.64, 1],
         when: 'beforeChildren',
-        staggerChildren: 0.14,
-        delayChildren: 0.15,
+        staggerChildren: 0.05,
+        delayChildren: 0.05,
       },
     },
   };
 
   const badgeContentVariants = {
-    hidden: { opacity: 0, y: 22, filter: 'blur(10px)' },
+    hidden: { opacity: 0, y: 22, filter: 'blur(8px)' },
     visible: {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
       transition: {
-        duration: 0.6,
-        ease: 'easeOut',
+        duration: 0.3,
+        ease: [0.34, 1.56, 0.64, 1],
       },
     },
   };
 
   const sectionTextVariants = {
-    hidden: { opacity: 0, y: 40, filter: 'blur(16px)' },
+    hidden: { opacity: 0, y: 40, filter: 'blur(12px)' },
     visible: {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
       transition: {
-        duration: 0.72,
-        ease: 'easeOut',
+        duration: 0.36,
+        ease: [0.34, 1.56, 0.64, 1],
         when: 'beforeChildren',
-        staggerChildren: 0.14,
-        delayChildren: 0.08,
+        staggerChildren: 0.06,
+        delayChildren: 0.04,
       },
     },
   };
 
   const sectionItemVariants = {
-    hidden: { opacity: 0, y: 24, filter: 'blur(10px)' },
+    hidden: { opacity: 0, y: 24, filter: 'blur(8px)' },
     visible: {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
       transition: {
-        duration: 0.55,
-        ease: 'easeOut',
+        duration: 0.28,
+        ease: [0.34, 1.56, 0.64, 1],
       },
     },
   };
@@ -159,91 +159,91 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.7,
-        ease: 'easeOut',
+        duration: 0.35,
+        ease: [0.34, 1.56, 0.64, 1],
         when: 'beforeChildren',
-        staggerChildren: 0.08,
-        delayChildren: 0.08,
+        staggerChildren: 0.04,
+        delayChildren: 0.04,
       },
     },
   };
 
   const tabItemVariants = {
-    hidden: { opacity: 0, y: 18, filter: 'blur(10px)' },
+    hidden: { opacity: 0, y: 18, filter: 'blur(7px)' },
     visible: {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
       transition: {
-        duration: 0.45,
-        ease: 'easeOut',
+        duration: 0.22,
+        ease: [0.34, 1.56, 0.64, 1],
       },
     },
   };
 
   const inputRowVariants = {
-    hidden: { opacity: 0, y: 30, filter: 'blur(18px)' },
+    hidden: { opacity: 0, y: 30, filter: 'blur(14px)' },
     visible: {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
       transition: {
-        duration: 0.7,
-        ease: 'easeOut',
+        duration: 0.35,
+        ease: [0.34, 1.56, 0.64, 1],
         when: 'beforeChildren',
-        staggerChildren: 0.08,
+        staggerChildren: 0.04,
       },
     },
   };
 
   const inputItemVariants = {
-    hidden: { opacity: 0, y: 22, filter: 'blur(14px)' },
+    hidden: { opacity: 0, y: 22, filter: 'blur(10px)' },
     visible: {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
       transition: {
-        duration: 0.58,
-        ease: 'easeOut',
+        duration: 0.29,
+        ease: [0.34, 1.56, 0.64, 1],
       },
     },
   };
 
   const verifyButtonVariants = {
-    hidden: { opacity: 0, x: 70, filter: 'blur(18px)' },
+    hidden: { opacity: 0, x: 70, filter: 'blur(14px)' },
     visible: {
       opacity: 1,
       x: 0,
       filter: 'blur(0px)',
       transition: {
-        duration: 0.72,
-        ease: 'easeOut',
+        duration: 0.36,
+        ease: [0.34, 1.56, 0.64, 1],
       },
     },
   };
 
   const cryptoTextVariants = {
-    hidden: { opacity: 0, y: 28, filter: 'blur(14px)' },
+    hidden: { opacity: 0, y: 28, filter: 'blur(10px)' },
     visible: {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
       transition: {
-        duration: 0.6,
-        ease: 'easeOut',
+        duration: 0.3,
+        ease: [0.34, 1.56, 0.64, 1],
       },
     },
   };
 
   const cryptoGlassVariants = {
-    hidden: { opacity: 0, y: 32, filter: 'blur(18px)' },
+    hidden: { opacity: 0, y: 32, filter: 'blur(14px)' },
     visible: {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
       transition: {
-        duration: 0.8,
-        ease: 'easeOut',
+        duration: 0.4,
+        ease: [0.34, 1.56, 0.64, 1],
       },
     },
   };
@@ -254,8 +254,8 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.68,
-        ease: 'easeOut',
+        duration: 0.34,
+        ease: [0.34, 1.56, 0.64, 1],
       },
     },
   };
@@ -266,37 +266,37 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.68,
-        ease: 'easeOut',
+        duration: 0.34,
+        ease: [0.34, 1.56, 0.64, 1],
       },
     },
   };
 
   const resultContainerVariants = {
-    hidden: { opacity: 0, y: 30, filter: 'blur(20px)' },
+    hidden: { opacity: 0, y: 30, filter: 'blur(16px)' },
     visible: {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
       transition: {
-        duration: 0.7,
-        ease: 'easeOut',
+        duration: 0.35,
+        ease: [0.34, 1.56, 0.64, 1],
         when: 'beforeChildren',
-        staggerChildren: 0.08,
-        delayChildren: 0.15,
+        staggerChildren: 0.04,
+        delayChildren: 0.08,
       },
     },
   };
 
   const resultItemVariants = {
-    hidden: { opacity: 0, y: 20, filter: 'blur(15px)' },
+    hidden: { opacity: 0, y: 20, filter: 'blur(12px)' },
     visible: {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
       transition: {
-        duration: 0.6,
-        ease: 'easeOut',
+        duration: 0.3,
+        ease: [0.34, 1.56, 0.64, 1],
       },
     },
   };
@@ -379,13 +379,13 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
               type="button"
               onClick={() => setActiveTab('manual')}
               variants={tabItemVariants}
-              className={`group relative overflow-hidden rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${activeTab === 'manual'
+              className={`group relative overflow-hidden rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 ${activeTab === 'manual'
                 ? 'text-white'
                 : 'text-white/60 hover:text-white'
                 }`}
             >
               <span
-                className={`absolute inset-y-0 left-0 rounded-full transition-all duration-300 ease-out ${activeTab === 'manual'
+                className={`absolute inset-y-0 left-0 rounded-full transition-all duration-200 ease-out ${activeTab === 'manual'
                   ? 'w-full bg-gradient-to-r from-[#005461]/30 to-[#F4F4F4]/20 border border-white/30 shadow-lg backdrop-blur-md'
                   : 'w-0 group-hover:w-full bg-white/0 group-hover:bg-gradient-to-r group-hover:from-[#005461]/20 group-hover:to-[#F4F4F4]/10 group-hover:border group-hover:border-white/20 group-hover:shadow-lg group-hover:backdrop-blur-md'
                   }`}
@@ -399,13 +399,13 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
               type="button"
               onClick={() => setActiveTab('pdf')}
               variants={tabItemVariants}
-              className={`group relative overflow-hidden rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${activeTab === 'pdf'
+              className={`group relative overflow-hidden rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 ${activeTab === 'pdf'
                 ? 'text-white'
                 : 'text-white/60 hover:text-white'
                 }`}
             >
               <span
-                className={`absolute inset-y-0 left-0 rounded-full transition-all duration-300 ease-out ${activeTab === 'pdf'
+                className={`absolute inset-y-0 left-0 rounded-full transition-all duration-200 ease-out ${activeTab === 'pdf'
                   ? 'w-full bg-gradient-to-r from-[#005461]/30 to-[#F4F4F4]/20 border border-white/30 shadow-lg backdrop-blur-md'
                   : 'w-0 group-hover:w-full bg-white/0 group-hover:bg-gradient-to-r group-hover:from-[#005461]/20 group-hover:to-[#F4F4F4]/10 group-hover:border group-hover:border-white/20 group-hover:shadow-lg group-hover:backdrop-blur-md'
                   }`}
@@ -419,13 +419,13 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
               type="button"
               onClick={() => setActiveTab('qr')}
               variants={tabItemVariants}
-              className={`group relative overflow-hidden rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${activeTab === 'qr'
+              className={`group relative overflow-hidden rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 ${activeTab === 'qr'
                 ? 'text-white'
                 : 'text-white/60 hover:text-white'
                 }`}
             >
               <span
-                className={`absolute inset-y-0 left-0 rounded-full transition-all duration-300 ease-out ${activeTab === 'qr'
+                className={`absolute inset-y-0 left-0 rounded-full transition-all duration-200 ease-out ${activeTab === 'qr'
                   ? 'w-full bg-gradient-to-r from-[#005461]/30 to-[#F4F4F4]/20 border border-white/30 shadow-lg backdrop-blur-md'
                   : 'w-0 group-hover:w-full bg-white/0 group-hover:bg-gradient-to-r group-hover:from-[#005461]/20 group-hover:to-[#F4F4F4]/10 group-hover:border group-hover:border-white/20 group-hover:shadow-lg group-hover:backdrop-blur-md'
                   }`}
@@ -444,7 +444,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
               initial={{ opacity: 0, scaleY: 0, rotateX: -12 }}
               animate={{ opacity: 1, scaleY: 1, rotateX: 0 }}
               exit={{ opacity: 0, scaleY: 0, rotateX: -12 }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.25, ease: [0.34, 1.56, 0.64, 1] }}
               className="max-w-3xl mx-auto"
               style={{ transformOrigin: 'top center' }}
             >
@@ -855,7 +855,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
               initial={{ opacity: 0, scaleY: 0, rotateX: -12 }}
               animate={{ opacity: 1, scaleY: 1, rotateX: 0 }}
               exit={{ opacity: 0, scaleY: 0, rotateX: -12 }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.25, ease: [0.34, 1.56, 0.64, 1] }}
               className="max-w-3xl mx-auto space-y-6"
               style={{ transformOrigin: 'top center', transformStyle: 'preserve-3d' }}
             >
@@ -928,7 +928,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
               initial={{ opacity: 0, scaleY: 0, rotateX: -12 }}
               animate={{ opacity: 1, scaleY: 1, rotateX: 0 }}
               exit={{ opacity: 0, scaleY: 0, rotateX: -12 }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.25, ease: [0.34, 1.56, 0.64, 1] }}
               className="max-w-3xl mx-auto"
               style={{ transformOrigin: 'top center' }}
             >

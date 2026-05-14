@@ -3,6 +3,7 @@ import Validation from '../components/validation';
 import About from '../components/about';
 import FAQ from '../components/faq';
 import Contact from '../components/contact';
+import ScrollHandler from '../components/ScrollHandler';
 
 export default async function Page({ searchParams }) {
   const params = await searchParams;
@@ -11,6 +12,7 @@ export default async function Page({ searchParams }) {
 
   return (
     <>
+      <ScrollHandler />
       <Home />
       <Validation initialTab={initialTab} initialQueryValue={verifyValue} />
       <About />
