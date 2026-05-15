@@ -121,19 +121,19 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="relative overflow-hidden px-4 sm:px-6 lg:px-8 py-24">
-      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#00B7B5]/10 to-transparent pointer-events-none rounded-t-[100px]" />
-      <div className="relative max-w-7xl mx-auto">
+    <section id="faq" className="relative overflow-hidden px-4 sm:px-6 lg:px-8 min-h-screen flex flex-col items-center justify-start pt-24 sm:pt-28 lg:pt-28 pb-16">
+      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#00B7B5]/10 to-transparent pointer-events-none rounded-t-[40px] sm:rounded-t-[70px] lg:rounded-t-[100px]" />
+      <div className="relative max-w-7xl mx-auto w-full">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <motion.div 
             className="flex justify-center mb-6 sm:mb-8"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             variants={badgeContainerVariants}
           >
             <motion.span
-              className="px-6 py-2 rounded-full text-xs sm:text-sm font-bold text-white/90 backdrop-blur-md shadow inline-flex items-center gap-2"
+              className="px-6 py-2 rounded-full text-xs sm:text-sm font-bold text-white/90 backdrop-blur-md shadow inline-flex items-center gap-2 mx-auto"
               style={{
                 background: "rgba(0, 84, 97, 0.3)",
                 border: "1px solid rgba(0, 183, 181, 0.4)",
@@ -151,13 +151,13 @@ export default function FAQ() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             variants={sectionTextVariants}
           >
-            <motion.h2 variants={sectionItemVariants} className="text-4xl sm:text-5xl font-bold text-[#F4F4F4] leading-tight">
+            <motion.h2 variants={sectionItemVariants} className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-[#F4F4F4] mb-4 font-outfit drop-shadow-lg">
               {t("faq.title")}
             </motion.h2>
-            <motion.p variants={sectionItemVariants} className="mt-6 text-base sm:text-lg text-[#F4F4F4]/70 font-medium">
+            <motion.p variants={sectionItemVariants} className="text-center text-base sm:text-lg text-[#F4F4F4]/75 max-w-2xl mx-auto mb-12 font-poppins">
               {t("faq.subtitle")}
             </motion.p>
           </motion.div>
@@ -167,7 +167,7 @@ export default function FAQ() {
           className="flex flex-col gap-4 sm:gap-6 mb-10 justify-center items-center"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           variants={tabContainerVariants}
         >
           <motion.div variants={tabContainerVariants} className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 p-2 shadow-[0_20px_80px_rgba(0,0,0,0.12)] backdrop-blur-xl">
@@ -213,7 +213,7 @@ export default function FAQ() {
                 initial="hidden"
                 whileInView="visible"
                 exit="exit"
-                viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: false, amount: 0.1 }}
                 variants={listContainerVariants}
                 className="space-y-4 sm:space-y-6 w-full"
               >
@@ -249,7 +249,7 @@ export default function FAQ() {
           <motion.article 
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: false, amount: 0.1 }}
             variants={cardContentVariants}
             className="relative rounded-[48px] border border-white/10 bg-white/5 shadow-[0_40px_120px_rgba(0,0,0,0.18)] backdrop-blur-xl overflow-hidden"
           >
@@ -294,7 +294,7 @@ export default function FAQ() {
           <motion.div 
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: false, amount: 0.1 }}
             variants={cardContentVariants} 
             className="lg:col-span-2"
           >

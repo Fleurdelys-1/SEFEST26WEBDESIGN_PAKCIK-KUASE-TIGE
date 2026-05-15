@@ -318,14 +318,14 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
   };
 
   return (
-    <section id="validation" className="w-full py-16 sm:py-24 px-4 sm:px-8 md:px-16 lg:px-24 relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#00B7B5]/10 to-transparent pointer-events-none rounded-t-[100px]" />
-      <div className="max-w-5xl mx-auto relative z-10">
+    <section id="validation" className="w-full min-h-screen px-4 sm:px-8 md:px-16 lg:px-24 pt-24 sm:pt-28 lg:pt-28 pb-16 relative overflow-hidden flex flex-col items-center justify-start">
+      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#00B7B5]/10 to-transparent pointer-events-none rounded-t-[40px] sm:rounded-t-[70px] lg:rounded-t-[100px]" />
+      <div className="max-w-5xl w-full relative z-10">
         <motion.div
-          className="flex justify-center mb-6 sm:mb-8"
+          className="flex justify-center mb-6 sm:mb-8 w-full"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           variants={badgeContainerVariants}
         >
           <motion.span
@@ -349,7 +349,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           variants={sectionTextVariants}
         >
           <motion.h2
@@ -371,7 +371,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
           className="flex flex-col gap-4 sm:gap-6 mb-10 justify-center items-center"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           variants={tabContainerVariants}
         >
           <motion.div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 p-2 shadow-[0_20px_80px_rgba(0,0,0,0.12)] backdrop-blur-xl" variants={tabContainerVariants}>
@@ -455,7 +455,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                   style={glassCardStyle}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: true, amount: 0.2 }}
+                  viewport={{ once: false, amount: 0.2 }}
                   variants={inputRowVariants}
                 >
                   <motion.div
@@ -495,7 +495,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                     style={glassCardStyle}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.2 }}
+                    viewport={{ once: false, amount: 0.2 }}
                     variants={cryptoGlassVariants}
                   >
                     <div className="flex items-center gap-2 mb-3">
