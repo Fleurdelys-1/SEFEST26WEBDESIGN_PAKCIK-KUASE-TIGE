@@ -4,9 +4,9 @@ import { useLanguage } from '../../context/LanguageContext';
 import { ShieldCheck, Zap, FileLock2, CheckCircle2, ArrowRight, Info } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import CountUp from '../ui/CountUp';
-import GlareHover from '../ui/GlareHover';
-import BorderGlow from '../ui/card/BorderGlow';
+import CountUp from '../ui/count-up';
+import GlareHover from '../ui/glare-hover';
+import BorderGlow from '../ui/card/border-glow';
 
 export default function About() {
   const { t } = useLanguage();

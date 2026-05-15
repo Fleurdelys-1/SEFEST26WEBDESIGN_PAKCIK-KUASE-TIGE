@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ChevronDown, CircleQuestionMark } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
-import BorderGlow from "../ui/card/BorderGlow";
+import BorderGlow from "../ui/card/border-glow";
 
 export default function FAQ() {
   const { t } = useLanguage();

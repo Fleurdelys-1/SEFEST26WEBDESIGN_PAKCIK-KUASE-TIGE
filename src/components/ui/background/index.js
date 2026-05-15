@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from 'react';
-import ShapeGrid from './ShapeGrid';
+import ShapeGrid from './shape-grid';
 import {
   Clock,
   Mesh,

@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '../../context/LanguageContext';
 import { ShieldCheck, UserPlus } from 'lucide-react';
-import RotatingText from '../ui/text/RotatingText'
+import RotatingText from '../ui/text/rotating-text'
 import { motion } from 'framer-motion';
 
 export default function Home() {

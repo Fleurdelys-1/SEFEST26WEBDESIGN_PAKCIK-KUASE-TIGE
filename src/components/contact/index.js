@@ -3,7 +3,7 @@
 import { Mail, Send, CheckCircle, Loader2, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
-import BorderGlow from "../ui/card/BorderGlow";
+import BorderGlow from "../ui/card/border-glow";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Contact() {
