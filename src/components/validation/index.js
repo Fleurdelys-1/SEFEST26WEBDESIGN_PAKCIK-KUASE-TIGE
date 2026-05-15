@@ -449,9 +449,8 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
               style={{ transformOrigin: 'top center' }}
             >
               <div className="space-y-6">
-                {/* Search Input - Always Visible */}
                 <motion.div
-                  className="flex flex-col sm:flex-row items-center gap-3 px-4 py-3 rounded-xl"
+                  className="flex flex-row items-center gap-3 px-4 py-3 rounded-xl"
                   style={glassCardStyle}
                   initial="hidden"
                   whileInView="visible"
@@ -459,7 +458,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                   variants={inputRowVariants}
                 >
                   <motion.div
-                    className="flex items-center pl-3"
+                    className="flex items-center flex-shrink-0"
                     variants={inputItemVariants}
                   >
                     <Search className="w-5 h-5 text-white/50" />
@@ -471,13 +470,13 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                     onChange={(e) => setSearchValue(e.target.value)}
                     onKeyPress={handleKeyPress}
                     variants={inputItemVariants}
-                    className="flex-1 min-w-0 bg-transparent text-white placeholder-white/40 outline-none text-base font-poppins"
+                    className="flex-1 min-w-0 bg-transparent text-white placeholder-white/40 outline-none text-sm sm:text-base font-poppins"
                   />
                   <motion.button
                     onClick={handleSearch}
                     disabled={isSearching}
                     variants={verifyButtonVariants}
-                    className="min-w-[180px] rounded-lg px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] backdrop-blur-sm disabled:cursor-not-allowed disabled:opacity-60"
+                    className="flex-shrink-0 rounded-lg px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] backdrop-blur-sm disabled:cursor-not-allowed disabled:opacity-60 whitespace-nowrap"
                     style={{
                       background: 'linear-gradient(to right, rgba(0, 84, 97, 0.3), rgba(244, 244, 244, 0.2))',
                       border: '1px solid rgba(255, 255, 255, 0.3)',
@@ -488,7 +487,6 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                   </motion.button>
                 </motion.div>
 
-                {/* Example Buttons - Show when no result */}
                 {!searchResult && (
                   <motion.div
                     className="max-w-3xl mx-auto mt-0 p-3 sm:p-4 rounded-2xl"
@@ -541,7 +539,6 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                   </motion.div>
                 )}
 
-                {/* Results - Show when found */}
                 {showManualResult && (
                   <motion.div
                     initial="hidden"
@@ -573,7 +570,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                     STATUS: {searchResult.certificate.status}
                                   </span>
                                 </div>
-                                <h3 className="text-2xl sm:text-3xl font-bold text-white font-outfit mb-2">
+                                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white font-outfit mb-2">
                                   {searchResult.isActive ? 'Validate Certificate' : 'Certificate Revoked'}
                                 </h3>
                                 <p className="text-sm text-white/70 font-poppins">
@@ -785,7 +782,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
 
                         <motion.div
                           variants={resultItemVariants}
-                          className="flex gap-3"
+                          className="flex flex-col sm:flex-row gap-3"
                         >
                           <a
                             href={`/api/certificate/${searchResult.certificate.id}/audit`}
@@ -908,7 +905,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                   </div>
                   <button
                     type="button"
-                    className="min-w-[180px] rounded-lg px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] backdrop-blur-sm"
+                    className="w-full sm:min-w-[180px] sm:w-auto rounded-lg px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] backdrop-blur-sm"
                     style={{
                       background: 'linear-gradient(to right, rgba(0, 84, 97, 0.35), rgba(255, 255, 255, 0.18))',
                       border: '1px solid rgba(255, 255, 255, 0.26)',
@@ -1006,7 +1003,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                   STATUS: {searchResult.certificate.status}
                                 </span>
                               </div>
-                              <h3 className="text-2xl sm:text-3xl font-bold text-white font-outfit mb-2">
+                              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white font-outfit mb-2">
                                 {searchResult.isActive ? 'Validate Certificate' : 'Certificate Revoked'}
                               </h3>
                               <p className="text-sm text-white/70 font-poppins">
@@ -1218,7 +1215,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
 
                       <motion.div
                         variants={resultItemVariants}
-                        className="flex gap-3"
+                        className="flex flex-col sm:flex-row gap-3"
                       >
                         <a
                           href={`/api/certificate/${searchResult.certificate.id}/audit`}
