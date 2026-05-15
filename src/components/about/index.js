@@ -62,7 +62,7 @@ export default function About() {
             className="flex flex-col items-start space-y-6 sm:space-y-8"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
           >
             <motion.span
@@ -129,7 +129,7 @@ export default function About() {
             className="flex flex-col gap-4 w-full mt-8 lg:mt-0"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
           >
             <div className="grid grid-cols-2 gap-4">

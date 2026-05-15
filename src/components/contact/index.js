@@ -75,7 +75,7 @@ export default function Contact() {
 
         {/* Mobile-only header (hidden on lg) */}
         <div className="flex flex-col items-center gap-4 mb-8 lg:hidden">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={badgeContainerVariants}>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={badgeContainerVariants}>
             <motion.span
               className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.24em] text-white shadow-lg backdrop-blur-md"
               style={{ background: "rgba(0, 84, 97, 0.3)", border: "1px solid rgba(0, 183, 181, 0.4)", boxShadow: "0 0 20px rgba(0, 183, 181, 0.2)" }}
@@ -87,7 +87,7 @@ export default function Contact() {
               </motion.span>
             </motion.span>
           </motion.div>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={sectionTextVariants} className="space-y-2 text-center">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sectionTextVariants} className="space-y-2 text-center">
             <motion.h2 variants={sectionItemVariants} className="text-3xl sm:text-4xl font-bold text-[#F4F4F4] leading-tight">{t("contact.title")}</motion.h2>
             <motion.p variants={sectionItemVariants} className="text-sm sm:text-base text-[#F4F4F4]/70 font-medium max-w-md mx-auto">{t("contact.subtitle")}</motion.p>
           </motion.div>
@@ -107,7 +107,7 @@ export default function Contact() {
           <div className="space-y-8">
             {/* Desktop header */}
             <div className="space-y-5">
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={badgeContainerVariants}>
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={badgeContainerVariants}>
                 <motion.span
                   className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.24em] text-white shadow-lg backdrop-blur-md"
                   style={{ background: "rgba(0, 84, 97, 0.3)", border: "1px solid rgba(0, 183, 181, 0.4)", boxShadow: "0 0 20px rgba(0, 183, 181, 0.2)" }}
@@ -119,7 +119,7 @@ export default function Contact() {
                   </motion.span>
                 </motion.span>
               </motion.div>
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }} variants={sectionTextVariants} className="space-y-3">
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={sectionTextVariants} className="space-y-3">
                 <motion.h2 variants={sectionItemVariants} className="text-4xl md:text-5xl font-bold text-[#F4F4F4] leading-tight">{t("contact.title")}</motion.h2>
                 <motion.p variants={sectionItemVariants} className="text-base text-[#F4F4F4]/70 font-medium max-w-xl">{t("contact.subtitle")}</motion.p>
               </motion.div>
@@ -144,7 +144,7 @@ function EmailCard({ t, cardVariants, cardItemVariants }) {
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
       variants={cardVariants}
       className="group rounded-[32px] border border-white/10 bg-gradient-to-br from-white/8 to-white/3 shadow-[0_40px_120px_rgba(0,0,0,0.15)] backdrop-blur-xl min-h-[200px] overflow-hidden relative hover:border-[#00B7B5]/30 transition-all duration-300"
     >
@@ -190,7 +190,7 @@ function FormCard({ t, formData, errors, isLoading, isSubmitted, handleChange, h
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
       variants={cardVariants}
       className="relative rounded-[48px] border border-white/10 bg-white/5 p-6 sm:p-8 shadow-[0_40px_120px_rgba(0,0,0,0.18)] backdrop-blur-xl overflow-hidden hover:border-[#00B7B5]/30 transition-all duration-300"
     >

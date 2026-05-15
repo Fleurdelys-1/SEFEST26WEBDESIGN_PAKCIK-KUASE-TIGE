@@ -325,7 +325,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
           className="flex justify-center mb-6 sm:mb-8 w-full"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={badgeContainerVariants}
         >
           <motion.span
@@ -349,7 +349,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={sectionTextVariants}
         >
           <motion.h2
@@ -371,7 +371,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
           className="flex flex-col gap-4 sm:gap-6 mb-10 justify-center items-center"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={tabContainerVariants}
         >
           <motion.div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 p-2 shadow-[0_20px_80px_rgba(0,0,0,0.12)] backdrop-blur-xl" variants={tabContainerVariants}>
@@ -454,7 +454,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                   style={glassCardStyle}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: false, amount: 0.2 }}
+                  viewport={{ once: true, amount: 0.2 }}
                   variants={inputRowVariants}
                 >
                   <motion.div
@@ -493,7 +493,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                     style={glassCardStyle}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: false, amount: 0.2 }}
+                    viewport={{ once: true, amount: 0.2 }}
                     variants={cryptoGlassVariants}
                   >
                     <div className="flex items-center gap-2 mb-3">
