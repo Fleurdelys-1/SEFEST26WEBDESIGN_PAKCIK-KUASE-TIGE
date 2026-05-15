@@ -4,6 +4,9 @@ import { useLanguage } from '../../context/LanguageContext';
 import { ShieldCheck, Zap, FileLock2, CheckCircle2, ArrowRight, Info } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import CountUp from '../ui/CountUp';
+import GlareHover from '../ui/GlareHover';
+import BorderGlow from '../ui/card/BorderGlow';
 
 export default function About() {
   const { t } = useLanguage();
@@ -130,35 +133,108 @@ export default function About() {
             variants={containerVariants}
           >
             <div className="grid grid-cols-2 gap-4">
-              <motion.div variants={statVariants} className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 shadow-xl backdrop-blur-xl hover:border-white/20 transition-all duration-300 flex flex-col justify-center min-h-[110px] sm:min-h-[120px]">
-                <h3 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#00B7B5] mb-1">{t('about.stats.satisfaction.value')}</h3>
-                <p className="text-xs text-[#F4F4F4]/70 font-medium">{t('about.stats.satisfaction.label')}</p>
+              <motion.div variants={statVariants} className="h-full">
+                <GlareHover
+                  width="100%"
+                  height="100%"
+                  background="linear-gradient(to bottom right, rgba(255,255,255,0.1), rgba(255,255,255,0.05))"
+                  borderColor="rgba(255, 255, 255, 0.1)"
+                  borderRadius="16px"
+                  glareColor="#00B7B5"
+                  className="shadow-xl backdrop-blur-xl hover:border-[#00B7B5]/30 transition-all duration-300"
+                >
+                  <div className="w-full h-full flex flex-col justify-center items-start p-5 sm:p-6 min-h-[110px] sm:min-h-[120px]">
+                    <h3 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#00B7B5] mb-1">
+                      <CountUp from={0} to={parseInt(t('about.stats.satisfaction.value')) || 0} />
+                      {t('about.stats.satisfaction.value').replace(/[0-9]/g, '')}
+                    </h3>
+                    <p className="text-xs text-[#F4F4F4]/70 font-medium">{t('about.stats.satisfaction.label')}</p>
+                  </div>
+                </GlareHover>
               </motion.div>
               
-              <motion.div variants={statVariants} className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 shadow-xl backdrop-blur-xl hover:border-white/20 transition-all duration-300 flex flex-col justify-center min-h-[110px] sm:min-h-[120px]">
-                <h3 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#00B7B5] mb-1">{t('about.stats.active.value')}</h3>
-                <p className="text-xs text-[#F4F4F4]/70 font-medium">{t('about.stats.active.label')}</p>
+              <motion.div variants={statVariants} className="h-full">
+                <GlareHover
+                  width="100%"
+                  height="100%"
+                  background="linear-gradient(to bottom right, rgba(255,255,255,0.1), rgba(255,255,255,0.05))"
+                  borderColor="rgba(255, 255, 255, 0.1)"
+                  borderRadius="16px"
+                  glareColor="#00B7B5"
+                  className="shadow-xl backdrop-blur-xl hover:border-[#00B7B5]/30 transition-all duration-300"
+                >
+                  <div className="w-full h-full flex flex-col justify-center items-start p-5 sm:p-6 min-h-[110px] sm:min-h-[120px]">
+                    <h3 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#00B7B5] mb-1">
+                      <CountUp from={0} to={parseInt(t('about.stats.active.value')) || 0} />
+                      {t('about.stats.active.value').replace(/[0-9]/g, '')}
+                    </h3>
+                    <p className="text-xs text-[#F4F4F4]/70 font-medium">{t('about.stats.active.label')}</p>
+                  </div>
+                </GlareHover>
               </motion.div>
 
-              <motion.div variants={statVariants} className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 shadow-xl backdrop-blur-xl hover:border-white/20 transition-all duration-300 flex flex-col justify-center min-h-[110px] sm:min-h-[120px]">
-                <h3 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#00B7B5] mb-1">{t('about.stats.experience.value')}</h3>
-                <p className="text-xs text-[#F4F4F4]/70 font-medium">{t('about.stats.experience.label')}</p>
+              <motion.div variants={statVariants} className="h-full">
+                <GlareHover
+                  width="100%"
+                  height="100%"
+                  background="linear-gradient(to bottom right, rgba(255,255,255,0.1), rgba(255,255,255,0.05))"
+                  borderColor="rgba(255, 255, 255, 0.1)"
+                  borderRadius="16px"
+                  glareColor="#00B7B5"
+                  className="shadow-xl backdrop-blur-xl hover:border-[#00B7B5]/30 transition-all duration-300"
+                >
+                  <div className="w-full h-full flex flex-col justify-center items-start p-5 sm:p-6 min-h-[110px] sm:min-h-[120px]">
+                    <h3 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#00B7B5] mb-1">
+                      <CountUp from={0} to={parseInt(t('about.stats.experience.value')) || 0} />
+                      {t('about.stats.experience.value').replace(/[0-9]/g, '')}
+                    </h3>
+                    <p className="text-xs text-[#F4F4F4]/70 font-medium">{t('about.stats.experience.label')}</p>
+                  </div>
+                </GlareHover>
               </motion.div>
 
-              <motion.div variants={statVariants} className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-6 shadow-xl backdrop-blur-xl hover:border-white/20 transition-all duration-300 flex flex-col justify-center min-h-[110px] sm:min-h-[120px]">
-                <h3 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#00B7B5] mb-1">{t('about.stats.records.value')}</h3>
-                <p className="text-xs text-[#F4F4F4]/70 font-medium">{t('about.stats.records.label')}</p>
+              <motion.div variants={statVariants} className="h-full">
+                <GlareHover
+                  width="100%"
+                  height="100%"
+                  background="linear-gradient(to bottom right, rgba(255,255,255,0.1), rgba(255,255,255,0.05))"
+                  borderColor="rgba(255, 255, 255, 0.1)"
+                  borderRadius="16px"
+                  glareColor="#00B7B5"
+                  className="shadow-xl backdrop-blur-xl hover:border-[#00B7B5]/30 transition-all duration-300"
+                >
+                  <div className="w-full h-full flex flex-col justify-center items-start p-5 sm:p-6 min-h-[110px] sm:min-h-[120px]">
+                    <h3 className="text-3xl sm:text-4xl xl:text-5xl font-extrabold text-[#00B7B5] mb-1">
+                      <CountUp from={0} to={parseInt(t('about.stats.records.value')) || 0} />
+                      {t('about.stats.records.value').replace(/[0-9]/g, '')}
+                    </h3>
+                    <p className="text-xs text-[#F4F4F4]/70 font-medium">{t('about.stats.records.label')}</p>
+                  </div>
+                </GlareHover>
               </motion.div>
             </div>
 
-            <motion.div variants={statVariants} className="rounded-[24px] border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-6 sm:p-8 shadow-2xl backdrop-blur-xl relative overflow-hidden group hover:border-[#00B7B5]/30 transition-colors duration-500">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#00B7B5]/0 via-[#00B7B5]/5 to-[#00B7B5]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="relative z-10">
-                <h3 className="text-lg sm:text-xl font-bold text-[#F4F4F4] mb-3">{t('about.vision.title')}</h3>
-                <p className="text-xs sm:text-sm leading-relaxed text-[#F4F4F4]/60">
-                  {t('about.vision.description')}
-                </p>
-              </div>
+            <motion.div variants={statVariants} className="group rounded-[24px] border border-white/10 bg-gradient-to-br from-white/10 to-white/5 shadow-2xl backdrop-blur-xl relative overflow-hidden hover:border-[#00B7B5]/30 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00B7B5]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <BorderGlow
+                edgeSensitivity={30}
+                glowColor="179 100 36"
+                backgroundColor="transparent"
+                borderRadius={24}
+                glowRadius={40}
+                glowIntensity={0.8}
+                coneSpread={25}
+                animated={false}
+                colors={['#00B7B5', '#018790', '#005461']}
+                className="relative p-6 sm:p-8 h-full border-none flex flex-col justify-center"
+              >
+                <div className="relative z-10">
+                  <h3 className="text-lg sm:text-xl font-bold text-[#F4F4F4] mb-3">{t('about.vision.title')}</h3>
+                  <p className="text-xs sm:text-sm leading-relaxed text-[#F4F4F4]/60">
+                    {t('about.vision.description')}
+                  </p>
+                </div>
+              </BorderGlow>
             </motion.div>
           </motion.div>
 
