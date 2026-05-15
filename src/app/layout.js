@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${poppins.variable} ${outfit.variable} ${outfitMono.variable} h-full antialiased`}
     >
-      <body className="min-h-screen flex flex-col relative overflow-x-hidden">
+      <body className="flex flex-col relative overflow-x-hidden">
         <LanguageProvider>
           <div className="fixed inset-0 -z-10">
             <FloatingLines

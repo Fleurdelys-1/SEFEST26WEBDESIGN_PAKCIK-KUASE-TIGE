@@ -17,7 +17,7 @@ const initialForm = {
   name: "",
   number: "",
   digitalContact: "",
-  region: "",
+  region: "United States (US)",
   certificateName: "",
   eventCode: "",
   issuingInstitution: "",
@@ -64,7 +64,226 @@ const fieldLabels = {
   signer: "Signer / Authorities",
 };
 
-const languageOptions = ["English", "Indonesian"];
+const languageOptions = [
+  "English",
+  "Indonesian",
+  "Spanish",
+  "French",
+  "German",
+  "Italian",
+  "Portuguese",
+  "Russian",
+  "Japanese",
+  "Chinese (Mandarin)",
+  "Korean",
+  "Arabic",
+  "Hindi",
+  "Vietnamese",
+  "Thai",
+  "Dutch",
+  "Swedish",
+  "Polish",
+  "Turkish",
+  "Greek",
+];
+
+const regionOptions = [
+  "Afghanistan (AF)",
+  "Albania (AL)",
+  "Algeria (DZ)",
+  "Andorra (AD)",
+  "Angola (AO)",
+  "Argentina (AR)",
+  "Armenia (AM)",
+  "Australia (AU)",
+  "Austria (AT)",
+  "Azerbaijan (AZ)",
+  "Bahamas (BS)",
+  "Bahrain (BH)",
+  "Bangladesh (BD)",
+  "Barbados (BB)",
+  "Belarus (BY)",
+  "Belgium (BE)",
+  "Belize (BZ)",
+  "Benin (BJ)",
+  "Bhutan (BT)",
+  "Bolivia (BO)",
+  "Bosnia and Herzegovina (BA)",
+  "Botswana (BW)",
+  "Brazil (BR)",
+  "Brunei (BN)",
+  "Bulgaria (BG)",
+  "Burkina Faso (BF)",
+  "Burundi (BI)",
+  "Cambodia (KH)",
+  "Cameroon (CM)",
+  "Canada (CA)",
+  "Cape Verde (CV)",
+  "Central African Republic (CF)",
+  "Chad (TD)",
+  "Chile (CL)",
+  "China (CN)",
+  "Colombia (CO)",
+  "Comoros (KM)",
+  "Congo (CG)",
+  "Costa Rica (CR)",
+  "Croatia (HR)",
+  "Cuba (CU)",
+  "Cyprus (CY)",
+  "Czech Republic (CZ)",
+  "Denmark (DK)",
+  "Djibouti (DJ)",
+  "Dominica (DM)",
+  "Dominican Republic (DO)",
+  "Ecuador (EC)",
+  "Egypt (EG)",
+  "El Salvador (SV)",
+  "Equatorial Guinea (GQ)",
+  "Eritrea (ER)",
+  "Estonia (EE)",
+  "Ethiopia (ET)",
+  "Fiji (FJ)",
+  "Finland (FI)",
+  "France (FR)",
+  "Gabon (GA)",
+  "Gambia (GM)",
+  "Georgia (GE)",
+  "Germany (DE)",
+  "Ghana (GH)",
+  "Greece (GR)",
+  "Grenada (GD)",
+  "Guatemala (GT)",
+  "Guinea (GN)",
+  "Guinea-Bissau (GW)",
+  "Guyana (GY)",
+  "Haiti (HT)",
+  "Honduras (HN)",
+  "Hong Kong (HK)",
+  "Hungary (HU)",
+  "Iceland (IS)",
+  "India (IN)",
+  "Indonesia (ID)",
+  "Iran (IR)",
+  "Iraq (IQ)",
+  "Ireland (IE)",
+  "Israel (IL)",
+  "Italy (IT)",
+  "Jamaica (JM)",
+  "Japan (JP)",
+  "Jordan (JO)",
+  "Kazakhstan (KZ)",
+  "Kenya (KE)",
+  "Kiribati (KI)",
+  "Kuwait (KW)",
+  "Kyrgyzstan (KG)",
+  "Laos (LA)",
+  "Latvia (LV)",
+  "Lebanon (LB)",
+  "Lesotho (LS)",
+  "Liberia (LR)",
+  "Libya (LY)",
+  "Liechtenstein (LI)",
+  "Lithuania (LT)",
+  "Luxembourg (LU)",
+  "Macao (MO)",
+  "Madagascar (MG)",
+  "Malawi (MW)",
+  "Malaysia (MY)",
+  "Maldives (MV)",
+  "Mali (ML)",
+  "Malta (MT)",
+  "Marshall Islands (MH)",
+  "Mauritania (MR)",
+  "Mauritius (MU)",
+  "Mexico (MX)",
+  "Micronesia (FM)",
+  "Moldova (MD)",
+  "Monaco (MC)",
+  "Mongolia (MN)",
+  "Montenegro (ME)",
+  "Morocco (MA)",
+  "Mozambique (MZ)",
+  "Myanmar (MM)",
+  "Namibia (NA)",
+  "Nauru (NR)",
+  "Nepal (NP)",
+  "Netherlands (NL)",
+  "New Zealand (NZ)",
+  "Nicaragua (NI)",
+  "Niger (NE)",
+  "Nigeria (NG)",
+  "North Korea (KP)",
+  "North Macedonia (MK)",
+  "Norway (NO)",
+  "Oman (OM)",
+  "Pakistan (PK)",
+  "Palau (PW)",
+  "Palestine (PS)",
+  "Panama (PA)",
+  "Papua New Guinea (PG)",
+  "Paraguay (PY)",
+  "Peru (PE)",
+  "Philippines (PH)",
+  "Poland (PL)",
+  "Portugal (PT)",
+  "Qatar (QA)",
+  "Romania (RO)",
+  "Russia (RU)",
+  "Rwanda (RW)",
+  "Saint Kitts and Nevis (KN)",
+  "Saint Lucia (LC)",
+  "Saint Vincent and the Grenadines (VC)",
+  "Samoa (WS)",
+  "San Marino (SM)",
+  "Sao Tome and Principe (ST)",
+  "Saudi Arabia (SA)",
+  "Senegal (SN)",
+  "Serbia (RS)",
+  "Seychelles (SC)",
+  "Sierra Leone (SL)",
+  "Singapore (SG)",
+  "Slovakia (SK)",
+  "Slovenia (SI)",
+  "Solomon Islands (SB)",
+  "Somalia (SO)",
+  "South Africa (ZA)",
+  "South Korea (KR)",
+  "South Sudan (SS)",
+  "Spain (ES)",
+  "Sri Lanka (LK)",
+  "Sudan (SD)",
+  "Suriname (SR)",
+  "Sweden (SE)",
+  "Switzerland (CH)",
+  "Syria (SY)",
+  "Taiwan (TW)",
+  "Tajikistan (TJ)",
+  "Tanzania (TZ)",
+  "Thailand (TH)",
+  "Timor-Leste (TL)",
+  "Togo (TG)",
+  "Tonga (TO)",
+  "Trinidad and Tobago (TT)",
+  "Tunisia (TN)",
+  "Turkey (TR)",
+  "Turkmenistan (TM)",
+  "Tuvalu (TV)",
+  "Uganda (UG)",
+  "Ukraine (UA)",
+  "United Arab Emirates (AE)",
+  "United Kingdom (GB)",
+  "United States (US)",
+  "Uruguay (UY)",
+  "Uzbekistan (UZ)",
+  "Vanuatu (VU)",
+  "Vatican City (VA)",
+  "Venezuela (VE)",
+  "Vietnam (VN)",
+  "Yemen (YE)",
+  "Zambia (ZM)",
+  "Zimbabwe (ZW)",
+];
+
 const levelOptions = ["Beginner", "Intermediate", "Advanced"];
 const modalityOptions = [
   "Online (Synchronous)",
@@ -80,7 +299,7 @@ const formatDateInput = (value) => {
 };
 
 const labelClass =
-  "flex flex-col text-[11px] text-[#F4F4F4]/60 font-medium tracking-wide";
+  "flex flex-col text-[10px] sm:text-[11px] text-[#F4F4F4]/60 font-medium tracking-wide";
 
 const LabelText = ({ children }) => (
   <span className="flex items-center gap-0.5">{children}</span>
@@ -120,6 +339,69 @@ export default function RegisterPage() {
   const [success, setSuccess] = useState(false);
   const [openDropdowns, setOpenDropdowns] = useState({});
 
+  const formContainerVariants = {
+    hidden: { opacity: 0, scale: 0.95, y: 20 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut',
+        delay: 0.3,
+      },
+    },
+  };
+
+  const sidebarVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut',
+        delay: 0.5,
+      },
+    },
+  };
+
+  const contentVariants = {
+    hidden: { opacity: 0, x: 30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.6,
+        ease: 'easeOut',
+        delay: 0.5,
+      },
+    },
+  };
+
+  const fieldContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.6,
+      },
+    },
+  };
+
+  const fieldVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: 'easeOut',
+      },
+    },
+  };
+
   const validate = (data) => {
     const newErrors = {};
     requiredFields.forEach((field) => {
@@ -135,6 +417,14 @@ export default function RegisterPage() {
         newErrors[field] = `${fieldLabels[field]} is required`;
       }
     });
+
+    if (data.digitalContact && !newErrors.digitalContact) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(data.digitalContact)) {
+        newErrors.digitalContact = "Valid email is required";
+      }
+    }
+
     return newErrors;
   };
 
@@ -142,8 +432,14 @@ export default function RegisterPage() {
     const { name, value } = e.target;
     let formatted = value;
     if (name === "certificateIssue") formatted = formatDateInput(value);
+    // Only allow numbers for the number field
+    if (name === "number") {
+      formatted = value.replace(/\D/g, "");
+    }
     const updatedForm = { ...form, [name]: formatted };
     setForm(updatedForm);
+    // Close any open dropdowns when typing in inputs
+    setOpenDropdowns({});
     if (touched[name]) {
       const newErrors = validate(updatedForm);
       setErrors((prev) => ({ ...prev, [name]: newErrors[name] }));
@@ -171,7 +467,19 @@ export default function RegisterPage() {
     setTimeout(() => {
       setLoading(false);
       setSuccess(true);
-      setTimeout(() => setSuccess(false), 2000);
+      if (window.innerWidth < 1024) {
+        setTimeout(() => {
+          const msgEl = document.getElementById("success-message");
+          if (msgEl) {
+            msgEl.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        }, 100);
+      }
+      setTimeout(() => {
+        setSuccess(false);
+        setForm(initialForm);
+        setTouched({});
+      }, 3000);
     }, 1200);
   };
 
@@ -229,17 +537,30 @@ export default function RegisterPage() {
   );
 
   const CustomDropdown = ({ field, options, value }) => {
+    const [searchTerm, setSearchTerm] = useState("");
     const isOpen = openDropdowns[field] || false;
+
+    const filteredOptions = options.filter((option) =>
+      option.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     const toggleDropdown = (e) => {
       e.preventDefault();
-      setOpenDropdowns((prev) => ({ ...prev, [field]: !isOpen }));
+      if (!isOpen) {
+        // Ketika membuka dropdown, tutup semua dropdown lain
+        setOpenDropdowns({ [field]: true });
+      } else {
+        // Ketika menutup dropdown
+        setOpenDropdowns((prev) => ({ ...prev, [field]: false }));
+      }
+      setSearchTerm("");
     };
 
     const handleSelect = (option) => {
       const newForm = { ...form, [field]: option };
       setForm(newForm);
       setOpenDropdowns((prev) => ({ ...prev, [field]: false }));
+      setSearchTerm("");
       if (touched[field]) {
         const newErrors = validate(newForm);
         setErrors((prev) => ({ ...prev, [field]: newErrors[field] }));
@@ -249,6 +570,7 @@ export default function RegisterPage() {
     return (
       <div className="relative mt-1">
         <motion.button
+          type="button"
           onClick={toggleDropdown}
           className={`w-full px-3 py-2 rounded-lg text-[#F4F4F4] text-sm focus:outline-none focus:ring-1 transition-all flex items-center justify-between text-left ${
             touched[field] && errors[field]
@@ -275,28 +597,51 @@ export default function RegisterPage() {
           </motion.div>
         </motion.button>
 
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {isOpen && (
             <motion.div
-              className="absolute top-full left-0 right-0 mt-2 rounded-lg bg-gradient-to-b from-[#005461]/90 to-[#003d44]/90 border border-white/30 shadow-lg backdrop-blur-md overflow-hidden z-50"
+              className="absolute top-full left-0 right-0 mt-2 rounded-lg bg-gradient-to-b from-[#005461]/90 to-[#003d44]/90 border border-white/30 shadow-lg backdrop-blur-md overflow-hidden z-50 flex flex-col"
+              style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}
               initial="hidden"
               animate="visible"
               exit="exit"
               variants={dropdownVariants}
             >
-              {options.map((option) => (
-                <motion.button
-                  key={option}
-                  onClick={() => handleSelect(option)}
-                  variants={dropdownItemVariants}
-                  className="w-full px-3 py-2 text-left text-xs sm:text-sm text-[#F4F4F4] hover:bg-white/10 transition flex items-center justify-between"
-                >
-                  <span>{option}</span>
-                  {value === option && (
-                    <Check size={14} className="text-[#F4F4F4]" />
-                  )}
-                </motion.button>
-              ))}
+              {/* Search Input */}
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="m-2 px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-[#F4F4F4] text-xs placeholder-[#F4F4F4]/50 focus:outline-none focus:ring-1 focus:ring-[#00b7b5]/30"
+              />
+              
+              {/* Options List */}
+              <div
+                className="max-h-48 overflow-y-auto"
+                style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}
+              >
+                {filteredOptions.length > 0 ? (
+                  filteredOptions.map((option) => (
+                    <motion.button
+                      type="button"
+                      key={option}
+                      onClick={() => handleSelect(option)}
+                      variants={dropdownItemVariants}
+                      className="w-full px-3 py-2 text-left text-xs sm:text-sm text-[#F4F4F4] hover:bg-white/10 transition flex items-center justify-between"
+                    >
+                      <span>{option}</span>
+                      {value === option && (
+                        <Check size={14} className="text-[#F4F4F4]" />
+                      )}
+                    </motion.button>
+                  ))
+                ) : (
+                  <div className="px-3 py-2 text-xs text-[#F4F4F4]/50 text-center">
+                    No results found
+                  </div>
+                )}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -316,10 +661,13 @@ export default function RegisterPage() {
         </Link>
       </div>
 
-      <form
+      <motion.form
         onSubmit={handleSubmit}
         noValidate
-        className="w-full max-w-6xl rounded-2xl border border-white/10 shadow-2xl overflow-hidden relative z-10"
+        variants={formContainerVariants}
+        initial="hidden"
+        animate="visible"
+        className="w-full max-w-6xl rounded-2xl border border-white/10 shadow-2xl overflow-visible relative z-10"
         style={{
           background:
             "linear-gradient(135deg, rgba(5,20,25,0.92) 0%, rgba(10,30,38,0.88) 60%, rgba(0,80,90,0.18) 100%)",
@@ -327,15 +675,18 @@ export default function RegisterPage() {
             "0 0 60px 0 rgba(0,183,181,0.08), 0 2px 40px 0 rgba(0,0,0,0.6)",
         }}
       >
-        <div className="grid grid-cols-[300px_1fr]">
-          <div
-            className="flex flex-col gap-4 p-7 relative"
+        <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-0">
+          <motion.div
+            variants={sidebarVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col gap-3 sm:gap-4 p-4 sm:p-6 lg:p-7 relative z-[100] rounded-t-2xl lg:rounded-t-none lg:rounded-l-2xl border-b lg:border-b-0 lg:border-r"
             style={{
               background:
                 "linear-gradient(160deg, rgba(255,255,255,0.09) 0%, rgba(0,183,181,0.05) 45%, rgba(0,30,40,0.10) 100%)",
               backdropFilter: "blur(28px)",
               WebkitBackdropFilter: "blur(28px)",
-              borderRight: "1px solid rgba(255,255,255,0.09)",
+              borderColor: "rgba(255,255,255,0.09)",
               boxShadow:
                 "inset 0 1px 0 rgba(255,255,255,0.08), inset -1px 0 0 rgba(0,183,181,0.06)",
             }}
@@ -376,14 +727,20 @@ export default function RegisterPage() {
                   />
                 </svg>
               </span>
-              <div className="text-[15px] font-bold text-[#F4F4F4] leading-tight drop-shadow-sm">
+              <div className="text-[13px] sm:text-[15px] font-bold text-[#F4F4F4] leading-tight drop-shadow-sm">
                 Lets Register
                 <br />
                 Your Certificate
               </div>
             </div>
 
-            <div className="text-[10px] text-[#00b7b5] font-bold tracking-widest flex items-center gap-2 relative z-10">
+            <motion.div 
+              variants={fieldContainerVariants}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-col gap-3 sm:gap-4 relative z-50"
+            >
+            <div className="text-[9px] sm:text-[10px] text-[#00b7b5] font-bold tracking-widest flex items-center gap-2">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="#00b7b5">
                 <circle cx="12" cy="8" r="4" />
                 <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
@@ -392,56 +749,83 @@ export default function RegisterPage() {
             </div>
 
             {[
-              { field: "name", label: "Name", placeholder: "Your Name" },
+              { field: "name", label: "Name", placeholder: "Your Name", isDropdown: false },
               {
                 field: "number",
                 label: "Number",
                 placeholder: "Phone or ID Number",
+                isDropdown: false,
               },
               {
                 field: "digitalContact",
                 label: "Digital Contact",
                 placeholder: "Email or Social Media",
+                isDropdown: false,
               },
-              { field: "region", label: "Region", placeholder: "Region" },
-            ].map(({ field, label, placeholder }) => (
-              <label key={field} className={`${labelClass} relative z-10`}>
-                <LabelText>
-                  {label}
-                  <RequiredMark />
-                </LabelText>
-                <input
-                  name={field}
-                  value={form[field]}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  placeholder={placeholder}
-                  className={getGlassInputClass(field)}
-                  style={getGlassInputStyle(field)}
-                />
-                <ErrorMsg field={field} />
-              </label>
-            ))}
+              { field: "region", label: "Region", placeholder: "Region", isDropdown: true },
+            ].map(({ field, label, placeholder, isDropdown }) => {
+              if (isDropdown && field === "region") {
+                return (
+                  <motion.div key={field} variants={fieldVariants} className={`${labelClass} relative z-50`}>
+                    <LabelText>
+                      {label}
+                      <RequiredMark />
+                    </LabelText>
+                    <CustomDropdown
+                      field={field}
+                      options={regionOptions}
+                      value={form[field]}
+                    />
+                    <ErrorMsg field={field} />
+                  </motion.div>
+                );
+              }
+              return (
+                <motion.label key={field} variants={fieldVariants} className={`${labelClass} relative z-10`}>
+                  <LabelText>
+                    {label}
+                    <RequiredMark />
+                  </LabelText>
+                  <input
+                    name={field}
+                    value={form[field]}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    placeholder={placeholder}
+                    className={getGlassInputClass(field)}
+                    style={getGlassInputStyle(field)}
+                  />
+                  <ErrorMsg field={field} />
+                </motion.label>
+              );
+            })}
+            </motion.div>
 
-            <div className="mt-auto pt-6 flex items-center gap-2 text-[#F4F4F4]/50 text-xs relative z-10">
-              <Mail size={13} className="text-[#00b7b5]" />
-              <span>certify@gmail.com</span>
+            <div className="mt-auto pt-4 sm:pt-6 flex items-center gap-2 text-[#F4F4F4]/50 text-[10px] sm:text-xs relative z-0">
+              <Mail size={12} className="text-[#00b7b5] flex-shrink-0" />
+              <span className="truncate">hello@certify.io</span>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col p-7 gap-4">
-            <AnimatePresence mode="wait">
+          <motion.div 
+            variants={contentVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col p-4 sm:p-6 lg:p-7 gap-4 relative z-10 rounded-b-2xl lg:rounded-b-none lg:rounded-r-2xl"
+          >
+            <AnimatePresence>
               {success && !loading && (
                 <motion.div
                   key="register-success"
-                  initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
+                  id="success-message"
+                  initial={{ opacity: 0, height: 0, filter: "blur(8px)", marginBottom: 0 }}
+                  animate={{ opacity: 1, height: "auto", filter: "blur(0px)", marginBottom: 16 }}
+                  exit={{ opacity: 0, height: 0, filter: "blur(8px)", marginBottom: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#00B7B5]/10 via-[#0a2d33]/20 to-transparent p-6 shadow-[0_30px_90px_rgba(0,183,181,0.12)] backdrop-blur-xl"
+                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#00B7B5]/10 via-[#0a2d33]/20 to-transparent px-6 shadow-[0_30px_90px_rgba(0,183,181,0.12)] backdrop-blur-xl"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-[#00B7B5]/10 to-transparent opacity-80" />
-                  <div className="relative z-10 flex flex-col items-center justify-center gap-4 text-center">
+                  <div className="relative z-10 flex flex-col items-center justify-center gap-4 text-center py-6">
                     <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#00B7B5]/10 border border-[#00B7B5]/20 shadow-lg shadow-[#00B7B5]/10">
                       <Check className="h-8 w-8 text-[#00B7B5]" />
                     </div>
@@ -455,28 +839,29 @@ export default function RegisterPage() {
                   </div>
                 </motion.div>
               )}
+            </AnimatePresence>
 
-              {!success && (
-                <motion.div
-                  key="register-form"
-                  initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
-                  transition={{ duration: 0.4 }}
-                  className="flex flex-col gap-4"
-                >
+            <motion.div
+              key="register-form"
+              className="flex flex-col gap-4"
+            >
                   <div className="flex items-center gap-2 mb-1">
                     <div className="flex flex-col gap-[3px]">
                       <div className="w-5 h-[3px] rounded bg-[#00b7b5]" />
                       <div className="w-3 h-[3px] rounded bg-[#00b7b5]/50" />
                     </div>
-                    <span className="text-[10px] text-[#00b7b5] font-bold tracking-widest">
+                    <span className="text-[9px] sm:text-[10px] text-[#00b7b5] font-bold tracking-widest">
                       PROGRAM DETAIL
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-x-6 gap-y-4">
-                    <label className={labelClass}>
+                  <motion.div 
+                    variants={fieldContainerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 sm:gap-y-4"
+                  >
+                    <motion.label variants={fieldVariants} className={labelClass}>
                       <LabelText>
                         Name Certificated
                         <RequiredMark />
@@ -490,9 +875,9 @@ export default function RegisterPage() {
                         placeholder="Certificate Name"
                       />
                       <ErrorMsg field="certificateName" />
-                    </label>
+                    </motion.label>
 
-                    <label className={labelClass}>
+                    <motion.label variants={fieldVariants} className={labelClass}>
                       <LabelText>
                         Event Code
                         <RequiredMark />
@@ -506,9 +891,9 @@ export default function RegisterPage() {
                         placeholder="Event Code"
                       />
                       <ErrorMsg field="eventCode" />
-                    </label>
+                    </motion.label>
 
-                    <label className={labelClass}>
+                    <motion.label variants={fieldVariants} className={labelClass}>
                       <LabelText>
                         Issuing Institution
                         <RequiredMark />
@@ -522,9 +907,9 @@ export default function RegisterPage() {
                         placeholder="Institution Name"
                       />
                       <ErrorMsg field="issuingInstitution" />
-                    </label>
+                    </motion.label>
 
-                    <label className={labelClass}>
+                    <motion.div variants={fieldVariants} className={`${labelClass} relative z-50`}>
                       <LabelText>
                         Language
                         <RequiredMark />
@@ -535,9 +920,9 @@ export default function RegisterPage() {
                         value={form.language}
                       />
                       <ErrorMsg field="language" />
-                    </label>
+                    </motion.div>
 
-                    <label className={labelClass}>
+                    <motion.div variants={fieldVariants} className={`${labelClass} relative z-40`}>
                       <LabelText>
                         Level
                         <RequiredMark />
@@ -548,9 +933,9 @@ export default function RegisterPage() {
                         value={form.level}
                       />
                       <ErrorMsg field="level" />
-                    </label>
+                    </motion.div>
 
-                    <div className={labelClass}>
+                    <motion.div variants={fieldVariants} className={`${labelClass} relative z-30`}>
                       <LabelText>
                         Certificated Issue
                         <RequiredMark />
@@ -650,9 +1035,9 @@ export default function RegisterPage() {
                           {errors["certificateIssue"]}
                         </span>
                       ) : null}
-                    </div>
+                    </motion.div>
 
-                    <label className={labelClass}>
+                    <motion.div variants={fieldVariants} className={`${labelClass} relative z-20`}>
                       <LabelText>
                         Modality
                         <RequiredMark />
@@ -663,9 +1048,9 @@ export default function RegisterPage() {
                         value={form.modality}
                       />
                       <ErrorMsg field="modality" />
-                    </label>
+                    </motion.div>
 
-                    <div className={labelClass}>
+                    <motion.div variants={fieldVariants} className={`${labelClass} relative z-10`}>
                       <LabelText>
                         Study Period
                         <RequiredMark />
@@ -772,9 +1157,9 @@ export default function RegisterPage() {
                           {errors["studyPeriod"]}
                         </span>
                       ) : null}
-                    </div>
+                    </motion.div>
 
-                    <label className={labelClass}>
+                    <motion.label variants={fieldVariants} className={labelClass}>
                       <LabelText>
                         Instructors
                         <RequiredMark />
@@ -788,9 +1173,9 @@ export default function RegisterPage() {
                         placeholder="Instructor Name"
                       />
                       <ErrorMsg field="instructors" />
-                    </label>
+                    </motion.label>
 
-                    <label className={labelClass}>
+                    <motion.label variants={fieldVariants} className={labelClass}>
                       <LabelText>
                         Signer / Authorities
                         <RequiredMark />
@@ -804,13 +1189,13 @@ export default function RegisterPage() {
                         placeholder="Signer Name"
                       />
                       <ErrorMsg field="signer" />
-                    </label>
-                  </div>
+                    </motion.label>
+                  </motion.div>
 
-                  <div className="flex items-center justify-between mt-auto pt-2">
+                  <motion.div variants={fieldVariants} className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mt-auto pt-2">
                     {Object.keys(errors).length > 0 &&
                     Object.keys(touched).length > 0 ? (
-                      <span className="text-[11px] text-red-400 flex items-center gap-1.5">
+                      <span className="text-[10px] sm:text-[11px] text-red-400 flex items-center gap-1.5">
                         <svg
                           width="12"
                           height="12"
@@ -838,10 +1223,12 @@ export default function RegisterPage() {
                       <span />
                     )}
 
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                       type="submit"
                       disabled={loading}
-                      className="inline-flex items-center justify-center gap-3 rounded-3xl bg-gradient-to-r from-[#005461]/30 to-[#F4F4F4]/20 border border-white/30 shadow-lg backdrop-blur-md px-8 py-4 text-sm font-semibold text-[#F4F4F4] transition-all duration-200 hover:from-[#005461]/40 hover:to-[#F4F4F4]/30 hover:border-white/40 hover:shadow-xl hover:shadow-[#00B7B5]/25 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-3xl bg-gradient-to-r from-[#005461]/30 to-[#F4F4F4]/20 border border-white/30 shadow-lg backdrop-blur-md px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm font-semibold text-[#F4F4F4] transition-all duration-200 hover:from-[#005461]/40 hover:to-[#F4F4F4]/30 hover:border-white/40 hover:shadow-xl hover:shadow-[#00B7B5]/25 disabled:opacity-60 disabled:cursor-not-allowed"
                       style={{
                         background:
                           "linear-gradient(90deg, rgba(0,84,97,0.30) 0%, rgba(244,244,244,0.15) 100%)",
@@ -851,14 +1238,12 @@ export default function RegisterPage() {
                       }}
                     >
                       {loading ? "SENDING..." : success ? "✓ SENT!" : "SEND"}
-                    </button>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+                    </motion.button>
+                  </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
-      </form>
+      </motion.form>
     </div>
   );
 }

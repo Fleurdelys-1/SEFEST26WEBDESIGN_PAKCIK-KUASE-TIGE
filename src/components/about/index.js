@@ -48,8 +48,8 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="relative overflow-hidden px-4 sm:px-6 lg:px-8 pt-24 pb-12 sm:pt-28 sm:pb-16 min-h-screen flex items-center lg:items-start lg:pt-32">
-      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#00B7B5]/10 to-transparent pointer-events-none rounded-t-[100px]" />
+    <section id="about" className="relative overflow-hidden px-4 sm:px-6 lg:px-8 min-h-screen pt-24 sm:pt-28 lg:pt-28 pb-16 flex flex-col items-center justify-start">
+      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#00B7B5]/10 to-transparent pointer-events-none rounded-t-[40px] sm:rounded-t-[70px] lg:rounded-t-[100px]" />
       
       <div className="relative max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-12 items-start">
@@ -59,12 +59,12 @@ export default function About() {
             className="flex flex-col items-start space-y-6 sm:space-y-8"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             variants={containerVariants}
           >
             <motion.span
               variants={itemVariants}
-              className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.24em] text-white shadow-lg backdrop-blur-md"
+              className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.24em] text-white shadow-lg backdrop-blur-md mx-auto sm:mx-0"
               style={{
                 background: 'rgba(0, 84, 97, 0.3)',
                 border: '1px solid rgba(0, 183, 181, 0.4)',
@@ -126,7 +126,7 @@ export default function About() {
             className="flex flex-col gap-4 w-full mt-8 lg:mt-0"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             variants={containerVariants}
           >
             <div className="grid grid-cols-2 gap-4">

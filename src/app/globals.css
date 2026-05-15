@@ -295,3 +295,42 @@ body {
 .rdp-nav_button:hover {
   background-color: rgba(244, 244, 244, 0.1);
 }
+
+/* Scroll Snap Styles */
+html {
+  scroll-behavior: smooth;
+  /* Custom Scrollbar Styles */
+  scrollbar-color: #00B7B5 rgba(0, 0, 0, 0.3);
+  scrollbar-width: thin;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00B7B5, #005461);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00D9D7, #008B89);
+  box-shadow: 0 0 10px rgba(0, 183, 181, 0.5);
+}
+
+#home,
+#validation,
+#about,
+#faq,
+#contact,
+#footer {
+  /* removed scroll-snap */
+}

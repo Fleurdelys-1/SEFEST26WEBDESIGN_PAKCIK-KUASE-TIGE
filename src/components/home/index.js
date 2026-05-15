@@ -24,141 +24,63 @@ export default function Home() {
   const containerVariants = {
     hidden: {},
     visible: {
-      transition: {
-        staggerChildren: 0.3
-      }
+      transition: { staggerChildren: 0.3 }
     }
   };
 
   const glassVariants = {
     hidden: { opacity: 0, backdropFilter: "blur(0px)" },
-    visible: { 
-      opacity: 1, 
-      backdropFilter: "blur(12px)", 
-      transition: { duration: 0.6, ease: "easeOut" } 
-    }
+    visible: { opacity: 1, backdropFilter: "blur(12px)", transition: { duration: 0.6, ease: "easeOut" } }
   };
 
   const badgeVariants = {
     hidden: { x: -50, opacity: 0 },
-    visible: { 
-      x: 0, 
-      opacity: 1, 
-      transition: { type: "spring", stiffness: 100, damping: 30 } 
-    }
+    visible: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 100, damping: 30 } }
   };
 
   const protocolVariants = {
     hidden: { x: 50, opacity: 0 },
-    visible: { 
-      x: 0, 
-      opacity: 1, 
-      transition: { type: "spring", stiffness: 100, damping: 30 } 
-    }
+    visible: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 100, damping: 30 } }
   };
 
   const titleVariants = {
     hidden: { x: -80, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
+    visible: { x: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
   };
 
   const rotatingTextWrapperVariants = {
     hidden: { y: 80, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
+    visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
   };
 
   const buttonContainerVariants = {
     hidden: {},
     visible: {
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      }
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 }
     }
   };
 
   const imageVariants = {
     hidden: { y: 40, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.9,
-        ease: "easeOut"
-      }
-    }
+    visible: { y: 0, opacity: 1, transition: { duration: 0.9, ease: "easeOut" } }
   };
 
   const buttonVariants = {
     hidden: { y: -24, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const logoContainerVariants = {
-    hidden: { opacity: 0, filter: "blur(10px)" },
-    visible: { opacity: 1, filter: "blur(0px)", transition: { duration: 0.8 } }
-  };
-
-  const navLogoVariants = {
-    hidden: { x: -50, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        delay: 0.2,
-        duration: 0.6,
-        ease: 'easeOut',
-      },
-    },
-  };
-
-  const navTextVariants = {
-    hidden: { x: -50, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        delay: 0.8,
-        duration: 0.6,
-        ease: 'easeOut',
-      },
-    },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
   return (
     <>
-      <main id="home" className="relative flex flex-col items-start justify-start min-h-screen w-full select-none px-4 sm:px-6 lg:px-8 xl:px-12 pt-32 sm:pt-40 md:pt-48 pb-16">
-        <motion.div 
-          className="absolute left-10 sm:left-12 top-[38px] -translate-y-1/2 flex items-center gap-2 z-30" 
-          variants={logoContainerVariants} 
-          initial="hidden" 
-          animate="visible"
-        >
-          <motion.img src="/images/certify.png" alt="Certify Logo" className="w-6 h-6 sm:w-7 sm:h-7" variants={navLogoVariants} />
-          <motion.span className="text-xl sm:text-2xl text-[#F4F4F4] font-lexend" variants={navTextVariants}>Certify</motion.span>
-        </motion.div>
-        <motion.div 
-          className="flex items-center gap-2 mb-6 sm:mb-8"
+      <main id="home" className="relative flex flex-col items-start justify-start min-h-screen w-full select-none px-4 sm:px-6 lg:px-8 xl:px-12 pt-28 sm:pt-32 md:pt-36 pb-16">
+        {/* Badge */}
+        <motion.div
+          className="flex items-center gap-2 mb-7 sm:mb-8"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
         >
-          <motion.span 
+          <motion.span
             className="px-4 py-2 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-white/80 shadow flex items-center gap-2"
             variants={glassVariants}
           >
@@ -182,8 +104,10 @@ export default function Home() {
             </motion.span>
           </motion.span>
         </motion.div>
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#F4F4F4] text-left mb-6 font-outfit drop-shadow-lg">
-          <span className="block">
+
+        {/* Title — max 2 lines, clamp on mobile */}
+        <h1 className="text-[clamp(1.4rem,6.5vw,1.875rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#F4F4F4] text-left mb-5 sm:mb-6 font-outfit drop-shadow-lg leading-tight">
+          <span className="block whitespace-nowrap">
             <motion.span
               className="inline-flex overflow-hidden"
               initial="hidden"
@@ -218,7 +142,7 @@ export default function Home() {
             </motion.span>
           </span>
           <motion.span
-            className="block"
+            className="block whitespace-nowrap"
             initial="hidden"
             animate="visible"
             variants={titleVariants}
@@ -226,25 +150,25 @@ export default function Home() {
             {t('home.titleBottom')}
           </motion.span>
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-[#F4F4F4]/80 text-left max-w-xl md:max-w-2xl mb-8 font-poppins">
+
+        {/* Description */}
+        <p className="text-sm sm:text-base md:text-lg text-[#F4F4F4]/80 text-left max-w-sm sm:max-w-xl md:max-w-2xl mb-7 sm:mb-8 font-poppins leading-relaxed">
           {t('home.description').split(' ').map((word, index) => (
             <motion.span
               key={index}
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{
-                delay: index * 0.08,
-                duration: 0.6,
-                ease: "easeOut"
-              }}
+              transition={{ delay: index * 0.08, duration: 0.6, ease: "easeOut" }}
               className="inline-block mr-1"
             >
               {word}
             </motion.span>
           ))}
         </p>
+
+        {/* Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4"
           initial="hidden"
           animate="visible"
           variants={buttonContainerVariants}
@@ -262,7 +186,6 @@ export default function Home() {
           >
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <span className="absolute inset-0 rounded-[2rem]" style={{ boxShadow: 'inset 0 0 30px rgba(255,255,255,0.14)' }} />
-            <span className="absolute left-0 top-0 h-full w-0 transition-all duration-500 group-hover:w-full rounded-[2rem] pointer-events-none z-10" style={{background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(0, 183, 181, 0.12) 70%, rgba(255,255,255,0.08) 100%)', backdropFilter: 'blur(18px)', border: '1px solid rgba(255,255,255,0.25)', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.3)'}} />
             <span className="relative flex items-center gap-2">
               <UserPlus className="w-5 h-5" />
               {t('home.register')}
@@ -281,17 +204,18 @@ export default function Home() {
           >
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <span className="absolute inset-0 rounded-[2rem]" style={{ boxShadow: 'inset 0 0 24px rgba(255,255,255,0.08)' }} />
-            <span className="absolute left-0 top-0 h-full w-0 transition-all duration-500 group-hover:w-full rounded-[2rem] pointer-events-none z-10" style={{background: 'rgba(255, 255, 255, 0.05)', backdropFilter: 'blur(12px)', border: '1px solid rgba(244, 244, 244, 0.2)', boxShadow: '0 16px 30px rgba(0, 0, 0, 0.14), inset 0 1px 0 rgba(255,255,255,0.12)'}} />
             <span className="relative flex items-center gap-2">
               <ShieldCheck className="w-5 h-5" />
               {t('home.validate')}
             </span>
           </motion.button>
         </motion.div>
+
+        {/* Image — hidden on mobile, shown from lg up */}
         <motion.img
           src="/images/certify-3d.png"
           alt="Home Illustration"
-          className="mt-16 lg:absolute lg:right-[-100px] lg:top-0 lg:mt-0 w-full lg:w-4/5 lg:max-w-4xl max-w-3xl object-contain -z-10"
+          className="hidden lg:block lg:absolute lg:right-[-100px] lg:top-0 lg:w-4/5 lg:max-w-4xl object-contain -z-10"
           initial="hidden"
           animate="visible"
           variants={imageVariants}
