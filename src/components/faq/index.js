@@ -198,7 +198,69 @@ export default function FAQ() {
           </motion.div>
         </motion.div>
 
-        <div className="grid gap-6 lg:grid-cols-[minmax(280px,0.55fr)_minmax(320px,0.45fr)]">
+        {/* Mobile: accordion layout */}
+        <div className="block lg:hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCategory}
+              initial="hidden"
+              whileInView="visible"
+              exit="exit"
+              viewport={{ once: false, amount: 0.1 }}
+              variants={listContainerVariants}
+              className="space-y-3 w-full"
+            >
+              {faqs.map((faq, index) => {
+                const isOpen = index === activeIndex;
+                return (
+                  <motion.div
+                    variants={listItemVariants}
+                    key={faq.question}
+                    className={`overflow-hidden rounded-[24px] border border-white/10 bg-white/5 transition-all duration-300 ${
+                      isOpen ? "shadow-[0_28px_100px_rgba(0,183,181,0.16)] bg-white/10 border-cyan-300/30" : "hover:border-cyan-300/20 hover:bg-white/8"
+                    }`}
+                  >
+                    <button
+                      onClick={() => setActiveIndex(isOpen ? -1 : index)}
+                      className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                      type="button"
+                    >
+                      <p className="text-base font-semibold text-[#F4F4F4]">
+                        {faq.question}
+                      </p>
+                      <ChevronDown
+                        className={`h-5 w-5 text-[#00B7B5] transition-transform duration-300 flex-shrink-0 ${
+                          isOpen ? "rotate-180" : "rotate-0"
+                        }`}
+                      />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          key="answer"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <div className="px-5 pb-5 pt-1 border-t border-white/10">
+                            <p className="text-sm leading-7 text-[#F4F4F4]/70">
+                              {faq.answer}
+                            </p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Desktop: two-column layout */}
+        <div className="hidden lg:grid gap-6 lg:grid-cols-[minmax(280px,0.55fr)_minmax(320px,0.45fr)]">
           <div className="relative space-y-4 sm:space-y-6 pl-6">
             <div 
               className="absolute left-0 w-px bg-gradient-to-b from-cyan-300/70 via-white/0 to-cyan-300/70"
@@ -300,7 +362,7 @@ export default function FAQ() {
           >
             <div className="rounded-3xl border border-white/10 bg-white/5 p-5 text-sm text-[#F4F4F4]/70">
               <p className="font-medium text-[#F4F4F4] mb-2">Need more clarity?</p>
-              <p>Tap another category or question to discover more about Certify’s validation flow, security, and web3-native design.</p>
+              <p>Tap another category or question to discover more about Certify's validation flow, security, and web3-native design.</p>
             </div>
           </motion.div>
         </div>
