@@ -3,7 +3,7 @@ import Validation from '../components/validation';
 import About from '../components/about';
 import FAQ from '../components/faq';
 import Contact from '../components/contact';
-import ScrollHandler from '../components/ScrollHandler';
+import ScrollHandler from '../context/ScrollHandler';
 
 export default async function Page({ searchParams }) {
   const params = await searchParams;

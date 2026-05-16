@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from 'react';
-import ShapeGrid from './ShapeGrid';
+import ShapeGrid from './shape-grid';
 import {
   Clock,
   Mesh,
@@ -111,7 +111,7 @@ vec3 getLineColor(float t, vec3 baseColor) {
 
   if (shouldBend) {
     vec2 d = screenUv - mouseUv;
-    float influence = exp(-dot(d, d) * bendRadius); // radial falloff around cursor
+    float influence = exp(-dot(d, d) * bendRadius); 
     float bendOffset = (mouseUv.y - screenUv.y) * influence * bendStrength * bendInfluence;
     y += bendOffset;
   }
@@ -418,7 +418,7 @@ export default function FloatingLines({
 
     if (interactive) {
       renderer.domElement.style.pointerEvents = 'auto';
-      // Use window for better event capture since canvas is behind
+      
       window.addEventListener('pointermove', handlePointerMove);
       window.addEventListener('pointerleave', handlePointerLeave);
     }
@@ -467,7 +467,7 @@ export default function FloatingLines({
         renderer.domElement.parentElement.removeChild(renderer.domElement);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   }, [
     linesGradient,
     enabledWaves,

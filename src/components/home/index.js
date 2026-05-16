@@ -3,9 +3,8 @@
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '../../context/LanguageContext';
 import { ShieldCheck, UserPlus } from 'lucide-react';
-import RotatingText from '../ui/text/RotatingText';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useRef, useState, useCallback } from 'react';
+import RotatingText from '../ui/text/RotatingText'
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const router = useRouter();
@@ -86,10 +85,7 @@ export default function Home() {
 
   return (
     <>
-      <main
-        id="home"
-        className="relative flex flex-col items-start justify-start min-h-screen w-full select-none px-4 sm:px-6 lg:px-8 xl:px-12 pt-28 sm:pt-32 md:pt-36 pb-16"
-      >
+      <main id="home" className="relative flex flex-col items-start justify-start min-h-screen w-full select-none px-4 sm:px-6 lg:px-8 xl:px-12 pt-28 sm:pt-32 md:pt-36 pb-16">
         {/* Badge */}
         <motion.div
           className="flex items-center gap-2 mb-7 sm:mb-8"
@@ -120,7 +116,7 @@ export default function Home() {
           </motion.span>
         </motion.div>
 
-        {/* Title */}
+        {/* Title — max 2 lines, clamp on mobile */}
         <h1 className="text-[clamp(1.4rem,6.5vw,1.875rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#F4F4F4] text-left mb-5 sm:mb-6 font-outfit drop-shadow-lg leading-tight">
           <span className="block whitespace-nowrap">
             <motion.span
@@ -166,7 +162,7 @@ export default function Home() {
           </motion.span>
         </h1>
 
-        {/* Description */}
+        {}
         <p className="text-sm sm:text-base md:text-lg text-[#F4F4F4]/80 text-left max-w-sm sm:max-w-xl md:max-w-2xl mb-7 sm:mb-8 font-poppins leading-relaxed">
           {t('home.description').split(' ').map((word, index) => (
             <motion.span
@@ -181,7 +177,7 @@ export default function Home() {
           ))}
         </p>
 
-        {/* Buttons */}
+        {}
         <motion.div
           className="flex flex-col sm:flex-row gap-3 sm:gap-4"
           initial="hidden"
@@ -227,9 +223,11 @@ export default function Home() {
           </motion.button>
         </motion.div>
 
-        {/* ── 3D Image with Glare Hover ── */}
-        <motion.div
-          className="hidden lg:block lg:absolute lg:right-[-100px] lg:top-0 lg:w-4/5 lg:max-w-4xl -z-10"
+        {/* Image — hidden on mobile, shown from lg up */}
+        <motion.img
+          src="/images/certify-3d.png"
+          alt="Home Illustration"
+          className="hidden lg:block lg:absolute lg:right-[-100px] lg:top-0 lg:w-4/5 lg:max-w-4xl object-contain -z-10"
           initial="hidden"
           animate="visible"
           variants={imageVariants}

@@ -179,7 +179,7 @@ function Calendar({
 function CalendarDayButton({ className, day, modifiers, locale, ...props }) {
   const defaultClassNames = getDefaultClassNames();
 
-  // ✅ Baca dari Context — selalu fresh
+  
   const selectedDate = React.useContext(CalendarSelectedContext);
 
   const ref = React.useRef(null);
@@ -193,8 +193,8 @@ function CalendarDayButton({ className, day, modifiers, locale, ...props }) {
     day.date.getMonth() === todayDate.getMonth() &&
     day.date.getFullYear() === todayDate.getFullYear();
 
-  // ✅ FIX SIMPEL: jika ADA pilihan apapun → today tidak teal
-  // Tidak perlu compare tanggal sama sekali
+  
+  
   const hasAnySelection = selectedDate !== null && selectedDate !== undefined;
   const showTodayStyle = isToday && !hasAnySelection;
 
