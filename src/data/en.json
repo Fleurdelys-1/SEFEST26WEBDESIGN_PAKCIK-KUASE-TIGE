@@ -26,6 +26,12 @@
     "badge": "ABOUT",
     "title": "The future of certificate",
     "titleHighlight": "trust",
+    "rotatingTexts": [
+      "trust!",
+      "security!",
+      "blockchain!",
+      "verification!"
+    ],
     "subtitle": "Certify exists because trust shouldn't be this complicated. We take your certificates off paper and put them somewhere permanent so anyone, anywhere, can verify them instantly. Forever.",
     "cards": {
       "security": {

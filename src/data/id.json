@@ -24,8 +24,14 @@
   },
   "about": {
     "badge": "TENTANG",
-    "title": "Masa depan kepercayaan",
+    "title": "Masa depan",
     "titleHighlight": "sertifikat",
+    "rotatingTexts": [
+      "sertifikat!",
+      "keamanan!",
+      "blockchain!",
+      "kepercayaan!"
+    ],
     "subtitle": "Certify hadir karena kepercayaan tidak seharusnya serumit ini. Kami memindahkan sertifikat Anda dari kertas dan menempatkannya di tempat permanen sehingga siapa pun, di mana pun, dapat memverifikasinya secara instan. Selamanya.",
     "cards": {
       "security": {

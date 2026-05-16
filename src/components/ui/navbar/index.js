@@ -1,6 +1,6 @@
 "use client";
 
-import { Languages, ChevronDown, Check, Menu, X, UserPlus } from 'lucide-react';
+import { Languages, ChevronDown, Check, Menu, X, SquarePen } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useLanguage } from '../../../context/LanguageContext';
@@ -337,11 +337,11 @@ export default function Navbar() {
 						{}
 						<button
 							onClick={handleRegister}
-							className="p-2 rounded-xl text-[#F4F4F4] transition-colors duration-200 flex items-center justify-center relative overflow-hidden"
+							className="p-2 rounded-lg text-[#F4F4F4] transition-colors duration-200 flex items-center justify-center relative overflow-hidden"
 							aria-label="Register"
 						>
-							<span className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#005461]/30 to-[#F4F4F4]/20 border border-white/30" />
-							<UserPlus size={18} className="relative z-10" />
+							<span className="absolute inset-0 rounded-lg bg-gradient-to-r from-[#005461]/30 to-[#F4F4F4]/20 border border-white/30" />
+							<SquarePen size={18} className="relative z-10" />
 						</button>
 
 						{}

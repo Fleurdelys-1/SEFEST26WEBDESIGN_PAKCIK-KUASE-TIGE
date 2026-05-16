@@ -1,12 +1,13 @@
 "use client";
 
 import { useLanguage } from '../../context/LanguageContext';
-import { ShieldCheck, Zap, FileLock2, CheckCircle2, ArrowRight, Info } from 'lucide-react';
+import { ShieldCheck, Zap, FileLock2, CheckCircle2, SquarePen, Info } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import CountUp from '../ui/count-up';
 import GlareHover from '../ui/glare-hover';
 import BorderGlow from '../ui/card/border-glow';
+import RotatingText from '../ui/text/rotating-text';
 
 export default function About() {
   const { t } = useLanguage();
@@ -82,7 +83,24 @@ export default function About() {
               <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl lg:text-[40px] xl:text-[46px] font-bold text-[#F4F4F4] leading-[1.15] tracking-tight">
                 <span>{t('about.title')}</span>
                 <br />
-                <span className="text-[#00B7B5]">{t('about.titleHighlight')}</span>
+                <span className="text-[#00B7B5]">
+                  <RotatingText
+                    texts={t('about.rotatingTexts')}
+                    mainClassName="inline-flex overflow-hidden"
+                    elementLevelClassName="inline-block text-[#00B7B5]"
+                    splitLevelClassName="overflow-hidden"
+                    staggerFrom="last"
+                    initial={{ y: '100%', opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: '-120%', opacity: 0 }}
+                    staggerDuration={0.025}
+                    transition={{ type: 'spring', damping: 30, stiffness: 400 }}
+                    rotationInterval={2000}
+                    splitBy="characters"
+                    auto
+                    loop
+                  />
+                </span>
               </motion.h2>
               <motion.p variants={itemVariants} className="text-sm sm:text-base text-[#F4F4F4]/70 font-medium max-w-xl leading-relaxed">
                 {t('about.subtitle')}
@@ -119,7 +137,7 @@ export default function About() {
               <span className="absolute left-0 top-0 h-full w-0 transition-all duration-500 group-hover:w-full rounded-[2rem] pointer-events-none z-10" style={{background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(0, 183, 181, 0.12) 70%, rgba(255,255,255,0.08) 100%)', backdropFilter: 'blur(18px)', border: '1px solid rgba(255,255,255,0.25)', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.3)'}} />
               <span className="relative flex items-center gap-2">
                 {t('about.register')}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <SquarePen className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>
             </motion.button>
           </motion.div>

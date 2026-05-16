@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '../../context/LanguageContext';
-import { ShieldCheck, UserPlus } from 'lucide-react';
+import { ShieldCheck, SquarePen } from 'lucide-react';
 import RotatingText from '../ui/text/rotating-text'
 import { motion } from 'framer-motion';
 
@@ -126,7 +126,7 @@ export default function Home() {
               <RotatingText
                 texts={t('home.rotatingTexts')}
                 mainClassName="inline-flex overflow-hidden"
-                elementLevelClassName="inline-block"
+                elementLevelClassName="inline-block text-[#00B7B5]"
                 splitLevelClassName="overflow-hidden"
                 staggerFrom="last"
                 initial={{ y: '100%', opacity: 0 }}
@@ -186,8 +186,9 @@ export default function Home() {
           >
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <span className="absolute inset-0 rounded-[2rem]" style={{ boxShadow: 'inset 0 0 30px rgba(255,255,255,0.14)' }} />
-            <span className="relative flex items-center gap-2">
-              <UserPlus className="w-5 h-5" />
+            <span className="absolute left-0 top-0 h-full w-0 transition-all duration-500 group-hover:w-full rounded-[2rem] pointer-events-none z-10" style={{background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(0, 183, 181, 0.12) 70%, rgba(255,255,255,0.08) 100%)', backdropFilter: 'blur(18px)', border: '1px solid rgba(255,255,255,0.25)', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.3)'}} />
+            <span className="relative z-20 flex items-center gap-2">
+              <SquarePen className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               {t('home.register')}
             </span>
           </motion.button>
@@ -196,16 +197,17 @@ export default function Home() {
             className="group relative px-6 sm:px-8 py-3 sm:py-4 rounded-[2rem] font-semibold text-[#F4F4F4] overflow-hidden transition-all duration-300 hover:scale-105"
             variants={buttonVariants}
             style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              backdropFilter: 'blur(12px)',
-              border: '1px solid rgba(244, 244, 244, 0.2)',
-              boxShadow: '0 16px 30px rgba(0, 0, 0, 0.14), inset 0 1px 0 rgba(255,255,255,0.12)',
+              background: 'rgba(20, 20, 20, 0.4)',
+              backdropFilter: 'blur(18px)',
+              border: '1px solid rgba(255,255,255,0.1)',
+              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.05)',
             }}
           >
-            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <span className="absolute inset-0 rounded-[2rem]" style={{ boxShadow: 'inset 0 0 24px rgba(255,255,255,0.08)' }} />
-            <span className="relative flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5" />
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <span className="absolute inset-0 rounded-[2rem]" style={{ boxShadow: 'inset 0 0 30px rgba(255,255,255,0.14)' }} />
+            <span className="absolute left-0 top-0 h-full w-0 transition-all duration-500 group-hover:w-full rounded-[2rem] pointer-events-none z-10" style={{background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(0, 183, 181, 0.12) 70%, rgba(255,255,255,0.08) 100%)', backdropFilter: 'blur(18px)', border: '1px solid rgba(255,255,255,0.25)', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.3)'}} />
+            <span className="relative z-20 flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               {t('home.validate')}
             </span>
           </motion.button>
