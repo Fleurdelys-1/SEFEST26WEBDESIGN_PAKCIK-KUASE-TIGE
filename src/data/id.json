@@ -132,7 +132,7 @@
       "tryAgain": "Unggah PDF Lain",
       "downloadTestCert": "Unduh Sertifikat Uji",
       "downloadTestDesc": "Dapatkan file sertifikat demo untuk menguji fitur validasi PDF.",
-      "downloadBtn": "Unduh PDF Uji"
+      "downloadBtn": "Download"
     },
     "qr": {
       "badge": "Pemindaian Seluler",

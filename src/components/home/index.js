@@ -13,24 +13,20 @@ export default function Home() {
   const router = useRouter();
   const { t } = useLanguage();
 
-  // --- 3D Hover State ---
   const imgWrapperRef = useRef(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const [shinePos, setShinePos] = useState({ x: 50, y: 50 });
 
-  // --- Float animation: entrance first, then seamless float loop ---
   const floatControls = useAnimation();
 
   useEffect(() => {
     (async () => {
-      // Step 1: entrance slide-up
       await floatControls.start({
         y: 0,
         opacity: 1,
         transition: { duration: 0.9, ease: "easeOut" },
       });
-      // Step 2: infinite float from current position (y:0)
       floatControls.start({
         y: [0, -18, 0],
         transition: {
@@ -48,9 +44,9 @@ export default function Home() {
     if (!rect) return;
     const cx = rect.left + rect.width / 2;
     const cy = rect.top + rect.height / 2;
-    const dx = (e.clientX - cx) / (rect.width / 2);   // -1 → 1
-    const dy = (e.clientY - cy) / (rect.height / 2);  // -1 → 1
-    setTilt({ x: dy * -14, y: dx * 14 });              // rotateX / rotateY
+    const dx = (e.clientX - cx) / (rect.width / 2);
+    const dy = (e.clientY - cy) / (rect.height / 2);
+    setTilt({ x: dy * -14, y: dx * 14 });
     setShinePos({ x: (dx + 1) * 50, y: (dy + 1) * 50 });
   }, []);
 
@@ -124,7 +120,6 @@ export default function Home() {
   return (
     <>
       <main id="home" className="relative flex flex-col items-start justify-start min-h-screen w-full select-none px-4 sm:px-6 lg:px-8 xl:px-12 pt-28 sm:pt-32 md:pt-36 pb-16">
-        {/* Badge */}
         <motion.div
           className="flex items-center gap-2 mb-7 sm:mb-8"
           initial="hidden"
@@ -155,8 +150,6 @@ export default function Home() {
             </motion.span>
           </motion.span>
         </motion.div>
-
-        {/* Title — max 2 lines, clamp on mobile */}
         <h1 className="text-[clamp(1.4rem,6.5vw,1.875rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#F4F4F4] text-left mb-5 sm:mb-6 font-outfit drop-shadow-lg leading-tight">
           <span className="block whitespace-nowrap">
             <motion.span
@@ -201,8 +194,6 @@ export default function Home() {
             {t('home.titleBottom')}
           </motion.span>
         </h1>
-
-        {/* Description */}
         <p className="text-sm sm:text-base md:text-lg text-[#F4F4F4]/80 text-left max-w-sm sm:max-w-xl md:max-w-2xl mb-7 sm:mb-8 font-poppins leading-relaxed">
           {t('home.description').split(' ').map((word, index) => (
             <motion.span
@@ -216,8 +207,6 @@ export default function Home() {
             </motion.span>
           ))}
         </p>
-
-        {/* Buttons */}
         <motion.div
           className="flex flex-col sm:flex-row gap-3 sm:gap-4"
           initial="hidden"
@@ -237,7 +226,7 @@ export default function Home() {
           >
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <span className="absolute inset-0 rounded-[2rem]" style={{ boxShadow: 'inset 0 0 30px rgba(255,255,255,0.14)' }} />
-            <span className="absolute left-0 top-0 h-full w-0 transition-all duration-500 group-hover:w-full rounded-[2rem] pointer-events-none z-10" style={{background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(0, 183, 181, 0.12) 70%, rgba(255,255,255,0.08) 100%)', backdropFilter: 'blur(18px)', border: '1px solid rgba(255,255,255,0.25)', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.3)'}} />
+            <span className="absolute left-0 top-0 h-full w-0 transition-all duration-500 group-hover:w-full rounded-[2rem] pointer-events-none z-10" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(0, 183, 181, 0.12) 70%, rgba(255,255,255,0.08) 100%)', backdropFilter: 'blur(18px)', border: '1px solid rgba(255,255,255,0.25)', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.3)' }} />
             <span className="relative z-20 flex items-center gap-2">
               <SquarePen className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               {t('home.register')}
@@ -256,15 +245,13 @@ export default function Home() {
           >
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <span className="absolute inset-0 rounded-[2rem]" style={{ boxShadow: 'inset 0 0 30px rgba(255,255,255,0.14)' }} />
-            <span className="absolute left-0 top-0 h-full w-0 transition-all duration-500 group-hover:w-full rounded-[2rem] pointer-events-none z-10" style={{background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(0, 183, 181, 0.12) 70%, rgba(255,255,255,0.08) 100%)', backdropFilter: 'blur(18px)', border: '1px solid rgba(255,255,255,0.25)', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.3)'}} />
+            <span className="absolute left-0 top-0 h-full w-0 transition-all duration-500 group-hover:w-full rounded-[2rem] pointer-events-none z-10" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(0, 183, 181, 0.12) 70%, rgba(255,255,255,0.08) 100%)', backdropFilter: 'blur(18px)', border: '1px solid rgba(255,255,255,0.25)', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255,255,255,0.3)' }} />
             <span className="relative z-20 flex items-center gap-2">
               <ShieldCheck className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               {t('home.validate')}
             </span>
           </motion.button>
         </motion.div>
-
-        {/* Image — hidden on mobile, shown from lg up */}
         <motion.div
           ref={imgWrapperRef}
           className="hidden lg:block lg:absolute lg:right-[-100px] lg:top-0 lg:w-4/5 lg:max-w-4xl -z-10"
@@ -279,7 +266,6 @@ export default function Home() {
             willChange: "transform",
           }}
         >
-          {/* Glow halo */}
           <motion.div
             aria-hidden
             style={{
@@ -295,8 +281,6 @@ export default function Home() {
               zIndex: 1,
             }}
           />
-
-          {/* Tilt + image */}
           <div
             style={{
               transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovered ? 1.04 : 1})`,
@@ -316,8 +300,6 @@ export default function Home() {
               draggable={false}
               style={{ userSelect: "none", display: "block" }}
             />
-
-            {/* Shine sweep */}
             <div
               aria-hidden
               style={{

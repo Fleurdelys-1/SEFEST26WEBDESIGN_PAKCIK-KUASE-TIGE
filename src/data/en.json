@@ -132,7 +132,7 @@
       "tryAgain": "Upload Another PDF",
       "downloadTestCert": "Download Test Certificate",
       "downloadTestDesc": "Get the demo certificate file to test the PDF validation feature.",
-      "downloadBtn": "Download Test PDF"
+      "downloadBtn": "Download"
     },
     "qr": {
       "badge": "Mobile Scanning",

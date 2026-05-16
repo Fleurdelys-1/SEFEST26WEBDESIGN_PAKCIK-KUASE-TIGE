@@ -246,27 +246,25 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
   };
 
   const badgeContentVariants = {
-    hidden: { opacity: 0, y: 22, filter: 'blur(8px)' },
+    hidden: { opacity: 0, y: 22 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
         duration: 0.3,
-        ease: [0.34, 1.56, 0.64, 1],
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   };
 
   const sectionTextVariants = {
-    hidden: { opacity: 0, y: 40, filter: 'blur(12px)' },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
-        duration: 0.36,
-        ease: [0.34, 1.56, 0.64, 1],
+        duration: 0.4,
+        ease: [0.22, 1, 0.36, 1],
         when: 'beforeChildren',
         staggerChildren: 0.06,
         delayChildren: 0.04,
@@ -275,14 +273,13 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
   };
 
   const sectionItemVariants = {
-    hidden: { opacity: 0, y: 24, filter: 'blur(8px)' },
+    hidden: { opacity: 0, y: 24 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
-        duration: 0.28,
-        ease: [0.34, 1.56, 0.64, 1],
+        duration: 0.3,
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   };
@@ -303,27 +300,25 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
   };
 
   const tabItemVariants = {
-    hidden: { opacity: 0, y: 18, filter: 'blur(7px)' },
+    hidden: { opacity: 0, y: 18 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
-        duration: 0.22,
-        ease: [0.34, 1.56, 0.64, 1],
+        duration: 0.25,
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   };
 
   const inputRowVariants = {
-    hidden: { opacity: 0, y: 30, filter: 'blur(14px)' },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
-        duration: 0.35,
-        ease: [0.34, 1.56, 0.64, 1],
+        duration: 0.4,
+        ease: [0.22, 1, 0.36, 1],
         when: 'beforeChildren',
         staggerChildren: 0.04,
       },
@@ -331,53 +326,49 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
   };
 
   const inputItemVariants = {
-    hidden: { opacity: 0, y: 22, filter: 'blur(10px)' },
+    hidden: { opacity: 0, y: 22 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
-        duration: 0.29,
-        ease: [0.34, 1.56, 0.64, 1],
+        duration: 0.3,
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   };
 
   const verifyButtonVariants = {
-    hidden: { opacity: 0, x: 70, filter: 'blur(14px)' },
+    hidden: { opacity: 0, x: 70 },
     visible: {
       opacity: 1,
       x: 0,
-      filter: 'blur(0px)',
       transition: {
-        duration: 0.36,
-        ease: [0.34, 1.56, 0.64, 1],
+        duration: 0.4,
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   };
 
   const cryptoTextVariants = {
-    hidden: { opacity: 0, y: 28, filter: 'blur(10px)' },
+    hidden: { opacity: 0, y: 28 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
-        duration: 0.3,
-        ease: [0.34, 1.56, 0.64, 1],
+        duration: 0.35,
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   };
 
   const cryptoGlassVariants = {
-    hidden: { opacity: 0, y: 32, filter: 'blur(14px)' },
+    hidden: { opacity: 0, y: 32 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
-        duration: 0.4,
-        ease: [0.34, 1.56, 0.64, 1],
+        duration: 0.45,
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   };
@@ -407,57 +398,51 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
   };
 
   const resultContainerVariants = {
-    hidden: { opacity: 0, y: 30, filter: 'blur(16px)' },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
-        duration: 0.35,
-        ease: [0.34, 1.56, 0.64, 1],
+        duration: 0.45,
+        ease: [0.22, 1, 0.36, 1],
         when: 'beforeChildren',
-        staggerChildren: 0.04,
-        delayChildren: 0.08,
+        staggerChildren: 0.05,
+        delayChildren: 0.1,
       },
     },
   };
 
   const resultItemVariants = {
-    hidden: { opacity: 0, y: 20, filter: 'blur(12px)' },
+    hidden: { opacity: 0, y: 25 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
-        duration: 0.3,
-        ease: [0.34, 1.56, 0.64, 1],
+        duration: 0.35,
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   };
 
-  const glassCardStyle = {
-    background: 'rgba(255, 255, 255, 0.08)',
-    backdropFilter: 'blur(24px) saturate(180%)',
-    WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-    border: '1px solid rgba(255, 255, 255, 0.18)',
-    boxShadow: '0 18px 40px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+  const liquidGlassStyle = {
+    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 100%)',
+    backdropFilter: 'blur(30px) saturate(210%)',
+    WebkitBackdropFilter: 'blur(30px) saturate(210%)',
+    border: '1px solid rgba(255, 255, 255, 0.28)',
+    boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 0 20px rgba(0, 183, 181, 0.1)',
+    willChange: 'transform, opacity',
   };
 
   const resultGlassStyle = {
-    background: 'linear-gradient(135deg, rgba(10, 30, 40, 0.65), rgba(0, 40, 50, 0.5))',
-    backdropFilter: 'blur(28px) saturate(200%)',
-    WebkitBackdropFilter: 'blur(28px) saturate(200%)',
-    border: '1px solid rgba(255, 255, 255, 0.12)',
-    boxShadow: '0 20px 50px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 0 80px rgba(0, 183, 181, 0.04)',
+    background: 'linear-gradient(135deg, rgba(15, 35, 45, 0.9), rgba(5, 45, 55, 0.8))',
+    backdropFilter: 'blur(32px) saturate(220%)',
+    WebkitBackdropFilter: 'blur(32px) saturate(220%)',
+    border: '1px solid rgba(255, 255, 255, 0.25)',
+    boxShadow: '0 30px 80px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.15), 0 0 40px rgba(0, 183, 181, 0.12)',
+    willChange: 'transform, opacity',
   };
 
-  const liquidGlassStyle = {
-    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%)',
-    backdropFilter: 'blur(32px) saturate(210%)',
-    WebkitBackdropFilter: 'blur(32px) saturate(210%)',
-    border: '1px solid rgba(255, 255, 255, 0.2)',
-    boxShadow: '0 25px 60px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1)',
-  };
+  const glassCardStyle = liquidGlassStyle;
 
   return (
     <section id="validation" className="w-full min-h-screen px-4 sm:px-8 md:px-16 lg:px-24 pt-24 sm:pt-28 lg:pt-28 pb-16 relative overflow-hidden flex flex-col items-center justify-start">
@@ -583,22 +568,24 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
           {activeTab === 'manual' && (
             <motion.div
               key="manual"
-              initial={{ opacity: 0, scaleY: 0, rotateX: -12 }}
-              animate={{ opacity: 1, scaleY: 1, rotateX: 0 }}
-              exit={{ opacity: 0, scaleY: 0, rotateX: -12 }}
-              transition={{ duration: 0.25, ease: [0.34, 1.56, 0.64, 1] }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 40 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-3xl mx-auto"
-              style={{ transformOrigin: 'top center' }}
+              style={{ transformOrigin: 'center bottom' }}
             >
               <div className="space-y-6">
                 <motion.div
-                  className="flex flex-row items-center gap-3 px-4 py-3 rounded-xl"
-                  style={glassCardStyle}
+                  className="flex flex-row items-center gap-3 px-4 py-3 rounded-xl relative overflow-hidden"
+                  style={liquidGlassStyle}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.2 }}
                   variants={inputRowVariants}
                 >
+                  <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
                   <motion.div
                     className="flex items-center flex-shrink-0"
                     variants={inputItemVariants}
@@ -618,26 +605,28 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                     onClick={handleSearch}
                     disabled={isSearching}
                     variants={verifyButtonVariants}
-                    className="flex-shrink-0 rounded-lg px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] backdrop-blur-sm disabled:cursor-not-allowed disabled:opacity-60 whitespace-nowrap"
+                    className="flex-shrink-0 rounded-lg px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md disabled:cursor-not-allowed disabled:opacity-60 whitespace-nowrap relative overflow-hidden"
                     style={{
-                      background: 'linear-gradient(to right, rgba(0, 84, 97, 0.3), rgba(244, 244, 244, 0.2))',
-                      border: '1px solid rgba(255, 255, 255, 0.3)',
-                      boxShadow: '0 0 20px rgba(0, 183, 181, 0.2)',
+                      background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.4), rgba(255, 255, 255, 0.15))',
+                      border: '1px solid rgba(255, 255, 255, 0.4)',
+                      boxShadow: '0 10px 25px -5px rgba(0, 183, 181, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2)',
                     }}
                   >
+                    <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent pointer-events-none" />
                     {isSearching ? t('validate.validating') : t('validate.verify')}
                   </motion.button>
                 </motion.div>
 
                 {!searchResult && (
                   <motion.div
-                    className="max-w-3xl mx-auto mt-0 p-3 sm:p-4 rounded-2xl"
-                    style={glassCardStyle}
+                    className="max-w-3xl mx-auto mt-0 p-3 sm:p-4 rounded-2xl relative overflow-hidden"
+                    style={liquidGlassStyle}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                     variants={cryptoGlassVariants}
                   >
+                    <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
                     <div className="flex items-center gap-2 mb-3">
                       <div className="w-3 h-3 flex items-center justify-center">
                         <div className="w-1 h-1 bg-[#00B7B5] rounded-full" />
@@ -693,12 +682,11 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                       <>
                         <motion.div
                           variants={resultItemVariants}
-                          className="rounded-2xl p-4 sm:p-6"
-                          style={{
-                            ...resultGlassStyle,
-                            background: 'linear-gradient(135deg, rgba(10, 30, 40, 0.7), rgba(0, 50, 60, 0.55))',
-                          }}
+                          className="rounded-2xl p-4 sm:p-6 relative overflow-hidden"
+                          style={resultGlassStyle}
                         >
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
+                          <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,183,181,0.05)] pointer-events-none" />
                           <div className="flex items-start justify-between mb-4">
                             <div className="flex items-start gap-3 flex-1">
                               <div className={`flex-shrink-0 p-2 rounded-full ${searchResult.isActive ? 'bg-[#00B7B5]/20' : 'bg-red-500/20'}`}>
@@ -758,7 +746,8 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           variants={resultItemVariants}
                           className="grid grid-cols-1 md:grid-cols-3 gap-4"
                         >
-                          <div className="rounded-xl p-4" style={resultGlassStyle}>
+                          <div className="rounded-xl p-4 relative overflow-hidden" style={resultGlassStyle}>
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
                             <div className="flex items-center gap-2 mb-3">
                               <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                               <p className="text-xs font-bold text-white/60 uppercase tracking-widest">User Information</p>
@@ -783,7 +772,8 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             </div>
                           </div>
 
-                          <div className="rounded-xl p-4" style={resultGlassStyle}>
+                          <div className="rounded-xl p-4 relative overflow-hidden" style={resultGlassStyle}>
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
                             <div className="flex items-center gap-2 mb-3">
                               <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                               <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Program Detail</p>
@@ -814,7 +804,8 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             </div>
                           </div>
 
-                          <div className="rounded-xl p-4" style={resultGlassStyle}>
+                          <div className="rounded-xl p-4 relative overflow-hidden" style={resultGlassStyle}>
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
                             <div className="flex items-center gap-2 mb-3">
                               <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                               <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Certificates Details</p>
@@ -842,9 +833,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
 
                         <motion.div
                           variants={resultItemVariants}
-                          className="rounded-xl p-4"
+                          className="rounded-xl p-4 relative overflow-hidden"
                           style={resultGlassStyle}
                         >
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
                           <div className="flex items-center gap-2 mb-4">
                             <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                             <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Credentials</p>
@@ -881,9 +873,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
 
                         <motion.div
                           variants={resultItemVariants}
-                          className="rounded-xl p-4"
+                          className="rounded-xl p-4 relative overflow-hidden"
                           style={resultGlassStyle}
                         >
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
                           <div className="flex items-center gap-2 mb-4">
                             <ShieldCheck className="w-5 h-5 text-[#00B7B5]" />
                             <p className="text-xs font-bold text-white/60 uppercase tracking-widest"># Blockchain Digital Evidence</p>
@@ -932,17 +925,16 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             target="_blank"
                             rel="noopener noreferrer"
                             download={Boolean(searchResult.certificate.auditReportPdf)}
-                            className="flex-1 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] backdrop-blur-sm text-center flex items-center justify-center gap-2"
+                            className="flex-1 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md text-center flex items-center justify-center gap-2 relative overflow-hidden"
                             style={{
-                              background: 'linear-gradient(135deg, rgba(10, 30, 40, 0.6), rgba(0, 40, 50, 0.45))',
-                              backdropFilter: 'blur(28px) saturate(200%)',
-                              WebkitBackdropFilter: 'blur(28px) saturate(200%)',
-                              border: '1px solid rgba(255, 255, 255, 0.12)',
-                              boxShadow: '0 12px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+                              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
+                              border: '1px solid rgba(255, 255, 255, 0.25)',
+                              boxShadow: '0 12px 24px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1)',
                               opacity: searchResult.certificate.auditReportPdf ? 1 : 0.5,
                               pointerEvents: searchResult.certificate.auditReportPdf ? 'auto' : 'none',
                             }}
                           >
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
                             <Download className="w-4 h-4" />
                             Audit Report
                           </a>
@@ -951,15 +943,16 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             target="_blank"
                             rel="noopener noreferrer"
                             download={Boolean(searchResult.certificate.certificatePdf)}
-                            className="flex-1 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] backdrop-blur-sm flex items-center justify-center gap-2"
+                            className="flex-1 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md flex items-center justify-center gap-2 relative overflow-hidden"
                             style={{
-                              background: 'linear-gradient(to right, rgba(0, 84, 97, 0.3), rgba(244, 244, 244, 0.2))',
-                              border: '1px solid rgba(255, 255, 255, 0.3)',
-                              boxShadow: '0 0 20px rgba(0, 183, 181, 0.2)',
+                              background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.3), rgba(255, 255, 255, 0.1))',
+                              border: '1px solid rgba(255, 255, 255, 0.35)',
+                              boxShadow: '0 15px 30px -5px rgba(0, 183, 181, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15)',
                               opacity: searchResult.certificate.certificatePdf ? 1 : 0.5,
                               pointerEvents: searchResult.certificate.certificatePdf ? 'auto' : 'none',
                             }}
                           >
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
                             <Download className="w-4 h-4" />
                             PDF Download
                           </a>
@@ -968,25 +961,27 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                     ) : (
                       <motion.div
                         variants={resultItemVariants}
-                        className="rounded-2xl p-6 text-center"
+                        className="rounded-2xl p-6 text-center relative overflow-hidden"
                         style={{
                           ...resultGlassStyle,
-                          border: '1px solid rgba(255, 59, 48, 0.35)',
-                          boxShadow: '0 12px 30px rgba(255, 59, 48, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+                          border: '1px solid rgba(255, 59, 48, 0.45)',
+                          boxShadow: '0 12px 30px rgba(255, 59, 48, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.1)',
                         }}
                       >
+                        <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-transparent pointer-events-none" />
                         <AlertCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
                         <h3 className="text-2xl font-bold text-white font-outfit mb-2">Certificate Not Found</h3>
                         <p className="text-white/70 mb-6 font-poppins">{searchResult.message}</p>
                         <button
                           onClick={resetSearch}
-                          className="rounded-lg px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01]"
+                          className="rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md relative overflow-hidden"
                           style={{
-                            background: 'linear-gradient(to right, rgba(0, 84, 97, 0.3), rgba(244, 244, 244, 0.2))',
-                            border: '1px solid rgba(255, 255, 255, 0.3)',
-                            boxShadow: '0 0 20px rgba(0, 183, 181, 0.2)',
+                            background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.4), rgba(255, 255, 255, 0.15))',
+                            border: '1px solid rgba(255, 255, 255, 0.4)',
+                            boxShadow: '0 10px 25px -5px rgba(0, 183, 181, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2)',
                           }}
                         >
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent pointer-events-none" />
                           Try Another Search
                         </button>
                       </motion.div>
@@ -1000,20 +995,20 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
           {activeTab === 'pdf' && (
             <motion.div
               key="pdf"
-              initial={{ opacity: 0, scaleY: 0, rotateX: -12 }}
-              animate={{ opacity: 1, scaleY: 1, rotateX: 0 }}
-              exit={{ opacity: 0, scaleY: 0, rotateX: -12 }}
-              transition={{ duration: 0.25, ease: [0.34, 1.56, 0.64, 1] }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 40 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-3xl mx-auto space-y-6"
-              style={{ transformOrigin: 'top center', transformStyle: 'preserve-3d' }}
+              style={{ transformOrigin: 'center bottom' }}
             >
               {}
               {!uploadedFile && (
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
+                  exit={{ opacity: 0, y: 40 }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   className="space-y-6"
                 >
                   {}
@@ -1022,15 +1017,12 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                     onDragLeave={handleDrag}
                     onDragOver={handleDrag}
                     onDrop={handleDrop}
-                    className={`p-10 rounded-[32px] transition-all duration-500 cursor-pointer overflow-hidden relative group ${dragActive ? 'scale-[1.02]' : ''}`}
+                    className={`py-6 px-8 sm:py-8 sm:px-10 rounded-[32px] transition-all duration-500 cursor-pointer overflow-hidden relative group ${dragActive ? 'scale-[1.01] shadow-[0_0_40px_rgba(0,183,181,0.2)]' : ''}`}
                     style={{
                       ...liquidGlassStyle,
                       border: dragActive
                         ? '2px solid rgba(0, 183, 181, 0.6)'
-                        : '1px solid rgba(255, 255, 255, 0.2)',
-                      boxShadow: dragActive
-                        ? '0 0 50px rgba(0, 183, 181, 0.25), 0 25px 60px rgba(0, 0, 0, 0.3)'
-                        : '0 25px 60px rgba(0, 0, 0, 0.3)',
+                        : '1px solid rgba(255, 255, 255, 0.3)',
                     }}
                     onClick={() => fileInputRef.current?.click()}
                   >
@@ -1051,34 +1043,25 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                         <motion.div 
                           className="absolute inset-0 bg-[#00B7B5]/20 rounded-full blur-2xl"
                           animate={{ 
-                            scale: dragActive ? [1, 1.2, 1] : 1,
-                            opacity: dragActive ? [0.5, 0.8, 0.5] : 0.3 
+                            scale: dragActive ? [1, 1.15, 1] : 1,
+                            opacity: dragActive ? [0.4, 0.7, 0.4] : 0.25 
                           }}
                           transition={{ duration: 2, repeat: Infinity }}
                         />
-                        <div className="p-7 rounded-[24px] bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl relative">
-                          <Upload className={`w-12 h-12 transition-colors duration-300 ${dragActive ? 'text-[#00B7B5]' : 'text-white/80'}`} />
+                        <div className="p-5 rounded-[20px] bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl relative">
+                          <Upload className={`w-10 h-10 transition-colors duration-300 ${dragActive ? 'text-[#00B7B5]' : 'text-white/80'}`} />
                         </div>
                       </div>
 
                       <div className="text-center max-w-md mx-auto">
-                        <h3 className="text-2xl sm:text-3xl font-bold text-white font-outfit mb-3 tracking-tight">
+                        <h3 className="text-xl sm:text-2xl font-bold text-white font-outfit mb-2 tracking-tight">
                           {t('validate.pdf.title')}
                         </h3>
-                        <p className="text-white/60 text-base sm:text-lg font-poppins leading-relaxed mb-6">
+                        <p className="text-white/60 text-sm sm:text-base font-poppins leading-relaxed">
                           {t('validate.pdf.description')}
                         </p>
                         
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2">
-                          <div className="px-5 py-2 rounded-full bg-white/5 border border-white/10 flex items-center gap-2 text-white/70 text-sm">
-                            <Zap className="w-4 h-4 text-[#00B7B5]" />
-                            <span>{t('validate.pdf.dragDrop')}</span>
-                          </div>
-                          <div className="px-5 py-2 rounded-full bg-white/5 border border-white/10 flex items-center gap-2 text-white/70 text-sm">
-                            <Lock className="w-4 h-4 text-[#00B7B5]" />
-                            <span>{t('validate.pdf.security')}</span>
-                          </div>
-                        </div>
+
                       </div>
 
                       {}
@@ -1133,16 +1116,14 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
 
                   {}
                   <div
-                    className="p-6 rounded-3xl"
-                    style={{
-                      ...glassCardStyle,
-                      border: '2px dashed rgba(0, 183, 181, 0.3)',
-                    }}
+                    className="p-5 sm:p-6 rounded-3xl relative overflow-hidden transition-all duration-300 hover:scale-[1.01] group"
+                    style={liquidGlassStyle}
                   >
+                    <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                     <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-[#018790]/15 text-[#00B7B5]">
-                          <FileUp className="w-6 h-6" />
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#018790]/15 text-[#00B7B5]">
+                          <FileUp className="w-5 h-5" />
                         </div>
                         <div className="min-w-0">
                           <p className="text-xs uppercase tracking-[0.2em] text-white/50 font-semibold">
@@ -1157,13 +1138,14 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                         href="/file/CERT-TEST.pdf"
                         download
                         type="button"
-                        className="w-full sm:min-w-[180px] sm:w-auto rounded-lg px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] backdrop-blur-sm text-center flex items-center justify-center gap-2"
+                        className="w-full sm:min-w-[180px] sm:w-auto rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md text-center flex items-center justify-center gap-2 relative overflow-hidden"
                         style={{
-                          background: 'linear-gradient(to right, rgba(0, 84, 97, 0.35), rgba(255, 255, 255, 0.18))',
-                          border: '1px solid rgba(255, 255, 255, 0.26)',
-                          boxShadow: '0 0 24px rgba(0, 183, 181, 0.18)',
+                          background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.35), rgba(255, 255, 255, 0.15))',
+                          border: '1px solid rgba(255, 255, 255, 0.35)',
+                          boxShadow: '0 12px 24px -5px rgba(0, 183, 181, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.15)',
                         }}
                       >
+                        <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
                         <Download className="w-4 h-4" />
                         {t('validate.pdf.downloadBtn')}
                       </a>
@@ -1177,9 +1159,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                 {isExtracting && (
                   <motion.div
                     key="extracting-state"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 30 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                     className="rounded-2xl p-8 text-center space-y-4"
                     style={resultGlassStyle}
                   >
@@ -1205,9 +1188,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                 {uploadedFile && !isExtracting && extractedData && (
                   <motion.div
                     key="extracted-data-display"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
+                    exit={{ opacity: 0, y: 30 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                     className="space-y-6"
                   >
                     {}
@@ -1256,13 +1240,11 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                       <>
                         <motion.div
                           variants={resultItemVariants}
-                          className="rounded-2xl p-4 sm:p-6"
-                          style={{
-                            ...resultGlassStyle,
-                            background:
-                              'linear-gradient(135deg, rgba(10, 30, 40, 0.7), rgba(0, 50, 60, 0.55))',
-                          }}
+                          className="rounded-2xl p-4 sm:p-6 relative overflow-hidden"
+                          style={resultGlassStyle}
                         >
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
+                          <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,183,181,0.05)] pointer-events-none" />
                           <div className="flex items-start justify-between mb-4">
                             <div className="flex items-start gap-3 flex-1">
                               <div
@@ -1313,9 +1295,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           </div>
                           <div className="mt-4 space-y-3">
                             <div
-                              className="p-3 rounded-lg relative"
+                              className="p-3 rounded-lg relative overflow-hidden"
                               style={{ background: 'rgba(0, 183, 181, 0.1)' }}
                             >
+                              <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                               <button
                                 onClick={() => {
                                   navigator.clipboard.writeText(
@@ -1342,9 +1325,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                               </p>
                             </div>
                             <div
-                              className="p-3 rounded-lg relative"
+                              className="p-3 rounded-lg relative overflow-hidden"
                               style={{ background: 'rgba(0, 183, 181, 0.1)' }}
                             >
+                              <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                               <button
                                 onClick={() => {
                                   navigator.clipboard.writeText(
@@ -1378,9 +1362,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           className="grid grid-cols-1 md:grid-cols-3 gap-4"
                         >
                           <div
-                            className="rounded-xl p-4"
+                            className="rounded-xl p-4 relative overflow-hidden"
                             style={resultGlassStyle}
                           >
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                             <div className="flex items-center gap-2 mb-3">
                               <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                               <p className="text-xs font-bold text-white/60 uppercase tracking-widest">
@@ -1433,9 +1418,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           </div>
 
                           <div
-                            className="rounded-xl p-4"
+                            className="rounded-xl p-4 relative overflow-hidden"
                             style={resultGlassStyle}
                           >
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                             <div className="flex items-center gap-2 mb-3">
                               <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                               <p className="text-xs font-bold text-white/60 uppercase tracking-widest">
@@ -1504,9 +1490,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           </div>
 
                           <div
-                            className="rounded-xl p-4"
+                            className="rounded-xl p-4 relative overflow-hidden"
                             style={resultGlassStyle}
                           >
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                             <div className="flex items-center gap-2 mb-3">
                               <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                               <p className="text-xs font-bold text-white/60 uppercase tracking-widest">
@@ -1566,9 +1553,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
 
                         <motion.div
                           variants={resultItemVariants}
-                          className="rounded-xl p-4"
+                          className="rounded-xl p-4 relative overflow-hidden"
                           style={resultGlassStyle}
                         >
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                           <div className="flex items-center gap-2 mb-4">
                             <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                             <p className="text-xs font-bold text-white/60 uppercase tracking-widest">
@@ -1623,9 +1611,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
 
                         <motion.div
                           variants={resultItemVariants}
-                          className="rounded-xl p-4"
+                          className="rounded-xl p-4 relative overflow-hidden"
                           style={resultGlassStyle}
                         >
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                           <div className="flex items-center gap-2 mb-4">
                             <ShieldCheck className="w-5 h-5 text-[#00B7B5]" />
                             <p className="text-xs font-bold text-white/60 uppercase tracking-widest">
@@ -1634,9 +1623,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           </div>
                           <div className="space-y-3">
                             <div
-                              className="flex items-center justify-between p-3 rounded-lg"
+                              className="flex items-center justify-between p-3 rounded-lg relative overflow-hidden"
                               style={{ background: 'rgba(0, 183, 181, 0.1)' }}
                             >
+                              <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                               <p className="text-xs text-white/60 uppercase tracking-wider font-semibold">
                                 Smart Contract Verified
                               </p>
@@ -1675,9 +1665,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             ].map((item, idx) => (
                               <div
                                 key={idx}
-                                className="rounded-lg p-3"
+                                className="rounded-lg p-3 relative overflow-hidden"
                                 style={{ background: 'rgba(255, 255, 255, 0.03)' }}
                               >
+                                <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                                 <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-2">
                                   {item.label}
                                 </p>
@@ -1725,19 +1716,18 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             target="_blank"
                             rel="noopener noreferrer"
                             download={Boolean(pdfSearchResult.certificate.auditReportPdf)}
-                            className="flex-1 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] backdrop-blur-sm text-center flex items-center justify-center gap-2"
+                            className="flex-1 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md text-center flex items-center justify-center gap-2 relative overflow-hidden"
                             style={{
                               background:
-                                'linear-gradient(135deg, rgba(10, 30, 40, 0.6), rgba(0, 40, 50, 0.45))',
-                              backdropFilter: 'blur(28px) saturate(200%)',
-                              WebkitBackdropFilter: 'blur(28px) saturate(200%)',
-                              border: '1px solid rgba(255, 255, 255, 0.12)',
+                                'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
+                              border: '1px solid rgba(255, 255, 255, 0.25)',
                               boxShadow:
-                                '0 12px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+                                '0 12px 24px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1)',
                               opacity: pdfSearchResult.certificate.auditReportPdf ? 1 : 0.5,
                               pointerEvents: pdfSearchResult.certificate.auditReportPdf ? 'auto' : 'none',
                             }}
                           >
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
                             <Download className="w-4 h-4" />
                             Audit Report
                           </a>
@@ -1746,16 +1736,17 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             target="_blank"
                             rel="noopener noreferrer"
                             download={Boolean(pdfSearchResult.certificate.certificatePdf)}
-                            className="flex-1 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] backdrop-blur-sm flex items-center justify-center gap-2"
+                            className="flex-1 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md flex items-center justify-center gap-2 relative overflow-hidden"
                             style={{
                               background:
-                                'linear-gradient(to right, rgba(0, 84, 97, 0.3), rgba(244, 244, 244, 0.2))',
-                              border: '1px solid rgba(255, 255, 255, 0.3)',
-                              boxShadow: '0 0 20px rgba(0, 183, 181, 0.2)',
+                                'linear-gradient(135deg, rgba(0, 183, 181, 0.3), rgba(255, 255, 255, 0.1))',
+                              border: '1px solid rgba(255, 255, 255, 0.35)',
+                              boxShadow: '0 15px 30px -5px rgba(0, 183, 181, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15)',
                               opacity: pdfSearchResult.certificate.certificatePdf ? 1 : 0.5,
                               pointerEvents: pdfSearchResult.certificate.certificatePdf ? 'auto' : 'none',
                             }}
                           >
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
                             <Download className="w-4 h-4" />
                             PDF Download
                           </a>
@@ -1764,14 +1755,15 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                     ) : (
                       <motion.div
                         variants={resultItemVariants}
-                        className="rounded-2xl p-6 text-center"
+                        className="rounded-2xl p-6 text-center relative overflow-hidden"
                         style={{
                           ...resultGlassStyle,
-                          border: '1px solid rgba(255, 59, 48, 0.35)',
+                          border: '1px solid rgba(255, 59, 48, 0.45)',
                           boxShadow:
-                            '0 12px 30px rgba(255, 59, 48, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+                            '0 12px 30px rgba(255, 59, 48, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.1)',
                         }}
                       >
+                        <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-transparent pointer-events-none" />
                         <AlertCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
                         <h3 className="text-2xl font-bold text-white font-outfit mb-2">
                           Certificate Not Found
@@ -1781,14 +1773,15 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                         </p>
                         <button
                           onClick={() => removeUploadedFile()}
-                          className="rounded-lg px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01]"
+                          className="rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md relative overflow-hidden"
                           style={{
                             background:
-                              'linear-gradient(to right, rgba(0, 84, 97, 0.3), rgba(244, 244, 244, 0.2))',
-                            border: '1px solid rgba(255, 255, 255, 0.3)',
-                            boxShadow: '0 0 20px rgba(0, 183, 181, 0.2)',
+                              'linear-gradient(135deg, rgba(0, 183, 181, 0.4), rgba(255, 255, 255, 0.15))',
+                            border: '1px solid rgba(255, 255, 255, 0.4)',
+                            boxShadow: '0 10px 25px -5px rgba(0, 183, 181, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2)',
                           }}
                         >
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent pointer-events-none" />
                           {t('validate.pdf.tryAgain')}
                         </button>
                       </motion.div>
@@ -1802,27 +1795,24 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
           {activeTab === 'qr' && (
             <motion.div
               key="qr"
-              initial={{ opacity: 0, scaleY: 0, rotateX: -12 }}
-              animate={{ opacity: 1, scaleY: 1, rotateX: 0 }}
-              exit={{ opacity: 0, scaleY: 0, rotateX: -12 }}
-              transition={{ duration: 0.25, ease: [0.34, 1.56, 0.64, 1] }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 40 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-3xl mx-auto"
-              style={{ transformOrigin: 'top center' }}
+              style={{ transformOrigin: 'center bottom' }}
             >
               {!showQrResult ? (
-                <div className="rounded-3xl p-4 sm:p-6" style={{
-                  ...glassCardStyle,
-                  border: '2px dashed rgba(0, 183, 181, 0.3)',
-                  boxShadow: '0 30px 70px rgba(0, 183, 181, 0.12), inset 0 1px 0 rgba(255,255,255,0.05)',
-                  minHeight: '120px',
-                }}>
+                <div className="rounded-3xl p-4 sm:p-6 relative overflow-hidden" style={liquidGlassStyle}>
+                  <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
                   <div className="space-y-4 sm:space-y-6">
                     <div className="grid grid-cols-1 sm:grid-cols-[320px_1fr] gap-6 sm:gap-8 items-center">
                       <div className="flex justify-center sm:justify-start">
                         <div
-                          className="p-6 rounded-2xl flex flex-col items-center gap-4 w-full max-w-[320px] transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01]"
+                          className="p-6 rounded-2xl flex flex-col items-center gap-4 w-full max-w-[320px] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] relative overflow-hidden"
                           style={glassCardStyle}
                         >
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
                           <img
                             src="/images/qr.png"
                             alt="QR code"
@@ -1863,12 +1853,11 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                     <>
                       <motion.div
                         variants={resultItemVariants}
-                        className="rounded-2xl p-4 sm:p-6"
-                        style={{
-                          ...resultGlassStyle,
-                          background: 'linear-gradient(135deg, rgba(10, 30, 40, 0.7), rgba(0, 50, 60, 0.55))',
-                        }}
+                        className="rounded-2xl p-4 sm:p-6 relative overflow-hidden"
+                        style={resultGlassStyle}
                       >
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,183,181,0.05)] pointer-events-none" />
                         <div className="flex items-start justify-between mb-4">
                           <div className="flex items-start gap-3 flex-1">
                             <div className={`flex-shrink-0 p-2 rounded-full ${searchResult.isActive ? 'bg-[#00B7B5]/20' : 'bg-red-500/20'}`}>
@@ -1928,7 +1917,8 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                         variants={resultItemVariants}
                         className="grid grid-cols-1 md:grid-cols-3 gap-4"
                       >
-                        <div className="rounded-xl p-4" style={resultGlassStyle}>
+                        <div className="rounded-xl p-4 relative overflow-hidden" style={resultGlassStyle}>
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
                           <div className="flex items-center gap-2 mb-3">
                             <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                             <p className="text-xs font-bold text-white/60 uppercase tracking-widest">User Information</p>
@@ -1953,7 +1943,8 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           </div>
                         </div>
 
-                        <div className="rounded-xl p-4" style={resultGlassStyle}>
+                        <div className="rounded-xl p-4 relative overflow-hidden" style={resultGlassStyle}>
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
                           <div className="flex items-center gap-2 mb-3">
                             <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                             <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Program Detail</p>
@@ -1984,7 +1975,8 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           </div>
                         </div>
 
-                        <div className="rounded-xl p-4" style={resultGlassStyle}>
+                        <div className="rounded-xl p-4 relative overflow-hidden" style={resultGlassStyle}>
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
                           <div className="flex items-center gap-2 mb-3">
                             <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                             <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Certificates Details</p>
@@ -2012,9 +2004,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
 
                       <motion.div
                         variants={resultItemVariants}
-                        className="rounded-xl p-4"
+                        className="rounded-xl p-4 relative overflow-hidden"
                         style={resultGlassStyle}
                       >
+                        <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
                         <div className="flex items-center gap-2 mb-4">
                           <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                           <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Credentials</p>
@@ -2051,15 +2044,17 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
 
                       <motion.div
                         variants={resultItemVariants}
-                        className="rounded-xl p-4"
+                        className="rounded-xl p-4 relative overflow-hidden"
                         style={resultGlassStyle}
                       >
+                        <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
                         <div className="flex items-center gap-2 mb-4">
                           <ShieldCheck className="w-5 h-5 text-[#00B7B5]" />
                           <p className="text-xs font-bold text-white/60 uppercase tracking-widest"># Blockchain Digital Evidence</p>
                         </div>
                         <div className="space-y-3">
-                          <div className="flex items-center justify-between p-3 rounded-lg" style={{ background: 'rgba(0, 183, 181, 0.1)' }}>
+                          <div className="flex items-center justify-between p-3 rounded-lg relative overflow-hidden" style={{ background: 'rgba(0, 183, 181, 0.1)' }}>
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                             <p className="text-xs text-white/60 uppercase tracking-wider font-semibold">Smart Contract Verified</p>
                             <span className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-semibold ${searchResult.certificate.blockchainEvidence.smartContractVerified ? 'bg-[#00B7B5]/20 text-[#00B7B5]' : 'bg-red-500/20 text-red-400'}`}>
                               {searchResult.certificate.blockchainEvidence.smartContractVerified ? <CheckCircle2 className="w-3 h-3" /> : <AlertCircle className="w-3 h-3" />}
@@ -2068,7 +2063,8 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           </div>
 
                           {[{ label: 'TX A: IDENTITY RECORD', tx: searchResult.certificate.blockchainEvidence.txA }, { label: 'TX B: IDENTITY RECORD', tx: searchResult.certificate.blockchainEvidence.txB }].map((item, idx) => (
-                            <div key={idx} className="rounded-lg p-3" style={{ background: 'rgba(255, 255, 255, 0.03)' }}>
+                            <div key={idx} className="rounded-lg p-3 relative overflow-hidden" style={{ background: 'rgba(255, 255, 255, 0.03)' }}>
+                              <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                               <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-2">{item.label}</p>
                               <div className="flex items-center gap-2 mb-2 flex-wrap">
                                 <span className="font-mono text-xs text-white/70 break-all flex-1">{item.tx.hash}</span>
@@ -2102,17 +2098,16 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           target="_blank"
                           rel="noopener noreferrer"
                           download={Boolean(searchResult.certificate.auditReportPdf)}
-                          className="flex-1 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] backdrop-blur-sm text-center flex items-center justify-center gap-2"
+                          className="flex-1 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md text-center flex items-center justify-center gap-2 relative overflow-hidden"
                           style={{
-                            background: 'linear-gradient(135deg, rgba(10, 30, 40, 0.6), rgba(0, 40, 50, 0.45))',
-                            backdropFilter: 'blur(28px) saturate(200%)',
-                            WebkitBackdropFilter: 'blur(28px) saturate(200%)',
-                            border: '1px solid rgba(255, 255, 255, 0.12)',
-                            boxShadow: '0 12px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+                            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
+                            border: '1px solid rgba(255, 255, 255, 0.25)',
+                            boxShadow: '0 12px 24px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.1)',
                             opacity: searchResult.certificate.auditReportPdf ? 1 : 0.5,
                             pointerEvents: searchResult.certificate.auditReportPdf ? 'auto' : 'none',
                           }}
                         >
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
                           <Download className="w-4 h-4" />
                           Audit Report
                         </a>
@@ -2121,15 +2116,16 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           target="_blank"
                           rel="noopener noreferrer"
                           download={Boolean(searchResult.certificate.certificatePdf)}
-                          className="flex-1 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01] backdrop-blur-sm flex items-center justify-center gap-2"
+                          className="flex-1 rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md flex items-center justify-center gap-2 relative overflow-hidden"
                           style={{
-                            background: 'linear-gradient(to right, rgba(0, 84, 97, 0.3), rgba(244, 244, 244, 0.2))',
-                            border: '1px solid rgba(255, 255, 255, 0.3)',
-                            boxShadow: '0 0 20px rgba(0, 183, 181, 0.2)',
+                            background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.3), rgba(255, 255, 255, 0.1))',
+                            border: '1px solid rgba(255, 255, 255, 0.35)',
+                            boxShadow: '0 15px 30px -5px rgba(0, 183, 181, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.15)',
                             opacity: searchResult.certificate.certificatePdf ? 1 : 0.5,
                             pointerEvents: searchResult.certificate.certificatePdf ? 'auto' : 'none',
                           }}
                         >
+                          <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
                           <Download className="w-4 h-4" />
                           PDF Download
                         </a>
@@ -2138,25 +2134,27 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                   ) : (
                     <motion.div
                       variants={resultItemVariants}
-                      className="rounded-2xl p-6 text-center"
+                      className="rounded-2xl p-6 text-center relative overflow-hidden"
                       style={{
                         ...resultGlassStyle,
-                        border: '1px solid rgba(255, 59, 48, 0.35)',
-                        boxShadow: '0 12px 30px rgba(255, 59, 48, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+                        border: '1px solid rgba(255, 59, 48, 0.45)',
+                        boxShadow: '0 12px 30px rgba(255, 59, 48, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.1)',
                       }}
                     >
+                      <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-transparent pointer-events-none" />
                       <AlertCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
                       <h3 className="text-2xl font-bold text-white font-outfit mb-2">Certificate Not Found</h3>
                       <p className="text-white/70 mb-6 font-poppins">{searchResult.message}</p>
                       <button
                         onClick={resetSearch}
-                        className="rounded-lg px-6 py-3 text-sm font-semibold text-white transition-transform duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.01]"
+                        className="rounded-lg px-6 py-3 text-sm font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md relative overflow-hidden"
                         style={{
-                          background: 'linear-gradient(to right, rgba(0, 84, 97, 0.3), rgba(244, 244, 244, 0.2))',
-                          border: '1px solid rgba(255, 255, 255, 0.3)',
-                          boxShadow: '0 0 20px rgba(0, 183, 181, 0.2)',
+                          background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.4), rgba(255, 255, 255, 0.15))',
+                          border: '1px solid rgba(255, 255, 255, 0.4)',
+                          boxShadow: '0 10px 25px -5px rgba(0, 183, 181, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2)',
                         }}
                       >
+                        <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent pointer-events-none" />
                         Try Another Search
                       </button>
                     </motion.div>
