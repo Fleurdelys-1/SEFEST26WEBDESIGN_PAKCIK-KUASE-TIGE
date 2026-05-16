@@ -3,7 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Apply Poppins font globally */
+
 body {
   font-family: var(--font-lexend), sans-serif;
 }
@@ -135,7 +135,7 @@ body {
   }
 }
 
-/* Custom Calendar Styling */
+
 .rdp {
   --rdp-cell-size: 40px;
   --rdp-accent-color: #f4f4f4;
@@ -199,18 +199,18 @@ body {
   padding: 0.5rem;
 }
 
-/* Fix scrollbar disappearance when dropdown opens */
+
 body {
   overflow-y: scroll;
 }
 
-/* Prevent overflow hidden on dropdown open */
+
 [data-radix-dialog-overlay] ~ [style*="position"],
 [data-state="open"] {
   position: relative;
 }
 
-/* Custom Dropdown Menu Styling */
+
 [data-slot="dropdown-menu-content"] {
   background: linear-gradient(
     135deg,
@@ -283,7 +283,7 @@ body {
   margin: 0;
 }
 
-/* Navigation buttons */
+
 .rdp-nav_button {
   color: #f4f4f4;
   width: 32px;
@@ -296,15 +296,15 @@ body {
   background-color: rgba(244, 244, 244, 0.1);
 }
 
-/* Scroll Snap Styles */
+
 html {
   scroll-behavior: smooth;
-  /* Custom Scrollbar Styles */
+  
   scrollbar-color: #00B7B5 rgba(0, 0, 0, 0.3);
   scrollbar-width: thin;
 }
 
-/* Webkit browsers (Chrome, Safari, Edge) */
+
 html::-webkit-scrollbar {
   width: 12px;
 }
@@ -332,5 +332,5 @@ html::-webkit-scrollbar-thumb:hover {
 #faq,
 #contact,
 #footer {
-  /* removed scroll-snap */
+  
 }

@@ -65,15 +65,9 @@ export default function Contact() {
       <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#00B7B5]/10 to-transparent pointer-events-none rounded-t-[40px] sm:rounded-t-[70px] lg:rounded-t-[100px]" />
 
       <div className="relative max-w-7xl mx-auto w-full">
-        {/*
-          Layout strategy:
-          - Mobile: badge+title (centered) → form → email card (stacked)
-          - Desktop lg: LEFT col = badge+title+email card | RIGHT col = form
-          We achieve this with a 2-col grid on lg where the left col contains
-          the header + email card naturally, and the form is in the right col.
-        */}
+        {}
 
-        {/* Mobile-only header (hidden on lg) */}
+        {}
         <div className="flex flex-col items-center gap-4 mb-8 lg:hidden">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={badgeContainerVariants}>
             <motion.span
@@ -93,19 +87,19 @@ export default function Contact() {
           </motion.div>
         </div>
 
-        {/* Mobile: form first, then email card */}
+        {}
         <div className="flex flex-col gap-6 lg:hidden">
-          {/* Form */}
+          {}
           <FormCard t={t} formData={formData} errors={errors} isLoading={isLoading} isSubmitted={isSubmitted} handleChange={handleChange} handleSubmit={handleSubmit} cardVariants={cardVariants} cardItemVariants={cardItemVariants} />
-          {/* Email card */}
+          {}
           <EmailCard t={t} cardVariants={cardVariants} cardItemVariants={cardItemVariants} />
         </div>
 
-        {/* Desktop: 2-col grid */}
+        {}
         <div className="hidden lg:grid lg:grid-cols-[0.45fr_0.55fr] gap-8 items-start">
-          {/* Left col: header + email card */}
+          {}
           <div className="space-y-8">
-            {/* Desktop header */}
+            {}
             <div className="space-y-5">
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={badgeContainerVariants}>
                 <motion.span
@@ -124,11 +118,11 @@ export default function Contact() {
                 <motion.p variants={sectionItemVariants} className="text-base text-[#F4F4F4]/70 font-medium max-w-xl">{t("contact.subtitle")}</motion.p>
               </motion.div>
             </div>
-            {/* Email card */}
+            {}
             <EmailCard t={t} cardVariants={cardVariants} cardItemVariants={cardItemVariants} />
           </div>
 
-          {/* Right col: form */}
+          {}
           <FormCard t={t} formData={formData} errors={errors} isLoading={isLoading} isSubmitted={isSubmitted} handleChange={handleChange} handleSubmit={handleSubmit} cardVariants={cardVariants} cardItemVariants={cardItemVariants} />
         </div>
 
@@ -137,7 +131,7 @@ export default function Contact() {
   );
 }
 
-// ── Sub-components ────────────────────────────────────────────────────────────
+
 
 function EmailCard({ t, cardVariants, cardItemVariants }) {
   return (

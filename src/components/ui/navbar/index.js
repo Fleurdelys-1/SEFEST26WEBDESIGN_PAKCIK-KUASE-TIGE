@@ -29,7 +29,7 @@ export default function Navbar() {
 
 	const selectedLang = languages.find(l => l.code === language) || languages[0];
 
-	// ── Animation variants ──────────────────────────────────────────────────────
+	
 
 	const dropdownVariants = {
 		hidden: { opacity: 0, y: -8, scale: 0.97 },
@@ -90,7 +90,7 @@ export default function Navbar() {
 		visible: { x: 0, opacity: 1, transition: { delay: 0.8, duration: 0.6, ease: 'easeOut' } },
 	};
 
-	// Mobile menu overlay variants
+	
 	const mobileOverlayVariants = {
 		hidden: { opacity: 0 },
 		visible: { opacity: 1, transition: { duration: 0.3, ease: 'easeOut' } },
@@ -116,7 +116,7 @@ export default function Navbar() {
 		visible: { opacity: 1, x: 0, filter: 'blur(0px)', transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
 	};
 
-	// ── Intersection observer ───────────────────────────────────────────────────
+	
 
 	useEffect(() => {
 		if (pathname !== '/') {
@@ -147,7 +147,7 @@ export default function Navbar() {
 		};
 	}, [pathname]);
 
-	// Close mobile menu on resize to desktop
+	
 	useEffect(() => {
 		const handleResize = () => {
 			if (window.innerWidth >= 768) {
@@ -158,7 +158,7 @@ export default function Navbar() {
 		return () => window.removeEventListener('resize', handleResize);
 	}, []);
 
-	// Prevent body scroll when mobile menu is open
+	
 	useEffect(() => {
 		if (mobileMenuOpen) {
 			document.body.style.overflow = 'hidden';
@@ -168,7 +168,7 @@ export default function Navbar() {
 		return () => { document.body.style.overflow = ''; };
 	}, [mobileMenuOpen]);
 
-	// ── Handlers ────────────────────────────────────────────────────────────────
+	
 
 	const handleLanguageChange = (lang) => {
 		changeLanguage(lang.code);
@@ -193,15 +193,15 @@ export default function Navbar() {
 		}
 	};
 
-	// ── Render ──────────────────────────────────────────────────────────────────
+	
 
 	return (
 		<>
 			<nav className="fixed top-0 left-0 right-0 z-50 px-2 sm:px-4 py-5 pointer-events-none">
 
-				{/* ── DESKTOP NAVBAR ─────────────────────────────── */}
+				{}
 				<div className="hidden md:block">
-					{/* Logo – left */}
+					{}
 					<motion.div
 						className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 flex items-center gap-2 cursor-pointer z-40 pointer-events-auto"
 						variants={logoContainerVariants}
@@ -213,7 +213,7 @@ export default function Navbar() {
 						<motion.span className="text-xl sm:text-2xl text-[#F4F4F4] font-lexend" variants={navTextVariants}>Certify</motion.span>
 					</motion.div>
 
-					{/* Nav links – center */}
+					{}
 					<motion.div
 						className="flex items-center justify-center gap-1 sm:gap-2 font-lexend px-2 sm:px-4 py-2 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg mx-auto max-w-fit pointer-events-auto"
 						variants={navListVariants}
@@ -241,7 +241,7 @@ export default function Navbar() {
 						})}
 					</motion.div>
 
-					{/* Lang + Register – right */}
+					{}
 					<motion.div
 						className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 flex items-center gap-1 sm:gap-2 font-lexend px-2 sm:px-4 py-2 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg pointer-events-auto"
 						variants={switchButtonVariants}
@@ -297,14 +297,14 @@ export default function Navbar() {
 					</motion.div>
 				</div>
 
-				{/* ── MOBILE NAVBAR ──────────────────────────────── */}
+				{}
 				<motion.div
 					className="flex md:hidden items-center justify-between px-2 py-2 rounded-2xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg pointer-events-auto mx-1"
 					variants={navListVariants}
 					initial="hidden"
 					animate="visible"
 				>
-					{/* Left: Hamburger + Logo + Name (grouped together) */}
+					{}
 					<div className="flex items-center gap-1">
 						<button
 							onClick={() => setMobileMenuOpen(true)}
@@ -322,9 +322,9 @@ export default function Navbar() {
 						</button>
 					</div>
 
-					{/* Right: Lang switch + Register icon */}
+					{}
 					<div className="flex items-center gap-1 flex-shrink-0 relative">
-						{/* Language toggle */}
+						{}
 						<button
 							onClick={() => setIsOpen(!isOpen)}
 							className="p-2 rounded-xl text-[#F4F4F4] hover:bg-white/10 transition-colors duration-200 flex items-center gap-0.5"
@@ -334,7 +334,7 @@ export default function Navbar() {
 							<ChevronDown size={11} className={`text-[#F4F4F4]/70 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
 						</button>
 
-						{/* Register icon button */}
+						{}
 						<button
 							onClick={handleRegister}
 							className="p-2 rounded-xl text-[#F4F4F4] transition-colors duration-200 flex items-center justify-center relative overflow-hidden"
@@ -344,7 +344,7 @@ export default function Navbar() {
 							<UserPlus size={18} className="relative z-10" />
 						</button>
 
-						{/* Mobile language dropdown */}
+						{}
 						<AnimatePresence>
 							{isOpen && (
 								<motion.div
@@ -372,7 +372,7 @@ export default function Navbar() {
 				</motion.div>
 			</nav>
 
-			{/* ── MOBILE MENU OVERLAY ────────────────────────────── */}
+			{}
 			<AnimatePresence>
 				{mobileMenuOpen && (
 					<motion.div
@@ -382,13 +382,13 @@ export default function Navbar() {
 						animate="visible"
 						exit="exit"
 					>
-						{/* Blur backdrop */}
+						{}
 						<div
 							className="absolute inset-0 bg-black/60 backdrop-blur-xl"
 							onClick={() => setMobileMenuOpen(false)}
 						/>
 
-						{/* Menu panel */}
+						{}
 						<motion.div
 							className="absolute inset-0 flex flex-col justify-between px-8 py-12 pointer-events-auto"
 							variants={mobileMenuVariants}
@@ -396,7 +396,7 @@ export default function Navbar() {
 							animate="visible"
 							exit="exit"
 						>
-							{/* Close button */}
+							{}
 							<div className="flex justify-between items-center mb-8">
 								<div className="flex items-center gap-2">
 									<img src="/images/certify.png" alt="Certify Logo" className="w-6 h-6" />
@@ -411,9 +411,9 @@ export default function Navbar() {
 								</button>
 							</div>
 
-							{/* Nav links */}
+							{}
 							<div className="flex flex-col gap-2 flex-1 justify-center">
-								{/* Vertical accent line */}
+								{}
 								<div className="relative pl-8">
 									<div
 										className="absolute left-0 top-0 bottom-0 w-px"
@@ -429,7 +429,7 @@ export default function Navbar() {
 												variants={mobileLinkVariants}
 												className="relative flex items-center"
 											>
-												{/* Active diamond indicator */}
+												{}
 												{isActive && (
 													<div className="absolute -left-[4.5px] w-2.5 h-2.5 bg-[#00B7B5] rotate-45 shadow-[0_0_8px_#00B7B5] flex-shrink-0" />
 												)}
@@ -449,7 +449,7 @@ export default function Navbar() {
 								</div>
 							</div>
 
-							{/* Footer */}
+							{}
 							<motion.div
 								variants={mobileLinkVariants}
 								className="text-center"

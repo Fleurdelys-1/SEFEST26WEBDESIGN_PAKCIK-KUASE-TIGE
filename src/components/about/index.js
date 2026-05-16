@@ -57,7 +57,7 @@ export default function About() {
       <div className="relative max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-12 items-start">
           
-          {/* Left Column */}
+          {}
           <motion.div 
             className="flex flex-col items-start space-y-6 sm:space-y-8"
             initial="hidden"
@@ -124,7 +124,7 @@ export default function About() {
             </motion.button>
           </motion.div>
 
-          {/* Right Column */}
+          {}
           <motion.div 
             className="flex flex-col gap-4 w-full mt-8 lg:mt-0"
             initial="hidden"

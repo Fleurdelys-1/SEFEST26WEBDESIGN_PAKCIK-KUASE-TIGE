@@ -432,13 +432,13 @@ export default function RegisterPage() {
     const { name, value } = e.target;
     let formatted = value;
     if (name === "certificateIssue") formatted = formatDateInput(value);
-    // Only allow numbers for the number field
+    
     if (name === "number") {
       formatted = value.replace(/\D/g, "");
     }
     const updatedForm = { ...form, [name]: formatted };
     setForm(updatedForm);
-    // Close any open dropdowns when typing in inputs
+    
     setOpenDropdowns({});
     if (touched[name]) {
       const newErrors = validate(updatedForm);
@@ -544,10 +544,10 @@ export default function RegisterPage() {
     const toggleDropdown = (e) => {
       e.preventDefault();
       if (!isOpen) {
-        // Ketika membuka dropdown, tutup semua dropdown lain
+        
         setOpenDropdowns({ [field]: true });
       } else {
-        // Ketika menutup dropdown
+        
         setOpenDropdowns((prev) => ({ ...prev, [field]: false }));
       }
       setSearchTerm("");
@@ -603,7 +603,7 @@ export default function RegisterPage() {
               exit="exit"
               variants={dropdownVariants}
             >
-              {/* Search Input */}
+              {}
               <input
                 type="text"
                 placeholder="Search..."
@@ -612,7 +612,7 @@ export default function RegisterPage() {
                 className="m-2 px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-[#F4F4F4] text-xs placeholder-[#F4F4F4]/50 focus:outline-none focus:ring-1 focus:ring-[#00b7b5]/30"
               />
 
-              {/* Options List */}
+              {}
               <div
                 className="max-h-48 overflow-y-auto"
                 style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}
@@ -665,7 +665,7 @@ export default function RegisterPage() {
         animate="visible"
         className="w-full max-w-6xl rounded-3xl sm:rounded-[40px] border border-white/10 bg-white/5 shadow-[0_40px_120px_rgba(0,0,0,0.18)] backdrop-blur-xl relative z-10"
       >
-        {/* Inner gradient overlay matching privacy */}
+        {}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0f262d]/80 via-[#081218]/20 to-[#10252c]/70 opacity-80 pointer-events-none rounded-3xl sm:rounded-[40px]" />
 
         <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-0 relative z-10">

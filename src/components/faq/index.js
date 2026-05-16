@@ -198,7 +198,7 @@ export default function FAQ() {
           </motion.div>
         </motion.div>
 
-        {/* Mobile: accordion layout */}
+        {}
         <div className="block lg:hidden">
           <AnimatePresence mode="wait">
             <motion.div
@@ -259,7 +259,7 @@ export default function FAQ() {
           </AnimatePresence>
         </div>
 
-        {/* Desktop: two-column layout */}
+        {}
         <div className="hidden lg:grid gap-6 lg:grid-cols-[minmax(280px,0.55fr)_minmax(320px,0.45fr)]">
           <div className="relative space-y-4 sm:space-y-6 pl-6">
             <div 

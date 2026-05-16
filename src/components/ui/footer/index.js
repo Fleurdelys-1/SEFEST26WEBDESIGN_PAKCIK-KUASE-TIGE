@@ -60,7 +60,7 @@ export default function Footer() {
       </div>
 
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
-        {/* Top Border Boundary */}
+        {}
         <div className="mb-12 sm:mb-16 flex items-center justify-center gap-2 w-full max-w-5xl mx-auto">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[#005461] to-[#00b7b5]/50" />
           <div className="w-1.5 h-1.5 rounded-full bg-[#00b7b5] shadow-[0_0_8px_#00b7b5]" />
