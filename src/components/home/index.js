@@ -4,11 +4,62 @@ import { useRouter } from 'next/navigation';
 import { useLanguage } from '../../context/LanguageContext';
 import { ShieldCheck, SquarePen } from 'lucide-react';
 import RotatingText from '../ui/text/rotating-text'
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
+import { useRef, useState, useCallback, useEffect } from 'react';
+
+
 
 export default function Home() {
   const router = useRouter();
   const { t } = useLanguage();
+
+  // --- 3D Hover State ---
+  const imgWrapperRef = useRef(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+  const [shinePos, setShinePos] = useState({ x: 50, y: 50 });
+
+  // --- Float animation: entrance first, then seamless float loop ---
+  const floatControls = useAnimation();
+
+  useEffect(() => {
+    (async () => {
+      // Step 1: entrance slide-up
+      await floatControls.start({
+        y: 0,
+        opacity: 1,
+        transition: { duration: 0.9, ease: "easeOut" },
+      });
+      // Step 2: infinite float from current position (y:0)
+      floatControls.start({
+        y: [0, -18, 0],
+        transition: {
+          duration: 5,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "loop",
+        },
+      });
+    })();
+  }, [floatControls]);
+
+  const handleMouseMove = useCallback((e) => {
+    const rect = imgWrapperRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = (e.clientX - cx) / (rect.width / 2);   // -1 → 1
+    const dy = (e.clientY - cy) / (rect.height / 2);  // -1 → 1
+    setTilt({ x: dy * -14, y: dx * 14 });              // rotateX / rotateY
+    setShinePos({ x: (dx + 1) * 50, y: (dy + 1) * 50 });
+  }, []);
+
+  const handleMouseEnter = useCallback(() => setIsHovered(true), []);
+  const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
+    setTilt({ x: 0, y: 0 });
+    setShinePos({ x: 50, y: 50 });
+  }, []);
 
   const handleRegister = () => {
     router.push('/register');
@@ -73,7 +124,7 @@ export default function Home() {
   return (
     <>
       <main id="home" className="relative flex flex-col items-start justify-start min-h-screen w-full select-none px-4 sm:px-6 lg:px-8 xl:px-12 pt-28 sm:pt-32 md:pt-36 pb-16">
-        {}
+        {/* Badge */}
         <motion.div
           className="flex items-center gap-2 mb-7 sm:mb-8"
           initial="hidden"
@@ -105,7 +156,7 @@ export default function Home() {
           </motion.span>
         </motion.div>
 
-        {}
+        {/* Title — max 2 lines, clamp on mobile */}
         <h1 className="text-[clamp(1.4rem,6.5vw,1.875rem)] sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#F4F4F4] text-left mb-5 sm:mb-6 font-outfit drop-shadow-lg leading-tight">
           <span className="block whitespace-nowrap">
             <motion.span
@@ -151,7 +202,7 @@ export default function Home() {
           </motion.span>
         </h1>
 
-        {}
+        {/* Description */}
         <p className="text-sm sm:text-base md:text-lg text-[#F4F4F4]/80 text-left max-w-sm sm:max-w-xl md:max-w-2xl mb-7 sm:mb-8 font-poppins leading-relaxed">
           {t('home.description').split(' ').map((word, index) => (
             <motion.span
@@ -166,7 +217,7 @@ export default function Home() {
           ))}
         </p>
 
-        {}
+        {/* Buttons */}
         <motion.div
           className="flex flex-col sm:flex-row gap-3 sm:gap-4"
           initial="hidden"
@@ -213,15 +264,74 @@ export default function Home() {
           </motion.button>
         </motion.div>
 
-        {}
-        <motion.img
-          src="/images/certify-3d.png"
-          alt="Home Illustration"
-          className="hidden lg:block lg:absolute lg:right-[-100px] lg:top-0 lg:w-4/5 lg:max-w-4xl object-contain -z-10"
-          initial="hidden"
-          animate="visible"
-          variants={imageVariants}
-        />
+        {/* Image — hidden on mobile, shown from lg up */}
+        <motion.div
+          ref={imgWrapperRef}
+          className="hidden lg:block lg:absolute lg:right-[-100px] lg:top-0 lg:w-4/5 lg:max-w-4xl -z-10"
+          initial={{ y: 40, opacity: 0 }}
+          animate={floatControls}
+          onMouseMove={handleMouseMove}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            perspective: "1000px",
+            transformStyle: "preserve-3d",
+            willChange: "transform",
+          }}
+        >
+          {/* Glow halo */}
+          <motion.div
+            aria-hidden
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "50%",
+              background: isHovered
+                ? "radial-gradient(ellipse at 50% 60%, rgba(0,183,181,0.45) 0%, transparent 70%)"
+                : "radial-gradient(ellipse at 50% 60%, rgba(0,183,181,0.18) 0%, transparent 70%)",
+              filter: "blur(40px)",
+              transition: "background 0.5s ease",
+              pointerEvents: "none",
+              zIndex: 1,
+            }}
+          />
+
+          {/* Tilt + image */}
+          <div
+            style={{
+              transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovered ? 1.04 : 1})`,
+              transition: isHovered
+                ? "transform 0.12s cubic-bezier(0.23, 1, 0.32, 1)"
+                : "transform 0.55s cubic-bezier(0.23, 1, 0.32, 1)",
+              transformStyle: "preserve-3d",
+              position: "relative",
+              zIndex: 2,
+              willChange: "transform",
+            }}
+          >
+            <img
+              src="/images/certify-3d.png"
+              alt="Home Illustration"
+              className="w-full h-full object-contain"
+              draggable={false}
+              style={{ userSelect: "none", display: "block" }}
+            />
+
+            {/* Shine sweep */}
+            <div
+              aria-hidden
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: `radial-gradient(circle at ${shinePos.x}% ${shinePos.y}%, rgba(255,255,255,${isHovered ? 0.13 : 0}) 0%, transparent 55%)`,
+                transition: isHovered ? "background 0.05s linear" : "background 0.6s ease",
+                pointerEvents: "none",
+                borderRadius: "inherit",
+                mixBlendMode: "screen",
+              }}
+            />
+          </div>
+        </motion.div>
       </main>
     </>
   );

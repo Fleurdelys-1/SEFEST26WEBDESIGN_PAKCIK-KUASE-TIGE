@@ -701,7 +701,7 @@ export default function RegisterPage() {
               }}
             />
 
-            <div className="flex items-start gap-3 mb-1 relative z-10">
+            <div className="flex items-center sm:items-start gap-3 mb-1 relative z-10 w-full">
               <span
                 className="inline-flex items-center justify-center p-2 rounded-lg flex-shrink-0"
                 style={{
@@ -710,7 +710,7 @@ export default function RegisterPage() {
                   backdropFilter: "blur(10px)",
                 }}
               >
-                <svg width="28" height="28" fill="none" viewBox="0 0 24 24">
+                <svg width="28" height="28" fill="none" viewBox="0 0 24 24" className="w-6 h-6 sm:w-7 sm:h-7">
                   <rect width="24" height="24" rx="6" fill="#005461" />
                   <path
                     d="M7.5 8.5h9m-9 3h6m-6 3h3"
@@ -720,10 +720,8 @@ export default function RegisterPage() {
                   />
                 </svg>
               </span>
-              <div className="text-[13px] sm:text-[15px] font-bold text-[#F4F4F4] leading-tight drop-shadow-sm">
-                Lets Register
-                <br />
-                Your Certificate
+              <div className="flex-1 w-full text-[clamp(16px,5vw,24px)] sm:text-[18px] font-bold text-[#F4F4F4] leading-tight drop-shadow-sm">
+                Lets Register <span className="sm:hidden"> </span><br className="hidden sm:block" />Your Certificate
               </div>
             </div>
 
