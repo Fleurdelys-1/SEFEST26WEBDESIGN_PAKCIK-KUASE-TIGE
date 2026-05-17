@@ -41,7 +41,7 @@ export default function Contact() {
   };
   const badgeContentVariants = {
     hidden: { opacity: 0, y: 20, filter: 'blur(8px)' },
-    visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+    visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
   };
   const sectionTextVariants = {
     hidden: { opacity: 0, y: 40, filter: 'blur(12px)' },
@@ -53,7 +53,7 @@ export default function Contact() {
   };
   const cardVariants = {
     hidden: { opacity: 0, y: 40, filter: 'blur(12px)' },
-    visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], when: 'beforeChildren', staggerChildren: 0.15 } },
+    visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], when: 'beforeChildren', staggerChildren: 0.15, delay: 0.2 } },
   };
   const cardItemVariants = {
     hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
@@ -199,7 +199,7 @@ function FormCard({ t, formData, errors, isLoading, isSubmitted, handleChange, h
           {isLoading && (
             <motion.div key="loading"
               initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: -20, filter: 'blur(8px)' }} transition={{ duration: 0.4 }}
+              exit={{ opacity: 0, y: -20, filter: 'blur(8px)' }} transition={{ duration: 0.8 }}
               className="flex flex-col items-center justify-center text-center space-y-4 py-10"
             >
               <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400/20 to-cyan-400/10 border border-cyan-400/30">
@@ -212,7 +212,7 @@ function FormCard({ t, formData, errors, isLoading, isSubmitted, handleChange, h
           {isSubmitted && !isLoading && (
             <motion.div key="success"
               initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-              exit={{ opacity: 0, y: -20, filter: 'blur(8px)' }} transition={{ duration: 0.4 }}
+              exit={{ opacity: 0, y: -20, filter: 'blur(8px)' }} transition={{ duration: 0.8 }}
               className="flex flex-col items-center justify-center text-center space-y-4 py-10"
             >
               <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-green-400/20 to-green-400/10 border border-green-400/30">
@@ -224,9 +224,7 @@ function FormCard({ t, formData, errors, isLoading, isSubmitted, handleChange, h
           )}
           {!isLoading && !isSubmitted && (
             <motion.form key="form"
-              initial="hidden" animate="visible"
-              exit={{ opacity: 0, y: -20, filter: 'blur(8px)', transition: { duration: 0.4 } }}
-              variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.12 } } }}
+              exit={{ opacity: 0, y: -20, filter: 'blur(8px)', transition: { duration: 0.8 } }}
               className="space-y-4" onSubmit={handleSubmit}
             >
               <motion.div variants={cardItemVariants}>
