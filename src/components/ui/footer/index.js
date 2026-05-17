@@ -60,14 +60,14 @@ export default function Footer() {
       </div>
 
       <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
-        {}
-        <div className="mb-12 sm:mb-16 flex items-center justify-center gap-2 w-full max-w-5xl mx-auto">
+        { }
+        <div className="mb-12 sm:mb-16 flex items-center justify-center gap-2 w-full">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent via-[#005461] to-[#00b7b5]/50" />
           <div className="w-1.5 h-1.5 rounded-full bg-[#00b7b5] shadow-[0_0_8px_#00b7b5]" />
           <div className="flex-1 h-px bg-gradient-to-l from-transparent via-[#005461] to-[#00b7b5]/50" />
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-10 xl:gap-16 mb-12">
+        <div className="flex flex-col lg:flex-row gap-10 xl:gap-16 mb-4">
           <div className="w-full lg:w-4/12 xl:w-3/12">
             <div className="flex items-center gap-2 mb-4">
               <img
@@ -185,13 +185,15 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10">
-          <div className="flex flex-wrap flex-col sm:flex-row items-center justify-center sm:justify-between gap-4 text-center sm:text-left">
-            <p className="text-sm text-[#F4F4F4]/50">
-              © {new Date().getFullYear()} Certify. {t("footer.copyright")}
-            </p>
+        <div className="pt-2 border-t border-white/10">
+          <div className="flex flex-wrap flex-col sm:flex-row items-center justify-center sm:justify-between gap-4 text-center sm:text-left w-full">
+            <div className="sm:flex-1 flex justify-center sm:justify-start">
+              <p className="text-sm text-[#F4F4F4]/50">
+                © {new Date().getFullYear()} Certify. {t("footer.copyright")}
+              </p>
+            </div>
 
-            <div className="flex items-center justify-center gap-4 flex-wrap">
+            <div className="flex items-center justify-center gap-4 flex-wrap sm:flex-none">
               {footerLinks.legal.map((link, index) => (
                 <Link
                   key={index}
@@ -203,11 +205,13 @@ export default function Footer() {
               ))}
             </div>
 
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-              <span className="w-2 h-2 rounded-full bg-[#00b7b5] animate-pulse" />
-              <span className="text-xs text-[#F4F4F4]/60">
-                {t("footer.protocol")}
-              </span>
+            <div className="sm:flex-1 flex justify-center sm:justify-end">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+                <span className="w-2 h-2 rounded-full bg-[#00b7b5] animate-pulse" />
+                <span className="text-xs text-[#F4F4F4]/60">
+                  {t("footer.protocol")}
+                </span>
+              </div>
             </div>
           </div>
         </div>

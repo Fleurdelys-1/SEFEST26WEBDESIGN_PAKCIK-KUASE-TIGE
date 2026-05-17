@@ -90,13 +90,13 @@ export default function FAQ() {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], when: 'beforeChildren', staggerChildren: 0.15 },
+      transition: { duration: 0.2, ease: [0.22, 1, 0.36, 1], when: 'beforeChildren', staggerChildren: 0.04 },
     },
     exit: {
       opacity: 0,
       y: -20,
       filter: 'blur(8px)',
-      transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.1, ease: [0.22, 1, 0.36, 1] },
     }
   };
 
@@ -106,7 +106,7 @@ export default function FAQ() {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.2, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
