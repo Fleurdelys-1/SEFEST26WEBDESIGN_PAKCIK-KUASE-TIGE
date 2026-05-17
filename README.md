@@ -95,14 +95,6 @@ Ikuti langkah-langkah di bawah ini untuk memasang dan menjalankan salinan platfo
 
 ---
 
-## 🔒 Kebijakan Privasi & Perlindungan Data
-
-Certify menerapkan konsep privasi data tingkat tinggi secara inheren:
-* **Pemrosesan Tanpa Server**: Dokumen PDF atau data sertifikat yang Anda validasikan diproses sepenuhnya menggunakan komputasi lokal pada peramban web Anda (*client-side*). File asli tidak pernah diunggah, disimpan, ataupun disimpan di server database kami.
-* **Metode Hashing Satu Arah**: Hanya tanda tangan hash kriptografi (SHA-256) berukuran tetap dari sertifikat Anda yang dicocokkan dengan catatan otentik di blockchain, sehingga dokumen asli Anda tidak akan dapat direkonstruksi oleh pihak luar.
-
----
-
 ## 📄 Lisensi
 
 Platform Certify dilisensikan di bawah ketentuan **MIT License** - silakan baca berkas [LICENSE](LICENSE) untuk informasi hak cipta dan izin lebih lanjut.
