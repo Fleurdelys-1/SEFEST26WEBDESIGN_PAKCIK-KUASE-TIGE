@@ -29,8 +29,8 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
   const [searchOrigin, setSearchOrigin] = useState(null);
   const [copiedHash, setCopiedHash] = useState(false);
   const [copiedId, setCopiedId] = useState(false);
-  
-  
+
+
   const [uploadedFile, setUploadedFile] = useState(null);
   const [isExtracting, setIsExtracting] = useState(false);
   const [extractionError, setExtractionError] = useState(null);
@@ -39,7 +39,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
   const [pdfSearchOrigin, setPdfSearchOrigin] = useState('pdf');
   const [dragActive, setDragActive] = useState(false);
   const fileInputRef = useRef(null);
-  
+
   const isInitialLoad = useRef(!!initialQueryValue);
 
   const performSearch = (queryValue, isInitial = false, origin = 'manual') => {
@@ -72,7 +72,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
     isInitialLoad.current = false;
   }, []);
 
-  
+
   useEffect(() => {
     if (!searchResult || !initialQueryValue?.trim()) return;
 
@@ -86,7 +86,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
     return () => clearTimeout(timer);
   }, [searchResult, initialQueryValue]);
 
-  
+
   useEffect(() => {
     if (searchResult || pdfSearchResult) {
       const timer = setTimeout(() => {
@@ -117,14 +117,14 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
     setSearchValue('');
   };
 
-  
+
   const handlePdfFileSelect = async (file) => {
     try {
       setExtractionError(null);
       setExtractedData(null);
       setPdfSearchResult(null);
 
-      
+
       const validation = validatePdfFile(file);
       if (!validation.valid) {
         setExtractionError(validation.error);
@@ -134,23 +134,23 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
       setUploadedFile(file);
       setIsExtracting(true);
 
-      
+
       try {
         const pdfText = await extractPdfText(file);
-        
-        
+
+
         const certData = extractCertificateData(pdfText);
-        
-        
+
+
         setExtractedData(certData);
-        
-        
+
+
         await new Promise(resolve => setTimeout(resolve, 500));
-        
-        
+
+
         const dataValidation = validateExtractedData(certData);
         if (!dataValidation.valid) {
-          
+
           setPdfSearchResult({
             found: false,
             message: 'Could not extract valid Certificate ID or Hash from the PDF. Please ensure you uploaded a valid certificate file.'
@@ -159,7 +159,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
           setIsExtracting(false);
           return;
         }
-        
+
         const searchTerm = certData.certId || certData.hash;
         if (searchTerm) {
           const result = searchCertificate(searchTerm);
@@ -168,7 +168,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
         }
       } catch (extractError) {
         console.error('Extraction error:', extractError);
-        
+
         setExtractedData({ certId: null, hash: null });
         setPdfSearchResult({
           found: false,
@@ -312,12 +312,11 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
   };
 
   const inputRowVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { y: 25 },
     visible: {
-      opacity: 1,
       y: 0,
       transition: {
-        duration: 0.4,
+        duration: 0.35,
         ease: [0.22, 1, 0.36, 1],
         when: 'beforeChildren',
         staggerChildren: 0.04,
@@ -362,12 +361,11 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
   };
 
   const cryptoGlassVariants = {
-    hidden: { opacity: 0, y: 32 },
+    hidden: { y: 25 },
     visible: {
-      opacity: 1,
       y: 0,
       transition: {
-        duration: 0.45,
+        duration: 0.35,
         ease: [0.22, 1, 0.36, 1],
       },
     },
@@ -398,12 +396,11 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
   };
 
   const resultContainerVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { y: 25 },
     visible: {
-      opacity: 1,
       y: 0,
       transition: {
-        duration: 0.45,
+        duration: 0.4,
         ease: [0.22, 1, 0.36, 1],
         when: 'beforeChildren',
         staggerChildren: 0.05,
@@ -413,12 +410,11 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
   };
 
   const resultItemVariants = {
-    hidden: { opacity: 0, y: 25 },
+    hidden: { y: 15 },
     visible: {
-      opacity: 1,
       y: 0,
       transition: {
-        duration: 0.35,
+        duration: 0.3,
         ease: [0.22, 1, 0.36, 1],
       },
     },
@@ -430,7 +426,6 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
     WebkitBackdropFilter: 'blur(30px) saturate(210%)',
     border: '1px solid rgba(255, 255, 255, 0.28)',
     boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 0 20px rgba(0, 183, 181, 0.1)',
-    willChange: 'transform, opacity',
   };
 
   const resultGlassStyle = {
@@ -439,7 +434,6 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
     WebkitBackdropFilter: 'blur(32px) saturate(220%)',
     border: '1px solid rgba(255, 255, 255, 0.25)',
     boxShadow: '0 30px 80px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.15), 0 0 40px rgba(0, 183, 181, 0.12)',
-    willChange: 'transform, opacity',
   };
 
   const glassCardStyle = liquidGlassStyle;
@@ -501,7 +495,11 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
           viewport={{ once: true, amount: 0.2 }}
           variants={tabContainerVariants}
         >
-          <motion.div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 p-2 shadow-[0_20px_80px_rgba(0,0,0,0.12)] backdrop-blur-xl" variants={tabContainerVariants}>
+          <motion.div
+            className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full p-2 relative overflow-hidden"
+            style={liquidGlassStyle}
+            variants={tabContainerVariants}
+          >
             <motion.button
               type="button"
               onClick={() => setActiveTab('manual')}
@@ -568,10 +566,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
           {activeTab === 'manual' && (
             <motion.div
               key="manual"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 40 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ y: 25 }}
+              animate={{ y: 0 }}
+              exit={{ y: 25 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-3xl mx-auto"
               style={{ transformOrigin: 'center bottom' }}
             >
@@ -637,7 +635,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <motion.div
-                        className="group relative px-4 py-3 rounded-xl flex items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
+                        className="group relative px-4 py-3 rounded-xl flex items-center gap-2 cursor-pointer transition-[transform,box-shadow,border-color] duration-300 hover:scale-105"
                         style={{
                           background: 'rgba(255, 255, 255, 0.12)',
                           backdropFilter: 'blur(18px)',
@@ -652,7 +650,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                         <ArrowRight className="w-3 h-3 text-white/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-auto flex-shrink-0" />
                       </motion.div>
                       <motion.div
-                        className="group relative px-4 py-3 rounded-xl flex items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-105"
+                        className="group relative px-4 py-3 rounded-xl flex items-center gap-2 cursor-pointer transition-[transform,box-shadow,border-color] duration-300 hover:scale-105"
                         style={{
                           background: 'rgba(255, 255, 255, 0.12)',
                           backdropFilter: 'blur(18px)',
@@ -995,29 +993,21 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
           {activeTab === 'pdf' && (
             <motion.div
               key="pdf"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 40 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ y: 25 }}
+              animate={{ y: 0 }}
+              exit={{ y: 25 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-3xl mx-auto space-y-6"
               style={{ transformOrigin: 'center bottom' }}
             >
-              {}
               {!uploadedFile && (
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 40 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="space-y-6"
-                >
-                  {}
+                <div className="space-y-6">
                   <motion.div
                     onDragEnter={handleDrag}
                     onDragLeave={handleDrag}
                     onDragOver={handleDrag}
                     onDrop={handleDrop}
-                    className={`py-6 px-8 sm:py-8 sm:px-10 rounded-[32px] transition-all duration-500 cursor-pointer overflow-hidden relative group ${dragActive ? 'scale-[1.01] shadow-[0_0_40px_rgba(0,183,181,0.2)]' : ''}`}
+                    className={`py-6 px-8 sm:py-8 sm:px-10 rounded-[32px] transition-[transform,box-shadow,border-color] duration-300 cursor-pointer overflow-hidden relative group ${dragActive ? 'scale-[1.01] shadow-[0_0_40px_rgba(0,183,181,0.2)]' : ''}`}
                     style={{
                       ...liquidGlassStyle,
                       border: dragActive
@@ -1026,9 +1016,9 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                     }}
                     onClick={() => fileInputRef.current?.click()}
                   >
-                    {}
+                    { }
                     <div className="absolute inset-0 bg-gradient-to-br from-[#00B7B5]/5 via-transparent to-white/5 opacity-50 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                    
+
                     <input
                       ref={fileInputRef}
                       type="file"
@@ -1038,13 +1028,13 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                     />
 
                     <div className="flex flex-col items-center gap-6 relative z-10">
-                      {}
+                      { }
                       <div className="relative">
-                        <motion.div 
+                        <motion.div
                           className="absolute inset-0 bg-[#00B7B5]/20 rounded-full blur-2xl"
-                          animate={{ 
+                          animate={{
                             scale: dragActive ? [1, 1.15, 1] : 1,
-                            opacity: dragActive ? [0.4, 0.7, 0.4] : 0.25 
+                            opacity: dragActive ? [0.4, 0.7, 0.4] : 0.25
                           }}
                           transition={{ duration: 2, repeat: Infinity }}
                         />
@@ -1060,12 +1050,12 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                         <p className="text-white/60 text-sm sm:text-base font-poppins leading-relaxed">
                           {t('validate.pdf.description')}
                         </p>
-                        
+
 
                       </div>
 
-                      {}
-                      <motion.p 
+                      { }
+                      <motion.p
                         className="text-sm font-semibold text-[#00B7B5] mt-4 flex items-center gap-2"
                         animate={{ y: [0, -3, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
@@ -1076,7 +1066,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                     </div>
                   </motion.div>
 
-                  {}
+                  { }
                   <AnimatePresence>
                     {extractionError && (
                       <motion.div
@@ -1098,25 +1088,25 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             {extractionError === 'fileType'
                               ? t('validate.pdf.fileTypeError')
                               : extractionError === 'fileEmpty'
-                              ? t('validate.pdf.fileEmptyError')
-                              : extractionError === 'fileSize'
-                              ? t('validate.pdf.fileSizeError')
-                              : extractionError === 'corrupted'
-                              ? t('validate.pdf.corruptedError')
-                              : extractionError === 'noData'
-                              ? t('validate.pdf.noDataFound')
-                              : extractionError === 'noCertId'
-                              ? t('validate.pdf.certIdNotFound')
-                              : t('validate.pdf.hashNotFound')}
+                                ? t('validate.pdf.fileEmptyError')
+                                : extractionError === 'fileSize'
+                                  ? t('validate.pdf.fileSizeError')
+                                  : extractionError === 'corrupted'
+                                    ? t('validate.pdf.corruptedError')
+                                    : extractionError === 'noData'
+                                      ? t('validate.pdf.noDataFound')
+                                      : extractionError === 'noCertId'
+                                        ? t('validate.pdf.certIdNotFound')
+                                        : t('validate.pdf.hashNotFound')}
                           </p>
                         </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
 
-                  {}
+                  { }
                   <div
-                    className="p-5 sm:p-6 rounded-3xl relative overflow-hidden transition-all duration-300 hover:scale-[1.01] group"
+                    className="p-5 sm:p-6 rounded-3xl relative overflow-hidden transition-[transform,box-shadow,border-color] duration-300 hover:scale-[1.01] group"
                     style={liquidGlassStyle}
                   >
                     <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -1151,18 +1141,18 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                       </a>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               )}
 
-              {}
+              { }
               <AnimatePresence>
                 {isExtracting && (
                   <motion.div
                     key="extracting-state"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 30 }}
-                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    initial={{ y: 20 }}
+                    animate={{ y: 0 }}
+                    exit={{ y: 20 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                     className="rounded-2xl p-8 text-center space-y-4"
                     style={resultGlassStyle}
                   >
@@ -1183,7 +1173,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                 )}
               </AnimatePresence>
 
-              {}
+              { }
               <AnimatePresence>
                 {uploadedFile && !isExtracting && extractedData && (
                   <motion.div
@@ -1194,7 +1184,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                     className="space-y-6"
                   >
-                    {}
+                    { }
                     <div
                       className="p-4 rounded-lg flex items-center justify-between"
                       style={{
@@ -1224,7 +1214,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                 )}
               </AnimatePresence>
 
-              {}
+              { }
               <AnimatePresence>
                 {showPdfResult && (
                   <motion.div
@@ -1248,18 +1238,16 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           <div className="flex items-start justify-between mb-4">
                             <div className="flex items-start gap-3 flex-1">
                               <div
-                                className={`flex-shrink-0 p-2 rounded-full ${
-                                  pdfSearchResult.isActive
+                                className={`flex-shrink-0 p-2 rounded-full ${pdfSearchResult.isActive
                                     ? 'bg-[#00B7B5]/20'
                                     : 'bg-red-500/20'
-                                }`}
+                                  }`}
                               >
                                 <CheckCircle2
-                                  className={`w-6 h-6 ${
-                                    pdfSearchResult.isActive
+                                  className={`w-6 h-6 ${pdfSearchResult.isActive
                                       ? 'text-[#00B7B5]'
                                       : 'text-red-400'
-                                  }`}
+                                    }`}
                                 />
                               </div>
                               <div className="flex-1 min-w-0">
@@ -1310,11 +1298,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                 className="absolute top-3 right-3 p-1.5 hover:bg-white/10 rounded-md transition-colors duration-200"
                               >
                                 <Copy
-                                  className={`w-4 h-4 ${
-                                    copiedId
+                                  className={`w-4 h-4 ${copiedId
                                       ? 'text-[#00B7B5]'
                                       : 'text-[#F4F4F4]/40 hover:text-[#F4F4F4]/70'
-                                  }`}
+                                    }`}
                                 />
                               </button>
                               <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1">
@@ -1340,11 +1327,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                 className="absolute top-3 right-3 p-1.5 hover:bg-white/10 rounded-md transition-colors duration-200"
                               >
                                 <Copy
-                                  className={`w-4 h-4 ${
-                                    copiedHash
+                                  className={`w-4 h-4 ${copiedHash
                                       ? 'text-[#00B7B5]'
                                       : 'text-[#F4F4F4]/40 hover:text-[#F4F4F4]/70'
-                                  }`}
+                                    }`}
                                 />
                               </button>
                               <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1">
@@ -1631,12 +1617,11 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                 Smart Contract Verified
                               </p>
                               <span
-                                className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-semibold ${
-                                  pdfSearchResult.certificate.blockchainEvidence
+                                className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-semibold ${pdfSearchResult.certificate.blockchainEvidence
                                     .smartContractVerified
                                     ? 'bg-[#00B7B5]/20 text-[#00B7B5]'
                                     : 'bg-red-500/20 text-red-400'
-                                }`}
+                                  }`}
                               >
                                 {pdfSearchResult.certificate.blockchainEvidence
                                   .smartContractVerified ? (
@@ -1685,11 +1670,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                     className="p-1 hover:bg-white/10 rounded transition-colors duration-200 flex-shrink-0"
                                   >
                                     <Copy
-                                      className={`w-4 h-4 ${
-                                        copiedHash
+                                      className={`w-4 h-4 ${copiedHash
                                           ? 'text-[#00B7B5]'
                                           : 'text-[#F4F4F4]/40'
-                                      }`}
+                                        }`}
                                     />
                                   </button>
                                 </div>
@@ -1795,10 +1779,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
           {activeTab === 'qr' && (
             <motion.div
               key="qr"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 40 }}
-              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ y: 25 }}
+              animate={{ y: 0 }}
+              exit={{ y: 25 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
               className="max-w-3xl mx-auto"
               style={{ transformOrigin: 'center bottom' }}
             >
@@ -1809,7 +1793,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                     <div className="grid grid-cols-1 sm:grid-cols-[320px_1fr] gap-6 sm:gap-8 items-center">
                       <div className="flex justify-center sm:justify-start">
                         <div
-                          className="p-6 rounded-2xl flex flex-col items-center gap-4 w-full max-w-[320px] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] relative overflow-hidden"
+                          className="p-6 rounded-2xl flex flex-col items-center gap-4 w-full max-w-[320px] transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] relative overflow-hidden"
                           style={glassCardStyle}
                         >
                           <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
