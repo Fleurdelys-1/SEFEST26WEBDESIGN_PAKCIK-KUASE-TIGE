@@ -384,7 +384,7 @@ export default function Navbar() {
 					>
 						{}
 						<div
-							className="absolute inset-0 bg-black/60 backdrop-blur-xl"
+							className="absolute inset-0 bg-black/20 backdrop-blur-xl"
 							onClick={() => setMobileMenuOpen(false)}
 						/>
 
