@@ -96,6 +96,7 @@
     "certificates": "Sertifikat",
     "institutions": "Institusi",
     "validations": "Validasi",
+    "runTest": "Jalankan tes validasi kriptografi dengan data sertifikat nyata:",
     "tabs": {
       "manual": "Pencarian Manual (ID/Hash)",
       "manualShort": "Manual",
@@ -107,6 +108,41 @@
     "manual": {
       "title": "Pencarian Manual",
       "description": "Masukkan ID sertifikat atau hash Anda untuk memverifikasi keasliannya"
+    },
+    "details": {
+      "status": "STATUS",
+      "validCertificate": "Sertifikat Valid",
+      "revokedCertificate": "Sertifikat Dicabut",
+      "credentialId": "ID Kredensial Unik",
+      "certificateHash": "Hash Sertifikat",
+      "userInfo": "Informasi Pengguna",
+      "fullName": "Nama Lengkap",
+      "idNumber": "Nomor Identitas",
+      "email": "Email",
+      "country": "Negara",
+      "programDetail": "Detail Program",
+      "courseName": "Nama Kursus",
+      "eventCode": "Kode Acara",
+      "level": "Tingkat",
+      "language": "Bahasa",
+      "grade": "Nilai",
+      "certificateDetails": "Detail Sertifikat",
+      "institution": "Institusi",
+      "modality": "Modalitas",
+      "issuedDate": "Tanggal Diterbitkan",
+      "studyPeriod": "Periode Studi",
+      "credentials": "Kredensial",
+      "instructors": "Instruktur",
+      "signatories": "Penandatangan",
+      "blockchainEvidence": "Bukti Digital Blockchain",
+      "smartContractVerified": "Smart Contract Terverifikasi",
+      "verified": "Terverifikasi",
+      "notVerified": "Tidak Terverifikasi",
+      "viewPolygonscan": "Lihat di Polygonscan",
+      "auditReport": "Laporan Audit",
+      "pdfDownload": "Unduh PDF",
+      "notFound": "Sertifikat Tidak Ditemukan",
+      "tryAnotherSearch": "Coba Pencarian Lain"
     },
     "pdf": {
       "title": "Validasi File PDF",
@@ -132,7 +168,8 @@
       "tryAgain": "Unggah PDF Lain",
       "downloadTestCert": "Unduh Sertifikat Uji",
       "downloadTestDesc": "Dapatkan file sertifikat demo untuk menguji fitur validasi PDF.",
-      "downloadBtn": "Download"
+      "downloadBtn": "Download",
+      "fileUploaded": "File Diunggah"
     },
     "qr": {
       "badge": "Pemindaian Seluler",
@@ -147,6 +184,8 @@
   "faq": {
     "badge": "FAQ",
     "title": "Pertanyaan yang Sering Diajukan",
+    "needClarity": "Butuh penjelasan lebih lanjut?",
+    "clarityDescription": "Ketuk kategori atau pertanyaan lain untuk mengetahui lebih banyak tentang alur validasi, keamanan, dan desain Web3-native dari Certify.",
     "subtitle": "Lihat pertanyaan umum tentang Certify, verifikasi, dan kepercayaan web3, serta pahami bagaimana pengalaman verifikasi kami bekerja.",
     "tabs": [
       {
@@ -233,7 +272,7 @@
   },
   "contact": {
     "badge": "Kontak",
-    "title": "Lets Build Trust On Chain.",
+    "title": "Mari Bangun Kepercayaan Secara On-Chain.",
     "subtitle": "Butuh bantuan dengan sertifikat on-chain atau memiliki pertanyaan tentang verifikasi sertifikat? Mari kita buat kepercayaan lebih transparan bersama-sama, di setiap langkah perjalanan Anda. Tim kami siap mendukung Anda dalam membangun kredensial yang aman dan autentik.",
     "emailLabel": "Email kami langsung",
     "manualTitle": "Permintaan email manual",
@@ -291,6 +330,202 @@
     "featuresLink": "Fitur",
     "faq": "FAQ",
     "documentation": "Dokumentasi",
-    "support": "Bantuan"
+    "support": "Bantuan",
+    "platform": "Platform",
+    "help": "Bantuan"
+  },
+  "register": {
+    "backToHome": "Kembali Ke Beranda",
+    "title": "Daftarkan Sertifikat Anda",
+    "userInfo": "INFORMASI PENGGUNA",
+    "programDetail": "DETAIL PROGRAM",
+    "alreadyHavePdf": "Sudah punya file PDF sertifikat?",
+    "sending": "MENGIRIM...",
+    "sent": "✓ TERKIRIM!",
+    "send": "KIRIM",
+    "successTitle": "Pendaftaran berhasil dikirim!",
+    "successSubtitle": "Terima kasih telah mendaftar. Kami akan meninjau detail Anda dan segera menghubungi Anda.",
+    "search": "Cari...",
+    "noResults": "Hasil tidak ditemukan",
+    "fields": {
+      "name": "Nama",
+      "number": "Nomor",
+      "digitalContact": "Kontak Digital",
+      "region": "Wilayah",
+      "certificateName": "Nama Penerima Sertifikat",
+      "eventCode": "Kode Acara",
+      "issuingInstitution": "Institusi Penerbit",
+      "language": "Bahasa",
+      "level": "Tingkat",
+      "certificateIssue": "Tanggal Penerbitan",
+      "modality": "Modalitas",
+      "studyPeriod": "Masa Studi",
+      "instructors": "Instruktur",
+      "signer": "Penandatangan / Otoritas"
+    },
+    "placeholders": {
+      "name": "Nama Anda",
+      "number": "Nomor Telepon atau ID",
+      "digitalContact": "Email atau Media Sosial",
+      "region": "Pilih Wilayah",
+      "certificateName": "Nama Sertifikat",
+      "eventCode": "Kode Acara",
+      "issuingInstitution": "Nama Institusi",
+      "language": "Bahasa",
+      "level": "Tingkat",
+      "certificateIssue": "BB/HH/TT",
+      "modality": "Modalitas",
+      "studyPeriod": "BB/HH/TT - BB/HH/TT",
+      "instructors": "Nama Instruktur",
+      "signer": "Nama Penandatangan"
+    },
+    "errors": {
+      "required": "wajib diisi",
+      "validEmail": "Email yang valid wajib diisi"
+    }
+  },
+  "upload": {
+    "backToHome": "Kembali Ke Beranda",
+    "title": "Unggah Sertifikat Anda",
+    "badge": "VALIDASI SERTIFIKAT",
+    "fields": {
+      "idCertificate": "ID Sertifikat",
+      "hashSha256": "HASH SHA 256",
+      "pdfFile": "Validasi File PDF"
+    },
+    "placeholders": {
+      "idCertificate": "Masukkan ID Sertifikat",
+      "hashSha256": "misal a3f9b2c1..."
+    },
+    "dragDrop": {
+      "title": "Validasi File PDF",
+      "subtitle": "Seret PDF asli ke sini untuk memverifikasi",
+      "meta": "PRIBADI · HANYA PEMROSESAN LOKAL SHA-256 · MAKS 20 MB"
+    },
+    "successTitle": "Validasi berhasil dikirim!",
+    "successSubtitle": "Sertifikat Anda sedang diverifikasi. Kami akan segera memberi tahu Anda.",
+    "backToRegister": "Kembali ke formulir Pendaftaran",
+    "verifying": "MEMVERIFIKASI...",
+    "verified": "✓ TERVERIFIKASI!",
+    "send": "KIRIM",
+    "errors": {
+      "idCertificate": "ID Sertifikat wajib diisi",
+      "hashSha256": "HASH SHA 256 wajib diisi",
+      "pdfRequired": "File PDF wajib diisi",
+      "pdfType": "Hanya file PDF yang diterima",
+      "pdfSize": "Ukuran file harus di bawah 20 MB"
+    }
+  },
+  "privacy": {
+    "backToHome": "Kembali Ke Beranda",
+    "title": "Kebijakan Privasi",
+    "lastUpdate": "Pembaruan Terakhir",
+    "intro": "Di Certify, privasi Anda adalah prioritas kami. Harap baca kebijakan ini dengan saksama untuk memahami bagaimana kami menangani data Anda saat Anda menggunakan platform verifikasi sertifikat bertenaga blockchain kami.",
+    "sections": [
+      {
+        "title": "1. Pendahuluan",
+        "content": "Selamat datang di Certify. Kami berkomitmen untuk melindungi informasi pribadi Anda dan hak privasi Anda. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, mengungkapkan, dan melindungi informasi Anda ketika Anda mengunjungi platform kami dan menggunakan layanan verifikasi sertifikat berbasis blockchain kami."
+      },
+      {
+        "title": "2. Informasi yang Kami Kumpulkan",
+        "content": "Kami dapat mengumpulkan informasi yang Anda berikan secara sukarela saat menggunakan layanan kami, termasuk nama, alamat email, dan data terkait sertifikat yang dikirimkan untuk verifikasi. Kami juga secara otomatis mengumpulkan data teknis tertentu seperti alamat IP, tipe peramban, dan pola penggunaan untuk meningkatkan kinerja platform."
+      },
+      {
+        "title": "3. Bagaimana Kami Menggunakan Informasi Anda",
+        "content": "Kami menggunakan informasi yang kami kumpulkan untuk menyediakan, mengoperasikan, dan meningkatkan layanan kami; memproses verifikasi sertifikat pada blockchain; berkomunikasi dengan Anda terkait permintaan Anda; memastikan keamanan dan integritas platform; dan mematuhi kewajiban hukum yang berlaku."
+      },
+      {
+        "title": "4. Data Blockchain & On-Chain",
+        "content": "Certify menggunakan teknologi blockchain untuk verifikasi sertifikat. Hanya hash bukti kriptografi dan metadata verifikasi minimal yang disimpan di dalam rantai (on-chain). Tidak ada informasi identitas pribadi (PII) yang ditulis ke blockchain publik. Semua data sensitif tetap terenkripsi dan berada di luar rantai (off-chain)."
+      },
+      {
+        "title": "5. Membagikan Informasi Anda",
+        "content": "Kami tidak menjual, memperdagangkan, atau menyewakan informasi pribadi Anda kepada pihak ketiga. Kami dapat membagikan data dengan penyedia layanan tepercaya yang membantu dalam mengoperasikan platform kami, dengan syarat mereka setuju untuk menjaga kerahasiaan informasi ini. Kami juga dapat mengungkapkan informasi jika diharuskan oleh hukum atau untuk melindungi hak-ihak kami."
+      },
+      {
+        "title": "6. Keamanan Data",
+        "content": "Kami menerapkan langkah-langkah keamanan standar industri termasuk enkripsi AES-256, koneksi HTTPS yang aman, dan audit keamanan berkala untuk melindungi informasi Anda. Meskipun kami berusaha keras untuk melindungi data Anda, tidak ada metode transmisi melalui internet yang 100% aman."
+      },
+      {
+        "title": "7. Cookie & Pelacakan",
+        "content": "Kami menggunakan cookie dan teknologi pelacakan serupa untuk meningkatkan pengalaman Anda di platform kami. Ini membantu kami mengingat preferensi Anda dan menganalisis bagaimana layanan kami digunakan. Anda dapat menonaktifkan cookie melalui pengaturan peramban Anda, meskipun beberapa fitur mungkin tidak berfungsi dengan baik sebagai akibatnya."
+      },
+      {
+        "title": "8. Hak-Hak Anda",
+        "content": "Tergantung pada lokasi Anda, Anda mungkin memiliki hak-hak tertentu terkait data pribadi Anda, termasuk hak untuk mengakses, memperbaiki, atau menghapus informasi Anda; hak atas portabilitas data; dan hak untuk menolak atau membatasi pemrosesan. Untuk menggunakan hak-hak ini, silakan hubungi kami di email di bawah."
+      },
+      {
+        "title": "9. Tautan Pihak Ketiga",
+        "content": "Platform kami mungkin berisi tautan ke situs web pihak ketiga. Kami tidak bertanggung jawab atas praktik privasi atau konten dari situs-situs tersebut. Kami menganjurkan Anda untuk meninjau kebijakan privasi setiap situs pihak ketiga yang Anda kunjungi."
+      },
+      {
+        "title": "10. Perubahan pada Kebijakan Ini",
+        "content": "Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu. Kami akan memberi tahu Anda tentang perubahan signifikan apa pun dengan memperbarui tanggal 'Pembaruan Terakhir' di bagian atas halaman ini. Penggunaan platform yang berkelanjutan setelah perubahan merupakan penerimaan Anda terhadap kebijakan yang diperbarui."
+      },
+      {
+        "title": "11. Hubungi Kami",
+        "content": "Jika Anda memiliki pertanyaan atau kekhawatiran tentang Kebijakan Privasi ini atau praktik data kami, silakan hubungi kami di: hello@certify.io — Kami bertujuan untuk menanggapi semua pertanyaan dalam waktu 48 jam."
+      }
+    ]
+  },
+  "terms": {
+    "backToHome": "Kembali Ke Beranda",
+    "title": "Ketentuan Layanan",
+    "lastUpdate": "Pembaruan Terakhir",
+    "intro": "Harap baca Ketentuan Layanan ini dengan saksama sebelum menggunakan Certify. Dengan mengakses platform kami, Anda setuju untuk mematuhi dan terikat oleh ketentuan dan syarat berikut yang mengatur penggunaan Anda atas layanan verifikasi sertifikat bertenaga blockchain kami.",
+    "sections": [
+      {
+        "title": "1. Penerimaan Ketentuan",
+        "content": "Dengan mengakses atau menggunakan platform dan layanan Certify, Anda setuju untuk terikat oleh Ketentuan Layanan ini. Jika Anda tidak menyetujui ketentuan ini, harap jangan gunakan layanan kami. Ketentuan ini berlaku untuk semua pengguna, termasuk pengunjung, pengguna terdaftar, dan penerbit sertifikat."
+      },
+      {
+        "title": "2. Deskripsi Layanan",
+        "content": "Certify menyediakan platform verifikasi sertifikat berbasis blockchain yang memungkinkan institusi mendaftarkan kredensial dan individu atau organisasi untuk memverifikasi keasliannya. Layanan kami mencakup verifikasi berbasis ID manual, pemindaian kode QR, dan alat validasi PDF."
+      },
+      {
+        "title": "3. Akun Pengguna & Pendaftaran",
+        "content": "Untuk mengakses fitur-fitur tertentu dari platform, Anda mungkin diharuskan membuat akun. Anda bertanggung jawab untuk menjaga kerahasiaan kredensial akun Anda dan untuk semua aktivitas yang terjadi di bawah akun Anda. Anda setuju untuk memberikan informasi yang akurat dan lengkap selama pendaftaran."
+      },
+      {
+        "title": "4. Penggunaan yang Diterima",
+        "content": "Anda setuju untuk menggunakan Certify hanya untuk tujuan yang sah. Anda tidak boleh mencoba mengirimkan data sertifikat palsu, merekayasa balik platform, melakukan akses tidak sah ke sistem kami, atau menggunakan layanan dengan cara apa pun yang melanggar hukum atau peraturan yang berlaku."
+      },
+      {
+        "title": "5. Data Sertifikat & Akurasi",
+        "content": "Certify bertindak sebagai platform verifikasi saja. Akurasi dan legitimasi data sertifikat yang dikirimkan oleh institusi penerbit adalah tanggung jawab tunggal dari institusi tersebut. Certify tidak memverifikasi secara independen kredensial asli yang dikirimkan oleh penerbit."
+      },
+      {
+        "title": "6. Imutabilitas Blockchain",
+        "content": "Setelah data bukti sertifikat dicatat di blockchain, data tersebut tidak dapat diubah atau dihapus. Pengguna dan institusi harus memastikan semua data yang dikirimkan akurat sebelum memulai pendaftaran on-chain. Certify tidak bertanggung jawab atas kesalahan dalam data yang dikirimkan oleh pihak ketiga."
+      },
+      {
+        "title": "7. Kekayaan Intelektual",
+        "content": "Semua konten, merek dagang, logo, dan perangkat lunak pada platform Certify dimiliki oleh atau dilisensikan kepada Certify. Anda tidak boleh mereproduksi, mendistribusikan, atau membuat karya turunan dari bagian mana pun dari platform tanpa persetujuan tertulis sebelumnya dari Certify."
+      },
+      {
+        "title": "8. Batasan Tanggung Jawab",
+        "content": "Sejauh diizinkan oleh hukum, Certify tidak bertanggung jawab atas kerusakan tidak langsung, insidental, khusus, atau konsekuensi yang timbul dari atau sehubungan dengan penggunaan platform Anda. Total tanggung jawab kami untuk kerusakan langsung tidak akan melebihi biaya yang Anda bayarkan dalam dua belas bulan sebelum klaim."
+      },
+      {
+        "title": "9. Penafian Jaminan",
+        "content": "Certify menyediakan layanannya atas dasar 'sebagaimana adanya' dan 'sebagaimana tersedia' tanpa jaminan dalam bentuk apa pun, baik tersurat maupun tersirat. Kami tidak menjamin bahwa layanan tidak akan terganggu, bebas dari kesalahan, oder bebas dari komponen berbahaya."
+      },
+      {
+        "title": "10. Penghentian",
+        "content": "Kami berhak untuk menangguhkan atau menghentikan akses Anda ke platform kapan saja, dengan atau ohne pemberitahuan, jika Anda melanggar Ketentuan Layanan ini atau terlibat dalam perilaku yang kami anggap berbahaya bagi pengguna lain atau integritas platform."
+      },
+      {
+        "title": "11. Hukum yang Mengatur",
+        "content": "Ketentuan Layanan ini diatur oleh dan ditafsirkan sesuai dengan hukum Republik Indonesia, tanpa memperhatikan pertentangan prinsip-prinsip hukum. Setiap perselisihan yang timbul berdasarkan ketentuan ini akan diselesaikan di pengadilan dalam yurisdiksi yang berlaku."
+      },
+      {
+        "title": "12. Perubahan Ketentuan",
+        "content": "Certify berhak memperbarui Ketentuan Layanan ini kapan saja. Kami akan memberi tahu pengguna tentang perubahan materi dengan memperbarui tanggal 'Pembaruan Terakhir'. Penggunaan platform yang berkelanjutan setelah perubahan tersebut merupakan penerimaan Anda terhadap ketentuan yang direvisi."
+      },
+      {
+        "title": "13. Hubungi Kami",
+        "content": "Jika Anda memiliki pertanyaan tentang Ketentuan Layanan ini, silakan hubungi kami di: hello@certify.io — Kami bertujuan untuk menanggapi semua pertanyaan dalam waktu 48 jam."
+      }
+    ]
   }
 }

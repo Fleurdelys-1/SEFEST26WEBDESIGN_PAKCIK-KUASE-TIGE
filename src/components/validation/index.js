@@ -639,7 +639,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                         <div className="w-1 h-1 bg-[#00B7B5] rounded-full" />
                       </div>
                       <motion.p className="text-xs font-bold text-[#F4F4F4] uppercase tracking-wider" variants={cryptoTextVariants}>
-                        RUN A CRYPTOGRAPHIC VALIDATION TEST WITH REAL CERTIFICATE DATA:
+                        {t('validate.runTest')}
                       </motion.p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -742,7 +742,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                               >
                                 <Copy className={`w-4 h-4 ${copiedId ? 'text-[#00B7B5]' : 'text-[#F4F4F4]/40 hover:text-[#F4F4F4]/70'}`} />
                               </button>
-                              <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1 relative z-10">Unique Credential ID</p>
+                              <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1 relative z-10">{t('validate.details.credentialId')}</p>
                               <p className="text-lg font-mono text-[#00B7B5] break-all pr-8 relative z-10">{searchResult.certificate.id}</p>
                             </div>
                             <div
@@ -761,7 +761,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                               >
                                 <Copy className={`w-4 h-4 ${copiedHash ? 'text-[#00B7B5]' : 'text-[#F4F4F4]/40 hover:text-[#F4F4F4]/70'}`} />
                               </button>
-                              <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1 relative z-10">Certificate Hash</p>
+                              <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1 relative z-10">{t('validate.details.certificateHash')}</p>
                               <p className="text-lg font-mono text-[#00B7B5] break-all pr-8 relative z-10">{searchResult.certificate.hash}</p>
                             </div>
                           </div>
@@ -775,23 +775,23 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
                             <div className="flex items-center gap-2 mb-3">
                               <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
-                              <p className="text-xs font-bold text-white/60 uppercase tracking-widest">User Information</p>
+                              <p className="text-xs font-bold text-white/60 uppercase tracking-widest">{t('validate.details.userInfo')}</p>
                             </div>
                             <div className="space-y-3">
                               <div>
-                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">Full Name</p>
+                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">{t('validate.details.fullName')}</p>
                                 <p className="text-sm text-white font-poppins">{searchResult.certificate.userInformation.fullName}</p>
                               </div>
                               <div>
-                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">ID Number</p>
+                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">{t('validate.details.idNumber')}</p>
                                 <p className="text-sm font-mono text-white/80">{maskText(searchResult.certificate.userInformation.idNumber)}</p>
                               </div>
                               <div>
-                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">Email</p>
+                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">{t('validate.details.email')}</p>
                                 <p className="text-xs font-mono text-white/70 break-all">{maskEmail(searchResult.certificate.userInformation.email)}</p>
                               </div>
                               <div>
-                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">Country</p>
+                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">{t('validate.details.country')}</p>
                                 <p className="text-sm text-white/80">{searchResult.certificate.userInformation.country}</p>
                               </div>
                             </div>
@@ -801,28 +801,28 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
                             <div className="flex items-center gap-2 mb-3">
                               <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
-                              <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Program Detail</p>
+                              <p className="text-xs font-bold text-white/60 uppercase tracking-widest">{t('validate.details.programDetail')}</p>
                             </div>
                             <div className="space-y-3">
                               <div>
-                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">Course Name</p>
+                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">{t('validate.details.courseName')}</p>
                                 <p className="text-sm text-white/90">{searchResult.certificate.programDetail.courseName}</p>
                               </div>
                               <div>
-                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">Event Code</p>
+                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">{t('validate.details.eventCode')}</p>
                                 <p className="text-sm font-mono text-[#00B7B5]">{searchResult.certificate.programDetail.academicEventCode}</p>
                               </div>
                               <div className="flex gap-2">
                                 <div className="flex-1">
-                                  <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">Level</p>
+                                  <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">{t('validate.details.level')}</p>
                                   <p className="text-xs text-white/80">{searchResult.certificate.programDetail.level}</p>
                                 </div>
                                 <div className="flex-1">
-                                  <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">Language</p>
+                                  <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">{t('validate.details.language')}</p>
                                   <p className="text-xs text-white/80">{searchResult.certificate.programDetail.language}</p>
                                 </div>
                                 <div className="flex-1">
-                                  <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">Grade</p>
+                                  <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">{t('validate.details.grade')}</p>
                                   <p className="text-xs text-white/80">{searchResult.certificate.programDetail.grade}</p>
                                 </div>
                               </div>
@@ -833,23 +833,23 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
                             <div className="flex items-center gap-2 mb-3">
                               <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
-                              <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Certificates Details</p>
+                              <p className="text-xs font-bold text-white/60 uppercase tracking-widest">{t('validate.details.certificateDetails')}</p>
                             </div>
                             <div className="space-y-3">
                               <div>
-                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">Institution</p>
+                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">{t('validate.details.institution')}</p>
                                 <p className="text-sm text-white/90">{searchResult.certificate.issuingInstitution.name}</p>
                               </div>
                               <div>
-                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">Modality</p>
+                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">{t('validate.details.modality')}</p>
                                 <p className="text-sm text-white/80">{searchResult.certificate.issuingInstitution.modality}</p>
                               </div>
                               <div>
-                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">Issued Date</p>
+                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">{t('validate.details.issuedDate')}</p>
                                 <p className="text-sm text-white/80">{searchResult.certificate.dates.issueDate}</p>
                               </div>
                               <div>
-                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">Study Period</p>
+                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">{t('validate.details.studyPeriod')}</p>
                                 <p className="text-xs text-white/70">{searchResult.certificate.dates.studyPeriodStart} - {searchResult.certificate.dates.studyPeriodEnd}</p>
                               </div>
                             </div>
@@ -864,11 +864,11 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
                           <div className="flex items-center gap-2 mb-4">
                             <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
-                            <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Credentials</p>
+                            <p className="text-xs font-bold text-white/60 uppercase tracking-widest">{t('validate.details.credentials')}</p>
                           </div>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div>
-                              <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-2">Instructors</p>
+                              <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-2">{t('validate.details.instructors')}</p>
                               <div className="flex flex-wrap gap-2">
                                 {searchResult.certificate.credentials.instructors.map((instructor, idx) => (
                                   <span key={idx} className="px-2 py-1 rounded text-xs text-white/80" style={{
@@ -881,7 +881,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                               </div>
                             </div>
                             <div>
-                              <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-2">Signatories</p>
+                              <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-2">{t('validate.details.signatories')}</p>
                               <div className="flex flex-wrap gap-2">
                                 {searchResult.certificate.credentials.signatories.map((signatory, idx) => (
                                   <span key={idx} className="px-2 py-1 rounded text-xs text-white/80" style={{
@@ -904,7 +904,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
                           <div className="flex items-center gap-2 mb-4">
                             <ShieldCheck className="w-5 h-5 text-[#00B7B5]" />
-                            <p className="text-xs font-bold text-white/60 uppercase tracking-widest"># Blockchain Digital Evidence</p>
+                            <p className="text-xs font-bold text-white/60 uppercase tracking-widest"># {t('validate.details.blockchainEvidence')}</p>
                           </div>
                           <div className="space-y-3">
                             <div
@@ -917,10 +917,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                               }}
                             >
                               <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
-                              <p className="text-xs text-white/60 uppercase tracking-wider font-semibold relative z-10">Smart Contract Verified</p>
+                              <p className="text-xs text-white/60 uppercase tracking-wider font-semibold relative z-10">{t('validate.details.smartContractVerified')}</p>
                               <span className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-semibold relative z-10 ${searchResult.certificate.blockchainEvidence.smartContractVerified ? 'bg-[#00B7B5]/20 text-[#00B7B5]' : 'bg-red-500/20 text-red-400'}`}>
                                 {searchResult.certificate.blockchainEvidence.smartContractVerified ? <CheckCircle2 className="w-3 h-3" /> : <AlertCircle className="w-3 h-3" />}
-                                {searchResult.certificate.blockchainEvidence.smartContractVerified ? 'Verified' : 'Not Verified'}
+                                {searchResult.certificate.blockchainEvidence.smartContractVerified ? t('validate.details.verified') : t('validate.details.notVerified')}
                               </span>
                             </div>
 
@@ -952,7 +952,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                   rel="noopener noreferrer"
                                   className="inline-flex items-center gap-2 text-xs text-[#00B7B5] hover:text-[#018790] transition-colors duration-200 relative z-10"
                                 >
-                                  View on Polygonscan
+                                  {t('validate.details.viewPolygonscan')}
                                   <ExternalLink className="w-3 h-3" />
                                 </a>
                               </div>
@@ -980,7 +980,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           >
                             <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
                             <Download className="w-4 h-4" />
-                            Audit Report
+                            {t('validate.details.auditReport')}
                           </a>
                           <a
                             href={searchResult.certificate.certificatePdf || '#'}
@@ -998,7 +998,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           >
                             <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
                             <Download className="w-4 h-4" />
-                            PDF Download
+                            {t('validate.details.pdfDownload')}
                           </a>
                         </motion.div>
                       </>
@@ -1014,7 +1014,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                       >
                         <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-transparent pointer-events-none" />
                         <AlertCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
-                        <h3 className="text-2xl font-bold text-white font-outfit mb-2">Certificate Not Found</h3>
+                        <h3 className="text-2xl font-bold text-white font-outfit mb-2">{t('validate.details.notFound')}</h3>
                         <p className="text-white/70 mb-6 font-poppins">{searchResult.message}</p>
                         <button
                           onClick={resetSearch}
@@ -1026,7 +1026,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           }}
                         >
                           <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent pointer-events-none" />
-                          Try Another Search
+                          {t('validate.details.tryAnotherSearch')}
                         </button>
                       </motion.div>
                     )}
@@ -1354,7 +1354,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                 />
                               </button>
                               <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1 relative z-10">
-                                Unique Credential ID
+                                {t('validate.details.credentialId')}
                               </p>
                               <p className="text-lg font-mono text-[#00B7B5] break-all pr-8 relative z-10">
                                 {pdfSearchResult.certificate.id}
@@ -1388,7 +1388,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                 />
                               </button>
                               <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1 relative z-10">
-                                Certificate Hash
+                                {t('validate.details.certificateHash')}
                               </p>
                               <p className="text-lg font-mono text-[#00B7B5] break-all pr-8 relative z-10">
                                 {pdfSearchResult.certificate.hash}
@@ -1409,13 +1409,13 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             <div className="flex items-center gap-2 mb-3">
                               <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                               <p className="text-xs font-bold text-white/60 uppercase tracking-widest">
-                                User Information
+                                {t('validate.details.userInfo')}
                               </p>
                             </div>
                             <div className="space-y-3">
                               <div>
                                 <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">
-                                  Full Name
+                                  {t('validate.details.fullName')}
                                 </p>
                                 <p className="text-sm text-white font-poppins">
                                   {pdfSearchResult.certificate.userInformation.fullName}
@@ -1423,7 +1423,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                               </div>
                               <div>
                                 <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">
-                                  ID Number
+                                  {t('validate.details.idNumber')}
                                 </p>
                                 <p className="text-sm font-mono text-white/80">
                                   {maskText(
@@ -1434,7 +1434,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                               </div>
                               <div>
                                 <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">
-                                  Email
+                                  {t('validate.details.email')}
                                 </p>
                                 <p className="text-xs font-mono text-white/70 break-all">
                                   {maskEmail(
@@ -1445,7 +1445,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                               </div>
                               <div>
                                 <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">
-                                  Country
+                                  {t('validate.details.country')}
                                 </p>
                                 <p className="text-sm text-white/80">
                                   {
@@ -1465,13 +1465,13 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             <div className="flex items-center gap-2 mb-3">
                               <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                               <p className="text-xs font-bold text-white/60 uppercase tracking-widest">
-                                Program Detail
+                                {t('validate.details.programDetail')}
                               </p>
                             </div>
                             <div className="space-y-3">
                               <div>
                                 <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">
-                                  Course Name
+                                  {t('validate.details.courseName')}
                                 </p>
                                 <p className="text-sm text-white/90">
                                   {
@@ -1482,7 +1482,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                               </div>
                               <div>
                                 <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">
-                                  Event Code
+                                  {t('validate.details.eventCode')}
                                 </p>
                                 <p className="text-sm font-mono text-[#00B7B5]">
                                   {
@@ -1494,7 +1494,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                               <div className="flex gap-2">
                                 <div className="flex-1">
                                   <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">
-                                    Level
+                                    {t('validate.details.level')}
                                   </p>
                                   <p className="text-xs text-white/80">
                                     {
@@ -1505,7 +1505,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                 </div>
                                 <div className="flex-1">
                                   <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">
-                                    Language
+                                    {t('validate.details.language')}
                                   </p>
                                   <p className="text-xs text-white/80">
                                     {
@@ -1516,7 +1516,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                 </div>
                                 <div className="flex-1">
                                   <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">
-                                    Grade
+                                    {t('validate.details.grade')}
                                   </p>
                                   <p className="text-xs text-white/80">
                                     {
@@ -1537,13 +1537,13 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             <div className="flex items-center gap-2 mb-3">
                               <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                               <p className="text-xs font-bold text-white/60 uppercase tracking-widest">
-                                Certificates Details
+                                {t('validate.details.certificateDetails')}
                               </p>
                             </div>
                             <div className="space-y-3">
                               <div>
                                 <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">
-                                  Institution
+                                  {t('validate.details.institution')}
                                 </p>
                                 <p className="text-sm text-white/90">
                                   {
@@ -1554,7 +1554,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                               </div>
                               <div>
                                 <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">
-                                  Modality
+                                  {t('validate.details.modality')}
                                 </p>
                                 <p className="text-sm text-white/80">
                                   {
@@ -1565,7 +1565,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                               </div>
                               <div>
                                 <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">
-                                  Issued Date
+                                  {t('validate.details.issuedDate')}
                                 </p>
                                 <p className="text-sm text-white/80">
                                   {pdfSearchResult.certificate.dates.issueDate}
@@ -1573,7 +1573,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                               </div>
                               <div>
                                 <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-1">
-                                  Study Period
+                                  {t('validate.details.studyPeriod')}
                                 </p>
                                 <p className="text-xs text-white/70">
                                   {
@@ -1600,13 +1600,13 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           <div className="flex items-center gap-2 mb-4">
                             <div className="w-2 h-2 bg-[#00B7B5] rounded-full" />
                             <p className="text-xs font-bold text-white/60 uppercase tracking-widest">
-                              Credentials
+                              {t('validate.details.credentials')}
                             </p>
                           </div>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div>
                               <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-2">
-                                Instructors
+                                {t('validate.details.instructors')}
                               </p>
                               <div className="flex flex-wrap gap-2">
                                 {pdfSearchResult.certificate.credentials.instructors.map(
@@ -1627,7 +1627,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             </div>
                             <div>
                               <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-2">
-                                Signatories
+                                {t('validate.details.signatories')}
                               </p>
                               <div className="flex flex-wrap gap-2">
                                 {pdfSearchResult.certificate.credentials.signatories.map(
@@ -1658,7 +1658,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           <div className="flex items-center gap-2 mb-4">
                             <ShieldCheck className="w-5 h-5 text-[#00B7B5]" />
                             <p className="text-xs font-bold text-white/60 uppercase tracking-widest">
-                              # Blockchain Digital Evidence
+                              # {t('validate.details.blockchainEvidence')}
                             </p>
                           </div>
                           <div className="space-y-3">
@@ -1673,7 +1673,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             >
                               <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                               <p className="text-xs text-white/60 uppercase tracking-wider font-semibold relative z-10">
-                                Smart Contract Verified
+                                {t('validate.details.smartContractVerified')}
                               </p>
                               <span
                                 className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-semibold relative z-10 ${pdfSearchResult.certificate.blockchainEvidence
@@ -1690,8 +1690,8 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                 )}
                                 {pdfSearchResult.certificate.blockchainEvidence
                                   .smartContractVerified
-                                  ? 'Verified'
-                                  : 'Not Verified'}
+                                  ? t('validate.details.verified')
+                                  : t('validate.details.notVerified')}
                               </span>
                             </div>
 
@@ -1747,7 +1747,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                   rel="noopener noreferrer"
                                   className="inline-flex items-center gap-2 text-xs text-[#00B7B5] hover:text-[#018790] transition-colors duration-200 relative z-10"
                                 >
-                                  View on Polygonscan
+                                  {t('validate.details.viewPolygonscan')}
                                   <ExternalLink className="w-3 h-3" />
                                 </a>
                               </div>
@@ -1777,7 +1777,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           >
                             <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
                             <Download className="w-4 h-4" />
-                            Audit Report
+                            {t('validate.details.auditReport')}
                           </a>
                           <a
                             href={pdfSearchResult.certificate.certificatePdf || '#'}
@@ -1796,7 +1796,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           >
                             <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
                             <Download className="w-4 h-4" />
-                            PDF Download
+                            {t('validate.details.pdfDownload')}
                           </a>
                         </motion.div>
                       </>

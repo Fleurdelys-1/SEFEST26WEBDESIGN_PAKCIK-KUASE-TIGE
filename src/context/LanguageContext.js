@@ -3,8 +3,13 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import en from "../data/en.json";
 import id from "../data/id.json";
+import fr from "../data/fr.json";
+import de from "../data/de.json";
+import zh from "../data/zh.json";
+import ko from "../data/ko.json";
+import ja from "../data/ja.json";
 
-const translations = { en, id };
+const translations = { en, id, fr, de, zh, ko, ja };
 
 const LanguageContext = createContext();
 

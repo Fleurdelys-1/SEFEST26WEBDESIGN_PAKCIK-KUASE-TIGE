@@ -96,6 +96,7 @@
     "certificates": "Certificates",
     "institutions": "Institutions",
     "validations": "Validations",
+    "runTest": "Run a cryptographic validation test with real certificate data:",
     "tabs": {
       "manual": "Manual Search (ID/Hash)",
       "manualShort": "Manual",
@@ -107,6 +108,41 @@
     "manual": {
       "title": "Manual Search",
       "description": "Enter your certificate ID or hash to verify its authenticity"
+    },
+    "details": {
+      "status": "STATUS",
+      "validCertificate": "Validate Certificate",
+      "revokedCertificate": "Certificate Revoked",
+      "credentialId": "Unique Credential ID",
+      "certificateHash": "Certificate Hash",
+      "userInfo": "User Information",
+      "fullName": "Full Name",
+      "idNumber": "ID Number",
+      "email": "Email",
+      "country": "Country",
+      "programDetail": "Program Detail",
+      "courseName": "Course Name",
+      "eventCode": "Event Code",
+      "level": "Level",
+      "language": "Language",
+      "grade": "Grade",
+      "certificateDetails": "Certificate Details",
+      "institution": "Institution",
+      "modality": "Modality",
+      "issuedDate": "Issued Date",
+      "studyPeriod": "Study Period",
+      "credentials": "Credentials",
+      "instructors": "Instructors",
+      "signatories": "Signatories",
+      "blockchainEvidence": "Blockchain Digital Evidence",
+      "smartContractVerified": "Smart Contract Verified",
+      "verified": "Verified",
+      "notVerified": "Not Verified",
+      "viewPolygonscan": "View on Polygonscan",
+      "auditReport": "Audit Report",
+      "pdfDownload": "PDF Download",
+      "notFound": "Certificate Not Found",
+      "tryAnotherSearch": "Try Another Search"
     },
     "pdf": {
       "title": "PDF File Validation",
@@ -132,7 +168,8 @@
       "tryAgain": "Upload Another PDF",
       "downloadTestCert": "Download Test Certificate",
       "downloadTestDesc": "Get the demo certificate file to test the PDF validation feature.",
-      "downloadBtn": "Download"
+      "downloadBtn": "Download",
+      "fileUploaded": "File Uploaded"
     },
     "qr": {
       "badge": "Mobile Scanning",
@@ -147,6 +184,8 @@
   "faq": {
     "badge": "FAQ",
     "title": "Frequently Asked Question",
+    "needClarity": "Need more clarity?",
+    "clarityDescription": "Tap another category or question to discover more about Certify's validation flow, security, and web3-native design.",
     "subtitle": "Browse common questions about Certify, verification, and web3 trust, and learn how our secure verification experience works.",
     "tabs": [
       {
@@ -291,6 +330,202 @@
     "featuresLink": "Features",
     "faq": "FAQ",
     "documentation": "Documentation",
-    "support": "Support"
+    "support": "Support",
+    "platform": "Platform",
+    "help": "Help"
+  },
+  "register": {
+    "backToHome": "Back To Home",
+    "title": "Let's Register Your Certificate",
+    "userInfo": "USER INFORMATION",
+    "programDetail": "PROGRAM DETAIL",
+    "alreadyHavePdf": "Already have a certificate PDF?",
+    "sending": "SENDING...",
+    "sent": "✓ SENT!",
+    "send": "SEND",
+    "successTitle": "Registration sent successfully!",
+    "successSubtitle": "Thank you for registering. We’ll review your details and contact you soon.",
+    "search": "Search...",
+    "noResults": "No results found",
+    "fields": {
+      "name": "Name",
+      "number": "Number",
+      "digitalContact": "Digital Contact",
+      "region": "Region",
+      "certificateName": "Name Certificated",
+      "eventCode": "Event Code",
+      "issuingInstitution": "Issuing Institution",
+      "language": "Language",
+      "level": "Level",
+      "certificateIssue": "Certificated Issue",
+      "modality": "Modality",
+      "studyPeriod": "Study Period",
+      "instructors": "Instructors",
+      "signer": "Signer / Authorities"
+    },
+    "placeholders": {
+      "name": "Your Name",
+      "number": "Phone or ID Number",
+      "digitalContact": "Email or Social Media",
+      "region": "Region",
+      "certificateName": "Certificate Name",
+      "eventCode": "Event Code",
+      "issuingInstitution": "Institution Name",
+      "language": "Language",
+      "level": "Level",
+      "certificateIssue": "MM/DD/YY",
+      "modality": "Modality",
+      "studyPeriod": "MM/DD/YY - MM/DD/YY",
+      "instructors": "Instructor Name",
+      "signer": "Signer Name"
+    },
+    "errors": {
+      "required": "is required",
+      "validEmail": "Valid email is required"
+    }
+  },
+  "upload": {
+    "backToHome": "Back To Home",
+    "title": "Upload Your Certificate",
+    "badge": "CERTIFICATE VALIDATION",
+    "fields": {
+      "idCertificate": "ID Certificate",
+      "hashSha256": "HASH SHA 256",
+      "pdfFile": "PDF File Validation"
+    },
+    "placeholders": {
+      "idCertificate": "Enter Certificate ID",
+      "hashSha256": "e.g. a3f9b2c1..."
+    },
+    "dragDrop": {
+      "title": "PDF File Validation",
+      "subtitle": "Drag the original PDF here to verify",
+      "meta": "PRIVATE · LOCAL PROCESSING ONLY · MAX 20 MB"
+    },
+    "successTitle": "Validation submitted!",
+    "successSubtitle": "Your certificate is being verified. We'll notify you shortly.",
+    "backToRegister": "Back to Register form",
+    "verifying": "VERIFYING...",
+    "verified": "✓ VERIFIED!",
+    "send": "SEND",
+    "errors": {
+      "idCertificate": "ID Certificate is required",
+      "hashSha256": "HASH SHA 256 is required",
+      "pdfRequired": "PDF file is required",
+      "pdfType": "Only PDF files are accepted",
+      "pdfSize": "File size must be under 20 MB"
+    }
+  },
+  "privacy": {
+    "backToHome": "Back To Home",
+    "title": "Privacy Policy",
+    "lastUpdate": "Last Update",
+    "intro": "At Certify, your privacy is a priority. Please read this policy carefully to understand how we handle your data when you use our blockchain-powered certificate verification platform.",
+    "sections": [
+      {
+        "title": "1. Introduction",
+        "content": "Welcome to Certify. We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our platform and use our blockchain-based certificate verification services."
+      },
+      {
+        "title": "2. Information We Collect",
+        "content": "We may collect information that you voluntarily provide when using our services, including your name, email address, and certificate-related data submitted for verification. We also automatically collect certain technical data such as IP address, browser type, and usage patterns to improve platform performance."
+      },
+      {
+        "title": "3. How We Use Your Information",
+        "content": "We use the information we collect to provide, operate, and improve our services; process certificate verifications on the blockchain; communicate with you regarding your requests; ensure the security and integrity of the platform; and comply with applicable legal obligations."
+      },
+      {
+        "title": "4. Blockchain & On-Chain Data",
+        "content": "Certify utilizes blockchain technology for certificate verification. Only cryptographic proof hashes and minimal verification metadata are stored on-chain. No personally identifiable information (PII) is written to the public blockchain. All sensitive data remains encrypted and off-chain."
+      },
+      {
+        "title": "5. Sharing Your Information",
+        "content": "We do not sell, trade, or rent your personal information to third parties. We may share data with trusted service providers who assist in operating our platform, provided they agree to keep this information confidential. We may also disclose information when required by law or to protect our rights."
+      },
+      {
+        "title": "6. Data Security",
+        "content": "We implement industry-standard security measures including AES-256 encryption, secure HTTPS connections, and regular security audits to protect your information. While we strive to protect your data, no method of transmission over the internet is 100% secure."
+      },
+      {
+        "title": "7. Cookies & Tracking",
+        "content": "We use cookies and similar tracking technologies to enhance your experience on our platform. These help us remember your preferences and analyze how our service is used. You may disable cookies through your browser settings, though some features may not function properly as a result."
+      },
+      {
+        "title": "8. Your Rights",
+        "content": "Depending on your location, you may have certain rights regarding your personal data, including the right to access, correct, or delete your information; the right to data portability; and the right to object to or restrict processing. To exercise these rights, please contact us at the email below."
+      },
+      {
+        "title": "9. Third-Party Links",
+        "content": "Our platform may contain links to third-party websites. We are not responsible for the privacy practices or content of those sites. We encourage you to review the privacy policies of any third-party sites you visit."
+      },
+      {
+        "title": "10. Changes to This Policy",
+        "content": "We may update this Privacy Policy from time to time. We will notify you of any significant changes by updating the 'Last Updated' date at the top of this page. Continued use of the platform after changes constitutes your acceptance of the updated policy."
+      },
+      {
+        "title": "11. Contact Us",
+        "content": "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at: hello@certify.io — We aim to respond to all inquiries within 48 hours."
+      }
+    ]
+  },
+  "terms": {
+    "backToHome": "Back To Home",
+    "title": "Terms of Service",
+    "lastUpdate": "Last Update",
+    "intro": "Please read these Terms of Service carefully before using Certify. By accessing our platform, you agree to comply with and be bound by the following terms and conditions governing your use of our blockchain-powered certificate verification services.",
+    "sections": [
+      {
+        "title": "1. Acceptance of Terms",
+        "content": "By accessing or using Certify's platform and services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services. These terms apply to all users, including visitors, registered users, and certificate issuers."
+      },
+      {
+        "title": "2. Description of Services",
+        "content": "Certify provides a blockchain-based certificate verification platform that allows institutions to register credentials and individuals or organizations to verify their authenticity. Our services include manual ID-based verification, QR code scanning, and PDF validation tools."
+      },
+      {
+        "title": "3. User Accounts & Registration",
+        "content": "To access certain features of the platform, you may be required to create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to provide accurate and complete information during registration."
+      },
+      {
+        "title": "4. Acceptable Use",
+        "content": "You agree to use Certify only for lawful purposes. You must not attempt to submit fraudulent certificate data, reverse-engineer the platform, perform unauthorized access to our systems, or use the service in any way that violates applicable laws or regulations."
+      },
+      {
+        "title": "5. Certificate Data & Accuracy",
+        "content": "Certify acts as a verification platform only. The accuracy and legitimacy of certificate data submitted by issuing institutions are the sole responsibility of those institutions. Certify does not independently verify the original credentials submitted by issuers."
+      },
+      {
+        "title": "6. Blockchain Immutability",
+        "content": "Once certificate proof data is recorded on the blockchain, it cannot be altered or deleted. Users and institutions should ensure all submitted data is accurate before initiating on-chain registration. Certify is not liable for errors in data submitted by third parties."
+      },
+      {
+        "title": "7. Intellectual Property",
+        "content": "All content, trademarks, logos, and software on the Certify platform are owned by or licensed to Certify. You may not reproduce, distribute, or create derivative works from any part of the platform without prior written consent from Certify."
+      },
+      {
+        "title": "8. Limitation of Liability",
+        "content": "To the maximum extent permitted by law, Certify shall not be liable for any indirect, incidental, special, or consequential damages arising out of or in connection with your use of the platform. Our total liability for direct damages shall not exceed the fees paid by you in the twelve months preceding the claim."
+      },
+      {
+        "title": "9. Disclaimer of Warranties",
+        "content": "Certify provides its services on an 'as is' and 'as available' basis without warranties of any kind, either express or implied. We do not warrant that the service will be uninterrupted, error-free, or free of harmful components."
+      },
+      {
+        "title": "10. Termination",
+        "content": "We reserve the right to suspend or terminate your access to the platform at any time, with or without notice, if you violate these Terms of Service or engage in conduct that we determine to be harmful to other users or the integrity of the platform."
+      },
+      {
+        "title": "11. Governing Law",
+        "content": "These Terms of Service shall be governed by and construed in accordance with the laws of the Republic of Indonesia, without regard to conflict of law principles. Any disputes arising under these terms shall be resolved in the courts of the applicable jurisdiction."
+      },
+      {
+        "title": "12. Changes to Terms",
+        "content": "Certify reserves the right to update these Terms of Service at any time. We will notify users of material changes by updating the 'Last Updated' date. Continued use of the platform after such changes constitutes your acceptance of the revised terms."
+      },
+      {
+        "title": "13. Contact Us",
+        "content": "If you have any questions about these Terms of Service, please contact us at: hello@certify.io — We aim to respond to all inquiries within 48 hours."
+      }
+    ]
   }
 }

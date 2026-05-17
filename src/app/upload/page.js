@@ -4,8 +4,10 @@ import { useState, useRef, useCallback } from "react";
 import { ChevronLeft, FileText, Upload, X, CheckCircle2, ShieldCheck, Hash } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "../../context/LanguageContext";
 
 export default function UploadPage() {
+  const { t } = useLanguage();
   const [idCertificate, setIdCertificate] = useState("");
   const [hashSha256, setHashSha256] = useState("");
   const [file, setFile] = useState(null);
@@ -41,9 +43,9 @@ export default function UploadPage() {
   /* ── Validation ── */
   const validate = (id, hash, f) => {
     const errs = {};
-    if (!id.trim()) errs.idCertificate = "ID Certificate is required";
-    if (!hash.trim()) errs.hashSha256 = "HASH SHA 256 is required";
-    if (!f) errs.file = "PDF file is required";
+    if (!id.trim()) errs.idCertificate = t("upload.errors.idCertificate");
+    if (!hash.trim()) errs.hashSha256 = t("upload.errors.hashSha256");
+    if (!f) errs.file = t("upload.errors.pdfRequired");
     return errs;
   };
 
@@ -51,11 +53,11 @@ export default function UploadPage() {
   const handleFileChange = (selected) => {
     if (!selected) return;
     if (selected.type !== "application/pdf") {
-      setErrors((p) => ({ ...p, file: "Only PDF files are accepted" }));
+      setErrors((p) => ({ ...p, file: t("upload.errors.pdfType") }));
       return;
     }
     if (selected.size > 20 * 1024 * 1024) {
-      setErrors((p) => ({ ...p, file: "File size must be under 20 MB" }));
+      setErrors((p) => ({ ...p, file: t("upload.errors.pdfSize") }));
       return;
     }
     setFile(selected);
@@ -138,7 +140,7 @@ export default function UploadPage() {
           className="flex items-center gap-1 text-[#F4F4F4]/70 text-sm hover:text-[#00b7b5] transition-colors"
         >
           <ChevronLeft size={16} />
-          Back To Home
+          {t("upload.backToHome")}
         </Link>
       </div>
 
@@ -149,16 +151,23 @@ export default function UploadPage() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="text-[clamp(22px,5vw,36px)] font-bold text-[#F4F4F4] mb-6 text-center drop-shadow-sm tracking-tight"
       >
-        Upload Your{" "}
-        <span
-          style={{
-            background: "linear-gradient(90deg, #00b7b5 0%, #4dd8d6 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          Certificate
-        </span>
+        {t("upload.title").split(" ").map((word, idx, arr) => {
+          if (idx === arr.length - 1) {
+            return (
+              <span
+                key={word}
+                style={{
+                  background: "linear-gradient(90deg, #00b7b5 0%, #4dd8d6 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                {word}
+              </span>
+            );
+          }
+          return word + " ";
+        })}
       </motion.h1>
 
       {/* Card */}
@@ -206,9 +215,9 @@ export default function UploadPage() {
                   <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#00B7B5]/10 border border-[#00B7B5]/20 shadow-lg shadow-[#00B7B5]/10">
                     <CheckCircle2 className="h-7 w-7 text-[#00B7B5]" />
                   </div>
-                  <p className="text-base font-bold text-[#F4F4F4]">Validation submitted!</p>
+                  <p className="text-base font-bold text-[#F4F4F4]">{t("upload.successTitle")}</p>
                   <p className="text-sm text-[#F4F4F4]/70">
-                    Your certificate is being verified. We&apos;ll notify you shortly.
+                    {t("upload.successSubtitle")}
                   </p>
                 </div>
               </motion.div>
@@ -222,7 +231,7 @@ export default function UploadPage() {
               <div className="w-3 h-[3px] rounded bg-[#00b7b5]/50" />
             </div>
             <span className="text-[9px] sm:text-[10px] text-[#00b7b5] font-bold tracking-widest">
-              CERTIFICATE VALIDATION
+              {t("upload.badge")}
             </span>
           </div>
 
@@ -237,7 +246,7 @@ export default function UploadPage() {
             <motion.label variants={fieldVariants} className={labelClass}>
               <span className="flex items-center gap-1 mb-0.5">
                 <Hash size={10} className="text-[#00b7b5]" />
-                ID Certificate
+                {t("upload.fields.idCertificate")}
                 <span className="text-[#00b7b5] leading-none">*</span>
               </span>
               <input
@@ -255,7 +264,7 @@ export default function UploadPage() {
                   const errs = validate(idCertificate, hashSha256, file);
                   setErrors((p) => ({ ...p, idCertificate: errs.idCertificate }));
                 }}
-                placeholder="Enter Certificate ID"
+                placeholder={t("upload.placeholders.idCertificate")}
                 className={inputClass("idCertificate")}
                 style={inputStyle("idCertificate")}
               />
@@ -266,7 +275,7 @@ export default function UploadPage() {
             <motion.label variants={fieldVariants} className={labelClass}>
               <span className="flex items-center gap-1 mb-0.5">
                 <ShieldCheck size={10} className="text-[#00b7b5]" />
-                HASH SHA 256
+                {t("upload.fields.hashSha256")}
                 <span className="text-[#00b7b5] leading-none">*</span>
               </span>
               <input
@@ -284,7 +293,7 @@ export default function UploadPage() {
                   const errs = validate(idCertificate, hashSha256, file);
                   setErrors((p) => ({ ...p, hashSha256: errs.hashSha256 }));
                 }}
-                placeholder="e.g. a3f9b2c1..."
+                placeholder={t("upload.placeholders.hashSha256")}
                 className={inputClass("hashSha256")}
                 style={inputStyle("hashSha256")}
               />
@@ -363,7 +372,7 @@ export default function UploadPage() {
                     onClick={(e) => {
                       e.stopPropagation();
                       setFile(null);
-                      setErrors((p) => ({ ...p, file: touched.file ? "PDF file is required" : undefined }));
+                      setErrors((p) => ({ ...p, file: touched.file ? t("upload.errors.pdfRequired") : undefined }));
                     }}
                     className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-500/80 border border-red-400/50 flex items-center justify-center hover:bg-red-500 transition-colors"
                   >
@@ -382,10 +391,10 @@ export default function UploadPage() {
                 </div>
               ) : (
                 <div className="flex flex-col items-center gap-1">
-                  <p className="text-sm font-semibold text-[#F4F4F4]">PDF File Validation</p>
-                  <p className="text-[11px] text-[#00b7b5]/80">Drag the original PDF here to verify</p>
+                  <p className="text-sm font-semibold text-[#F4F4F4]">{t("upload.dragDrop.title")}</p>
+                  <p className="text-[11px] text-[#00b7b5]/80">{t("upload.dragDrop.subtitle")}</p>
                   <p className="text-[10px] text-[#F4F4F4]/30 mt-0.5 tracking-wide">
-                    PRIVATE · LOCAL PROCESSING ONLY · MAX 20 MB
+                    {t("upload.dragDrop.meta")}
                   </p>
                 </div>
               )}
@@ -416,15 +425,14 @@ export default function UploadPage() {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-1">
             {/* Error count */}
             <div className="flex flex-col gap-1">
-              {Object.keys(errors).filter(Boolean).length > 0 &&
+              {Object.keys(errors).filter((k) => errors[k]).length > 0 &&
               Object.keys(touched).length > 0 ? (
                 <span className="text-[10px] sm:text-[11px] text-red-400 flex items-center gap-1.5">
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <circle cx="6" cy="6" r="5.5" stroke="currentColor" strokeWidth="1" />
                     <path d="M6 3.5v3M6 8v.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
                   </svg>
-                  {Object.keys(errors).filter((k) => errors[k]).length} field
-                  {Object.keys(errors).filter((k) => errors[k]).length > 1 ? "s" : ""} required
+                  {Object.keys(errors).filter((k) => errors[k]).length} {t("register.errors.required")}
                 </span>
               ) : (
                 <span />
@@ -436,7 +444,7 @@ export default function UploadPage() {
               >
                 <ChevronLeft size={11} className="group-hover:-translate-x-0.5 transition-transform duration-200" />
                 <span className="underline underline-offset-2 decoration-[#00b7b5]/40 group-hover:decoration-[#00b7b5]">
-                  Back to Register form
+                  {t("upload.backToRegister")}
                 </span>
               </Link>
             </div>
@@ -455,7 +463,7 @@ export default function UploadPage() {
                 backdropFilter: "blur(18px)",
               }}
             >
-              {loading ? "VERIFYING..." : success ? "✓ VERIFIED!" : "SEND"}
+              {loading ? t("upload.verifying") : success ? t("upload.verified") : t("upload.send")}
             </motion.button>
           </div>
         </div>

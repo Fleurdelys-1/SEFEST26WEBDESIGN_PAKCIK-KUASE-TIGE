@@ -7,8 +7,54 @@ import { useLanguage } from '../../../context/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const languages = [
-	{ code: 'en', name: 'English', nativeName: 'English' },
-	{ code: 'id', name: 'Indonesian', nativeName: 'Indonesia' },
+	{ code: 'en', name: 'English', nativeName: 'English', flag: (
+		<svg className="w-4 h-4 rounded-full flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<rect width="24" height="24" fill="#1B2C67"/>
+			<path d="M0 0L24 24M24 0L0 24" stroke="white" strokeWidth="3"/>
+			<path d="M0 0L24 24M24 0L0 24" stroke="#D12630" strokeWidth="2"/>
+			<path d="M12 0V24M0 12H24" stroke="white" strokeWidth="5"/>
+			<path d="M12 0V24M0 12H24" stroke="#D12630" strokeWidth="3"/>
+		</svg>
+	)},
+	{ code: 'id', name: 'Indonesian', nativeName: 'Indonesia', flag: (
+		<svg className="w-4 h-4 rounded-full border border-white/10 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<rect width="24" height="12" fill="#E1231A"/>
+			<rect y="12" width="24" height="12" fill="white"/>
+		</svg>
+	)},
+	{ code: 'fr', name: 'French', nativeName: 'Français', flag: (
+		<svg className="w-4 h-4 rounded-full border border-white/10 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<rect width="8" height="24" fill="#00267F"/>
+			<rect x="8" width="8" height="24" fill="white"/>
+			<rect x="16" width="8" height="24" fill="#F31830"/>
+		</svg>
+	)},
+	{ code: 'de', name: 'German', nativeName: 'Deutsch', flag: (
+		<svg className="w-4 h-4 rounded-full border border-white/10 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<rect width="24" height="8" fill="#222222"/>
+			<rect y="8" width="24" height="8" fill="#E2001A"/>
+			<rect y="16" width="24" height="8" fill="#FFCC00"/>
+		</svg>
+	)},
+	{ code: 'zh', name: 'Chinese', nativeName: '中文', flag: (
+		<svg className="w-4 h-4 rounded-full flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<rect width="24" height="24" fill="#DE2910"/>
+			<polygon points="6,9 5.06,11.89 7.5,10.12 4.5,10.12 6.94,11.89" fill="#FFDE00"/>
+		</svg>
+	)},
+	{ code: 'ko', name: 'Korean', nativeName: '한국어', flag: (
+		<svg className="w-4 h-4 rounded-full border border-white/10 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<rect width="24" height="24" fill="white"/>
+			<path d="M12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7Z" fill="#0047A0"/>
+			<path d="M12 7C9.23858 7 7 9.23858 7 12C7 13.5 12 13.5 12 12C12 10.5 17 10.5 17 12C17 9.23858 14.7614 7 12 7Z" fill="#CD2E3A"/>
+		</svg>
+	)},
+	{ code: 'ja', name: 'Japanese', nativeName: '日本語', flag: (
+		<svg className="w-4 h-4 rounded-full border border-white/10 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<rect width="24" height="24" fill="white"/>
+			<circle cx="12" cy="12" r="5" fill="#BC002D"/>
+		</svg>
+	)},
 ];
 
 export default function Navbar() {
@@ -251,9 +297,10 @@ export default function Navbar() {
 						<motion.button
 							onClick={() => setIsOpen(!isOpen)}
 							variants={switchIconVariants}
-							className="group relative overflow-hidden px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg text-[#F4F4F4] transition-all duration-300 flex items-center gap-1 hover:bg-white/10"
+							className="group relative overflow-hidden px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg text-[#F4F4F4] transition-all duration-300 flex items-center gap-1.5 hover:bg-white/10"
 						>
-							<Languages size={16} className="text-[#F4F4F4]" />
+							{selectedLang.flag}
+							<span className="text-xs uppercase tracking-wide font-medium font-lexend">{selectedLang.code}</span>
 							<ChevronDown
 								size={12}
 								className={`text-[#F4F4F4] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
@@ -287,7 +334,10 @@ export default function Navbar() {
 											variants={menuItemVariants}
 											className="w-full px-3 sm:px-4 py-2 text-left text-xs sm:text-sm text-[#F4F4F4] hover:bg-white/10 transition flex items-center justify-between"
 										>
-											<span>{lang.nativeName}</span>
+											<span className="flex items-center gap-2">
+												{lang.flag}
+												<span>{lang.nativeName}</span>
+											</span>
 											{selectedLang.code === lang.code && <Check size={14} className="text-[#F4F4F4]" />}
 										</motion.button>
 									))}
@@ -327,10 +377,11 @@ export default function Navbar() {
 						{}
 						<button
 							onClick={() => setIsOpen(!isOpen)}
-							className="p-2 rounded-xl text-[#F4F4F4] hover:bg-white/10 transition-colors duration-200 flex items-center gap-0.5"
+							className="p-2 rounded-xl text-[#F4F4F4] hover:bg-white/10 transition-colors duration-200 flex items-center gap-1.5"
 							aria-label="Switch language"
 						>
-							<Languages size={18} />
+							{selectedLang.flag}
+							<span className="text-xs uppercase tracking-wide font-medium font-lexend">{selectedLang.code}</span>
 							<ChevronDown size={11} className={`text-[#F4F4F4]/70 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
 						</button>
 
@@ -361,7 +412,10 @@ export default function Navbar() {
 											variants={menuItemVariants}
 											className="w-full px-4 py-3 text-left text-sm text-[#F4F4F4] hover:bg-white/10 transition flex items-center justify-between"
 										>
-											<span>{lang.nativeName}</span>
+											<span className="flex items-center gap-2">
+												{lang.flag}
+												<span>{lang.nativeName}</span>
+											</span>
 											{selectedLang.code === lang.code && <Check size={14} className="text-[#F4F4F4]" />}
 										</motion.button>
 									))}

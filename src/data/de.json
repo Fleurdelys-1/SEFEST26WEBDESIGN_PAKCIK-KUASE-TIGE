@@ -1,0 +1,531 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "validate": "Validieren",
+    "about": "Über uns",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "register": "Registrieren"
+  },
+  "home": {
+    "badge": "NEU",
+    "protocol": "Certify Protocol v1.0",
+    "title": "Die Zukunft der Zertifikatsverifizierung",
+    "titleTop": "Die",
+    "titleBottom": "der Zertifikatsverifizierung",
+    "rotatingTexts": [
+      "Zukunft",
+      "Innovation",
+      "Nächste Ära"
+    ],
+    "description": "Sichere, transparente und manipulationssichere Zertifikatsverifizierung powered by Blockchain-Technologie. Validieren Sie die Echtheit sofort und eliminieren Sie Betrug im digitalen Zeitalter.",
+    "register": "Registrierung",
+    "validate": "Validierung"
+  },
+  "about": {
+    "badge": "ÜBER UNS",
+    "title": "Die Zukunft des",
+    "titleHighlight": "Vertrauens",
+    "rotatingTexts": [
+      "Vertrauens!",
+      "Sicherheit!",
+      "Blockchain!",
+      "Verifizierung!"
+    ],
+    "subtitle": "Certify existiert, weil Vertrauen nicht so kompliziert sein sollte. Wir bringen Ihre Zertifikate weg vom Papier an einen dauerhaften Ort, damit jeder sie überall sofort überprüfen kann. Für immer.",
+    "cards": {
+      "security": {
+        "title": "Blockchain-Sicherheit",
+        "description": "Zertifikatsdaten sind sicher und können nicht manipuliert werden"
+      },
+      "tamper": {
+        "title": "Manipulationssichere Datensätze",
+        "description": "Alle Daten werden dauerhaft auf der Blockchain gespeichert."
+      },
+      "instant": {
+        "title": "Sofortige Überprüfung",
+        "description": "Schnelle Zertifikatsvalidierung in Echtzeit."
+      },
+      "trusted": {
+        "title": "Vertrauenswürdige Institutionen",
+        "description": "Genutzt von vertrauenswürdigen Institutionen und Organisationen."
+      }
+    },
+    "stats": {
+      "satisfaction": {
+        "value": "97%",
+        "label": "Kundenzufriedenheit"
+      },
+      "active": {
+        "value": "52",
+        "label": "Zertifikate Aktiv"
+      },
+      "experience": {
+        "value": "4+",
+        "label": "Jahre Erfahrung"
+      },
+      "records": {
+        "value": "50+",
+        "label": "On-chain Datensätze"
+      }
+    },
+    "vision": {
+      "title": "Unsere Vision",
+      "description": "\"Eine Zukunft zu schaffen, in der jeder von Ihnen erworbene Nachweis dauerhaft Ihnen gehört, manipulationssicher und für jeden auf der Welt sofort überprüfbar ist.\""
+    },
+    "register": "Hier Registrieren"
+  },
+  "validate": {
+    "badge": "VALIDIERUNG",
+    "secure": "Sichere Überprüfung",
+    "title": "Zertifikate Validieren",
+    "description": "Geben Sie eine Zertifikats-ID ein, um deren Echtheit auf der Blockchain zu überprüfen. Unser System gleicht das Zertifikat mit dem offiziellen Register ab.",
+    "placeholder": "Zertifikats-ID eingeben...",
+    "verify": "Überprüfen",
+    "validating": "Überprüfung...",
+    "valid": "Gültiges Zertifikat",
+    "validMessage": "Dieses Zertifikat wurde verifiziert und ist authentisch.",
+    "invalid": "Ungültiges Zertifikat",
+    "invalidMessage": "Dieses Zertifikat konnte in unserem Register nicht gefunden werden.",
+    "certificateId": "Zertifikats-ID",
+    "name": "Empfängername",
+    "institution": "Institution",
+    "program": "Programm",
+    "graduationDate": "Graduierungsdatum",
+    "status": "Status",
+    "certificates": "Zertifikate",
+    "institutions": "Institutionen",
+    "validations": "Validierungen",
+    "runTest": "Führen Sie einen kryptografischen Validierungstest mit echten Zertifikatsdaten durch:",
+    "tabs": {
+      "manual": "Manuelle Suche (ID/Hash)",
+      "manualShort": "Manuell",
+      "pdf": "PDF-Datei Validieren",
+      "pdfShort": "PDF",
+      "qr": "QR Validieren",
+      "qrShort": "QR"
+    },
+    "manual": {
+      "title": "Manuelle Suche",
+      "description": "Geben Sie Ihre Zertifikats-ID oder Ihren Hash ein, um die Echtheit zu überprüfen"
+    },
+    "details": {
+      "status": "STATUS",
+      "validCertificate": "Gültiges Zertifikat",
+      "revokedCertificate": "Zertifikat Widerrufen",
+      "credentialId": "Eindeutige Nachweis-ID",
+      "certificateHash": "Zertifikats-Hash",
+      "userInfo": "Benutzerinformationen",
+      "fullName": "Vollständiger Name",
+      "idNumber": "Identifikationsnummer",
+      "email": "E-Mail",
+      "country": "Land",
+      "programDetail": "Programmdetails",
+      "courseName": "Kursname",
+      "eventCode": "Veranstaltungscode",
+      "level": "Niveau",
+      "language": "Sprache",
+      "grade": "Note",
+      "certificateDetails": "Zertifikatsdetails",
+      "institution": "Institution",
+      "modality": "Modalität",
+      "issuedDate": "Ausstellungsdatum",
+      "studyPeriod": "Studienzeitraum",
+      "credentials": "Referenzen",
+      "instructors": "Ausbilder",
+      "signatories": "Unterzeichner",
+      "blockchainEvidence": "Digitaler Blockchain-Beweis",
+      "smartContractVerified": "Smart Contract Verifiziert",
+      "verified": "Verifiziert",
+      "notVerified": "Nicht Verifiziert",
+      "viewPolygonscan": "Auf Polygonscan ansehen",
+      "auditReport": "Prüfbericht",
+      "pdfDownload": "PDF-Download",
+      "notFound": "Zertifikat Nicht Gefunden",
+      "tryAnotherSearch": "Andere Suche Versuchen"
+    },
+    "pdf": {
+      "title": "PDF-Datei Validierung",
+      "description": "Ziehen Sie das Original-PDF hierher, um es zu validieren",
+      "security": "Private lokale Verarbeitung SHA-256",
+      "dragDrop": "Ziehen Sie Ihr PDF-Zertifikat hierher",
+      "clickUpload": "oder klicken Sie zum Auswählen",
+      "uploadError": "Upload-Fehler",
+      "fileTypeError": "Ungültiger Dateityp. Es werden nur PDF-Dateien akzeptiert.",
+      "fileEmptyError": "Die ausgewählte Datei ist leer. Bitte versuchen Sie eine andere Datei.",
+      "fileSizeError": "Die Dateigröße überschreitet 10 MB. Bitte versuchen Sie eine kleinere Datei.",
+      "corruptedError": "Das PDF scheint beschädigt zu sein. Bitte überprüfen Sie die Datei.",
+      "extractingData": "Extrahiere Zertifikatsdaten...",
+      "searchingCertificate": "Suche in Datenbank...",
+      "certIdNotFound": "Zertifikats-ID im PDF nicht gefunden",
+      "hashNotFound": "Blockchain-Hash im PDF nicht gefunden",
+      "extractedDataTitle": "Extrahierte Zertifikatsdaten",
+      "certificateId": "Zertifikats-ID",
+      "blockchainHash": "Blockchain-Hash",
+      "validating": "Validierung...",
+      "noDataFound": "Zertifikatsinformationen konnten nicht aus dem PDF extrahiert werden",
+      "manualInput": "Daten konnten nicht automatisch extrahiert werden. Bitte versuchen Sie es im Reiter Manuelle Suche.",
+      "tryAgain": "Anderes PDF hochladen",
+      "downloadTestCert": "Test-Zertifikat Herunterladen",
+      "downloadTestDesc": "Holen Sie sich die Demo-Zertifikatsdatei, um die PDF-Validierungsfunktion zu testen.",
+      "downloadBtn": "Herunterladen",
+      "fileUploaded": "Datei Hochgeladen"
+    },
+    "qr": {
+      "badge": "Mobiles Scannen",
+      "title": "QR-Code-Validierung",
+      "description": "Um ausgestellte Zertifikate zu überprüfen, richten Sie einfach Ihre Smartphone-Kamera auf den QR-Code. Das System erkennt automatisch die Validierungs-URL und zeigt einen Echtheitsbericht in Ihrem mobilen Browser an, der sicherstellt, dass die Nachweise echt und auf der Blockchain registriert sind.",
+      "certificateName": "Zertifikat UIJ",
+      "certificateId": "ID: CERT-B6F9316C1C14",
+      "secure": "Sichere QR-Validierung mit Blockchain-Nachweis",
+      "instant": "Sofortige Echtheitsprüfung beim Scannen"
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Häufig Gestellte Fragen",
+    "needClarity": "Benötigen Sie mehr Klarheit?",
+    "clarityDescription": "Tippen Sie auf eine andere Kategorie oder Frage, um mehr über den Validierungsfluss, die Sicherheit und das Web3-native Design von Certify zu erfahren.",
+    "subtitle": "Durchsuchen Sie häufige Fragen zu Certify, der Verifizierung und dem Web3-Vertrauen und erfahren Sie, wie unsere sichere Verifizierung funktioniert.",
+    "tabs": [
+      {
+        "key": "general",
+        "label": "Allgemein"
+      },
+      {
+        "key": "security",
+        "label": "Sicherheit"
+      },
+      {
+        "key": "verification",
+        "label": "Verifizierung"
+      }
+    ],
+    "items": {
+      "general": [
+        {
+          "question": "Was ist Certify?",
+          "answer": "Certify ist eine Blockchain-native Plattform zur Verifizierung von Zertifikaten, die Echtheitsprüfungen sofort, sicher und transparent macht. Sie bietet eine schnelle, benutzerfreundliche Erfahrung für jeden, der Nachweise ohne manuellen Papierkram bestätigen muss."
+        },
+        {
+          "question": "Wie funktioniert die Verifizierung?",
+          "answer": "Unser System verifiziert Zertifikate, indem es den digitalen Datensatz mit einem unveränderlichen Blockchain-Register abgleicht, um sicherzustellen, dass der Nachweis gültig und unverändert ist. Dies bedeutet, dass jede Verifizierung durch einen manipulationssicheren Nachweis belegt ist."
+        },
+        {
+          "question": "Sind meine Daten privat?",
+          "answer": "Ja. Certify konzentriert sich auf die sichere Validierung von Nachweisen, während persönliche Daten durch verschlüsselte Registerabfragen und minimale On-chain-Metadaten privat bleiben. Es werden nur die für die Validierung erforderlichen Informationen verwendet."
+        },
+        {
+          "question": "Welche Arten von Zertifikaten können verifiziert werden?",
+          "answer": "Certify unterstützt verschiedene Nachweise, darunter akademische Grade, professionelle Zertifizierungen, Schulungszertifikate und digitale Kompetenzabzeichen, die von verschiedenen Institutionen ausgestellt wurden. Es kann Datensätze von Schulen, Arbeitgebern und Ausstellern weltweit unterstützen."
+        },
+        {
+          "question": "Wie starte ich mit Certify?",
+          "answer": "Navigieren Sie einfach zu unserer Validierungsseite, geben Sie Ihre Zertifikats-ID ein oder laden Sie Ihr PDF hoch, und unser System verifiziert die Echtheit sofort anhand unseres sicheren Blockchain-Registers. Für den Start ist keine spezielle Software erforderlich."
+        }
+      ],
+      "security": [
+        {
+          "question": "Werden die Zertifikatsdaten auf der Blockchain gespeichert?",
+          "answer": "Nur Nachweis-Hashes und Verifizierungs-Metadaten werden auf der Blockchain gespeichert. Sensible Zertifikatsdetails verbleiben außerhalb der Blockchain, um die Privatsphäre zu schützen und gleichzeitig die Integrität zu wahren. Dieses Design schützt persönliche Daten und gewährleistet einen sicheren Audit-Trail."
+        },
+        {
+          "question": "Können Zertifikate manipuliert werden?",
+          "answer": "Nein. Sobald ein Zertifikat ausgestellt und auf der Blockchain gehasht wurde, schlägt jede Änderung bei der Verifizierung fehl, da der On-chain-Nachweis nicht mehr übereinstimmt. Dadurch wird jede Manipulation sofort erkennbar."
+        },
+        {
+          "question": "Was macht es Web3-nativ?",
+          "answer": "Certify nutzt dezentrales Vertrauen und die Unveränderlichkeit der Blockchain, sodass Zertifikate organisationsübergreifend validiert werden können, ohne auf eine einzelne zentrale Instanz angewiesen zu sein. Das macht den gesamten Prozess widerstandsfähiger und transparenter."
+        },
+        {
+          "question": "Wie schützt Certify vor Betrug?",
+          "answer": "Unser mehrschichtiger Sicherheitsansatz nutzt kryptografisches Hashing, Blockchain-Unveränderlichkeit und verteilte Verifizierung, um Fälschungen und betrügerische Nachweise zu eliminieren. Jede Überprüfung ist unabhängig, was Betrug extrem erschwert."
+        },
+        {
+          "question": "Ist Certify mit den Datenschutzbestimmungen konform?",
+          "answer": "Ja. Certify ist so konzipiert, dass es die DSGVO, CCPA und andere Datenschutzstandards durch verschlüsselte Verarbeitung, minimale Datenspeicherung und benutzergesteuerte Verifizierung einhält. Dadurch können Organisationen die Datenschutzanforderungen erfüllen und gleichzeitig schnelle Nachweisprüfungen anbieten."
+        }
+      ],
+      "verification": [
+        {
+          "question": "Wie schnell ist die Verifizierung?",
+          "answer": "Verifizierungen erfolgen dank unseres optimierten Abfrageflusses sofort und bieten Benutzern eine unmittelbare Bestätigung, ob das Zertifikat authentisch ist. Die meisten Prüfungen sind in Sekunden abgeschlossen."
+        },
+        {
+          "question": "Kann ich mit QR oder ID verifizieren?",
+          "answer": "Ja. Certify ist für mehrere Verifizierungsabläufe konzipiert, darunter QR-Scanning, manuelle ID/Hash-Prüfung und zukünftige PDF-Validierungen. Diese Flexibilität passt sowohl zu digitalen als auch zu gedruckten Arbeitsabläufen."
+        },
+        {
+          "question": "Wer kann Certify nutzen?",
+          "answer": "Studenten, Aussteller, Arbeitgeber und Auditoren können Certify nutzen, um Nachweise schnell zu validieren und den Ergebnissen mit Blockchain-gestützten Nachweisen zu vertrauen. Es eignet sich hervorragend für Einstellungen, Zulassungen und Hintergrundprüfungen."
+        },
+        {
+          "question": "Können Dritte in meinem Namen Zertifikate verifizieren?",
+          "answer": "Absolut. Arbeitgeber, Bildungseinrichtungen und Regierungsbehörden können jedes Certify-Zertifikat unabhängig verifizieren, ohne die Erlaubnis des Zertifikatsinhabers zu benötigen. Das erleichtert die Bestätigung von Nachweisen in großem Umfang."
+        },
+        {
+          "question": "Was passiert, wenn die Verifizierung fehlschlägt?",
+          "answer": "Wenn ein Zertifikat die Verifizierung nicht besteht, liefert das System einen detaillierten Bericht, der erklärt, warum der Nachweis nicht validiert werden konnte. Dies hilft bei der Identifizierung potenzieller Probleme oder Fälschungen."
+        }
+      ]
+    }
+  },
+  "contact": {
+    "badge": "Kontakt",
+    "title": "Lassen Sie uns Vertrauen On-Chain aufbauen.",
+    "subtitle": "Benötigen Sie Hilfe bei On-chain-Zertifikaten oder haben Sie Fragen zur Zertifikatsverifizierung? Lassen Sie uns Vertrauen gemeinsam transparent machen, bei jedem Schritt auf dem Weg. Unser Team steht bereit, um Sie bei der Erstellung sicherer und authentischer Nachweise zu unterstützen.",
+    "emailLabel": "Schreiben Sie uns direkt",
+    "manualTitle": "Manuelle E-Mail-Anfrage",
+    "emailDescription": "Senden Sie Ihre Anfrage an unser Team und wir werden mit sicherem, Web3-bewusstem Support antworten.",
+    "manualLabel": "Erreichen Sie uns unter",
+    "manualEmail": "hello@certify.io",
+    "manualHint": "Fügen Sie Ihre Nachricht in Ihren E-Mail-Client ein oder verwenden Sie das Formular zur direkten Übermittlung.",
+    "supportAvailable": "24/7 Support Verfügbar",
+    "supportDescription": "Erreichen Sie uns jederzeit. Wir sind hier, um zu helfen und alle Ihre Fragen zu beantworten.",
+    "formBadge": "Verbinden",
+    "formTitle": "Chatten Sie mit unserem Team",
+    "formSubtitle": "Teilen Sie uns Ihr Anliegen mit und wir helfen Ihnen bei der Zertifikatsverifizierung und dem Support.",
+    "nameLabel": "Vollständiger Name",
+    "namePlaceholder": "z. B. Max Mustermann",
+    "emailLabel2": "E-Mail-Adresse",
+    "emailPlaceholder": "z. B. max@example.com",
+    "messageLabel": "Ihre Nachricht",
+    "messagePlaceholder": "Beschreiben Sie hier Ihre Frage oder Anfrage...",
+    "sendingTitle": "Ihre Nachricht wird gesendet...",
+    "sendingSubtitle": "Bitte warten Sie, während wir Ihre Anfrage bearbeiten",
+    "successTitle": "Nachricht erfolgreich gesendet!",
+    "successSubtitle": "Vielen Dank für Ihre Kontaktaufnahme. Wir werden uns in Kürze bei Ihnen melden.",
+    "submit": "Nachricht senden",
+    "errorName": "Bitte geben Sie Ihren vollständigen Namen ein",
+    "errorEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "errorMessage": "Bitte geben Sie Ihre Nachricht ein",
+    "success": "Nachricht übermittelt."
+  },
+  "footer": {
+    "company": "Unternehmen",
+    "product": "Produkt",
+    "resources": "Ressourcen",
+    "legal": "Rechtliches",
+    "stayUpdated": "Bleiben Sie auf dem Laufenden",
+    "description": "Die Zukunft der Zertifikatsverifizierung. Sichere, transparente und manipulationssichere Verifizierung powered by Blockchain-Technologie.",
+    "features": {
+      "security": "Sicherheit auf Bankenniveau",
+      "instant": "Sofortige Verifizierung",
+      "global": "Globale Standards"
+    },
+    "newsletter": {
+      "description": "Abonnieren Sie unseren Newsletter für die neuesten Updates und Funktionen.",
+      "placeholder": "Geben Sie Ihre E-Mail ein",
+      "subscribed": "✓ Erfolgreich abonniert!"
+    },
+    "contact": {
+      "email": "hello@certify.io",
+      "location": "Padang, Indonesien"
+    },
+    "copyright": "Alle Rechte vorbehalten.",
+    "privacyPolicy": "Datenschutzerklärung",
+    "termsOfService": "Nutzungsbedingungen",
+    "protocol": "Certify Protocol v1.0",
+    "register": "Registrieren",
+    "featuresLink": "Funktionen",
+    "faq": "FAQ",
+    "documentation": "Dokumentation",
+    "support": "Support",
+    "platform": "Plattform",
+    "help": "Hilfe"
+  },
+  "register": {
+    "backToHome": "Zurück zur Startseite",
+    "title": "Registrieren Sie Ihr Zertifikat",
+    "userInfo": "BENUTZERINFORMATIONEN",
+    "programDetail": "PROGRAMMDETAILS",
+    "alreadyHavePdf": "Haben Sie bereits die Zertifikats-PDF?",
+    "sending": "SENDEN...",
+    "sent": "✓ GESENDET!",
+    "send": "SENDEN",
+    "successTitle": "Registrierung erfolgreich gesendet!",
+    "successSubtitle": "Vielen Dank für Ihre Registrierung. Wir werden Ihre Angaben prüfen und uns in Kürze mit Ihnen in Verbindung setzen.",
+    "search": "Suchen...",
+    "noResults": "Keine Ergebnisse gefunden",
+    "fields": {
+      "name": "Name",
+      "number": "Nummer",
+      "digitalContact": "Digitaler Kontakt",
+      "region": "Region",
+      "certificateName": "Zertifikatsname",
+      "eventCode": "Veranstaltungscode",
+      "issuingInstitution": "Ausstellende Institution",
+      "language": "Sprache",
+      "level": "Stufe",
+      "certificateIssue": "Ausstellungsdatum",
+      "modality": "Modalität",
+      "studyPeriod": "Studienzeitraum",
+      "instructors": "Dozenten",
+      "signer": "Unterzeichner / Behörden"
+    },
+    "placeholders": {
+      "name": "Ihr Name",
+      "number": "Telefon oder ID-Nummer",
+      "digitalContact": "E-Mail oder Social Media",
+      "region": "Region auswählen",
+      "certificateName": "Name des Zertifikats",
+      "eventCode": "Veranstaltungscode",
+      "issuingInstitution": "Name der Institution",
+      "language": "Sprache",
+      "level": "Stufe",
+      "certificateIssue": "MM/TT/JJ",
+      "modality": "Modalität",
+      "studyPeriod": "MM/TT/JJ - MM/TT/JJ",
+      "instructors": "Name des Dozenten",
+      "signer": "Name des Unterzeichners"
+    },
+    "errors": {
+      "required": "ist erforderlich",
+      "validEmail": "Gültige E-Mail-Adresse ist erforderlich"
+    }
+  },
+  "upload": {
+    "backToHome": "Zurück zur Startseite",
+    "title": "Laden Sie Ihr Zertifikat hoch",
+    "badge": "ZERTIFIKATSVALIDIERUNG",
+    "fields": {
+      "idCertificate": "Zertifikats-ID",
+      "hashSha256": "SHA-256-Hash",
+      "pdfFile": "PDF-Dateivalidierung"
+    },
+    "placeholders": {
+      "idCertificate": "Zertifikats-ID eingeben",
+      "hashSha256": "z.B. a3f9b2c1..."
+    },
+    "dragDrop": {
+      "title": "PDF-Dateivalidierung",
+      "subtitle": "Ziehen Sie das Original-PDF hierher, um es zu überprüfen",
+      "meta": "PRIVAT · NUR LOKALE SHA-256-VERARBEITUNG · MAX 20 MB"
+    },
+    "successTitle": "Validierung übermittelt!",
+    "successSubtitle": "Ihr Zertifikat wird überprüft. Wir werden Sie in Kürze benachrichtigen.",
+    "backToRegister": "Zurück zum Registrierungsformular",
+    "verifying": "ÜBERPRÜFUNG...",
+    "verified": "✓ ÜBERPRÜFT!",
+    "send": "SENDEN",
+    "errors": {
+      "idCertificate": "Zertifikats-ID ist erforderlich",
+      "hashSha256": "SHA-256-Hash ist erforderlich",
+      "pdfRequired": "PDF-Datei ist erforderlich",
+      "pdfType": "Es werden nur PDF-Dateien akzeptiert",
+      "pdfSize": "Dateigröße muss unter 20 MB liegen"
+    }
+  },
+  "privacy": {
+    "backToHome": "Zurück zur Startseite",
+    "title": "Datenschutzerklärung",
+    "lastUpdate": "Letzte Aktualisierung",
+    "intro": "Bei Certify hat Ihre Privatsphäre Priorität. Bitte lesen Sie diese Richtlinie sorgfältig durch, um zu verstehen, wie wir mit Ihren Daten umgehen, wenn Sie unsere Blockchain-gestützte Zertifikatsvalidierungsplattform nutzen.",
+    "sections": [
+      {
+        "title": "1. Einführung",
+        "content": "Willkommen bei Certify. Wir verpflichten uns, Ihre persönlichen Daten und Ihr Recht auf Privatsphäre zu schützen. Diese Datenschutzerklärung erklärt, wie wir Ihre Informationen sammeln, verwenden, offenlegen und schützen, wenn Sie unsere Plattform besuchen und unsere Blockchain-basierten Zertifikatsvalidierungsdienste nutzen."
+      },
+      {
+        "title": "2. Informationen, die wir sammeln",
+        "content": "Wir können Informationen sammeln, die Sie freiwillig bei der Nutzung unserer Dienste angeben, einschließlich Ihres Namens, Ihrer E-Mail-Adresse und der zur Validierung eingereichten zertifikatsbezogenen Daten. Wir sammeln auch automatisch bestimmte technische Daten wie IP-Adresse, Browsertyp und Nutzungsmuster, um die Plattformleistung zu verbessern."
+      },
+      {
+        "title": "3. Wie wir Ihre Informationen verwenden",
+        "content": "Wir verwenden die gesammelten Informationen, um unsere Dienste bereitzustellen, zu betreiben und zu verbessern; Zertifikatsvalidierungen auf der Blockchain zu verarbeiten; mit Ihnen bezüglich Ihrer Anfragen zu kommunizieren; die Sicherheit und Integrität der Plattform zu gewährleisten; und geltende gesetzliche Verpflichtungen einzuhalten."
+      },
+      {
+        "title": "4. Blockchain- und On-Chain-Daten",
+        "content": "Certify nutzt Blockchain-Technologie zur Zertifikatsvalidierung. Auf der Chain werden nur kryptografische Nachweishashes und minimale Validierungsmetadaten gespeichert (on-chain). Es werden keine personenbezogenen Daten (PII) auf die öffentliche Blockchain geschrieben. Alle sensiblen Daten bleiben verschlüsselt und außerhalb der Chain (off-chain)."
+      },
+      {
+        "title": "5. Weitergabe Ihrer Informationen",
+        "content": "Wir verkaufen, handeln oder vermieten Ihre persönlichen Daten nicht an Dritte. Wir können Daten mit vertrauenswürdigen Dienstleistern teilen, die uns beim Betrieb unserer Plattform unterstützen, sofern diese sich verpflichten, diese Informationen vertraulich zu behandeln. Wir können Informationen auch offenlegen, wenn dies gesetzlich vorgeschrieben ist oder um unsere Rechte zu schützen."
+      },
+      {
+        "title": "6. Datensicherheit",
+        "content": "Wir implementieren branchenübliche Sicherheitsmaßnahmen wie AES-256-Verschlüsselung, sichere HTTPS-Verbindungen und regelmäßige Sicherheitsaudits, um Ihre Informationen zu schützen. Obwohl wir uns bemühen, Ihre Daten zu schützen, ist keine Übertragungsmethode über das Internet zu 100 % sicher."
+      },
+      {
+        "title": "7. Cookies und Tracking",
+        "content": "Wir verwenden Cookies und ähnliche Tracking-Technologien, um Ihr Erlebnis auf unserer Plattform zu verbessern. Diese helfen uns, uns an Ihre Präferenzen zu erinnern und zu analysieren, wie unser Dienst genutzt wird. Sie können Cookies über Ihre Browsereinstellungen deaktivieren, was jedoch dazu führen kann, dass einige Funktionen nicht ordnungsgemäß funktionieren."
+      },
+      {
+        "title": "8. Ihre Rechte",
+        "content": "Je nach Ihrem Standort haben Sie möglicherweise bestimmte Rechte in Bezug auf Ihre personenbezogenen Daten, einschließlich des Rechts auf Zugang, Berichtigung oder Löschung Ihrer Informationen; des Rechts auf Datenübertragbarkeit; und des Rechts auf Widerspruch oder Einschränkung der Verarbeitung. Um diese Rechte auszuüben, kontaktieren Sie uns bitte unter der unten angegebenen E-Mail-Adresse."
+      },
+      {
+        "title": "9. Links von Drittanbietern",
+        "content": "Unsere Plattform kann Links zu Websites von Drittanbietern enthalten. Wir sind nicht für die Datenschutzpraktiken oder den Inhalt dieser Websites verantwortlich. Wir empfehlen Ihnen, die Datenschutzrichtlinien aller von Ihnen besuchten Websites von Drittanbietern zu lesen."
+      },
+      {
+        "title": "10. Änderungen dieser Richtlinie",
+        "content": "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Wir werden Sie über alle wesentlichen Änderungen informieren, indem wir das Datum der „Letzten Aktualisierung“ oben auf dieser Seite aktualisieren. Die fortgesetzte Nutzung der Plattform nach Änderungen stellt Ihre Zustimmung zur aktualisierten Richtlinie dar."
+      },
+      {
+        "title": "11. Kontaktieren Sie uns",
+        "content": "Wenn Sie Fragen oder Bedenken bezüglich dieser Datenschutzerklärung oder unserer Datenpraktiken haben, kontaktieren Sie uns bitte unter: hello@certify.io — Wir bemühen uns, alle Anfragen innerhalb von 48 Stunden zu beantworten."
+      }
+    ]
+  },
+  "terms": {
+    "backToHome": "Zurück zur Startseite",
+    "title": "Nutzungsbedingungen",
+    "lastUpdate": "Letzte Aktualisierung",
+    "intro": "Bitte lesen Sie diese Nutzungsbedingungen sorgfältig durch, bevor Sie Certify nutzen. Durch den Zugriff auf unsere Plattform erklären Sie sich mit den folgenden Geschäftsbedingungen einverstanden, die Ihre Nutzung unserer Blockchain-gestützten Zertifikatsvalidierungsdienste regeln.",
+    "sections": [
+      {
+        "title": "1. Annahme der Bedingungen",
+        "content": "Durch den Zugriff auf oder die Nutzung der Plattform und Dienste von Certify erklären Sie sich mit diesen Nutzungsbedingungen einverstanden. Wenn Sie diesen Bedingungen nicht zustimmen, nutzen Sie unsere Dienste bitte nicht. Diese Bedingungen gelten für alle Benutzer, einschließlich Besucher, registrierter Benutzer und Zertifikatsaussteller."
+      },
+      {
+        "title": "2. Beschreibung der Dienste",
+        "content": "Certify bietet eine Blockchain-basierte Zertifikatsvalidierungsplattform, die es Institutionen ermöglicht, Referenzen zu registrieren, und Einzelpersonen oder Organisationen, deren Echtheit zu überprüfen. Unsere Dienste umfassen die manuelle ID-basierte Überprüfung, das Scannen von QR-Codes und PDF-Validierungstools."
+      },
+      {
+        "title": "3. Benutzerkonten und Registrierung",
+        "content": "Um auf bestimmte Funktionen der Plattform zugreifen zu können, müssen Sie möglicherweise ein Konto erstellen. Sie sind dafür verantwortlich, die Vertraulichkeit Ihrer Kontodaten zu wahren, und für alle Aktivitäten, die unter Ihrem Konto stattfinden. Sie stimmen zu, bei der Registrierung genaue und vollständige Angaben zu machen."
+      },
+      {
+        "title": "4. Zulässige Nutzung",
+        "content": "Sie stimmen zu, Certify nur für rechtmäßige Zwecke zu nutzen. Sie dürfen nicht versuchen, betrügerische Zertifikatsdaten zu übermitteln, die Plattform zurückzuentwickeln, unbefugten Zugriff auf unsere Systeme durchzuführen oder den Dienst in einer Weise zu nutzen, die gegen geltende Gesetze oder Vorschriften verstößt."
+      },
+      {
+        "title": "5. Zertifikatsdaten und Richtigkeit",
+        "content": "Certify fungiert ausschließlich als Validierungsplattform. Die Richtigkeit und Legitimität der von den ausstellenden Institutionen übermittelten Zertifikatsdaten liegt in der alleinigen Verantwortung dieser Institutionen. Certify überprüft die von Ausstellern übermittelten Originaldaten nicht unabhängig."
+      },
+      {
+        "title": "6. Unveränderlichkeit der Blockchain",
+        "content": "Sobald Zertifikatsnachweisdaten auf der Blockchain aufgezeichnet sind, können sie nicht mehr geändert oder gelöscht werden. Benutzer und Institutionen sollten sicherstellen, dass alle übermittelten Daten korrekt sind, bevor sie eine On-Chain-Registrierung veranlassen. Certify haftet nicht für Fehler in Daten, die von Dritten übermittelt wurden."
+      },
+      {
+        "title": "7. Geistiges Eigentum",
+        "content": "Alle Inhalte, Marken, Logos und Software auf der Certify-Plattform sind Eigentum von Certify oder an Certify lizenziert. Sie dürfen keinen Teil der Plattform ohne vorherige schriftliche Zustimmung von Certify reproduzieren, verteilen oder abgeleitete Werke davon erstellen."
+      },
+      {
+        "title": "8. Haftungsbeschränkung",
+        "content": "Soweit gesetzlich zulässig, haftet Certify nicht für indirekte, zufällige, besondere oder Folgeschäden, die sich aus oder im Zusammenhang mit Ihrer Nutzung der Plattform ergeben. Unsere Gesamthaftung für direkte Schäden übersteigt nicht die von Ihnen in den zwölf Monaten vor dem Anspruch gezahlten Gebühren."
+      },
+      {
+        "title": "9. Gewährleistungsausschluss",
+        "content": "Certify stellt seine Dienste „wie besehen“ und „wie verfügbar“ ohne Gewährleistungen jeglicher Art, weder ausdrücklich noch stillschweigend, zur Verfügung. Wir garantieren nicht, dass der Dienst ununterbrochen, fehlerfrei oder frei von schädlichen Komponenten ist."
+      },
+      {
+        "title": "10. Kündigung",
+        "content": "Wir behalten uns das Recht vor, Ihren Zugriff auf die Plattform jederzeit und ohne Vorankündigung auszusetzen oder zu kündigen, wenn Sie gegen diese Nutzungsbedingungen verstoßen oder sich in einer Weise verhalten, die wir als schädlich für andere Benutzer oder die Integrität der Plattform erachten."
+      },
+      {
+        "title": "11. Anwendbares Recht",
+        "content": "Diese Nutzungsbedingungen unterliegen den Gesetzen der Republik Indonesien und werden in Übereinstimmung mit diesen ausgelegt, unter Ausschluss der Kollisionsnormen. Alle Streitigkeiten, die sich aus diesen Bedingungen ergeben, werden vor den Gerichten der jeweils zuständigen Gerichtsbarkeit beigelegt."
+      },
+      {
+        "title": "12. Änderungen der Bedingungen",
+        "content": "Certify behält sich das Recht vor, diese Nutzungsbedingungen jederzeit zu aktualisieren. Wir werden die Benutzer über wesentliche Änderungen informieren, indem wir das Datum der „Letzten Aktualisierung“ aktualisieren. Die fortgesetzte Nutzung der Plattform nach solchen Änderungen stellt Ihre Zustimmung zu den überarbeiteten Bedingungen dar."
+      },
+      {
+        "title": "13. Kontaktieren Sie uns",
+        "content": "Wenn Sie Fragen zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte unter: hello@certify.io — Wir bemühen uns, alle Anfragen innerhalb von 48 Stunden zu beantworten."
+      }
+    ]
+  }
+}

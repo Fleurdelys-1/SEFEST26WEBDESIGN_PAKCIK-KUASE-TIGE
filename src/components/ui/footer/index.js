@@ -100,7 +100,7 @@ export default function Footer() {
           <div className="w-full lg:w-4/12 xl:w-5/12 grid grid-cols-2 gap-8 sm:gap-16">
             <div className="">
               <h4 className="text-sm font-semibold text-[#F4F4F4] mb-4 font-lexend uppercase tracking-wider">
-                Platform
+                {t("footer.platform")}
               </h4>
               <ul className="space-y-3">
                 {footerLinks.platform.map((link, index) => (
@@ -119,7 +119,7 @@ export default function Footer() {
 
             <div className="">
               <h4 className="text-sm font-semibold text-[#F4F4F4] mb-4 font-lexend uppercase tracking-wider">
-                {language === 'id' ? 'Bantuan' : 'Help'}
+                {t("footer.help")}
               </h4>
               <ul className="space-y-3">
                 {footerLinks.help.map((link, index) => (

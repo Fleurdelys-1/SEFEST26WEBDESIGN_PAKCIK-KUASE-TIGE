@@ -361,8 +361,8 @@ export default function FAQ() {
             className="lg:col-span-2"
           >
             <div className="rounded-3xl border border-white/10 bg-white/5 p-5 text-sm text-[#F4F4F4]/70">
-              <p className="font-medium text-[#F4F4F4] mb-2">Need more clarity?</p>
-              <p>Tap another category or question to discover more about Certify's validation flow, security, and web3-native design.</p>
+              <p className="font-medium text-[#F4F4F4] mb-2">{t("faq.needClarity")}</p>
+              <p>{t("faq.clarityDescription")}</p>
             </div>
           </motion.div>
         </div>

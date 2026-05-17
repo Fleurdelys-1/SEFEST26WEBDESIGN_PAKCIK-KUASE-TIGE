@@ -12,6 +12,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "../../context/LanguageContext";
 
 const initialForm = {
   name: "",
@@ -47,23 +48,6 @@ const requiredFields = [
   "signer",
 ];
 
-const fieldLabels = {
-  name: "Name",
-  number: "Number",
-  digitalContact: "Digital Contact",
-  region: "Region",
-  certificateName: "Name Certificated",
-  eventCode: "Event Code",
-  issuingInstitution: "Issuing Institution",
-  language: "Language",
-  level: "Level",
-  certificateIssue: "Certificated Issue",
-  modality: "Modality",
-  studyPeriod: "Study Period",
-  instructors: "Instructors",
-  signer: "Signer / Authorities",
-};
-
 const languageOptions = [
   "English",
   "Indonesian",
@@ -85,6 +69,7 @@ const languageOptions = [
   "Polish",
   "Turkish",
   "Greek",
+  "Arabic",
 ];
 
 const regionOptions = [
@@ -332,12 +317,80 @@ const dropdownItemVariants = {
 };
 
 export default function RegisterPage() {
+  const { t, language } = useLanguage();
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [openDropdowns, setOpenDropdowns] = useState({});
+
+  const getLevelLabel = (lvl) => {
+    const levels = {
+      en: { Beginner: "Beginner", Intermediate: "Intermediate", Advanced: "Advanced" },
+      id: { Beginner: "Pemula", Intermediate: "Menengah", Advanced: "Mahir" },
+      zh: { Beginner: "初级", Intermediate: "中级", Advanced: "高级" },
+      ko: { Beginner: "초급", Intermediate: "중급", Advanced: "고급" },
+      ja: { Beginner: "初級", Intermediate: "中級", Advanced: "上級" },
+      fr: { Beginner: "Débutant", Intermediate: "Intermédiaire", Advanced: "Avancé" },
+      de: { Beginner: "Anfänger", Intermediate: "Mittelstufe", Advanced: "Fortgeschritten" },
+    };
+    return levels[language]?.[lvl] || lvl;
+  };
+
+  const getModalityLabel = (mod) => {
+    const modalities = {
+      en: {
+        "Online (Synchronous)": "Online (Synchronous)",
+        "Online (Asynchronous)": "Online (Asynchronous)",
+        "Offline": "Offline"
+      },
+      id: {
+        "Online (Synchronous)": "Online (Sinkron)",
+        "Online (Asynchronous)": "Online (Asinkron)",
+        "Offline": "Offline"
+      },
+      zh: {
+        "Online (Synchronous)": "线上（同步）",
+        "Online (Asynchronous)": "线上（异步）",
+        "Offline": "线下"
+      },
+      ko: {
+        "Online (Synchronous)": "온라인 (동기)",
+        "Online (Asynchronous)": "온라인 (비동기)",
+        "Offline": "오프라인"
+      },
+      ja: {
+        "Online (Synchronous)": "オンライン（同期）",
+        "Online (Asynchronous)": "オンライン（非同期）",
+        "Offline": "オフライン"
+      },
+      fr: {
+        "Online (Synchronous)": "En ligne (synchrone)",
+        "Online (Asynchronous)": "En ligne (asynchrone)",
+        "Offline": "Hors ligne"
+      },
+      de: {
+        "Online (Synchronous)": "Online (synchron)",
+        "Online (Asynchronous)": "Online (asynchron)",
+        "Offline": "Offline"
+      }
+    };
+    return modalities[language]?.[mod] || mod;
+  };
+
+  const getLanguageLabel = (lang) => {
+    const languages = {
+      en: { English: "English", Indonesian: "Indonesian", Spanish: "Spanish", French: "French", German: "German", Italian: "Italian", Portuguese: "Portuguese", Russian: "Russian", Japanese: "Japanese", "Chinese (Mandarin)": "Chinese (Mandarin)", Korean: "Korean" },
+      id: { English: "Inggris", Indonesian: "Indonesia", Spanish: "Spanyol", French: "Prancis", German: "Jerman", Italian: "Italia", Portuguese: "Portugis", Russian: "Rusia", Japanese: "Jepang", "Chinese (Mandarin)": "Mandarin", Korean: "Korea" },
+      zh: { English: "英语", Indonesian: "印尼语", Spanish: "西班牙语", French: "法语", German: "德语", Italian: "意大利语", Portuguese: "葡萄牙语", Russian: "俄语", Japanese: "日语", "Chinese (Mandarin)": "中文（普通话）", Korean: "韩语" },
+      ko: { English: "영어", Indonesian: "인도네시아어", Spanish: "스페인어", French: "불어", German: "독어", Italian: "이탈리아어", Portuguese: "포르투갈어", Russian: "러시아어", Japanese: "일본어", "Chinese (Mandarin)": "중국어 (만다린)", Korean: "한국어" },
+      ja: { English: "英語", Indonesian: "インドネシア語", Spanish: "スペイン語", French: "フランス語", German: "ドイツ語", Italian: "イタリア語", Portuguese: "ポルトガル語", Russian: "ロシア語", Japanese: "日本語", "Chinese (Mandarin)": "中国語（北京語）", Korean: "韓国語" },
+      fr: { English: "Anglais", Indonesian: "Indonésien", Spanish: "Espagnol", French: "Français", German: "Allemand", Italian: "Italien", Portuguese: "Portugais", Russian: "Russe", Japanese: "Japonais", "Chinese (Mandarin)": "Chinois (Mandarin)", Korean: "Coréen" },
+      de: { English: "Englisch", Indonesian: "Indonesisch", Spanish: "Spanisch", French: "Französisch", German: "Deutsch", Italian: "Italienisch", Portuguese: "Portugiesisch", Russian: "Russisch", Japanese: "Japanisch", "Chinese (Mandarin)": "Chinesisch (Mandarin)", Korean: "Koreanisch" },
+    };
+    return languages[language]?.[lang] || lang;
+  };
 
   const formContainerVariants = {
     hidden: { opacity: 0, scale: 0.95, y: 20 },
@@ -405,23 +458,24 @@ export default function RegisterPage() {
   const validate = (data) => {
     const newErrors = {};
     requiredFields.forEach((field) => {
+      const fieldLabel = t("register.fields." + field);
       if (field === "certificateIssue") {
         if (!data[field]) {
-          newErrors[field] = `${fieldLabels[field]} is required`;
+          newErrors[field] = `${fieldLabel} ${t("register.errors.required")}`;
         }
       } else if (field === "studyPeriod") {
         if (!data[field] || !data[field].from || !data[field].to) {
-          newErrors[field] = `${fieldLabels[field]} is required`;
+          newErrors[field] = `${fieldLabel} ${t("register.errors.required")}`;
         }
       } else if (!data[field] || data[field].toString().trim() === "") {
-        newErrors[field] = `${fieldLabels[field]} is required`;
+        newErrors[field] = `${fieldLabel} ${t("register.errors.required")}`;
       }
     });
 
     if (data.digitalContact && !newErrors.digitalContact) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(data.digitalContact)) {
-        newErrors.digitalContact = "Valid email is required";
+        newErrors.digitalContact = t("register.errors.validEmail");
       }
     }
 
@@ -489,12 +543,6 @@ export default function RegisterPage() {
       : "border-white/10 focus:border-[#00b7b5]/60 focus:ring-[#00b7b5]/20"
     }`;
 
-  const getSelectClass = (field) =>
-    `mt-1 w-full px-3 py-2 rounded-lg bg-[#0a1a1f]/60 border text-[#F4F4F4] text-sm focus:outline-none focus:ring-1 transition-all appearance-none cursor-pointer ${touched[field] && errors[field]
-      ? "border-red-500/60 focus:border-red-500/80 focus:ring-red-500/20"
-      : "border-white/10 focus:border-[#00b7b5]/60 focus:ring-[#00b7b5]/20"
-    }`;
-
   const getGlassInputClass = (field) =>
     `mt-1 w-full px-3 py-2 rounded-lg text-[#F4F4F4] placeholder-[#F4F4F4]/25 text-sm focus:outline-none focus:ring-1 transition-all ${touched[field] && errors[field]
       ? "border border-red-500/60 focus:ring-red-500/20"
@@ -544,10 +592,8 @@ export default function RegisterPage() {
     const toggleDropdown = (e) => {
       e.preventDefault();
       if (!isOpen) {
-        
         setOpenDropdowns({ [field]: true });
       } else {
-        
         setOpenDropdowns((prev) => ({ ...prev, [field]: false }));
       }
       setSearchTerm("");
@@ -563,6 +609,14 @@ export default function RegisterPage() {
         setErrors((prev) => ({ ...prev, [field]: newErrors[field] }));
       }
     };
+
+    const displayValue = field === "language" 
+      ? getLanguageLabel(value)
+      : field === "level"
+      ? getLevelLabel(value)
+      : field === "modality"
+      ? getModalityLabel(value)
+      : value;
 
     return (
       <div className="relative mt-1">
@@ -584,7 +638,7 @@ export default function RegisterPage() {
                 : "1px solid rgba(255,255,255,0.10)",
           }}
         >
-          <span>{value}</span>
+          <span>{displayValue}</span>
           <motion.div
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.2 }}
@@ -603,38 +657,46 @@ export default function RegisterPage() {
               exit="exit"
               variants={dropdownVariants}
             >
-              {}
               <input
                 type="text"
-                placeholder="Search..."
+                placeholder={t("register.search")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="m-2 px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-[#F4F4F4] text-xs placeholder-[#F4F4F4]/50 focus:outline-none focus:ring-1 focus:ring-[#00b7b5]/30"
               />
 
-              {}
               <div
                 className="max-h-48 overflow-y-auto"
                 style={{ WebkitOverflowScrolling: "touch", touchAction: "pan-y" }}
               >
                 {filteredOptions.length > 0 ? (
-                  filteredOptions.map((option) => (
-                    <motion.button
-                      type="button"
-                      key={option}
-                      onClick={() => handleSelect(option)}
-                      variants={dropdownItemVariants}
-                      className="w-full px-3 py-2 text-left text-xs sm:text-sm text-[#F4F4F4] hover:bg-white/10 transition flex items-center justify-between"
-                    >
-                      <span>{option}</span>
-                      {value === option && (
-                        <Check size={14} className="text-[#F4F4F4]" />
-                      )}
-                    </motion.button>
-                  ))
+                  filteredOptions.map((option) => {
+                    const optionLabel = field === "language"
+                      ? getLanguageLabel(option)
+                      : field === "level"
+                      ? getLevelLabel(option)
+                      : field === "modality"
+                      ? getModalityLabel(option)
+                      : option;
+
+                    return (
+                      <motion.button
+                        type="button"
+                        key={option}
+                        onClick={() => handleSelect(option)}
+                        variants={dropdownItemVariants}
+                        className="w-full px-3 py-2 text-left text-xs sm:text-sm text-[#F4F4F4] hover:bg-white/10 transition flex items-center justify-between"
+                      >
+                        <span>{optionLabel}</span>
+                        {value === option && (
+                          <Check size={14} className="text-[#F4F4F4]" />
+                        )}
+                      </motion.button>
+                    );
+                  })
                 ) : (
                   <div className="px-3 py-2 text-xs text-[#F4F4F4]/50 text-center">
-                    No results found
+                    {t("register.noResults")}
                   </div>
                 )}
               </div>
@@ -653,7 +715,7 @@ export default function RegisterPage() {
           className="flex items-center gap-1 text-[#F4F4F4]/70 text-sm hover:text-[#00b7b5] transition-colors"
         >
           <ChevronLeft size={16} />
-          Back To Home
+          {t("register.backToHome")}
         </Link>
       </div>
 
@@ -665,7 +727,6 @@ export default function RegisterPage() {
         animate="visible"
         className="w-full max-w-6xl rounded-3xl sm:rounded-[40px] border border-white/10 bg-white/5 shadow-[0_40px_120px_rgba(0,0,0,0.18)] backdrop-blur-xl relative z-10"
       >
-        {}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0f262d]/80 via-[#081218]/20 to-[#10252c]/70 opacity-80 pointer-events-none rounded-3xl sm:rounded-[40px]" />
 
         <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-0 relative z-10">
@@ -721,7 +782,12 @@ export default function RegisterPage() {
                 </svg>
               </span>
               <div className="flex-1 w-full text-[clamp(16px,5vw,24px)] sm:text-[18px] font-bold text-[#F4F4F4] leading-tight drop-shadow-sm">
-                Lets Register <span className="sm:hidden"> </span><br className="hidden sm:block" />Your Certificate
+                {t("register.title").split(" ").map((word, idx, arr) => {
+                  if (idx === arr.length - 2) {
+                    return <span key={idx}>{word}<br className="hidden sm:block" /></span>;
+                  }
+                  return word + " ";
+                })}
               </div>
             </div>
 
@@ -736,25 +802,18 @@ export default function RegisterPage() {
                   <circle cx="12" cy="8" r="4" />
                   <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
                 </svg>
-                USER INFORMATION
+                {t("register.userInfo")}
               </div>
 
               {[
-                { field: "name", label: "Name", placeholder: "Your Name", isDropdown: false },
-                {
-                  field: "number",
-                  label: "Number",
-                  placeholder: "Phone or ID Number",
-                  isDropdown: false,
-                },
-                {
-                  field: "digitalContact",
-                  label: "Digital Contact",
-                  placeholder: "Email or Social Media",
-                  isDropdown: false,
-                },
-                { field: "region", label: "Region", placeholder: "Region", isDropdown: true },
-              ].map(({ field, label, placeholder, isDropdown }) => {
+                { field: "name", isDropdown: false },
+                { field: "number", isDropdown: false },
+                { field: "digitalContact", isDropdown: false },
+                { field: "region", isDropdown: true },
+              ].map(({ field, isDropdown }) => {
+                const label = t("register.fields." + field);
+                const placeholder = t("register.placeholders." + field);
+
                 if (isDropdown && field === "region") {
                   return (
                     <motion.div key={field} variants={fieldVariants} className={`${labelClass} relative z-50`}>
@@ -820,11 +879,10 @@ export default function RegisterPage() {
                       <Check className="h-8 w-8 text-[#00B7B5]" />
                     </div>
                     <p className="text-lg font-bold text-[#F4F4F4]">
-                      Registration sent successfully!
+                      {t("register.successTitle")}
                     </p>
                     <p className="max-w-[23rem] text-sm text-[#F4F4F4]/70">
-                      Thank you for registering. We’ll review your details and
-                      contact you soon.
+                      {t("register.successSubtitle")}
                     </p>
                   </div>
                 </motion.div>
@@ -841,7 +899,7 @@ export default function RegisterPage() {
                   <div className="w-3 h-[3px] rounded bg-[#00b7b5]/50" />
                 </div>
                 <span className="text-[9px] sm:text-[10px] text-[#00b7b5] font-bold tracking-widest">
-                  PROGRAM DETAIL
+                  {t("register.programDetail")}
                 </span>
               </div>
 
@@ -853,7 +911,7 @@ export default function RegisterPage() {
               >
                 <motion.label variants={fieldVariants} className={labelClass}>
                   <LabelText>
-                    Name Certificated
+                    {t("register.fields.certificateName")}
                     <RequiredMark />
                   </LabelText>
                   <input
@@ -861,14 +919,14 @@ export default function RegisterPage() {
                     value={form.certificateName}
                     onChange={handleChange}
                     className={getInputClass("certificateName")}
-                    placeholder="Certificate Name"
+                    placeholder={t("register.placeholders.certificateName")}
                   />
                   <ErrorMsg field="certificateName" />
                 </motion.label>
 
                 <motion.label variants={fieldVariants} className={labelClass}>
                   <LabelText>
-                    Event Code
+                    {t("register.fields.eventCode")}
                     <RequiredMark />
                   </LabelText>
                   <input
@@ -876,14 +934,14 @@ export default function RegisterPage() {
                     value={form.eventCode}
                     onChange={handleChange}
                     className={getInputClass("eventCode")}
-                    placeholder="Event Code"
+                    placeholder={t("register.placeholders.eventCode")}
                   />
                   <ErrorMsg field="eventCode" />
                 </motion.label>
 
                 <motion.label variants={fieldVariants} className={labelClass}>
                   <LabelText>
-                    Issuing Institution
+                    {t("register.fields.issuingInstitution")}
                     <RequiredMark />
                   </LabelText>
                   <input
@@ -891,14 +949,14 @@ export default function RegisterPage() {
                     value={form.issuingInstitution}
                     onChange={handleChange}
                     className={getInputClass("issuingInstitution")}
-                    placeholder="Institution Name"
+                    placeholder={t("register.placeholders.issuingInstitution")}
                   />
                   <ErrorMsg field="issuingInstitution" />
                 </motion.label>
 
                 <motion.div variants={fieldVariants} className={`${labelClass} relative z-50`}>
                   <LabelText>
-                    Language
+                    {t("register.fields.language")}
                     <RequiredMark />
                   </LabelText>
                   <CustomDropdown
@@ -911,7 +969,7 @@ export default function RegisterPage() {
 
                 <motion.div variants={fieldVariants} className={`${labelClass} relative z-40`}>
                   <LabelText>
-                    Level
+                    {t("register.fields.level")}
                     <RequiredMark />
                   </LabelText>
                   <CustomDropdown
@@ -924,7 +982,7 @@ export default function RegisterPage() {
 
                 <motion.div variants={fieldVariants} className={`${labelClass} relative z-30`}>
                   <LabelText>
-                    Certificated Issue
+                    {t("register.fields.certificateIssue")}
                     <RequiredMark />
                   </LabelText>
                   <Popover>
@@ -954,7 +1012,7 @@ export default function RegisterPage() {
                           format(form.certificateIssue, "MMM dd, yyyy")
                         ) : (
                           <span className="text-[#F4F4F4]/30">
-                            MM/DD/YY
+                            {t("register.placeholders.certificateIssue")}
                           </span>
                         )}
                       </Button>
@@ -995,28 +1053,11 @@ export default function RegisterPage() {
                       />
                     </PopoverContent>
                   </Popover>
-                  {touched["certificateIssue"] &&
-                    errors["certificateIssue"] ? (
+                  {touched["certificateIssue"] && errors["certificateIssue"] ? (
                     <span className="text-[10px] text-red-400 mt-0.5 flex items-center gap-1">
-                      <svg
-                        width="10"
-                        height="10"
-                        viewBox="0 0 12 12"
-                        fill="none"
-                      >
-                        <circle
-                          cx="6"
-                          cy="6"
-                          r="5.5"
-                          stroke="currentColor"
-                          strokeWidth="1"
-                        />
-                        <path
-                          d="M6 3.5v3M6 8v.5"
-                          stroke="currentColor"
-                          strokeWidth="1.2"
-                          strokeLinecap="round"
-                        />
+                      <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+                        <circle cx="6" cy="6" r="5.5" stroke="currentColor" strokeWidth="1" />
+                        <path d="M6 3.5v3M6 8v.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
                       </svg>
                       {errors["certificateIssue"]}
                     </span>
@@ -1025,7 +1066,7 @@ export default function RegisterPage() {
 
                 <motion.div variants={fieldVariants} className={`${labelClass} relative z-20`}>
                   <LabelText>
-                    Modality
+                    {t("register.fields.modality")}
                     <RequiredMark />
                   </LabelText>
                   <CustomDropdown
@@ -1038,7 +1079,7 @@ export default function RegisterPage() {
 
                 <motion.div variants={fieldVariants} className={`${labelClass} relative z-10`}>
                   <LabelText>
-                    Study Period
+                    {t("register.fields.studyPeriod")}
                     <RequiredMark />
                   </LabelText>
                   <Popover>
@@ -1076,7 +1117,7 @@ export default function RegisterPage() {
                           )
                         ) : (
                           <span className="text-[#F4F4F4]/30">
-                            MM/DD/YY - MM/DD/YY
+                            {t("register.placeholders.studyPeriod")}
                           </span>
                         )}
                       </Button>
@@ -1119,25 +1160,9 @@ export default function RegisterPage() {
                   </Popover>
                   {touched["studyPeriod"] && errors["studyPeriod"] ? (
                     <span className="text-[10px] text-red-400 mt-0.5 flex items-center gap-1">
-                      <svg
-                        width="10"
-                        height="10"
-                        viewBox="0 0 12 12"
-                        fill="none"
-                      >
-                        <circle
-                          cx="6"
-                          cy="6"
-                          r="5.5"
-                          stroke="currentColor"
-                          strokeWidth="1"
-                        />
-                        <path
-                          d="M6 3.5v3M6 8v.5"
-                          stroke="currentColor"
-                          strokeWidth="1.2"
-                          strokeLinecap="round"
-                        />
+                      <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
+                        <circle cx="6" cy="6" r="5.5" stroke="currentColor" strokeWidth="1" />
+                        <path d="M6 3.5v3M6 8v.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
                       </svg>
                       {errors["studyPeriod"]}
                     </span>
@@ -1146,7 +1171,7 @@ export default function RegisterPage() {
 
                 <motion.label variants={fieldVariants} className={labelClass}>
                   <LabelText>
-                    Instructors
+                    {t("register.fields.instructors")}
                     <RequiredMark />
                   </LabelText>
                   <input
@@ -1154,14 +1179,14 @@ export default function RegisterPage() {
                     value={form.instructors}
                     onChange={handleChange}
                     className={getInputClass("instructors")}
-                    placeholder="Instructor Name"
+                    placeholder={t("register.placeholders.instructors")}
                   />
                   <ErrorMsg field="instructors" />
                 </motion.label>
 
                 <motion.label variants={fieldVariants} className={labelClass}>
                   <LabelText>
-                    Signer / Authorities
+                    {t("register.fields.signer")}
                     <RequiredMark />
                   </LabelText>
                   <input
@@ -1169,7 +1194,7 @@ export default function RegisterPage() {
                     value={form.signer}
                     onChange={handleChange}
                     className={getInputClass("signer")}
-                    placeholder="Signer Name"
+                    placeholder={t("register.placeholders.signer")}
                   />
                   <ErrorMsg field="signer" />
                 </motion.label>
@@ -1177,31 +1202,14 @@ export default function RegisterPage() {
 
               <motion.div variants={fieldVariants} className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mt-auto pt-2">
                 <div className="flex flex-col gap-1.5">
-                  {Object.keys(errors).length > 0 &&
+                  {Object.keys(errors).filter((k) => errors[k]).length > 0 &&
                     Object.keys(touched).length > 0 ? (
                     <span className="text-[10px] sm:text-[11px] text-red-400 flex items-center gap-1.5">
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 12 12"
-                        fill="none"
-                      >
-                        <circle
-                          cx="6"
-                          cy="6"
-                          r="5.5"
-                          stroke="currentColor"
-                          strokeWidth="1"
-                        />
-                        <path
-                          d="M6 3.5v3M6 8v.5"
-                          stroke="currentColor"
-                          strokeWidth="1.2"
-                          strokeLinecap="round"
-                        />
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <circle cx="6" cy="6" r="5.5" stroke="currentColor" strokeWidth="1" />
+                        <path d="M6 3.5v3M6 8v.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
                       </svg>
-                      {Object.keys(errors).length} field
-                      {Object.keys(errors).length > 1 ? "s" : ""} required
+                      {Object.keys(errors).filter((k) => errors[k]).length} {t("register.errors.required")}
                     </span>
                   ) : (
                     <span />
@@ -1218,22 +1226,11 @@ export default function RegisterPage() {
                       fill="none"
                       className="flex-shrink-0 group-hover:scale-110 transition-transform duration-200"
                     >
-                      <path
-                        d="M12 16V4m0 0L8 8m4-4l4 4"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M4 20h16"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
+                      <path d="M12 16V4m0 0L8 8m4-4l4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      <path d="M4 20h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                     </svg>
                     <span className="underline underline-offset-2 decoration-[#00b7b5]/40 group-hover:decoration-[#00b7b5]">
-                      Already have a certificate PDF?
+                      {t("register.alreadyHavePdf")}
                     </span>
                   </Link>
                 </div>
@@ -1252,7 +1249,7 @@ export default function RegisterPage() {
                     backdropFilter: "blur(18px)",
                   }}
                 >
-                  {loading ? "SENDING..." : success ? "✓ SENT!" : "SEND"}
+                  {loading ? t("register.sending") : success ? t("register.sent") : t("register.send")}
                 </motion.button>
               </motion.div>
             </motion.div>

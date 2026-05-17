@@ -1,0 +1,531 @@
+{
+  "nav": {
+    "home": "首页",
+    "validate": "验证",
+    "about": "关于我们",
+    "faq": "常见问题",
+    "contact": "联系我们",
+    "register": "注册"
+  },
+  "home": {
+    "badge": "最新",
+    "protocol": "Certify 协议 v1.0",
+    "title": "证书验证的未来",
+    "titleTop": "开启",
+    "titleBottom": "证书验证的未来",
+    "rotatingTexts": [
+      "未来",
+      "创新",
+      "全新时代"
+    ],
+    "description": "基于区块链技术的安全、透明且不可篡改的证书验证系统。即时验证真实性，消除数字时代的欺诈。",
+    "register": "注册证书",
+    "validate": "验证证书"
+  },
+  "about": {
+    "badge": "关于",
+    "title": "证书信任的",
+    "titleHighlight": "未来",
+    "rotatingTexts": [
+      "信任！",
+      "安全！",
+      "区块链！",
+      "验证！"
+    ],
+    "subtitle": "Certify 的诞生是因为信任不应该如此复杂。我们把您的证书从纸质移到永久的地方，让任何人在任何地方都能即时验证。永远。",
+    "cards": {
+      "security": {
+        "title": "区块链安全",
+        "description": "证书数据安全，无法被操纵"
+      },
+      "tamper": {
+        "title": "防篡改记录",
+        "description": "所有数据永久存储在区块链上。"
+      },
+      "instant": {
+        "title": "即时验证",
+        "description": "快速实时的证书验证。"
+      },
+      "trusted": {
+        "title": "信赖机构",
+        "description": "被信赖的机构和组织广泛使用。"
+      }
+    },
+    "stats": {
+      "satisfaction": {
+        "value": "97%",
+        "label": "客户满意度"
+      },
+      "active": {
+        "value": "52",
+        "label": "活跃证书数"
+      },
+      "experience": {
+        "value": "4+",
+        "label": "服务年限"
+      },
+      "records": {
+        "value": "50+",
+        "label": "链上记录数"
+      }
+    },
+    "vision": {
+      "title": "我们的愿景",
+      "description": "\"创造一个未来，让您获得的每一份凭证都永久属于您，防篡改，可由世界上任何人即时验证。\""
+    },
+    "register": "在此注册"
+  },
+  "validate": {
+    "badge": "证书验证",
+    "secure": "安全验证",
+    "title": "验证证书",
+    "description": "输入证书 ID 以在区块链上验证其真实性。我们的系统将根据官方注册表检查证书。",
+    "placeholder": "输入证书 ID...",
+    "verify": "验证",
+    "validating": "验证中...",
+    "valid": "有效证书",
+    "validMessage": "此证书已通过验证，真实有效。",
+    "invalid": "无效证书",
+    "invalidMessage": "在我们的注册表中找不到此证书。",
+    "certificateId": "证书 ID",
+    "name": "获得者姓名",
+    "institution": "发证机构",
+    "program": "项目/课程",
+    "graduationDate": "毕业日期",
+    "status": "状态",
+    "certificates": "证书",
+    "institutions": "机构",
+    "validations": "验证次数",
+    "runTest": "使用真实证书数据运行加密验证测试：",
+    "tabs": {
+      "manual": "手动搜索 (ID/Hash)",
+      "manualShort": "手动",
+      "pdf": "验证 PDF 文件",
+      "pdfShort": "PDF",
+      "qr": "扫码验证",
+      "qrShort": "QR"
+    },
+    "manual": {
+      "title": "手动搜索",
+      "description": "输入您的证书 ID 或哈希以验证其真实性"
+    },
+    "details": {
+      "status": "状态",
+      "validCertificate": "证书有效",
+      "revokedCertificate": "证书已撤销",
+      "credentialId": "唯一凭证 ID",
+      "certificateHash": "证书哈希",
+      "userInfo": "用户信息",
+      "fullName": "姓名",
+      "idNumber": "证件号码",
+      "email": "电子邮箱",
+      "country": "国家",
+      "programDetail": "项目详情",
+      "courseName": "课程名称",
+      "eventCode": "活动代码",
+      "level": "级别",
+      "language": "语言",
+      "grade": "成绩",
+      "certificateDetails": "证书详情",
+      "institution": "发证机构",
+      "modality": "学习形式",
+      "issuedDate": "发证日期",
+      "studyPeriod": "学习周期",
+      "credentials": "凭证签署",
+      "instructors": "授课教师",
+      "signatories": "签署人",
+      "blockchainEvidence": "区块链数字证据",
+      "smartContractVerified": "智能合约已验证",
+      "verified": "已验证",
+      "notVerified": "未验证",
+      "viewPolygonscan": "在 Polygonscan 上查看",
+      "auditReport": "审计报告",
+      "pdfDownload": "PDF 下载",
+      "notFound": "找不到证书",
+      "tryAnotherSearch": "尝试其他搜索"
+    },
+    "pdf": {
+      "title": "PDF 文件验证",
+      "description": "将原始 PDF 拖到此处进行验证",
+      "security": "本地私密处理 SHA-256",
+      "dragDrop": "将您的 PDF 证书拖放到此处",
+      "clickUpload": "或点击选择文件",
+      "uploadError": "上传错误",
+      "fileTypeError": "文件类型无效。仅支持 PDF 文件。",
+      "fileEmptyError": "所选文件为空。请尝试其他文件。",
+      "fileSizeError": "文件大小超过 10MB。请尝试较小的文件。",
+      "corruptedError": "PDF 似乎已损坏。请核对文件。",
+      "extractingData": "正在提取证书数据...",
+      "searchingCertificate": "正在数据库中搜索...",
+      "certIdNotFound": "在 PDF 中找不到证书 ID",
+      "hashNotFound": "在 PDF 中找不到区块链哈希",
+      "extractedDataTitle": "提取的证书数据",
+      "certificateId": "证书 ID",
+      "blockchainHash": "区块链哈希",
+      "validating": "验证中...",
+      "noDataFound": "无法从 PDF 中提取证书信息",
+      "manualInput": "无法自动提取数据。请尝试“手动搜索”标签页。",
+      "tryAgain": "上传另一个 PDF",
+      "downloadTestCert": "下载测试证书",
+      "downloadTestDesc": "获取演示证书文件以测试 PDF 验证功能。",
+      "downloadBtn": "下载",
+      "fileUploaded": "文件已上传"
+    },
+    "qr": {
+      "badge": "移动扫描",
+      "title": "二维码验证",
+      "description": "要验证已颁发的证书，只需将您的智能手机摄像头对准二维码即可。系统将自动识别验证网址并在您的手机浏览器中显示真实性报告，确保凭证真实有效并已注册在区块链上。",
+      "certificateName": "UIJ 证书",
+      "certificateId": "ID: CERT-B6F9316C1C14",
+      "secure": "带有区块链证明的安全二维码验证",
+      "instant": "扫描时即时进行真实性检查"
+    }
+  },
+  "faq": {
+    "badge": "常见问题",
+    "title": "常见问题",
+    "needClarity": "需要更多解答？",
+    "clarityDescription": "点击其他分类或问题，了解更多关于 Certify 的验证流程、安全机制以及 Web3 原生设计。",
+    "subtitle": "浏览有关 Certify、验证和 Web3 信任的常见问题，深入了解我们的安全验证体验如何工作。",
+    "tabs": [
+      {
+        "key": "general",
+        "label": "常规"
+      },
+      {
+        "key": "security",
+        "label": "安全"
+      },
+      {
+        "key": "verification",
+        "label": "验证"
+      }
+    ],
+    "items": {
+      "general": [
+        {
+          "question": "什么是 Certify？",
+          "answer": "Certify 是一个区块链原生的证书验证平台，它使真实性检查变得即时、安全和透明。它为需要确认凭证的任何人提供快速、用户友好的体验，无需繁琐的手工纸质工作。"
+        },
+        {
+          "question": "验证是如何工作的？",
+          "answer": "我们的系统通过将数字记录与不可篡改的区块链注册表进行核对来验证证书，确保凭证有效且未被更改。这意味着每次验证都由不可篡改的证明记录支持。"
+        },
+        {
+          "question": "我的数据是私密的吗？",
+          "answer": "是的。Certify 专注于安全的证明验证，同时通过加密注册表查找和最少的链上元数据保护个人数据私密。仅使用验证所需的信息。"
+        },
+        {
+          "question": "可以验证哪些类型的证书？",
+          "answer": "Certify 支持各种证书，包括学术学位、专业认证、培训结业证书以及跨不同机构颁发的数字技能徽章。它可以支持来自世界各地的学校、雇主和凭证颁发者的记录。"
+        },
+        {
+          "question": "如何开始使用 Certify？",
+          "answer": "只需导航到我们的验证页面，输入您的证书 ID 或上传您的 PDF，我们的系统就会立即根据我们安全的区块链注册表验证其真实性。无需特殊软件即可开始。"
+        }
+      ],
+      "security": [
+        {
+          "question": "证书数据存储在链上吗？",
+          "answer": "只有证明哈希和验证元数据存储在链上。敏感的证书详细信息保留在链下以保护隐私并维护完整性，这种设计不仅保护了个人数据，还保留了安全的审计追踪。"
+        },
+        {
+          "question": "证书可以被篡改吗？",
+          "answer": "不能。一旦证书被颁发并在区块链上进行哈希处理，任何修改都会导致验证失败，因为链上证明将不再匹配。这使得任何篡改行为都能立即被检测到。"
+        },
+        {
+          "question": "是什么让它成为 Web3 原生的？",
+          "answer": "Certify 利用去中心化信任和区块链不可篡改性，使证书可以在跨组织之间进行验证，而无需依赖单一的中心化机构。这使得整个过程更具弹性和透明度。"
+        },
+        {
+          "question": "Certify 如何防范欺诈？",
+          "answer": "我们的多层安全方法使用密码学哈希、区块链不可篡改性和分布式验证来消除伪造和欺诈性凭证。每次检查都是独立的，使欺诈行为极难发生。"
+        },
+        {
+          "question": "Certify 是否符合数据保护条例？",
+          "answer": "是的。Certify 旨在通过加密处理、最少的数据存储和用户控制的验证，符合 GDPR、CCPA 和其他数据保护标准。这使组织在满足隐私要求的同时，仍能提供快速的凭证检查。"
+        }
+      ],
+      "verification": [
+        {
+          "question": "验证速度有多快？",
+          "answer": "通过我们优化的查询流程，验证是即时发生的，为用户提供证书是否真实的即时确认。大多数检查在几秒钟内完成，因此用户无需等待。"
+        },
+        {
+          "question": "我可以通过二维码或 ID 进行验证吗？",
+          "answer": "可以。Certify 旨在支持多种验证流程，包括二维码扫描、手动 ID/哈希检查以及未来的 PDF 验证。这种灵活性完全适应数字和印刷工作流。"
+        },
+        {
+          "question": "谁可以使用 Certify？",
+          "answer": "学生、颁发者、雇主和审计人员可以使用 Certify 快速验证凭证，并通过区块链支持的证明来信任结果。它非常适用于招聘、录取和背景调查。"
+        },
+        {
+          "question": "第三方可以代表我验证证书吗？",
+          "answer": "当然可以。雇主、教育机构和政府机构可以独立验证任何 Certify 证书，而无需每次都获得证书持有者的许可。这使得大规模确认凭证变得非常容易。"
+        },
+        {
+          "question": "如果验证失败会发生什么？",
+          "answer": "如果证书验证失败，系统将提供详细报告，解释为什么凭证无法通过验证，帮助识别潜在问题或伪造。这使解决错误或快速检测欺诈变得更容易。"
+        }
+      ]
+    }
+  },
+  "contact": {
+    "badge": "联系我们",
+    "title": "让我们在链上建立信任。",
+    "subtitle": "需要链上证书方面的帮助，或对证书验证有疑问？让我们在旅程的每一步中，共同让信任变得透明。我们的团队随时准备为您创建安全且真实的凭据提供支持。",
+    "emailLabel": "直接给我们发送电子邮件",
+    "manualTitle": "手动电子邮件请求",
+    "emailDescription": "将您的请求发送给我们的团队，我们将以安全的、理解 Web3 的支持予以回复。",
+    "manualLabel": "联系方式",
+    "manualEmail": "hello@certify.io",
+    "manualHint": "将您的邮件内容粘贴到您的电子邮件客户端，或使用表单直接提交。",
+    "supportAvailable": "24/7 全天候支持",
+    "supportDescription": "随时与我们联系。我们随时为您提供帮助并解答您的任何疑问。",
+    "formBadge": "建立联系",
+    "formTitle": "与我们的团队交流",
+    "formSubtitle": "告诉我们您的需求，我们将为您提供证书验证和支持。",
+    "nameLabel": "姓名",
+    "namePlaceholder": "例如：张三",
+    "emailLabel2": "邮箱地址",
+    "emailPlaceholder": "例如：zhangsan@example.com",
+    "messageLabel": "您的留言",
+    "messagePlaceholder": "请在此处描述您的问题或需求...",
+    "sendingTitle": "正在发送您的留言...",
+    "sendingSubtitle": "请稍候，我们正在处理您的请求",
+    "successTitle": "留言发送成功！",
+    "successSubtitle": "感谢您的联系。我们将尽快给您回复。",
+    "submit": "发送留言",
+    "errorName": "请输入您的完整姓名",
+    "errorEmail": "请输入有效的电子邮件地址",
+    "errorMessage": "请输入您的留言内容",
+    "success": "留言已提交。"
+  },
+  "footer": {
+    "company": "公司",
+    "product": "产品",
+    "resources": "资源",
+    "legal": "法律信息",
+    "stayUpdated": "保持关注",
+    "description": "证书验证的未来。基于区块链技术的安全、透明且不可篡改的验证。",
+    "features": {
+      "security": "银行级安全",
+      "instant": "即时验证",
+      "global": "全球标准"
+    },
+    "newsletter": {
+      "description": "订阅我们的新闻通讯以获取最新的更新和功能信息。",
+      "placeholder": "输入您的电子邮箱",
+      "subscribed": "✓ 成功订阅！"
+    },
+    "contact": {
+      "email": "hello@certify.io",
+      "location": "印尼，巴东"
+    },
+    "copyright": "版权所有。",
+    "privacyPolicy": "隐私政策",
+    "termsOfService": "服务条款",
+    "protocol": "Certify 协议 v1.0",
+    "register": "注册",
+    "featuresLink": "功能列表",
+    "faq": "常见问题",
+    "documentation": "文档",
+    "support": "支持",
+    "platform": "平台",
+    "help": "帮助中心"
+  },
+  "register": {
+    "backToHome": "返回首页",
+    "title": "注册您的证书",
+    "userInfo": "用户信息",
+    "programDetail": "项目详情",
+    "alreadyHavePdf": "已有证书PDF文件？",
+    "sending": "发送中...",
+    "sent": "✓ 已发送！",
+    "send": "发送",
+    "successTitle": "注册成功发送！",
+    "successSubtitle": "感谢您的注册。我们将审核您的详细信息并尽快与您联系。",
+    "search": "搜索...",
+    "noResults": "未找到结果",
+    "fields": {
+      "name": "姓名",
+      "number": "号码",
+      "digitalContact": "数字联系方式",
+      "region": "地区",
+      "certificateName": "被授证书姓名",
+      "eventCode": "活动代码",
+      "issuingInstitution": "颁发机构",
+      "language": "语言",
+      "level": "级别",
+      "certificateIssue": "证书颁发日期",
+      "modality": "授课形式",
+      "studyPeriod": "学习期限",
+      "instructors": "导师",
+      "signer": "签署人 / 权威机构"
+    },
+    "placeholders": {
+      "name": "您的姓名",
+      "number": "电话或身份证号",
+      "digitalContact": "电子邮件或社交媒体",
+      "region": "选择地区",
+      "certificateName": "证书名称",
+      "eventCode": "活动代码",
+      "issuingInstitution": "机构名称",
+      "language": "语言",
+      "level": "级别",
+      "certificateIssue": "月/日/年",
+      "modality": "授课形式",
+      "studyPeriod": "月/日/年 - 月/日/年",
+      "instructors": "导师姓名",
+      "signer": "签署人姓名"
+    },
+    "errors": {
+      "required": "是必填项",
+      "validEmail": "请输入有效的电子邮件地址"
+    }
+  },
+  "upload": {
+    "backToHome": "返回首页",
+    "title": "上传您的证书",
+    "badge": "证书验证",
+    "fields": {
+      "idCertificate": "证书 ID",
+      "hashSha256": "SHA 256 哈希值",
+      "pdfFile": "PDF 文件验证"
+    },
+    "placeholders": {
+      "idCertificate": "输入证书 ID",
+      "hashSha256": "例如 a3f9b2c1..."
+    },
+    "dragDrop": {
+      "title": "PDF 文件验证",
+      "subtitle": "将原始 PDF 拖放到此处进行验证",
+      "meta": "隐私 · 仅限本地 SHA-256 处理 · 最大 20 MB"
+    },
+    "successTitle": "验证已成功提交！",
+    "successSubtitle": "您的证书正在验证中。我们很快会通知您。",
+    "backToRegister": "返回注册表单",
+    "verifying": "验证中...",
+    "verified": "✓ 已验证！",
+    "send": "发送",
+    "errors": {
+      "idCertificate": "证书 ID 是必填项",
+      "hashSha256": "SHA 256 哈希值是必填项",
+      "pdfRequired": "PDF 文件是必填项",
+      "pdfType": "仅接受 PDF 文件",
+      "pdfSize": "文件大小必须在 20 MB 以下"
+    }
+  },
+  "privacy": {
+    "backToHome": "返回首页",
+    "title": "隐私政策",
+    "lastUpdate": "最后更新",
+    "intro": "在 Certify，您的隐私是重中之重。请仔细阅读本政策，以了解在您使用我们基于区块链的证书验证平台时我们如何处理您的数据。",
+    "sections": [
+      {
+        "title": "1. 导言",
+        "content": "欢迎来到 Certify。我们致力于保护您的个人信息和您的隐私权。本隐私政策解释了当您访问我们的平台并使用我们的基于区块链的证书验证服务时，我们如何收集、使用、披露和保护您的信息。"
+      },
+      {
+        "title": "2. 我们收集的信息",
+        "content": "我们可能会收集您在使用我们的服务时自愿提供的信息，包括您的姓名、电子邮件地址以及提交验证的证书相关数据。我们还会自动收集某些技术数据，例如 IP 地址、浏览器类型和使用模式，以提高平台性能。"
+      },
+      {
+        "title": "3. 我们如何使用您的信息",
+        "content": "我们使用收集的信息来提供、运营和改进我们的服务；在区块链上处理证书验证；就您的请求与您沟通；确保平台的安全性和完整性；并遵守适用的法律义务。"
+      },
+      {
+        "title": "4. 区块链与链上数据",
+        "content": "Certify 利用区块链技术进行证书验证。链上仅存储加密证明哈希和极少的验证元数据。公共区块链上不会写入任何个人身份信息 (PII)。所有敏感数据都将保持加密状态，并在链下存储。"
+      },
+      {
+        "title": "5. 共享您的信息",
+        "content": "我们不会向第三方出售、交易或出租您的个人信息。我们可能会与协助运营平台的信托服务提供商共享数据，前提是他们同意对这些信息保密。我们也可能会在法律要求或为了保护我们的权利时披露信息。"
+      },
+      {
+        "title": "6. 数据安全",
+        "content": "我们实施行业标准的安全措施，包括 AES-256 加密、安全的 HTTPS 连接和定期安全审计，以保护您的信息。尽管我们努力保护您的数据，但互联网上的传输方法都不能保证 100% 安全。"
+      },
+      {
+        "title": "7. Cookie 与追踪",
+        "content": "我们使用 Cookie 和类似的追踪技术来增强您在我们平台上的体验。这些技术有助于我们记住您的偏好并分析我们的服务如何被使用。您可以通过浏览器设置禁用 Cookie，但这可能会导致某些功能无法正常运行。"
+      },
+      {
+        "title": "8. 您的权利",
+        "content": "根据您所在的地区，您可能拥有与您的个人数据相关的某些权利，包括访问、更正或删除您的信息的权利；数据可携性的权利；以及反对或限制处理的权利。要行使这些权利，请通过以下电子邮件与我们联系。"
+      },
+      {
+        "title": "9. 第三方链接",
+        "content": "我们的平台可能包含指向第三方网站的链接。我们对这些网站的隐私惯例或内容不承担任何责任。我们鼓励您阅读您访问的任何第三方网站的隐私政策。"
+      },
+      {
+        "title": "10. 本政策的变更",
+        "content": "我们可能会不时更新本隐私政策。我们将在本页面顶部更新“最后更新”日期，以通知您任何重大变更。在变更后继续使用平台即表示您接受更新后的政策。"
+      },
+      {
+        "title": "11. 联系我们",
+        "content": "如果您对本隐私政策或我们的数据操作有任何问题或疑问，请通过以下方式与我们联系：hello@certify.io —— 我们旨在 48 小时内回复所有咨询。"
+      }
+    ]
+  },
+  "terms": {
+    "backToHome": "返回首页",
+    "title": "服务条款",
+    "lastUpdate": "最后更新",
+    "intro": "在使用 Certify 之前，请仔细阅读这些服务条款。访问我们的平台，即表示您同意遵守并受以下条款和条件的约束，这些条款和条件管辖您对我们基于区块链的证书验证服务的使用。",
+    "sections": [
+      {
+        "title": "1. 条款的接受",
+        "content": "访问或使用 Certify 的平台和服务，即表示您同意受这些服务条款的约束。如果您不同意这些条款，请不要使用我们的服务。这些条款适用于所有用户，包括访客、注册用户和证书颁发机构。"
+      },
+      {
+        "title": "2. 服务描述",
+        "content": "Certify 提供一个基于区块链的证书验证平台，允许机构注册凭证，并允许个人或组织验证其真实性。我们的服务包括手动的基于 ID 的验证、QR 码扫描和 PDF 验证工具。"
+      },
+      {
+        "title": "3. 用户账户与注册",
+        "content": "要访问平台的某些功能，您可能需要创建一个账户。您有责任维护您的账户凭据的机密性，并对在您的账户下发生的所有活动负责。您同意在注册过程中提供准确和完整的信息。"
+      },
+      {
+        "title": "4. 可接受的使用方式",
+        "content": "您同意仅出于合法目的使用 Certify。您不得尝试提交欺诈性的证书数据、对平台进行逆向工程、对我们的系统进行未经授权的访问，或以任何违反适用法律或法规的方式使用服务。"
+      },
+      {
+        "title": "5. 证书数据与准确性",
+        "content": "Certify 仅充当验证平台。颁发机构提交的证书数据的准确性和合法性由这些机构独自承担。Certify 不会独立验证颁发机构提交的原始凭证。"
+      },
+      {
+        "title": "6. 区块链的不可篡改性",
+        "content": "证书证明数据一旦记录在区块链上，就无法更改或删除。用户和机构在发起链上注册之前，应确保所有提交的数据都是准确的。对于第三方提交的数据中的错误，Certify 不承担任何责任。"
+      },
+      {
+        "title": "7. 知识产权",
+        "content": "Certify 平台上的所有内容、商标、徽标和软件均归 Certify 所有或获得许可。未经 Certify 事先书面同意，您不得复制、分发或从平台的任何部分创建衍生作品。"
+      },
+      {
+        "title": "8. 责任限制",
+        "content": "在法律允许的最大范围内，Certify 不对因您使用平台而引起的或与之相关的任何间接、附带、特殊或后果性损害承担责任。我们对直接损害的总责任不得超过您在索赔前十二个月内支付的费用。"
+      },
+      {
+        "title": "9. 免责声明",
+        "content": "Certify 按“原样”和“可用”的基础提供服务，不提供任何明示或暗示的保证。我们不保证服务将不中断、无错误或没有有害组件。"
+      },
+      {
+        "title": "10. 终止条款",
+        "content": "如果您违反这些服务条款或从事我们认为对其他用户或平台完整性有害的行为，我们保留随时暂停或终止您访问平台的权利，恕不另行通知。"
+      },
+      {
+        "title": "11. 适用法律",
+        "content": "这些服务条款应受印度尼西亚共和国法律管辖并按其解释，不考虑法律冲突原则。根据这些条款引起的任何争议应在适用司法管辖区的法院解决。"
+      },
+      {
+        "title": "12. 条款的变更",
+        "content": "Certify 保留随时更新这些服务条款的权利。我们将通过更新“最后更新”日期来通知用户重大变更。在这些变更后继续使用平台即表示您接受修订后的条款。"
+      },
+      {
+        "title": "13. 联系我们",
+        "content": "如果您对这些服务条款有任何疑问，请联系我们：hello@certify.io —— 我们旨在 48 小时内回复所有咨询。"
+      }
+    ]
+  }
+}

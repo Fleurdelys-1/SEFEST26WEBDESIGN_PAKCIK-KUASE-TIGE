@@ -1,0 +1,335 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "validate": "Validar",
+    "about": "Acerca de",
+    "faq": "FAQ",
+    "contact": "Contacto",
+    "register": "Registrarse"
+  },
+  "home": {
+    "badge": "NUEVO",
+    "protocol": "Protocolo Certify v1.0",
+    "title": "El Futuro de la Verificación de Certificados",
+    "titleTop": "El",
+    "titleBottom": "de la Verificación de Certificados",
+    "rotatingTexts": [
+      "Futuro",
+      "Innovación",
+      "Siguiente Era"
+    ],
+    "description": "Verificación de certificados segura, transparente y a prueba de manipulaciones mediante tecnología blockchain. Valide la autenticidad al instante y elimine el fraude en la era digital.",
+    "register": "Registro",
+    "validate": "Validación"
+  },
+  "about": {
+    "badge": "ACERCA DE",
+    "title": "El futuro de la",
+    "titleHighlight": "confianza",
+    "rotatingTexts": [
+      "confianza!",
+      "seguridad!",
+      "blockchain!",
+      "verificación!"
+    ],
+    "subtitle": "Certify existe porque la confianza no debería ser tan complicada. Sacamos sus certificados del papel y los colocamos en un lugar permanente para que cualquier persona, en cualquier lugar, pueda verificarlos al instante. Para siempre.",
+    "cards": {
+      "security": {
+        "title": "Seguridad Blockchain",
+        "description": "Los datos del certificado están seguros y no se pueden manipular"
+      },
+      "tamper": {
+        "title": "Registros Inalterables",
+        "description": "Todos los datos se almacenan de forma permanente en la blockchain."
+      },
+      "instant": {
+        "title": "Verificación Instantánea",
+        "description": "Validación rápida de certificados en tiempo real."
+      },
+      "trusted": {
+        "title": "Instituciones de Confianza",
+        "description": "Utilizado por instituciones y organizaciones de confianza."
+      }
+    },
+    "stats": {
+      "satisfaction": {
+        "value": "97%",
+        "label": "Satisfacción del Cliente"
+      },
+      "active": {
+        "value": "52",
+        "label": "Certificados Activos"
+      },
+      "experience": {
+        "value": "4+",
+        "label": "Años de Experiencia"
+      },
+      "records": {
+        "value": "50+",
+        "label": "Registros On-chain"
+      }
+    },
+    "vision": {
+      "title": "Nuestra Visión",
+      "description": "\"Crear un futuro en el que cada credencial que haya obtenido sea permanentemente suya, a prueba de manipulaciones, verificable instantáneamente por cualquier persona en el mundo.\""
+    },
+    "register": "Regístrese Aquí"
+  },
+  "validate": {
+    "badge": "VALIDACIÓN",
+    "secure": "Verificación Segura",
+    "title": "Validar Certificados",
+    "description": "Ingrese el ID de un certificado para verificar su autenticidad en la blockchain. Nuestro sistema comprobará el certificado con el registro oficial.",
+    "placeholder": "Ingrese el ID del certificado...",
+    "verify": "Verificar",
+    "validating": "Validando...",
+    "valid": "Certificado Válido",
+    "validMessage": "Este certificado ha sido verificado y es auténtico.",
+    "invalid": "Certificado Inválido",
+    "invalidMessage": "Este certificado no se pudo encontrar en nuestro registro.",
+    "certificateId": "ID de Certificado",
+    "name": "Nombre del Destinatario",
+    "institution": "Institución",
+    "program": "Programa",
+    "graduationDate": "Fecha de Graduación",
+    "status": "Estado",
+    "certificates": "Certificados",
+    "institutions": "Instituciones",
+    "validations": "Validaciones",
+    "runTest": "Ejecute una prueba de validación criptográfica con datos de certificados reales:",
+    "tabs": {
+      "manual": "Búsqueda Manual (ID/Hash)",
+      "manualShort": "Manual",
+      "pdf": "Validar Archivo PDF",
+      "pdfShort": "PDF",
+      "qr": "Validar QR",
+      "qrShort": "QR"
+    },
+    "manual": {
+      "title": "Búsqueda Manual",
+      "description": "Ingrese su ID de certificado o hash para verificar su autenticidad"
+    },
+    "details": {
+      "status": "ESTADO",
+      "validCertificate": "Certificado Válido",
+      "revokedCertificate": "Certificado Revocado",
+      "credentialId": "ID de Credencial Única",
+      "certificateHash": "Hash de Certificado",
+      "userInfo": "Información del Usuario",
+      "fullName": "Nombre Completo",
+      "idNumber": "Número de Identidad",
+      "email": "Correo Electrónico",
+      "country": "País",
+      "programDetail": "Detalle del Programa",
+      "courseName": "Nombre del Curso",
+      "eventCode": "Código del Evento",
+      "level": "Nivel",
+      "language": "Idioma",
+      "grade": "Calificación",
+      "certificateDetails": "Detalles del Certificado",
+      "institution": "Institución",
+      "modality": "Modalidad",
+      "issuedDate": "Fecha de Emisión",
+      "studyPeriod": "Periodo de Estudio",
+      "credentials": "Credenciales",
+      "instructors": "Instructores",
+      "signatories": "Firmantes",
+      "blockchainEvidence": "Evidencia Digital Blockchain",
+      "smartContractVerified": "Smart Contract Verificado",
+      "verified": "Verificado",
+      "notVerified": "No Verificado",
+      "viewPolygonscan": "Ver en Polygonscan",
+      "auditReport": "Informe de Auditoría",
+      "pdfDownload": "Descargar PDF",
+      "notFound": "Certificado No Encontrado",
+      "tryAnotherSearch": "Probar Otra Búsqueda"
+    },
+    "pdf": {
+      "title": "Validación de Archivo PDF",
+      "description": "Arrastre el PDF original aquí para validar",
+      "security": "Procesamiento Local Privado SHA-256",
+      "dragDrop": "Arrastre y suelte su certificado PDF aquí",
+      "clickUpload": "o haga clic para seleccionar",
+      "uploadError": "Error de Carga",
+      "fileTypeError": "Tipo de archivo no válido. Solo se aceptan archivos PDF.",
+      "fileEmptyError": "El archivo seleccionado está vacío. Por favor intente con otro.",
+      "fileSizeError": "El tamaño del archivo supera los 10MB. Intente con uno más pequeño.",
+      "corruptedError": "El PDF parece estar dañado. Por favor verifique el archivo.",
+      "extractingData": "Extrayendo datos del certificado...",
+      "searchingCertificate": "Buscando en la base de datos...",
+      "certIdNotFound": "No se pudo encontrar el ID del certificado en el PDF",
+      "hashNotFound": "No se pudo encontrar el Hash Blockchain en el PDF",
+      "extractedDataTitle": "Datos del Certificado Extraídos",
+      "certificateId": "ID de Certificado",
+      "blockchainHash": "Hash Blockchain",
+      "validating": "Validando...",
+      "noDataFound": "No se pudo extraer información del certificado del PDF",
+      "manualInput": "No se pudo extraer información automáticamente. Pruebe la pestaña de Búsqueda Manual.",
+      "tryAgain": "Cargar Otro PDF",
+      "downloadTestCert": "Descargar Certificado de Prueba",
+      "downloadTestDesc": "Obtenga el archivo de certificado de demostración para probar la función de validación de PDF.",
+      "downloadBtn": "Descargar",
+      "fileUploaded": "Archivo Cargado"
+    },
+    "qr": {
+      "badge": "Escaneo Móvil",
+      "title": "Validación de Código QR",
+      "description": "Para verificar los certificados emitidos, simplemente apunte la cámara de su teléfono inteligente al código QR. El sistema reconocerá automáticamente la URL de validación y mostrará un informe de autenticidad en su navegador móvil, garantizando que las credenciales sean genuinas y registradas en la blockchain.",
+      "certificateName": "Certificado UIJ",
+      "certificateId": "ID: CERT-B6F9316C1C14",
+      "secure": "Validación QR segura con prueba blockchain",
+      "instant": "Comprobación de autenticidad instantánea al escanear"
+    }
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Explore preguntas comunes sobre Certify, la verificación y la confianza en web3, y conozca cómo funciona nuestra experiencia de verificación segura.",
+    "tabs": [
+      {
+        "key": "general",
+        "label": "General"
+      },
+      {
+        "key": "security",
+        "label": "Seguridad"
+      },
+      {
+        "key": "verification",
+        "label": "Verificación"
+      }
+    ],
+    "items": {
+      "general": [
+        {
+          "question": "¿Qué es Certify?",
+          "answer": "Certify es una plataforma de verificación de certificados nativa de blockchain que hace que los controles de autenticidad sean instantáneos, seguros y transparentes. Proporciona una experiencia rápida y fácil para cualquiera que necesite confirmar credenciales sin papeleo manual."
+        },
+        {
+          "question": "¿Cómo funciona la verificación?",
+          "answer": "Nuestro sistema verifica los certificados contrastando el registro digital con un registro inmutable de blockchain, garantizando que la credencial sea válida y no haya sido alterada. Esto significa que cada verificación está respaldada por una prueba a prueba de manipulaciones."
+        },
+        {
+          "question": "¿Mis datos son privados?",
+          "answer": "Sí. Certify se enfoca en la validación segura de pruebas mientras mantiene los datos personales privados con búsquedas de registro encriptadas y metadatos mínimos on-chain. Solo se utiliza la información requerida para la validación."
+        },
+        {
+          "question": "¿Qué tipos de certificados se pueden verificar?",
+          "answer": "Certify admite diversas credenciales, incluidos títulos académicos, certificaciones profesionales, certificados de finalización de formación y placas de habilidades digitales emitidas por diferentes instituciones. Puede admitir registros de escuelas, empleadores y emisores de credenciales en todo el mundo."
+        },
+        {
+          "question": "¿Cómo empiezo con Certify?",
+          "answer": "Simplemente navegue a nuestra página de validación, ingrese su ID de certificado o cargue su PDF, y nuestro sistema verificará instantáneamente su autenticidad con nuestro registro seguro de blockchain. No se requiere software especial para comenzar."
+        }
+      ],
+      "security": [
+        {
+          "question": "¿Los datos del certificado se almacenan en la cadena?",
+          "answer": "Solo los hashes de prueba y los metadatos de verificación se almacenan en la cadena. Los detalles confidenciales del certificado permanecen fuera de la cadena para preservar la privacidad mientras se mantiene la integridad, y este diseño mantiene protegidos los datos personales mientras se preserva un historial de auditoría seguro."
+        },
+        {
+          "question": "¿Se pueden manipular los certificados?",
+          "answer": "No. Una vez que se emite un certificado y se genera su hash en la blockchain, cualquier modificación fallará en la verificación porque la prueba on-chain ya no coincidirá. Eso hace que cualquier manipulación sea detectable de inmediato."
+        },
+        {
+          "question": "¿Qué lo hace nativo de web3?",
+          "answer": "Certify aprovecha la confianza descentralizada y la inmutabilidad de la blockchain para que la certificación pueda validarse en todas las organizaciones sin depender de una única autoridad centralizada. Hace que todo el proceso sea más resistente y transparente."
+        },
+        {
+          "question": "¿Cómo protege Certify contra el fraude?",
+          "answer": "Nuestro enfoque de seguridad multicapa utiliza hash criptográfico, inmutabilidad de blockchain y verificación distribuida para eliminar la falsificación y las credenciales fraudulentas. Cada control es independiente, lo que hace que el fraude sea mucho más difícil de infiltrar."
+        },
+        {
+          "question": "¿Certify cumple con las regulaciones de protección de datos?",
+          "answer": "Sí. Certify está diseñado para cumplir con el RGPD, la CCPA y otros estándares de protección de datos a través de procesamiento encriptado, almacenamiento de datos mínimo y verificación controlada por el usuario. Eso permite a las organizaciones cumplir con los requisitos de privacidad mientras ofrecen controles de credenciales rápidos."
+        }
+      ],
+      "verification": [
+        {
+          "question": "¿Qué tan rápida es la verificación?",
+          "answer": "Las verificaciones ocurren instantáneamente con nuestro flujo de consultas optimizado, brindando a los usuarios una confirmación inmediata de si el certificado es auténtico. La mayoría de los controles se completan en segundos, por lo que los usuarios no tienen que esperar."
+        },
+        {
+          "question": "¿Puedo verificar con QR o ID?",
+          "answer": "Sí. Certify está diseñado para múltiples flujos de verificación, incluyendo el escaneo de QR, la comprobación manual de ID/hash y futuras validaciones de PDF. Esta flexibilidad se adapta tanto a los flujos de trabajo digitales como a los impresos."
+        },
+        {
+          "question": "¿Quién puede usar Certify?",
+          "answer": "Estudiantes, emisores, empleadores y auditores pueden usar Certify para validar credenciales rápidamente y confiar en los resultados con pruebas respaldadas por blockchain. Funciona muy bien para la contratación, las admisiones y los controles de antecedentes."
+        },
+        {
+          "question": "¿Pueden terceros verificar certificados en mi nombre?",
+          "answer": "Absolutamente. Los empleadores, las instituciones educativas y las agencias gubernamentales pueden verificar cualquier certificado de Certify de forma independiente sin necesidad del permiso del titular del certificado. Eso facilita la confirmación de credenciales a gran escala."
+        },
+        {
+          "question": "¿Qué sucede si la verificación falla?",
+          "answer": "Si un certificado falla en la verificación, el sistema proporcionará un informe detallado explicando por qué no se pudo validar la credencial, ayudando a identificar posibles problemas o falsificaciones. Esto facilita la resolución de errores o la detección rápida de fraudes."
+        }
+      ]
+    }
+  },
+  "contact": {
+    "badge": "Contacto",
+    "title": "Construyamos Confianza en la Cadena.",
+    "subtitle": "¿Necesita ayuda con certificados on-chain o tiene preguntas sobre la verificación de certificados? Hagamos que la confianza sea transparente juntos, en cada paso del camino. Nuestro equipo está listo para apoyar su viaje en la creación de credenciales seguras y auténticas.",
+    "emailLabel": "Envíenos un correo directamente",
+    "manualTitle": "Solicitud manual por correo",
+    "emailDescription": "Envíe su solicitud a nuestro equipo y responderemos con soporte seguro y adaptado a Web3.",
+    "manualLabel": "Contáctenos en",
+    "manualEmail": "hello@certify.io",
+    "manualHint": "Pegue su mensaje en su cliente de correo electrónico o use el formulario para enviarlo directamente.",
+    "supportAvailable": "Soporte Disponible 24/7",
+    "supportDescription": "Comuníquese con nosotros en cualquier momento. Estamos aquí para ayudar y responder cualquier pregunta que pueda tener.",
+    "formBadge": "Conectar",
+    "formTitle": "Chatee con nuestro equipo",
+    "formSubtitle": "Cuéntenos lo que necesita y le ayudaremos con la verificación de certificados y el soporte.",
+    "nameLabel": "Nombre Completo",
+    "namePlaceholder": "ej. Juan Pérez",
+    "emailLabel2": "Dirección de Correo",
+    "emailPlaceholder": "ej. juan@ejemplo.com",
+    "messageLabel": "Su Mensaje",
+    "messagePlaceholder": "Describa su pregunta o solicitud aquí...",
+    "sendingTitle": "Enviando su mensaje...",
+    "sendingSubtitle": "Por favor espere mientras procesamos su solicitud",
+    "successTitle": "¡Mensaje enviado con éxito!",
+    "successSubtitle": "Gracias por comunicarse. Nos pondremos en contacto pronto.",
+    "submit": "Enviar mensaje",
+    "errorName": "Por favor ingrese su nombre completo",
+    "errorEmail": "Por favor ingrese una dirección de correo válida",
+    "errorMessage": "Por favor ingrese su mensaje",
+    "success": "Mensaje enviado."
+  },
+  "footer": {
+    "company": "Compañía",
+    "product": "Producto",
+    "resources": "Recursos",
+    "legal": "Legal",
+    "stayUpdated": "Manténgase Actualizado",
+    "description": "El futuro de la verificación de certificados. Verificación segura, transparente y a prueba de manipulaciones mediante tecnología blockchain.",
+    "features": {
+      "security": "Seguridad de Grado Bancario",
+      "instant": "Verificación Instantánea",
+      "global": "Estándares Globales"
+    },
+    "newsletter": {
+      "description": "Suscríbase a nuestro boletín para recibir las últimas actualizaciones y características.",
+      "placeholder": "Ingrese su correo",
+      "subscribed": "✓ ¡Suscrito con éxito!"
+    },
+    "contact": {
+      "email": "hello@certify.io",
+      "location": "Padang, Indonesia"
+    },
+    "copyright": "Todos los derechos reservados.",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio",
+    "protocol": "Protocolo Certify v1.0",
+    "register": "Registrarse",
+    "featuresLink": "Características",
+    "faq": "FAQ",
+    "documentation": "Documentación",
+    "support": "Soporte",
+    "platform": "Plataforma",
+    "help": "Ayuda"
+  }
+}
