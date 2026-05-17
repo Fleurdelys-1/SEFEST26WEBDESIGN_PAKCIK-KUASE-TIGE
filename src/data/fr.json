@@ -117,7 +117,7 @@
       "certificateHash": "Hash du Certificat",
       "userInfo": "Informations Utilisateur",
       "fullName": "Nom Complet",
-      "idNumber": "Numéro d'Identité",
+      "idNumber": "Nom d'Identité",
       "email": "E-mail",
       "country": "Pays",
       "programDetail": "Détails du Programme",
@@ -142,7 +142,14 @@
       "auditReport": "Rapport d'Audit",
       "pdfDownload": "Télécharger le PDF",
       "notFound": "Certificat Non Trouvé",
-      "tryAnotherSearch": "Essayer une Autre Recherche"
+      "tryAnotherSearch": "Essayer une Autre Recherche",
+      "copied": "Copié !",
+      "copyCredentialId": "Copier l'ID de référence",
+      "copyCertificateHash": "Copier le hash du certificat",
+      "copyIdentityHash": "Copier le hash d'identité",
+      "copyIntegrityHash": "Copier le hash d'intégrité",
+      "txA": "TX A : Identité (Vérification d'identité)",
+      "txB": "TX B : Intégrité (Vérification de l'intégrité du document)"
     },
     "pdf": {
       "title": "Validation de Fichier PDF",
@@ -178,8 +185,16 @@
       "certificateName": "Certificat UIJ",
       "certificateId": "ID: CERT-B6F9316C1C14",
       "secure": "Validation QR sécurisée avec preuve blockchain",
-      "instant": "Contrôle d'authenticité instantané lors de la numérisation"
-    }
+      "instant": "Contrôle d'authenticité instantané lors de la numérisation",
+      "autoValidationInProgress": "Validation automatique en cours",
+      "quickValidationLink": "Lien de validation rapide"
+    },
+    "autoStatuses": [
+      "Détection de l'identifiant du certificat...",
+      "Lecture des signatures cryptographiques...",
+      "Vérification de la preuve en chaîne sur Polygon...",
+      "Correspondance du hachage de l'intégrité du document..."
+    ]
   },
   "faq": {
     "badge": "FAQ",
@@ -420,6 +435,7 @@
     "backToHome": "Retour à l'accueil",
     "title": "Politique de confidentialité",
     "lastUpdate": "Dernière mise à jour",
+    "lastUpdatedDate": "15 mai 2026",
     "intro": "Chez Certify, votre vie privée est une priorité. Veuillez lire attentivement cette politique pour comprendre comment nous traitons vos données lorsque vous utilisez notre plateforme de vérification de certificats basée sur la blockchain.",
     "sections": [
       {
@@ -472,6 +488,7 @@
     "backToHome": "Retour à l'accueil",
     "title": "Conditions d'utilisation",
     "lastUpdate": "Dernière mise à jour",
+    "lastUpdatedDate": "15 mai 2026",
     "intro": "Veuillez lire attentivement ces conditions d'utilisation avant d'utiliser Certify. En accédant à notre plateforme, vous acceptez de respecter et d'être lié par les conditions générales suivantes qui régissent votre utilisation de nos services de vérification de certificats basés sur la blockchain.",
     "sections": [
       {

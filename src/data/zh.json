@@ -142,7 +142,14 @@
       "auditReport": "审计报告",
       "pdfDownload": "PDF 下载",
       "notFound": "找不到证书",
-      "tryAnotherSearch": "尝试其他搜索"
+      "tryAnotherSearch": "尝试其他搜索",
+      "copied": "已复制！",
+      "copyCredentialId": "复制凭证 ID",
+      "copyCertificateHash": "复制证书哈希",
+      "copyIdentityHash": "复制身份哈希",
+      "copyIntegrityHash": "复制完整性哈希",
+      "txA": "TX A: 身份 (身份验证)",
+      "txB": "TX B: 完整性 (文件完整性验证)"
     },
     "pdf": {
       "title": "PDF 文件验证",
@@ -155,7 +162,7 @@
       "fileEmptyError": "所选文件为空。请尝试其他文件。",
       "fileSizeError": "文件大小超过 10MB。请尝试较小的文件。",
       "corruptedError": "PDF 似乎已损坏。请核对文件。",
-      "extractingData": "正在提取证书数据...",
+      "extractingData": "正在提取证书 data...",
       "searchingCertificate": "正在数据库中搜索...",
       "certIdNotFound": "在 PDF 中找不到证书 ID",
       "hashNotFound": "在 PDF 中找不到区块链哈希",
@@ -178,8 +185,16 @@
       "certificateName": "UIJ 证书",
       "certificateId": "ID: CERT-B6F9316C1C14",
       "secure": "带有区块链证明的安全二维码验证",
-      "instant": "扫描时即时进行真实性检查"
-    }
+      "instant": "扫描时即时进行真实性检查",
+      "autoValidationInProgress": "正在进行自动验证",
+      "quickValidationLink": "快速验证链接"
+    },
+    "autoStatuses": [
+      "正在检测凭证 ID...",
+      "正在读取加密签名...",
+      "正在 Polygon 上验证链上证明...",
+      "匹配文档完整性哈希..."
+    ]
   },
   "faq": {
     "badge": "常见问题",
@@ -420,6 +435,7 @@
     "backToHome": "返回首页",
     "title": "隐私政策",
     "lastUpdate": "最后更新",
+    "lastUpdatedDate": "2026年5月15日",
     "intro": "在 Certify，您的隐私是重中之重。请仔细阅读本政策，以了解在您使用我们基于区块链的证书验证平台时我们如何处理您的数据。",
     "sections": [
       {
@@ -472,6 +488,7 @@
     "backToHome": "返回首页",
     "title": "服务条款",
     "lastUpdate": "最后更新",
+    "lastUpdatedDate": "2026年5月15日",
     "intro": "在使用 Certify 之前，请仔细阅读这些服务条款。访问我们的平台，即表示您同意遵守并受以下条款和条件的约束，这些条款和条件管辖您对我们基于区块链的证书验证服务的使用。",
     "sections": [
       {

@@ -142,7 +142,14 @@
       "auditReport": "Laporan Audit",
       "pdfDownload": "Unduh PDF",
       "notFound": "Sertifikat Tidak Ditemukan",
-      "tryAnotherSearch": "Coba Pencarian Lain"
+      "tryAnotherSearch": "Coba Pencarian Lain",
+      "copied": "Tersalin!",
+      "copyCredentialId": "Salin ID Kredensial",
+      "copyCertificateHash": "Salin Hash Sertifikat",
+      "copyIdentityHash": "Salin Hash Identity",
+      "copyIntegrityHash": "Salin Hash Integrity",
+      "txA": "TX A: Identity (Verifikasi Identitas)",
+      "txB": "TX B: Integrity (Verifikasi Integritas Dokumen)"
     },
     "pdf": {
       "title": "Validasi File PDF",
@@ -178,8 +185,16 @@
       "certificateName": "Sertifikat UIJ",
       "certificateId": "ID: CERT-B6F9316C1C14",
       "secure": "Validasi QR aman dengan bukti blockchain",
-      "instant": "Pemeriksaan keaslian instan saat dipindai"
-    }
+      "instant": "Pemeriksaan keaslian instan saat dipindai",
+      "autoValidationInProgress": "Validasi Otomatis Sedang Berjalan",
+      "quickValidationLink": "Tautan Validasi Cepat"
+    },
+    "autoStatuses": [
+      "Mendeteksi Kredensial...",
+      "Membaca Tanda Tangan Kriptografi...",
+      "Memverifikasi Bukti On-Chain di Polygon...",
+      "Mencocokkan Hash Integritas Dokumen..."
+    ]
   },
   "faq": {
     "badge": "FAQ",
@@ -420,6 +435,7 @@
     "backToHome": "Kembali Ke Beranda",
     "title": "Kebijakan Privasi",
     "lastUpdate": "Pembaruan Terakhir",
+    "lastUpdatedDate": "15 Mei 2026",
     "intro": "Di Certify, privasi Anda adalah prioritas kami. Harap baca kebijakan ini dengan saksama untuk memahami bagaimana kami menangani data Anda saat Anda menggunakan platform verifikasi sertifikat bertenaga blockchain kami.",
     "sections": [
       {
@@ -472,6 +488,7 @@
     "backToHome": "Kembali Ke Beranda",
     "title": "Ketentuan Layanan",
     "lastUpdate": "Pembaruan Terakhir",
+    "lastUpdatedDate": "15 Mei 2026",
     "intro": "Harap baca Ketentuan Layanan ini dengan saksama sebelum menggunakan Certify. Dengan mengakses platform kami, Anda setuju untuk mematuhi dan terikat oleh ketentuan dan syarat berikut yang mengatur penggunaan Anda atas layanan verifikasi sertifikat bertenaga blockchain kami.",
     "sections": [
       {

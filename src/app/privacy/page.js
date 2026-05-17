@@ -5,8 +5,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useLanguage } from "../../context/LanguageContext";
 
-const LAST_UPDATED = "15 May 2026";
-
 export default function PrivacyPage() {
   const { t } = useLanguage();
   const sections = t("privacy.sections");
@@ -42,7 +40,7 @@ export default function PrivacyPage() {
           {t("privacy.title")}
         </h1>
         <p className="text-sm text-[#F4F4F4]/50 font-poppins">
-          {t("privacy.lastUpdate")}, {LAST_UPDATED}
+          {t("privacy.lastUpdate")}, {t("privacy.lastUpdatedDate")}
         </p>
       </motion.div>
 

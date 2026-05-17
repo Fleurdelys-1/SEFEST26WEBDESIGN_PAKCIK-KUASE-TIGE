@@ -5,8 +5,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useLanguage } from "../../context/LanguageContext";
 
-const LAST_UPDATED = "15 May 2026";
-
 export default function TermsPage() {
   const { t } = useLanguage();
   const sections = t("terms.sections");
@@ -42,7 +40,7 @@ export default function TermsPage() {
           {t("terms.title")}
         </h1>
         <p className="text-sm text-[#F4F4F4]/50 font-poppins">
-          {t("terms.lastUpdate")}, {LAST_UPDATED}
+          {t("terms.lastUpdate")}, {t("terms.lastUpdatedDate")}
         </p>
       </motion.div>
 

@@ -142,7 +142,14 @@
       "auditReport": "監査レポート",
       "pdfDownload": "PDFをダウンロード",
       "notFound": "証明書が見つかりません",
-      "tryAnotherSearch": "別のキーワードで再検索"
+      "tryAnotherSearch": "別のキーワードで再検索",
+      "copied": "コピーしました！",
+      "copyCredentialId": "資格情報IDをコピー",
+      "copyCertificateHash": "証明書ハッシュをコピー",
+      "copyIdentityHash": "身元ハッシュをコピー",
+      "copyIntegrityHash": "完全性ハッシュをコピー",
+      "txA": "TX A: Identity (身元確認)",
+      "txB": "TX B: Integrity (文書の完全性検証)"
     },
     "pdf": {
       "title": "PDFファイルの検証",
@@ -178,8 +185,16 @@
       "certificateName": "証明書 UIJ",
       "certificateId": "ID: CERT-B6F9316C1C14",
       "secure": "ブロックチェーンによる証明付きのセキュアなQR検証",
-      "instant": "スキャン時に即座に真正性をチェック"
-    }
+      "instant": "スキャン時に即座に真正性をチェック",
+      "autoValidationInProgress": "自動検証が進行中",
+      "quickValidationLink": "クイック検証リンク"
+    },
+    "autoStatuses": [
+      "資格情報IDを検出中...",
+      "暗号署名を読み取り中...",
+      "Polygonでのオンチェーン証明を検証中...",
+      "文書の完全性ハッシュを照合中..."
+    ]
   },
   "faq": {
     "badge": "FAQ",
@@ -420,6 +435,7 @@
     "backToHome": "ホームに戻る",
     "title": "プライバシーポリシー",
     "lastUpdate": "最終更新日",
+    "lastUpdatedDate": "2026年5月15日",
     "intro": "Certifyでは、お客様のプライバシーを最優先事項としています。ブロックチェーンを活用した当社の証明書検証プラットフォームを利用する際、お客様のデータがどのように取り扱われるかについて、このポリシーを注意深くお読みください。",
     "sections": [
       {
@@ -472,6 +488,7 @@
     "backToHome": "ホームに戻る",
     "title": "利用規約",
     "lastUpdate": "最終更新日",
+    "lastUpdatedDate": "2026年5月15日",
     "intro": "Certifyサービスをご利用になる前に、本規約を注意深くお読みください。当社プラットフォームにアクセスすることで、ブロックチェーン基盤の証明書検証サービスの利用を規定する以下の利用規約に同意し、これを遵守する責任があるものとみなされます。",
     "sections": [
       {

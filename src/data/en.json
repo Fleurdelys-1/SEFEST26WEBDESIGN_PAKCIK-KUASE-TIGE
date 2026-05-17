@@ -111,7 +111,7 @@
     },
     "details": {
       "status": "STATUS",
-      "validCertificate": "Validate Certificate",
+      "validCertificate": "Valid Certificate",
       "revokedCertificate": "Certificate Revoked",
       "credentialId": "Unique Credential ID",
       "certificateHash": "Certificate Hash",
@@ -142,7 +142,14 @@
       "auditReport": "Audit Report",
       "pdfDownload": "PDF Download",
       "notFound": "Certificate Not Found",
-      "tryAnotherSearch": "Try Another Search"
+      "tryAnotherSearch": "Try Another Search",
+      "copied": "Copied!",
+      "copyCredentialId": "Copy Credential ID",
+      "copyCertificateHash": "Copy Certificate Hash",
+      "copyIdentityHash": "Copy Identity Hash",
+      "copyIntegrityHash": "Copy Integrity Hash",
+      "txA": "TX A: Identity (Identity Verification)",
+      "txB": "TX B: Integrity (Document Integrity Verification)"
     },
     "pdf": {
       "title": "PDF File Validation",
@@ -178,8 +185,16 @@
       "certificateName": "Certificate UIJ",
       "certificateId": "ID: CERT-B6F9316C1C14",
       "secure": "Secure QR validation with blockchain proof",
-      "instant": "Instant authenticity check on scan"
-    }
+      "instant": "Instant authenticity check on scan",
+      "autoValidationInProgress": "Auto-Validation in Progress",
+      "quickValidationLink": "Quick Validation Link"
+    },
+    "autoStatuses": [
+      "Detecting Credential ID...",
+      "Reading Cryptographic Signatures...",
+      "Verifying On-Chain Proof on Polygon...",
+      "Matching Document Integrity Hash..."
+    ]
   },
   "faq": {
     "badge": "FAQ",
@@ -420,6 +435,7 @@
     "backToHome": "Back To Home",
     "title": "Privacy Policy",
     "lastUpdate": "Last Update",
+    "lastUpdatedDate": "15 May 2026",
     "intro": "At Certify, your privacy is a priority. Please read this policy carefully to understand how we handle your data when you use our blockchain-powered certificate verification platform.",
     "sections": [
       {
@@ -472,6 +488,7 @@
     "backToHome": "Back To Home",
     "title": "Terms of Service",
     "lastUpdate": "Last Update",
+    "lastUpdatedDate": "15 May 2026",
     "intro": "Please read these Terms of Service carefully before using Certify. By accessing our platform, you agree to comply with and be bound by the following terms and conditions governing your use of our blockchain-powered certificate verification services.",
     "sections": [
       {

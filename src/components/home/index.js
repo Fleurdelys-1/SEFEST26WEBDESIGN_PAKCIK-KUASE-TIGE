@@ -252,68 +252,70 @@ export default function Home() {
             </span>
           </motion.button>
         </motion.div>
-        <motion.div
-          ref={imgWrapperRef}
-          className="hidden lg:block lg:absolute lg:right-[-100px] lg:top-0 lg:w-4/5 lg:max-w-4xl -z-10"
-          initial={{ y: 40, opacity: 0 }}
-          animate={floatControls}
-          onMouseMove={handleMouseMove}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          style={{
-            perspective: "1000px",
-            transformStyle: "preserve-3d",
-            willChange: "transform",
-          }}
-        >
+        <div className="hidden lg:block lg:absolute lg:right-[-100px] lg:top-[56%] lg:-translate-y-1/2 lg:w-4/5 lg:max-w-4xl -z-10 pointer-events-none">
           <motion.div
-            aria-hidden
+            ref={imgWrapperRef}
+            className="w-full h-full pointer-events-auto"
+            initial={{ y: 40, opacity: 0 }}
+            animate={floatControls}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             style={{
-              position: "absolute",
-              inset: 0,
-              borderRadius: "50%",
-              background: isHovered
-                ? "radial-gradient(ellipse at 50% 60%, rgba(0,183,181,0.45) 0%, transparent 70%)"
-                : "radial-gradient(ellipse at 50% 60%, rgba(0,183,181,0.18) 0%, transparent 70%)",
-              filter: "blur(40px)",
-              transition: "background 0.5s ease",
-              pointerEvents: "none",
-              zIndex: 1,
-            }}
-          />
-          <div
-            style={{
-              transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovered ? 1.04 : 1})`,
-              transition: isHovered
-                ? "transform 0.12s cubic-bezier(0.23, 1, 0.32, 1)"
-                : "transform 0.55s cubic-bezier(0.23, 1, 0.32, 1)",
+              perspective: "1000px",
               transformStyle: "preserve-3d",
-              position: "relative",
-              zIndex: 2,
               willChange: "transform",
             }}
           >
-            <img
-              src="/images/certify-3d.png"
-              alt="Home Illustration"
-              className="w-full h-full object-contain"
-              draggable={false}
-              style={{ userSelect: "none", display: "block" }}
-            />
-            <div
+            <motion.div
               aria-hidden
               style={{
                 position: "absolute",
                 inset: 0,
-                background: `radial-gradient(circle at ${shinePos.x}% ${shinePos.y}%, rgba(255,255,255,${isHovered ? 0.13 : 0}) 0%, transparent 55%)`,
-                transition: isHovered ? "background 0.05s linear" : "background 0.6s ease",
+                borderRadius: "50%",
+                background: isHovered
+                  ? "radial-gradient(ellipse at 50% 60%, rgba(0,183,181,0.45) 0%, transparent 70%)"
+                  : "radial-gradient(ellipse at 50% 60%, rgba(0,183,181,0.18) 0%, transparent 70%)",
+                filter: "blur(40px)",
+                transition: "background 0.5s ease",
                 pointerEvents: "none",
-                borderRadius: "inherit",
-                mixBlendMode: "screen",
+                zIndex: 1,
               }}
             />
-          </div>
-        </motion.div>
+            <div
+              style={{
+                transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovered ? 1.04 : 1})`,
+                transition: isHovered
+                  ? "transform 0.12s cubic-bezier(0.23, 1, 0.32, 1)"
+                  : "transform 0.55s cubic-bezier(0.23, 1, 0.32, 1)",
+                transformStyle: "preserve-3d",
+                position: "relative",
+                zIndex: 2,
+                willChange: "transform",
+              }}
+            >
+              <img
+                src="/images/certify-3d.png"
+                alt="Home Illustration"
+                className="w-full h-full object-contain"
+                draggable={false}
+                style={{ userSelect: "none", display: "block" }}
+              />
+              <div
+                aria-hidden
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: `radial-gradient(circle at ${shinePos.x}% ${shinePos.y}%, rgba(255,255,255,${isHovered ? 0.13 : 0}) 0%, transparent 55%)`,
+                  transition: isHovered ? "background 0.05s linear" : "background 0.6s ease",
+                  pointerEvents: "none",
+                  borderRadius: "inherit",
+                  mixBlendMode: "screen",
+                }}
+              />
+            </div>
+          </motion.div>
+        </div>
       </main>
     </>
   );

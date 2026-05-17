@@ -142,7 +142,14 @@
       "auditReport": "감사 보고서",
       "pdfDownload": "PDF 다운로드",
       "notFound": "인증서를 찾을 수 없습니다",
-      "tryAnotherSearch": "다른 키워드로 재검색"
+      "tryAnotherSearch": "다른 키워드로 재검색",
+      "copied": "복사 완료!",
+      "copyCredentialId": "인증 ID 복사",
+      "copyCertificateHash": "인증서 해시 복사",
+      "copyIdentityHash": "신원 해시 복사",
+      "copyIntegrityHash": "무결성 해시 복사",
+      "txA": "TX A: Identity (신원 검증)",
+      "txB": "TX B: Integrity (문서 무결성 검증)"
     },
     "pdf": {
       "title": "PDF 파일 검증",
@@ -178,8 +185,16 @@
       "certificateName": "인증서 UIJ",
       "certificateId": "ID: CERT-B6F9316C1C14",
       "secure": "블록체인 증명이 포함된 보안 QR 검증",
-      "instant": "스캔 즉시 진위 검사 실행"
-    }
+      "instant": "스캔 즉시 진위 검사 실행",
+      "autoValidationInProgress": "자동 검증 진행 중",
+      "quickValidationLink": "빠른 검증 링크"
+    },
+    "autoStatuses": [
+      "인증 ID 검색 중...",
+      "암호화 서명 분석 중...",
+      "Polygon 온체인 증명 검증 중...",
+      "문서 무결성 해시 매칭 중..."
+    ]
   },
   "faq": {
     "badge": "자주 묻는 질문",
@@ -420,6 +435,7 @@
     "backToHome": "홈으로 돌아가기",
     "title": "개인정보 처리방침",
     "lastUpdate": "최종 수정일",
+    "lastUpdatedDate": "2026년 5월 15일",
     "intro": "Certify에서 사용자의 개인정보는 최우선 과제입니다. 사용자가 블록체인 기반의 인증서 검증 플랫폼을 사용할 때 개인 정보를 당사에서 어떻게 처리하는지 파악할 수 있도록 이 방침을 주의 깊게 읽어보십시오.",
     "sections": [
       {
@@ -472,6 +488,7 @@
     "backToHome": "홈으로 돌아가기",
     "title": "서비스 이용약관",
     "lastUpdate": "최종 수정일",
+    "lastUpdatedDate": "2026년 5월 15일",
     "intro": "Certify 서비스를 이용하시기 전에 본 약관을 주의 깊게 읽어주시기 바랍니다. 당사 플랫폼에 접속하면 블록체인 기반의 인증서 검증 서비스 이용을 규율하는 아래 이용약관에 동의하며 이를 준수할 책임이 있는 것으로 간주됩니다.",
     "sections": [
       {

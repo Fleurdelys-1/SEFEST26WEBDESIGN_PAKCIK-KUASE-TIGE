@@ -142,7 +142,14 @@
       "auditReport": "Prüfbericht",
       "pdfDownload": "PDF-Download",
       "notFound": "Zertifikat Nicht Gefunden",
-      "tryAnotherSearch": "Andere Suche Versuchen"
+      "tryAnotherSearch": "Andere Suche Versuchen",
+      "copied": "Kopiert!",
+      "copyCredentialId": "Nachweis-ID kopieren",
+      "copyCertificateHash": "Zertifikats-Hash kopieren",
+      "copyIdentityHash": "Identity-Hash kopieren",
+      "copyIntegrityHash": "Integrity-Hash kopieren",
+      "txA": "TX A: Identity (Identitätsüberprüfung)",
+      "txB": "TX B: Integrity (Dokumentenintegritätsprüfung)"
     },
     "pdf": {
       "title": "PDF-Datei Validierung",
@@ -178,8 +185,16 @@
       "certificateName": "Zertifikat UIJ",
       "certificateId": "ID: CERT-B6F9316C1C14",
       "secure": "Sichere QR-Validierung mit Blockchain-Nachweis",
-      "instant": "Sofortige Echtheitsprüfung beim Scannen"
-    }
+      "instant": "Sofortige Echtheitsprüfung beim Scannen",
+      "autoValidationInProgress": "Automatische Validierung läuft",
+      "quickValidationLink": "Schnellvalidierungs-Link"
+    },
+    "autoStatuses": [
+      "Erkennung der Anmelde-ID...",
+      "Kryptografische Signaturen werden gelesen...",
+      "On-Chain-Nachweis auf Polygon wird verifiziert...",
+      "Übereinstimmung des Dokumentenintegritätshashs..."
+    ]
   },
   "faq": {
     "badge": "FAQ",
@@ -420,6 +435,7 @@
     "backToHome": "Zurück zur Startseite",
     "title": "Datenschutzerklärung",
     "lastUpdate": "Letzte Aktualisierung",
+    "lastUpdatedDate": "15. Mai 2026",
     "intro": "Bei Certify hat Ihre Privatsphäre Priorität. Bitte lesen Sie diese Richtlinie sorgfältig durch, um zu verstehen, wie wir mit Ihren Daten umgehen, wenn Sie unsere Blockchain-gestützte Zertifikatsvalidierungsplattform nutzen.",
     "sections": [
       {
@@ -472,6 +488,7 @@
     "backToHome": "Zurück zur Startseite",
     "title": "Nutzungsbedingungen",
     "lastUpdate": "Letzte Aktualisierung",
+    "lastUpdatedDate": "15. Mai 2026",
     "intro": "Bitte lesen Sie diese Nutzungsbedingungen sorgfältig durch, bevor Sie Certify nutzen. Durch den Zugriff auf unsere Plattform erklären Sie sich mit den folgenden Geschäftsbedingungen einverstanden, die Ihre Nutzung unserer Blockchain-gestützten Zertifikatsvalidierungsdienste regeln.",
     "sections": [
       {
