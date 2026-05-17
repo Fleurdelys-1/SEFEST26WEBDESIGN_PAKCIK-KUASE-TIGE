@@ -1176,35 +1176,67 @@ export default function RegisterPage() {
               </motion.div>
 
               <motion.div variants={fieldVariants} className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mt-auto pt-2">
-                {Object.keys(errors).length > 0 &&
-                  Object.keys(touched).length > 0 ? (
-                  <span className="text-[10px] sm:text-[11px] text-red-400 flex items-center gap-1.5">
+                <div className="flex flex-col gap-1.5">
+                  {Object.keys(errors).length > 0 &&
+                    Object.keys(touched).length > 0 ? (
+                    <span className="text-[10px] sm:text-[11px] text-red-400 flex items-center gap-1.5">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                      >
+                        <circle
+                          cx="6"
+                          cy="6"
+                          r="5.5"
+                          stroke="currentColor"
+                          strokeWidth="1"
+                        />
+                        <path
+                          d="M6 3.5v3M6 8v.5"
+                          stroke="currentColor"
+                          strokeWidth="1.2"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                      {Object.keys(errors).length} field
+                      {Object.keys(errors).length > 1 ? "s" : ""} required
+                    </span>
+                  ) : (
+                    <span />
+                  )}
+
+                  <Link
+                    href="/upload"
+                    className="group inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] text-[#00b7b5]/70 hover:text-[#00b7b5] transition-colors duration-200"
+                  >
                     <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
+                      width="11"
+                      height="11"
+                      viewBox="0 0 24 24"
                       fill="none"
+                      className="flex-shrink-0 group-hover:scale-110 transition-transform duration-200"
                     >
-                      <circle
-                        cx="6"
-                        cy="6"
-                        r="5.5"
+                      <path
+                        d="M12 16V4m0 0L8 8m4-4l4 4"
                         stroke="currentColor"
-                        strokeWidth="1"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                       <path
-                        d="M6 3.5v3M6 8v.5"
+                        d="M4 20h16"
                         stroke="currentColor"
-                        strokeWidth="1.2"
+                        strokeWidth="2"
                         strokeLinecap="round"
                       />
                     </svg>
-                    {Object.keys(errors).length} field
-                    {Object.keys(errors).length > 1 ? "s" : ""} required
-                  </span>
-                ) : (
-                  <span />
-                )}
+                    <span className="underline underline-offset-2 decoration-[#00b7b5]/40 group-hover:decoration-[#00b7b5]">
+                      Already have a certificate PDF?
+                    </span>
+                  </Link>
+                </div>
 
                 <motion.button
                   whileHover={{ scale: 1.02 }}

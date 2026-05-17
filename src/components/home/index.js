@@ -119,7 +119,7 @@ export default function Home() {
 
   return (
     <>
-      <main id="home" className="relative flex flex-col items-start justify-start min-h-screen w-full select-none px-4 sm:px-6 lg:px-8 xl:px-12 pt-28 sm:pt-32 md:pt-36 pb-16">
+      <main id="home" className="relative flex flex-col items-start justify-start lg:justify-center min-h-screen w-full select-none px-4 sm:px-6 lg:px-8 xl:px-12 pt-28 sm:pt-32 md:pt-36 pb-16 lg:pb-36">
         <motion.div
           className="flex items-center gap-2 mb-7 sm:mb-8"
           initial="hidden"
