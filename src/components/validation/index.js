@@ -29,6 +29,14 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
   const [searchOrigin, setSearchOrigin] = useState(null);
   const [copiedHash, setCopiedHash] = useState(false);
   const [copiedId, setCopiedId] = useState(false);
+  const [copiedUrl, setCopiedUrl] = useState(false);
+  const [origin, setOrigin] = useState('https://certify.io');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setOrigin(window.location.origin);
+    }
+  }, []);
 
 
   const [uploadedFile, setUploadedFile] = useState(null);
@@ -79,7 +87,9 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
     const timer = setTimeout(() => {
       const section = document.getElementById('validation');
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const yOffset = -100;
+        const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
       }
     }, 300);
 
@@ -92,7 +102,9 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
       const timer = setTimeout(() => {
         const resultElement = document.getElementById('search-result-area');
         if (resultElement) {
-          resultElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          const yOffset = -120; // Spacing below the fixed navbar
+          const y = resultElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
         }
       }, 400);
       return () => clearTimeout(timer);
@@ -421,19 +433,19 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
   };
 
   const liquidGlassStyle = {
-    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 100%)',
+    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)',
     backdropFilter: 'blur(30px) saturate(210%)',
     WebkitBackdropFilter: 'blur(30px) saturate(210%)',
-    border: '1px solid rgba(255, 255, 255, 0.28)',
-    boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 0 20px rgba(0, 183, 181, 0.1)',
+    border: '1px solid rgba(255, 255, 255, 0.12)',
+    boxShadow: '0 30px 80px rgba(0, 0, 0, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.12), 0 0 25px rgba(0, 183, 181, 0.06)',
   };
 
   const resultGlassStyle = {
-    background: 'linear-gradient(135deg, rgba(15, 35, 45, 0.9), rgba(5, 45, 55, 0.8))',
+    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.05) 100%)',
     backdropFilter: 'blur(32px) saturate(220%)',
     WebkitBackdropFilter: 'blur(32px) saturate(220%)',
-    border: '1px solid rgba(255, 255, 255, 0.25)',
-    boxShadow: '0 30px 80px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.15), 0 0 40px rgba(0, 183, 181, 0.12)',
+    border: '1px solid rgba(0, 183, 181, 0.3)',
+    boxShadow: '0 35px 90px rgba(0, 0, 0, 0.55), inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 0 35px rgba(0, 183, 181, 0.15)',
   };
 
   const glassCardStyle = liquidGlassStyle;
@@ -504,7 +516,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
               type="button"
               onClick={() => setActiveTab('manual')}
               variants={tabItemVariants}
-              className={`group relative overflow-hidden rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 ${activeTab === 'manual'
+              className={`group relative overflow-hidden rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 ${activeTab === 'manual'
                 ? 'text-white'
                 : 'text-white/60 hover:text-white'
                 }`}
@@ -515,7 +527,6 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                   : 'w-0 group-hover:w-full bg-white/0 group-hover:bg-gradient-to-r group-hover:from-[#005461]/20 group-hover:to-[#F4F4F4]/10 group-hover:border group-hover:border-white/20 group-hover:shadow-lg group-hover:backdrop-blur-md'
                   }`}
               />
-              <Search className="w-4 h-4 relative z-10" />
               <span className="hidden sm:inline relative z-10">{t('validate.tabs.manual')}</span>
               <span className="sm:hidden relative z-10">{t('validate.tabs.manualShort')}</span>
             </motion.button>
@@ -524,7 +535,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
               type="button"
               onClick={() => setActiveTab('pdf')}
               variants={tabItemVariants}
-              className={`group relative overflow-hidden rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 ${activeTab === 'pdf'
+              className={`group relative overflow-hidden rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 ${activeTab === 'pdf'
                 ? 'text-white'
                 : 'text-white/60 hover:text-white'
                 }`}
@@ -535,7 +546,6 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                   : 'w-0 group-hover:w-full bg-white/0 group-hover:bg-gradient-to-r group-hover:from-[#005461]/20 group-hover:to-[#F4F4F4]/10 group-hover:border group-hover:border-white/20 group-hover:shadow-lg group-hover:backdrop-blur-md'
                   }`}
               />
-              <FileUp className="w-4 h-4 relative z-10" />
               <span className="hidden sm:inline relative z-10">{t('validate.tabs.pdf')}</span>
               <span className="sm:hidden relative z-10">{t('validate.tabs.pdfShort')}</span>
             </motion.button>
@@ -544,7 +554,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
               type="button"
               onClick={() => setActiveTab('qr')}
               variants={tabItemVariants}
-              className={`group relative overflow-hidden rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-2 ${activeTab === 'qr'
+              className={`group relative overflow-hidden rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all duration-200 ${activeTab === 'qr'
                 ? 'text-white'
                 : 'text-white/60 hover:text-white'
                 }`}
@@ -555,7 +565,6 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                   : 'w-0 group-hover:w-full bg-white/0 group-hover:bg-gradient-to-r group-hover:from-[#005461]/20 group-hover:to-[#F4F4F4]/10 group-hover:border group-hover:border-white/20 group-hover:shadow-lg group-hover:backdrop-blur-md'
                   }`}
               />
-              <QrCode className="w-4 h-4 relative z-10" />
               <span className="hidden sm:inline relative z-10">{t('validate.tabs.qr')}</span>
               <span className="sm:hidden relative z-10">{t('validate.tabs.qrShort')}</span>
             </motion.button>
@@ -717,25 +726,43 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             </div>
                           </div>
                           <div className="mt-4 space-y-3">
-                            <div className="p-3 rounded-lg relative" style={{ background: 'rgba(0, 183, 181, 0.1)' }}>
+                            <div
+                              className="p-3 rounded-lg relative overflow-hidden"
+                              style={{
+                                background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.15) 0%, rgba(0, 183, 181, 0.05) 100%)',
+                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.1)',
+                                backdropFilter: 'blur(10px)',
+                              }}
+                            >
+                              <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                               <button
                                 onClick={() => { navigator.clipboard.writeText(searchResult.certificate.id); setCopiedId(true); setTimeout(() => setCopiedId(false), 2000); }}
-                                className="absolute top-3 right-3 p-1.5 hover:bg-white/10 rounded-md transition-colors duration-200"
+                                className="absolute top-3 right-3 p-1.5 hover:bg-white/10 rounded-md transition-colors duration-200 z-10"
                               >
                                 <Copy className={`w-4 h-4 ${copiedId ? 'text-[#00B7B5]' : 'text-[#F4F4F4]/40 hover:text-[#F4F4F4]/70'}`} />
                               </button>
-                              <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1">Unique Credential ID</p>
-                              <p className="text-lg font-mono text-[#00B7B5] break-all pr-8">{searchResult.certificate.id}</p>
+                              <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1 relative z-10">Unique Credential ID</p>
+                              <p className="text-lg font-mono text-[#00B7B5] break-all pr-8 relative z-10">{searchResult.certificate.id}</p>
                             </div>
-                            <div className="p-3 rounded-lg relative" style={{ background: 'rgba(0, 183, 181, 0.1)' }}>
+                            <div
+                              className="p-3 rounded-lg relative overflow-hidden"
+                              style={{
+                                background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.15) 0%, rgba(0, 183, 181, 0.05) 100%)',
+                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.1)',
+                                backdropFilter: 'blur(10px)',
+                              }}
+                            >
+                              <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                               <button
                                 onClick={() => copyToClipboard(searchResult.certificate.hash)}
-                                className="absolute top-3 right-3 p-1.5 hover:bg-white/10 rounded-md transition-colors duration-200"
+                                className="absolute top-3 right-3 p-1.5 hover:bg-white/10 rounded-md transition-colors duration-200 z-10"
                               >
                                 <Copy className={`w-4 h-4 ${copiedHash ? 'text-[#00B7B5]' : 'text-[#F4F4F4]/40 hover:text-[#F4F4F4]/70'}`} />
                               </button>
-                              <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1">Certificate Hash</p>
-                              <p className="text-lg font-mono text-[#00B7B5] break-all pr-8">{searchResult.certificate.hash}</p>
+                              <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1 relative z-10">Certificate Hash</p>
+                              <p className="text-lg font-mono text-[#00B7B5] break-all pr-8 relative z-10">{searchResult.certificate.hash}</p>
                             </div>
                           </div>
                         </motion.div>
@@ -880,18 +907,37 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                             <p className="text-xs font-bold text-white/60 uppercase tracking-widest"># Blockchain Digital Evidence</p>
                           </div>
                           <div className="space-y-3">
-                            <div className="flex items-center justify-between p-3 rounded-lg" style={{ background: 'rgba(0, 183, 181, 0.1)' }}>
-                              <p className="text-xs text-white/60 uppercase tracking-wider font-semibold">Smart Contract Verified</p>
-                              <span className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-semibold ${searchResult.certificate.blockchainEvidence.smartContractVerified ? 'bg-[#00B7B5]/20 text-[#00B7B5]' : 'bg-red-500/20 text-red-400'}`}>
+                            <div
+                              className="flex items-center justify-between p-3 rounded-lg relative overflow-hidden"
+                              style={{
+                                background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.15) 0%, rgba(0, 183, 181, 0.05) 100%)',
+                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.1)',
+                                backdropFilter: 'blur(10px)',
+                              }}
+                            >
+                              <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
+                              <p className="text-xs text-white/60 uppercase tracking-wider font-semibold relative z-10">Smart Contract Verified</p>
+                              <span className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-semibold relative z-10 ${searchResult.certificate.blockchainEvidence.smartContractVerified ? 'bg-[#00B7B5]/20 text-[#00B7B5]' : 'bg-red-500/20 text-red-400'}`}>
                                 {searchResult.certificate.blockchainEvidence.smartContractVerified ? <CheckCircle2 className="w-3 h-3" /> : <AlertCircle className="w-3 h-3" />}
                                 {searchResult.certificate.blockchainEvidence.smartContractVerified ? 'Verified' : 'Not Verified'}
                               </span>
                             </div>
 
                             {[{ label: 'TX A: IDENTITY RECORD', tx: searchResult.certificate.blockchainEvidence.txA }, { label: 'TX B: IDENTITY RECORD', tx: searchResult.certificate.blockchainEvidence.txB }].map((item, idx) => (
-                              <div key={idx} className="rounded-lg p-3" style={{ background: 'rgba(255, 255, 255, 0.03)' }}>
-                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-2">{item.label}</p>
-                                <div className="flex items-center gap-2 mb-2 flex-wrap">
+                              <div
+                                key={idx}
+                                className="rounded-lg p-3 relative overflow-hidden"
+                                style={{
+                                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                                  boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.05)',
+                                  backdropFilter: 'blur(10px)',
+                                }}
+                              >
+                                <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
+                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-2 relative z-10">{item.label}</p>
+                                <div className="flex items-center gap-2 mb-2 flex-wrap relative z-10">
                                   <span className="font-mono text-xs text-white/70 break-all flex-1">{item.tx.hash}</span>
                                   <button
                                     onClick={() => copyToClipboard(item.tx.hash)}
@@ -904,7 +950,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                   href={item.tx.scanLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-2 text-xs text-[#00B7B5] hover:text-[#018790] transition-colors duration-200"
+                                  className="inline-flex items-center gap-2 text-xs text-[#00B7B5] hover:text-[#018790] transition-colors duration-200 relative z-10"
                                 >
                                   View on Polygonscan
                                   <ExternalLink className="w-3 h-3" />
@@ -1012,7 +1058,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                       ...liquidGlassStyle,
                       border: dragActive
                         ? '2px solid rgba(0, 183, 181, 0.6)'
-                        : '1px solid rgba(255, 255, 255, 0.3)',
+                        : liquidGlassStyle.border,
                     }}
                     onClick={() => fileInputRef.current?.click()}
                   >
@@ -1186,13 +1232,11 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                   >
                     { }
                     <div
-                      className="p-4 rounded-lg flex items-center justify-between"
-                      style={{
-                        background: 'rgba(0, 183, 181, 0.1)',
-                        border: '1px solid rgba(0, 183, 181, 0.3)',
-                      }}
+                      className="p-4 rounded-lg flex items-center justify-between relative overflow-hidden"
+                      style={liquidGlassStyle}
                     >
-                      <div className="flex items-center gap-3 flex-1 min-w-0">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
+                      <div className="flex items-center gap-3 flex-1 min-w-0 relative z-10">
                         <FileUp className="w-5 h-5 text-[#00B7B5] flex-shrink-0" />
                         <div className="min-w-0">
                           <p className="text-xs text-white/60 uppercase tracking-wider font-semibold">
@@ -1203,7 +1247,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                       </div>
                       <button
                         onClick={removeUploadedFile}
-                        className="p-2 hover:bg-white/10 rounded-lg transition-colors duration-200 flex-shrink-0"
+                        className="p-2 hover:bg-white/10 rounded-lg transition-colors duration-200 flex-shrink-0 relative z-10"
                       >
                         <Trash2 className="w-4 h-4 text-white/50 hover:text-white" />
                       </button>
@@ -1284,7 +1328,12 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           <div className="mt-4 space-y-3">
                             <div
                               className="p-3 rounded-lg relative overflow-hidden"
-                              style={{ background: 'rgba(0, 183, 181, 0.1)' }}
+                              style={{
+                                background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.15) 0%, rgba(0, 183, 181, 0.05) 100%)',
+                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.1)',
+                                backdropFilter: 'blur(10px)',
+                              }}
                             >
                               <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                               <button
@@ -1295,7 +1344,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                   setCopiedId(true);
                                   setTimeout(() => setCopiedId(false), 2000);
                                 }}
-                                className="absolute top-3 right-3 p-1.5 hover:bg-white/10 rounded-md transition-colors duration-200"
+                                className="absolute top-3 right-3 p-1.5 hover:bg-white/10 rounded-md transition-colors duration-200 z-10"
                               >
                                 <Copy
                                   className={`w-4 h-4 ${copiedId
@@ -1304,16 +1353,21 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                     }`}
                                 />
                               </button>
-                              <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1">
+                              <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1 relative z-10">
                                 Unique Credential ID
                               </p>
-                              <p className="text-lg font-mono text-[#00B7B5] break-all pr-8">
+                              <p className="text-lg font-mono text-[#00B7B5] break-all pr-8 relative z-10">
                                 {pdfSearchResult.certificate.id}
                               </p>
                             </div>
                             <div
                               className="p-3 rounded-lg relative overflow-hidden"
-                              style={{ background: 'rgba(0, 183, 181, 0.1)' }}
+                              style={{
+                                background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.15) 0%, rgba(0, 183, 181, 0.05) 100%)',
+                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.1)',
+                                backdropFilter: 'blur(10px)',
+                              }}
                             >
                               <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                               <button
@@ -1324,7 +1378,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                   setCopiedHash(true);
                                   setTimeout(() => setCopiedHash(false), 2000);
                                 }}
-                                className="absolute top-3 right-3 p-1.5 hover:bg-white/10 rounded-md transition-colors duration-200"
+                                className="absolute top-3 right-3 p-1.5 hover:bg-white/10 rounded-md transition-colors duration-200 z-10"
                               >
                                 <Copy
                                   className={`w-4 h-4 ${copiedHash
@@ -1333,10 +1387,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                     }`}
                                 />
                               </button>
-                              <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1">
+                              <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1 relative z-10">
                                 Certificate Hash
                               </p>
-                              <p className="text-lg font-mono text-[#00B7B5] break-all pr-8">
+                              <p className="text-lg font-mono text-[#00B7B5] break-all pr-8 relative z-10">
                                 {pdfSearchResult.certificate.hash}
                               </p>
                             </div>
@@ -1610,14 +1664,19 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           <div className="space-y-3">
                             <div
                               className="flex items-center justify-between p-3 rounded-lg relative overflow-hidden"
-                              style={{ background: 'rgba(0, 183, 181, 0.1)' }}
+                              style={{
+                                background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.15) 0%, rgba(0, 183, 181, 0.05) 100%)',
+                                border: '1px solid rgba(255, 255, 255, 0.12)',
+                                boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.1)',
+                                backdropFilter: 'blur(10px)',
+                              }}
                             >
                               <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
-                              <p className="text-xs text-white/60 uppercase tracking-wider font-semibold">
+                              <p className="text-xs text-white/60 uppercase tracking-wider font-semibold relative z-10">
                                 Smart Contract Verified
                               </p>
                               <span
-                                className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-semibold ${pdfSearchResult.certificate.blockchainEvidence
+                                className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-semibold relative z-10 ${pdfSearchResult.certificate.blockchainEvidence
                                     .smartContractVerified
                                     ? 'bg-[#00B7B5]/20 text-[#00B7B5]'
                                     : 'bg-red-500/20 text-red-400'
@@ -1651,13 +1710,18 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                               <div
                                 key={idx}
                                 className="rounded-lg p-3 relative overflow-hidden"
-                                style={{ background: 'rgba(255, 255, 255, 0.03)' }}
+                                style={{
+                                  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                                  border: '1px solid rgba(255, 255, 255, 0.08)',
+                                  boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.05)',
+                                  backdropFilter: 'blur(10px)',
+                                }}
                               >
                                 <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
-                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-2">
+                                <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-2 relative z-10">
                                   {item.label}
                                 </p>
-                                <div className="flex items-center gap-2 mb-2 flex-wrap">
+                                <div className="flex items-center gap-2 mb-2 flex-wrap relative z-10">
                                   <span className="font-mono text-xs text-white/70 break-all flex-1">
                                     {item.tx.hash}
                                   </span>
@@ -1681,7 +1745,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                   href={item.tx.scanLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-2 text-xs text-[#00B7B5] hover:text-[#018790] transition-colors duration-200"
+                                  className="inline-flex items-center gap-2 text-xs text-[#00B7B5] hover:text-[#018790] transition-colors duration-200 relative z-10"
                                 >
                                   View on Polygonscan
                                   <ExternalLink className="w-3 h-3" />
@@ -1874,25 +1938,43 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           </div>
                         </div>
                         <div className="mt-4 space-y-3">
-                          <div className="p-3 rounded-lg relative" style={{ background: 'rgba(0, 183, 181, 0.1)' }}>
+                          <div
+                            className="p-3 rounded-lg relative overflow-hidden"
+                            style={{
+                              background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.15) 0%, rgba(0, 183, 181, 0.05) 100%)',
+                              border: '1px solid rgba(255, 255, 255, 0.12)',
+                              boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.1)',
+                              backdropFilter: 'blur(10px)',
+                            }}
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                             <button
                               onClick={() => { navigator.clipboard.writeText(searchResult.certificate.id); setCopiedId(true); setTimeout(() => setCopiedId(false), 2000); }}
-                              className="absolute top-3 right-3 p-1.5 hover:bg-white/10 rounded-md transition-colors duration-200"
+                              className="absolute top-3 right-3 p-1.5 hover:bg-white/10 rounded-md transition-colors duration-200 z-10"
                             >
                               <Copy className={`w-4 h-4 ${copiedId ? 'text-[#00B7B5]' : 'text-[#F4F4F4]/40 hover:text-[#F4F4F4]/70'}`} />
                             </button>
-                            <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1">Unique Credential ID</p>
-                            <p className="text-lg font-mono text-[#00B7B5] break-all pr-8">{searchResult.certificate.id}</p>
+                            <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1 relative z-10">Unique Credential ID</p>
+                            <p className="text-lg font-mono text-[#00B7B5] break-all pr-8 relative z-10">{searchResult.certificate.id}</p>
                           </div>
-                          <div className="p-3 rounded-lg relative" style={{ background: 'rgba(0, 183, 181, 0.1)' }}>
+                          <div
+                            className="p-3 rounded-lg relative overflow-hidden"
+                            style={{
+                              background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.15) 0%, rgba(0, 183, 181, 0.05) 100%)',
+                              border: '1px solid rgba(255, 255, 255, 0.12)',
+                              boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.1)',
+                              backdropFilter: 'blur(10px)',
+                            }}
+                          >
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
                             <button
                               onClick={() => copyToClipboard(searchResult.certificate.hash)}
-                              className="absolute top-3 right-3 p-1.5 hover:bg-white/10 rounded-md transition-colors duration-200"
+                              className="absolute top-3 right-3 p-1.5 hover:bg-white/10 rounded-md transition-colors duration-200 z-10"
                             >
                               <Copy className={`w-4 h-4 ${copiedHash ? 'text-[#00B7B5]' : 'text-[#F4F4F4]/40 hover:text-[#F4F4F4]/70'}`} />
                             </button>
-                            <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1">Certificate Hash</p>
-                            <p className="text-lg font-mono text-[#00B7B5] break-all pr-8">{searchResult.certificate.hash}</p>
+                            <p className="text-xs text-[#F4F4F4]/60 uppercase tracking-widest font-semibold mb-1 relative z-10">Certificate Hash</p>
+                            <p className="text-lg font-mono text-[#00B7B5] break-all pr-8 relative z-10">{searchResult.certificate.hash}</p>
                           </div>
                         </div>
                       </motion.div>
@@ -2037,20 +2119,37 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                           <p className="text-xs font-bold text-white/60 uppercase tracking-widest"># Blockchain Digital Evidence</p>
                         </div>
                         <div className="space-y-3">
-                          <div className="flex items-center justify-between p-3 rounded-lg relative overflow-hidden" style={{ background: 'rgba(0, 183, 181, 0.1)' }}>
+                          <div
+                            className="flex items-center justify-between p-3 rounded-lg relative overflow-hidden"
+                            style={{
+                              background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.15) 0%, rgba(0, 183, 181, 0.05) 100%)',
+                              border: '1px solid rgba(255, 255, 255, 0.12)',
+                              boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.1)',
+                              backdropFilter: 'blur(10px)',
+                            }}
+                          >
                             <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
-                            <p className="text-xs text-white/60 uppercase tracking-wider font-semibold">Smart Contract Verified</p>
-                            <span className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-semibold ${searchResult.certificate.blockchainEvidence.smartContractVerified ? 'bg-[#00B7B5]/20 text-[#00B7B5]' : 'bg-red-500/20 text-red-400'}`}>
+                            <p className="text-xs text-white/60 uppercase tracking-wider font-semibold relative z-10">Smart Contract Verified</p>
+                            <span className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-semibold relative z-10 ${searchResult.certificate.blockchainEvidence.smartContractVerified ? 'bg-[#00B7B5]/20 text-[#00B7B5]' : 'bg-red-500/20 text-red-400'}`}>
                               {searchResult.certificate.blockchainEvidence.smartContractVerified ? <CheckCircle2 className="w-3 h-3" /> : <AlertCircle className="w-3 h-3" />}
                               {searchResult.certificate.blockchainEvidence.smartContractVerified ? 'Verified' : 'Not Verified'}
                             </span>
                           </div>
 
                           {[{ label: 'TX A: IDENTITY RECORD', tx: searchResult.certificate.blockchainEvidence.txA }, { label: 'TX B: IDENTITY RECORD', tx: searchResult.certificate.blockchainEvidence.txB }].map((item, idx) => (
-                            <div key={idx} className="rounded-lg p-3 relative overflow-hidden" style={{ background: 'rgba(255, 255, 255, 0.03)' }}>
+                            <div
+                              key={idx}
+                              className="rounded-lg p-3 relative overflow-hidden"
+                              style={{
+                                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)',
+                                border: '1px solid rgba(255, 255, 255, 0.08)',
+                                boxShadow: 'inset 0 1px 1px rgba(255, 255, 255, 0.05)',
+                                backdropFilter: 'blur(10px)',
+                              }}
+                            >
                               <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
-                              <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-2">{item.label}</p>
-                              <div className="flex items-center gap-2 mb-2 flex-wrap">
+                              <p className="text-xs text-white/50 uppercase tracking-wider font-semibold mb-2 relative z-10">{item.label}</p>
+                              <div className="flex items-center gap-2 mb-2 flex-wrap relative z-10">
                                 <span className="font-mono text-xs text-white/70 break-all flex-1">{item.tx.hash}</span>
                                 <button
                                   onClick={() => copyToClipboard(item.tx.hash)}
@@ -2063,7 +2162,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                                 href={item.tx.scanLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-xs text-[#00B7B5] hover:text-[#018790] transition-colors duration-200"
+                                className="inline-flex items-center gap-2 text-xs text-[#00B7B5] hover:text-[#018790] transition-colors duration-200 relative z-10"
                               >
                                 View on Polygonscan
                                 <ExternalLink className="w-3 h-3" />
