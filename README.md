@@ -86,6 +86,4 @@ Certify bekerja dengan pendekatan *zero-trust* di mana dokumen asli tidak pernah
    npm run build
    npm run start
    ```
-5. **Jalankan secara Online**
-    certify.xfar.net
 ---
