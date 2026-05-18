@@ -1,4 +1,4 @@
-# certift - the future of certificate verification
+# Certify - The Future of Certificate Verification
 
 ![Certify Hero](./public/images/home.png)
 
@@ -123,10 +123,7 @@ Untuk menjamin keandalan berskala enterprise, Certify memanfaatkan jaringan **Po
 
 Proyek ini dirancang dan didevelop secara kolaboratif oleh tim **PAKCIK KUASE TIGE**:
 
-| Kontributor | Kontribusi Utama | Kontak / Email |
-| :--- | :--- | :--- |
-| **AFIF ASMALENDRA PUTRA** | Core Architecture, Frontend Development, UI/UX Animations | [whriotesley@gmail.com](mailto:whriotesley@gmail.com) |
-| **xfar05** | Blockchain Integration, Logic Validation, Feature Integration | [xfarstore2@gmail.com](mailto:xfarstore2@gmail.com) |
-| **P0Ci** | Data Management, State Context, Localization System | [febriandry58@gmail.com](mailto:febriandry58@gmail.com) |
+| [<img src="https://github.com/Fleurdelys-1.png" width="100px;"/><br /><sub><b>@Fleurdelys-1</b></sub>](https://github.com/Fleurdelys-1) | [<img src="https://github.com/xfar05.png" width="100px;"/><br /><sub><b>@xfar05</b></sub>](https://github.com/xfar05) | [<img src="https://github.com/P0Ci.png" width="100px;"/><br /><sub><b>@P0Ci</b></sub>](https://github.com/P0Ci) |
+| :---: | :---: | :---: |
 
 ---
