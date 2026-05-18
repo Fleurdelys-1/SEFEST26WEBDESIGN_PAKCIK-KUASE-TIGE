@@ -28,7 +28,16 @@ const ShapeGrid = ({
     const hexHoriz = squareSize * 1.5;
     const hexVert = squareSize * Math.sqrt(3);
 
+    let lastWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
+    let hasInitialized = false;
     const resizeCanvas = () => {
+      const isMobile = window.innerWidth < 768;
+      if (isMobile && hasInitialized && canvas.offsetWidth === lastWidth) {
+        return;
+      }
+      lastWidth = canvas.offsetWidth;
+      hasInitialized = true;
+      
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
       numSquaresX.current = Math.ceil(canvas.width / squareSize) + 1;

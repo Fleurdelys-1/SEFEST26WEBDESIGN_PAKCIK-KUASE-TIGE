@@ -374,10 +374,19 @@ export default function FloatingLines({
 
     const clock = new Clock();
 
+    let lastWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
+    let hasInitialized = false;
     const setSize = () => {
       if (!active) return;
       const width = container.clientWidth || 1;
       const height = container.clientHeight || 1;
+
+      const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+      if (isMobile && hasInitialized && width === lastWidth) {
+        return;
+      }
+      lastWidth = width;
+      hasInitialized = true;
 
       renderer.setSize(width, height, false);
 

@@ -444,7 +444,7 @@ export default function Navbar() {
 
 						{}
 						<motion.div
-							className="absolute inset-0 flex flex-col justify-between px-8 py-12 pointer-events-auto"
+							className="absolute inset-0 flex flex-col justify-between px-8 py-12 pointer-events-auto overflow-y-auto"
 							variants={mobileMenuVariants}
 							initial="hidden"
 							animate="visible"
