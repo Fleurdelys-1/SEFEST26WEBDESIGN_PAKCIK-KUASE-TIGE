@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { ChevronLeft, FileText, Upload, X, CheckCircle2, ShieldCheck, Hash } from "lucide-react";
+import { ChevronLeft, FileText, Upload, X, CheckCircle2, ShieldCheck, Hash, Info } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../../context/LanguageContext";
@@ -18,7 +18,6 @@ export default function UploadPage() {
   const [touched, setTouched] = useState({});
   const fileInputRef = useRef(null);
 
-  /* ── Variants ── */
   const containerVariants = {
     hidden: { opacity: 0, scale: 0.97, y: 24 },
     visible: {
@@ -40,7 +39,6 @@ export default function UploadPage() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.38, ease: "easeOut" } },
   };
 
-  /* ── Validation ── */
   const validate = (id, hash, f) => {
     const errs = {};
     if (!id.trim()) errs.idCertificate = t("upload.errors.idCertificate");
@@ -49,7 +47,6 @@ export default function UploadPage() {
     return errs;
   };
 
-  /* ── Handlers ── */
   const handleFileChange = (selected) => {
     if (!selected) return;
     if (selected.type !== "application/pdf") {
@@ -71,7 +68,6 @@ export default function UploadPage() {
       const dropped = e.dataTransfer.files[0];
       handleFileChange(dropped);
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 
@@ -97,7 +93,6 @@ export default function UploadPage() {
     }, 1400);
   };
 
-  /* ── Input class helpers ── */
   const inputClass = (field) =>
     `mt-1 w-full px-3 py-2 rounded-lg text-[#F4F4F4] placeholder-[#F4F4F4]/25 text-sm focus:outline-none focus:ring-1 transition-all ${
       touched[field] && errors[field]
@@ -117,7 +112,6 @@ export default function UploadPage() {
     backdropFilter: "blur(6px)",
   });
 
-  /* ── Small sub-components ── */
   const ErrorMsg = ({ field }) =>
     touched[field] && errors[field] ? (
       <span className="text-[10px] text-red-400 mt-0.5 flex items-center gap-1">
@@ -133,7 +127,6 @@ export default function UploadPage() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-start px-4 pt-28 pb-10 lg:pb-36 bg-transparent relative">
-      {/* Back link */}
       <div className="w-full max-w-3xl flex items-start mb-3">
         <Link
           href="/"
@@ -144,7 +137,6 @@ export default function UploadPage() {
         </Link>
       </div>
 
-      {/* Title */}
       <motion.h1
         initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -170,7 +162,6 @@ export default function UploadPage() {
         })}
       </motion.h1>
 
-      {/* Card */}
       <motion.form
         onSubmit={handleSubmit}
         noValidate
@@ -179,10 +170,8 @@ export default function UploadPage() {
         animate="visible"
         className="w-full max-w-3xl rounded-3xl sm:rounded-[40px] border border-white/10 bg-white/5 shadow-[0_40px_120px_rgba(0,0,0,0.18)] backdrop-blur-xl relative z-10 overflow-hidden"
       >
-        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0f262d]/80 via-[#081218]/20 to-[#10252c]/70 opacity-80 pointer-events-none rounded-3xl sm:rounded-[40px]" />
 
-        {/* Top glow accents */}
         <div
           className="absolute top-0 right-0 w-72 h-72 pointer-events-none"
           style={{
@@ -199,7 +188,6 @@ export default function UploadPage() {
         />
 
         <div className="relative z-10 p-5 sm:p-8 flex flex-col gap-6">
-          {/* Success banner */}
           <AnimatePresence>
             {success && !loading && (
               <motion.div
@@ -224,7 +212,6 @@ export default function UploadPage() {
             )}
           </AnimatePresence>
 
-          {/* Section label */}
           <div className="flex items-center gap-2">
             <div className="flex flex-col gap-[3px]">
               <div className="w-5 h-[3px] rounded bg-[#00b7b5]" />
@@ -235,14 +222,21 @@ export default function UploadPage() {
             </span>
           </div>
 
-          {/* Fields row */}
+          <div className="relative overflow-hidden rounded-2xl border border-[#00b7b5]/20 bg-[#00b7b5]/5 px-4 py-3.5 shadow-inner backdrop-blur-md">
+            <div className="relative z-10 flex items-start gap-3">
+              <Info className="w-4.5 h-4.5 text-[#00b7b5] mt-0.5 flex-shrink-0" />
+              <p className="text-xs sm:text-[13px] text-[#F4F4F4]/80 leading-relaxed font-medium">
+                {t("upload.infoHint")}
+              </p>
+            </div>
+          </div>
+
           <motion.div
             variants={fieldContainerVariants}
             initial="hidden"
             animate="visible"
             className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4"
           >
-            {/* ID Certificate */}
             <motion.label variants={fieldVariants} className={labelClass}>
               <span className="flex items-center gap-1 mb-0.5">
                 <Hash size={10} className="text-[#00b7b5]" />
@@ -271,7 +265,6 @@ export default function UploadPage() {
               <ErrorMsg field="idCertificate" />
             </motion.label>
 
-            {/* HASH SHA 256 */}
             <motion.label variants={fieldVariants} className={labelClass}>
               <span className="flex items-center gap-1 mb-0.5">
                 <ShieldCheck size={10} className="text-[#00b7b5]" />
@@ -301,7 +294,6 @@ export default function UploadPage() {
             </motion.label>
           </motion.div>
 
-          {/* Drop zone */}
           <motion.div
             variants={fieldVariants}
             initial="hidden"
@@ -338,7 +330,6 @@ export default function UploadPage() {
             />
 
             <div className="flex flex-col items-center justify-center gap-3 py-10 px-6 text-center select-none">
-              {/* Icon */}
               <motion.div
                 animate={dragOver ? { scale: 1.15, y: -4 } : { scale: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -363,7 +354,6 @@ export default function UploadPage() {
                   )}
                 </div>
 
-                {/* Remove file button */}
                 {file && (
                   <motion.button
                     type="button"
@@ -381,7 +371,6 @@ export default function UploadPage() {
                 )}
               </motion.div>
 
-              {/* Text */}
               {file ? (
                 <div className="flex flex-col items-center gap-1">
                   <p className="text-sm font-semibold text-[#F4F4F4]">{file.name}</p>
@@ -400,7 +389,6 @@ export default function UploadPage() {
               )}
             </div>
 
-            {/* Subtle inner glow when active */}
             {(dragOver || file) && (
               <div
                 className="absolute inset-0 rounded-2xl pointer-events-none"
@@ -421,9 +409,7 @@ export default function UploadPage() {
             </span>
           )}
 
-          {/* Bottom bar */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-1">
-            {/* Error count */}
             <div className="flex flex-col gap-1">
               {Object.keys(errors).filter((k) => errors[k]).length > 0 &&
               Object.keys(touched).length > 0 ? (
@@ -449,7 +435,6 @@ export default function UploadPage() {
               </Link>
             </div>
 
-            {/* Submit button — identical style to register page */}
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}

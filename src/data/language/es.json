@@ -331,5 +331,113 @@
     "support": "Soporte",
     "platform": "Plataforma",
     "help": "Ayuda"
+  },
+  "whyblockchain": {
+    "backToHome": "Volver al Inicio",
+    "title": "Por qué Certify usa Blockchain",
+    "subtitle": "y por qué elegimos Polygon como nuestra infraestructura de confianza industrial y académica.",
+    "conviction": {
+      "title": "Nuestra Convicción",
+      "p1": "En Certify tenemos una convicción clara: un certificado digital debe ser verificable de forma independiente, sencilla y fiable, hoy y en el futuro.",
+      "p2": "En un mundo donde los documentos digitales se pueden copiar, alterar o falsificar fácilmente, la certificación tradicional basada únicamente en archivos PDF o bases de datos privadas ya no es suficiente. Por esta razón, Certify incorpora la tecnología blockchain como un registro público de verificación, seleccionado cuidadosamente y aplicado con criterio institucional."
+    },
+    "problem": {
+      "title": "El problema de los certificados tradicionales",
+      "subtitle": "Hoy en día, millones de certificados circulan en formato digital compartiendo una debilidad fundamental: no existe una forma sencilla e independiente de verificar que no hayan sido alterados.",
+      "items": [
+        {
+          "title": "La certificación se puede editar sin dejar rastro",
+          "desc": "Los archivos PDF se pueden manipular fácilmente sin dejar pruebas de cambios visuales."
+        },
+        {
+          "title": "Los enlaces de verificación a menudo dejan de funcionar",
+          "desc": "Los enlaces a servidores escolares a menudo se rompen o caducan después de unos años."
+        },
+        {
+          "title": "La institución emisora debe ser contactada manualmente",
+          "desc": "La validación manual a través de correos electrónicos o llamadas telefónicas requiere mucho tiempo."
+        },
+        {
+          "title": "El sistema depende enteramente de una base de datos privada",
+          "desc": "El hackeo o daño al servidor central corre el riesgo de borrar el historial de forma permanente."
+        },
+        {
+          "title": "Incertidumbre legal sobre la integridad del archivo",
+          "desc": "Sin una firma digital en cadena, demostrar la autenticidad en el tribunal es costoso."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Lo que la blockchain aporta a la certificación",
+      "subtitle": "Blockchain resuelve este problema de manera elegante y robusta. En Certify, el proceso funciona así:",
+      "cards": [
+        {
+          "title": "Huella Digital Única",
+          "description": "Se genera una huella criptográfica que cambia por completo si se modifica un solo carácter del documento."
+        },
+        {
+          "title": "Registro Público",
+          "description": "Esa huella se registra de forma permanente e inmutable en una red blockchain pública descentralizada."
+        },
+        {
+          "title": "Verificación Directa",
+          "description": "Cualquier persona puede verificar la existencia, la marca de tiempo y la inmutabilidad utilizando herramientas estándar."
+        }
+      ],
+      "fundamentalLabel": "Importante",
+      "fundamentalText": "Certify no almacena documentos ni datos personales en la blockchain. La blockchain solo contiene una prueba de integridad técnica, protegiendo la privacidad."
+    },
+    "suitability": {
+      "title": "No todas las blockchains son adecuadas",
+      "subtitle": "Para Certify, una infraestructura de certificación debe cumplir condiciones muy específicas para considerarse responsable y profesional:",
+      "conditions": [
+        "Pública y Verificable",
+        "Inmutabilidad",
+        "Madurez Técnica",
+        "Estabilidad Temporal",
+        "Auditoría Independiente",
+        "Sostenibilidad"
+      ],
+      "whyNotEth": {
+        "title": "¿Por qué no Ethereum?",
+        "description": "Ethereum es el estándar de referencia, pero sus altos costos operativos (gas fees) dificultan la escalabilidad en el ámbito educativo e institucional. No es la opción más responsable para un servicio de bajo costo."
+      },
+      "whyNotNew": {
+        "title": "¿Por qué no redes nuevas?",
+        "description": "Las redes experimentales presentan riesgos de inestabilidad, centralización y menor reconocimiento. En certificación, la confianza a largo plazo importa más que las modas tecnológicas."
+      }
+    },
+    "whyPolygon": {
+      "title": "Por qué Certify eligió Polygon",
+      "subtitle": "Polygon representa el equilibrio perfecto entre descentralización, alta velocidad, estándares reconocidos y costos mínimos.",
+      "badge": "Nativo de la Red Polygon",
+      "poweredBy": "Desarrollado por Polygon",
+      "items": [
+        {
+          "title": "Verificación transparente",
+          "description": "Cualquier persona puede verificar un registro usando exploradores estándar como Polygonscan, sin intermediarios."
+        },
+        {
+          "title": "Costos sostenibles",
+          "description": "Permite registrar miles de certificaciones a costos de microcentavos por transacción, haciéndolo accesible."
+        },
+        {
+          "title": "Estándares reconocidos",
+          "description": "Totalmente compatible con la EVM (Ethereum Virtual Machine), utiliza formatos ampliamente aceptados internacionalmente."
+        },
+        {
+          "title": "Reputación institucional",
+          "description": "Utilizado por múltiples corporaciones globales y gobiernos, lo que transmite una estabilidad técnica inigualable."
+        },
+        {
+          "title": "Visión a largo plazo",
+          "description": "Cuenta con una comunidad activa, liquidez profunda y una hoja de ruta tecnológica diseñada para durar décadas."
+        }
+      ]
+    },
+    "commitment": {
+      "quote": "\"Certify utiliza blockchain como un registro público de verificación, no como una tendencia tecnológica o un argumento de marketing.\"",
+      "subtext": "Quienes utilizan Certify pueden estar seguros de que sus certificados están respaldados por una infraestructura pública y verificable diseñada para mantener la confianza a lo largo del tiempo. Polygon representa el equilibrio adecuado entre confianza, estabilidad y eficiencia."
+    }
   }
 }

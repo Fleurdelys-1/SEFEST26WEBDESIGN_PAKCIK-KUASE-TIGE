@@ -5,7 +5,8 @@
     "about": "Über uns",
     "faq": "FAQ",
     "contact": "Kontakt",
-    "register": "Registrieren"
+    "register": "Registrieren",
+    "upload": "Hochladen"
   },
   "home": {
     "badge": "NEU",
@@ -354,12 +355,12 @@
     "title": "Registrieren Sie Ihr Zertifikat",
     "userInfo": "BENUTZERINFORMATIONEN",
     "programDetail": "PROGRAMMDETAILS",
-    "alreadyHavePdf": "Haben Sie bereits die Zertifikats-PDF?",
+    "alreadyHavePdf": "Haben Sie bereits die Zertifikats-PDF mit ID/Hash?",
     "sending": "SENDEN...",
     "sent": "✓ GESENDET!",
     "send": "SENDEN",
-    "successTitle": "Registrierung erfolgreich gesendet!",
-    "successSubtitle": "Vielen Dank für Ihre Registrierung. Wir werden Ihre Angaben prüfen und uns in Kürze mit Ihnen in Verbindung setzen.",
+    "successTitle": "Registrierung erfolgreich!",
+    "successSubtitle": "Ihre ID/Hash wurde per E-Mail gesendet, bitte überprüfen Sie Ihren Posteingang. Wenn Sie die ID/Hash bereits zu Ihrem Zertifikat hinzugefügt haben, können Sie zum Upload-Formular wechseln.",
     "search": "Suchen...",
     "noResults": "Keine Ergebnisse gefunden",
     "fields": {
@@ -403,6 +404,7 @@
     "backToHome": "Zurück zur Startseite",
     "title": "Laden Sie Ihr Zertifikat hoch",
     "badge": "ZERTIFIKATSVALIDIERUNG",
+    "infoHint": "Hinweis: Dieses Validierungsformular wird verwendet, wenn Ihre Zertifikats-PDF bereits eine Zertifikats-ID und einen SHA-256-Hash enthält. Wenn Sie diese Angaben nicht haben, registrieren Sie Ihr Zertifikat bitte zuerst.",
     "fields": {
       "idCertificate": "Zertifikats-ID",
       "hashSha256": "SHA-256-Hash",
@@ -544,5 +546,113 @@
         "content": "Wenn Sie Fragen zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte unter: hello@certify.io — Wir bemühen uns, alle Anfragen innerhalb von 48 Stunden zu beantworten."
       }
     ]
+  },
+  "whyblockchain": {
+    "backToHome": "Zurück zur Startseite",
+    "title": "Warum Certify die Blockchain nutzt",
+    "subtitle": "und warum wir uns für Polygon als unsere Vertrauensinfrastruktur entschieden haben.",
+    "conviction": {
+      "title": "Unsere Überzeugung",
+      "p1": "Wir bei Certify haben eine klare Überzeugung: Ein digitales Zertifikat muss unabhängig, einfach und zuverlässig verifizierbar sein – heute und in Zukunft.",
+      "p2": "In einer wandelnden Welt, in der digitale Dokumente leicht kopiert, verändert oder gefälscht werden können, reicht eine herkömmliche Zertifizierung, die ausschließlich auf PDF-Dateien oder privaten Datenbanken basiert, nicht mehr aus. Aus diesem Grund nutzt Certify die Blockchain-Technologie als öffentlichen Verifizierungsnachweis, der sorgfältig ausgewählt und mit institutioneller Sorgfalt angewendet wird."
+    },
+    "problem": {
+      "title": "Das Problem mit herkömmlichen Zertifikaten",
+      "subtitle": "Heute sind Millionen von Zertifikaten im Umlauf, die eine grundlegende Schwäche teilen: Es gibt keine einfache, unabhängige Methode, um zu überprüfen, ob sie nicht manipuliert wurden.",
+      "items": [
+        {
+          "title": "Zertifikate können spurlos manipuliert werden",
+          "desc": "PDFs und digitale Dateien können leicht ohne sichtbare Spuren bearbeitet oder gefälscht werden."
+        },
+        {
+          "title": "Verifizierungs-Links funktionieren oft nicht mehr",
+          "desc": "Validierungs-Links zu Datenbanken verfallen oder brechen ab, wenn Web-Domains ablaufen."
+        },
+        {
+          "title": "Die ausstellende Institution muss manuell kontaktiert werden",
+          "desc": "Manuelle Überprüfungen über E-Mails oder Telefonanrufe verschwenden Arbeitsstunden in der Verwaltung."
+        },
+        {
+          "title": "Das System hängt vollständig von einer privaten Datenbank ab",
+          "desc": "Hacks oder Serverausfälle können alle Validierungsdaten dauerhaft beschädigen."
+        },
+        {
+          "title": "Rechtliche Unsicherheit über die Integrität der Datei",
+          "desc": "Ohne öffentliche digitale Signaturen ist der Nachweis der Originalität vor Gericht extrem teuer."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Was die Blockchain für die Zertifizierung bringt",
+      "subtitle": "Die Blockchain löst dieses Problem elegant und robust. Bei Certify funktioniert der Prozess so:",
+      "cards": [
+        {
+          "title": "Einzigartiger Fingerabdruck",
+          "description": "Es wird ein kryptografischer Fingerabdruck generiert, der sich komplett ändert, wenn auch nur ein einziges Zeichen geändert wird."
+        },
+        {
+          "title": "Öffentlicher Nachweis",
+          "description": "Dieser Fingerabdruck wird dauerhaft und unveränderlich in einem dezentralen, öffentlichen Blockchain-Netzwerk aufgezeichnet."
+        },
+        {
+          "title": "Einfache Verifizierung",
+          "description": "Jeder kann die Existenz, den Zeitstempel und die Unveränderlichkeit des Datensatzes mit standardmäßigen On-Chain-Tools überprüfen."
+        }
+      ],
+      "fundamentalLabel": "Wichtig",
+      "fundamentalText": "Certify speichert keine Dokumente oder persönlichen Daten auf der Blockchain. Die Blockchain enthält nur einen technischen Integritätsnachweis, der die Privatsphäre schützt."
+    },
+    "suitability": {
+      "title": "Nicht alle Blockchains sind geeignet",
+      "subtitle": "Für Certify muss eine Zertifizierungsinfrastruktur ganz bestimmte Bedingungen erfüllen, um als verantwortlich und professionell zu gelten:",
+      "conditions": [
+        "Öffentlich und verifizierbar",
+        "Unveränderlichkeit",
+        "Technische Reife",
+        "Zeitliche Stabilität",
+        "Unabhängige Prüfung",
+        "Nachhaltigkeit"
+      ],
+      "whyNotEth": {
+        "title": "Warum nicht Ethereum?",
+        "description": "Ethereum ist der Referenzstandard, aber die hohen Betriebskosten (Gas-Gebühren) machen die Skalierbarkeit im Bildungs- und Institutionsbereich schwierig. Es ist nicht die nachhaltigste Option für einen barrierefreien Dienst."
+      },
+      "whyNotNew": {
+        "title": "Warum keine neuen Netzwerke?",
+        "description": "Experimentelle Netzwerke bergen Risiken von Instabilität, Zentralisierung und geringerer Anerkennung. Bei Zertifizierungen ist langfristiges Vertrauen wichtiger als technologische Modetrends."
+      }
+    },
+    "whyPolygon": {
+      "title": "Warum Certify sich für Polygon entschieden hat",
+      "subtitle": "Polygon stellt das perfekte Gleichgewicht zwischen Dezentralisierung, hoher Geschwindigkeit, anerkannten Standards und minimalen Kosten dar.",
+      "badge": "Polygon Network Native",
+      "poweredBy": "Powered by Polygon",
+      "items": [
+        {
+          "title": "Transparente Überprüfung",
+          "description": "Jeder kann einen Certify-Eintrag über öffentliche Explorer wie Polygonscan überprüfen, ohne auf Zwischenhändler angewiesen zu sein."
+        },
+        {
+          "title": "Nachhaltige Kosten",
+          "description": "Ermöglicht die Registrierung von Tausenden von Zertifikaten zu Mikro-Cent-Transaktionskosten, was den Service für alle zugänglich macht."
+        },
+        {
+          "title": "Anerkannte Standards",
+          "description": "Aufgrund der vollständigen Kompatibilität mit der Ethereum Virtual Machine (EVM) werden Formate verwendet, die in der internationalen Prüfung akzeptiert sind."
+        },
+        {
+          "title": "Institutionelle Reputation",
+          "description": "Es genießt das Vertrauen globaler Unternehmen und Regierungen, was eine beispiellose Seriosität und technische Stabilität vermittelt."
+        },
+        {
+          "title": "Langfristige Vision",
+          "description": "Besitzt eine aktive Entwickler-Community, tiefe Liquidität und eine technologische Roadmap, die auf Jahrzehnte ausgelegt ist."
+        }
+      ]
+    },
+    "commitment": {
+      "quote": "\"Certify nutzt die Blockchain als öffentlichen Verifizierungsnachweis, nicht als Technologietrend oder Marketingargument.\"",
+      "subtext": "Wer Certify nutzt, kann sicher sein, dass seine Zertifikate durch eine öffentliche, überprüfbare Infrastruktur abgesichert sind, die auf langfristiges Vertrauen ausgelegt ist. Polygon bietet die perfekte Balance zwischen Vertrauen, Stabilität und Effizienz."
+    }
   }
 }

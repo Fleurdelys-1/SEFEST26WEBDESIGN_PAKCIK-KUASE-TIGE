@@ -66,7 +66,6 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
     
     let copySuccess = false;
     
-    // 1. Try modern clipboard API
     if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
       try {
         await navigator.clipboard.writeText(text);
@@ -76,7 +75,6 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
       }
     }
     
-    // 2. Try robust fallback if modern API failed or was unavailable
     if (!copySuccess) {
       try {
         const textArea = document.createElement("textarea");
@@ -96,7 +94,6 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
       }
     }
 
-    // 3. Trigger UI feedback on success
     if (copySuccess) {
       if (type === 'id') {
         setCopiedId(true);
@@ -125,7 +122,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
     setTimeout(() => {
       const resultElement = document.getElementById('search-result-area');
       if (resultElement) {
-        const yOffset = -120; // Spacing below the fixed navbar
+        const yOffset = -120;
         const y = resultElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
@@ -264,7 +261,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
       const timer = setTimeout(() => {
         const resultElement = document.getElementById('search-result-area');
         if (resultElement) {
-          const yOffset = -120; // Spacing below the fixed navbar
+          const yOffset = -120;
           const y = resultElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
           window.scrollTo({ top: y, behavior: 'smooth' });
         }
@@ -2368,7 +2365,6 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
 
       </div>
       
-      {/* Floating toast notification */}
       {toast.show && (
         <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-3 rounded-xl border bg-black/60 backdrop-blur-xl border-[#00B7B5]/40 shadow-[0_10px_30px_rgba(0,183,181,0.25)] text-white text-sm font-semibold animate-in fade-in slide-in-from-bottom-5 duration-300">
           <CheckCircle2 className="w-4 h-4 text-[#00B7B5]" />

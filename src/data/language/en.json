@@ -5,7 +5,8 @@
     "about": "About",
     "faq": "FAQ",
     "contact": "Contact",
-    "register": "Register"
+    "register": "Register",
+    "upload": "Upload"
   },
   "home": {
     "badge": "NEW",
@@ -355,12 +356,12 @@
     "title": "Let's Register Your Certificate",
     "userInfo": "USER INFORMATION",
     "programDetail": "PROGRAM DETAIL",
-    "alreadyHavePdf": "Already have a certificate PDF?",
+    "alreadyHavePdf": "Already have a certificate PDF with ID/Hash?",
     "sending": "SENDING...",
     "sent": "✓ SENT!",
     "send": "SEND",
-    "successTitle": "Registration sent successfully!",
-    "successSubtitle": "Thank you for registering. We’ll review your details and contact you soon.",
+    "successTitle": "Registration Successful!",
+    "successSubtitle": "Your ID/Hash has been sent via email, please check your inbox. If you have already added the ID/Hash to your certificate, you can proceed to the upload form.",
     "search": "Search...",
     "noResults": "No results found",
     "fields": {
@@ -404,6 +405,7 @@
     "backToHome": "Back To Home",
     "title": "Upload Your Certificate",
     "badge": "CERTIFICATE VALIDATION",
+    "infoHint": "Note: This validation form is used if your certificate PDF already has an embedded Certificate ID and SHA-256 Hash. If you do not have these details, please register your certificate first to obtain them.",
     "fields": {
       "idCertificate": "ID Certificate",
       "hashSha256": "HASH SHA 256",
@@ -545,5 +547,113 @@
         "content": "If you have any questions about these Terms of Service, please contact us at: hello@certify.io — We aim to respond to all inquiries within 48 hours."
       }
     ]
+  },
+  "whyblockchain": {
+    "backToHome": "Back To Home",
+    "title": "Why Certify Uses Blockchain",
+    "subtitle": "and why we chose Polygon as our industrial and academic trust infrastructure.",
+    "conviction": {
+      "title": "Our Conviction",
+      "p1": "At Certify, we have a clear conviction: a digital certificate must be independently, simply, and reliably verifiable — today and in the future.",
+      "p2": "In a world where digital documents can be easily copied, altered, or forged, traditional certification based solely on PDF files or private databases is no longer sufficient. For this reason, Certify incorporates blockchain technology as a public verification record, carefully selected and applied with institutional judgment."
+    },
+    "problem": {
+      "title": "The problem with traditional certificates",
+      "subtitle": "Today, millions of certificates circulate in digital format sharing a fundamental weakness: there is no simple, independent way to verify they haven't been altered.",
+      "items": [
+        {
+          "title": "Certification can be edited without leaving a trace",
+          "desc": "PDFs and digital files can be easily edited or falsified with no visible trace."
+        },
+        {
+          "title": "Verification links often stop working",
+          "desc": "School database validation links decay or break over time when web domains expire."
+        },
+        {
+          "title": "The issuing institution must be contacted manually",
+          "desc": "Manual verifications via emails or phone calls waste hours of administrative labor."
+        },
+        {
+          "title": "The system depends entirely on a private database",
+          "desc": "Private database hacks or crashes can corrupt all validation records permanently."
+        },
+        {
+          "title": "Legal uncertainty about file integrity",
+          "desc": "Without public digital signatures, proving original integrity in court is extremely costly."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "What blockchain brings to certification",
+      "subtitle": "Blockchain solves this problem elegantly and robustly. At Certify, the process works like this:",
+      "cards": [
+        {
+          "title": "Unique Fingerprint",
+          "description": "A cryptographic fingerprint is generated that changes completely if even a single character in the document is altered."
+        },
+        {
+          "title": "Public Record",
+          "description": "That fingerprint is permanently and immutably recorded on a decentralized, public blockchain network."
+        },
+        {
+          "title": "Verification",
+          "description": "Anyone can verify the existence, timestamp, and immutability of the record using standard public on-chain tools."
+        }
+      ],
+      "fundamentalLabel": "Fundamental",
+      "fundamentalText": "Certify does not store documents or personal data on the blockchain. The blockchain only contains a technical proof of integrity, protecting the holder's privacy."
+    },
+    "suitability": {
+      "title": "Not all blockchains are suitable",
+      "subtitle": "For Certify, a certification infrastructure must meet very specific conditions to be considered responsible and professional:",
+      "conditions": [
+        "Public and Verifiable",
+        "Immutability",
+        "Technical Maturity",
+        "Temporal Stability",
+        "Independent Auditing",
+        "Sustainability"
+      ],
+      "whyNotEth": {
+        "title": "Why not Ethereum?",
+        "description": "Ethereum is the reference standard, but its high operating costs (gas fees) make scalability difficult in educational and institutional contexts. It is not the most responsible option for an accessible, low-barrier, and time-sustainable service."
+      },
+      "whyNotNew": {
+        "title": "Why not new networks?",
+        "description": "Experimental networks present risks of instability, centralization, and lesser institutional recognition. In certification, long-term trust and permanence outweigh trendy technological novelty."
+      }
+    },
+    "whyPolygon": {
+      "title": "Why Certify Chose Polygon",
+      "subtitle": "Polygon represents the perfect equilibrium between decentralization, high speed, recognized standards, and minimal costs.",
+      "badge": "Polygon Network Native",
+      "poweredBy": "Powered by Polygon",
+      "items": [
+        {
+          "title": "Transparent verification",
+          "description": "Anyone can verify a Certify record using standard public explorers like Polygonscan, bypassing any proprietary middleman."
+        },
+        {
+          "title": "Sustainable costs",
+          "description": "Allows registering thousands of certifications at micro-cent transaction costs, making the service accessible to all institutions."
+        },
+        {
+          "title": "Recognized standards",
+          "description": "Being fully compatible with the Ethereum Virtual Machine (EVM), it uses formats widely accepted in international auditing and compliance."
+        },
+        {
+          "title": "Institutional reputation",
+          "description": "Trusted and used by multiple global enterprises and governments, conveying unparalleled seriousness and technical stability."
+        },
+        {
+          "title": "Long-term vision",
+          "description": "Has an incredibly active developer community, deep liquidity, and a technological roadmap designed to last for decades."
+        }
+      ]
+    },
+    "commitment": {
+      "quote": "\"Certify uses blockchain as a public verification record, not as a tech trend or a marketing argument.\"",
+      "subtext": "Those who use Certify can rest assured that their certificates are backed by a public, verifiable infrastructure designed to remain trustworthy over time. Polygon officially represents the right balance between trust, stability, and efficiency."
+    }
   }
 }

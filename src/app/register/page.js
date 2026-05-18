@@ -533,7 +533,7 @@ export default function RegisterPage() {
         setSuccess(false);
         setForm(initialForm);
         setTouched({});
-      }, 3000);
+      }, 7000);
     }, 1200);
   };
 

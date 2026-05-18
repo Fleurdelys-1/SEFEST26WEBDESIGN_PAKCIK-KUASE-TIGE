@@ -34,6 +34,7 @@ export default function Footer() {
       { name: t("nav.about"), href: "/#about" },
       { name: t("nav.validate"), href: "/#validation" },
       { name: t("footer.register"), href: "/register" },
+      { name: t("nav.upload") === "nav.upload" ? "Upload" : t("nav.upload"), href: "/upload" },
       { name: t("footer.whyBlockchain") === "footer.whyBlockchain" ? "Why Blockchain?" : t("footer.whyBlockchain"), href: "/whyblockchain" },
     ],
     help: [

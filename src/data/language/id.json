@@ -5,7 +5,8 @@
     "about": "Tentang",
     "faq": "FAQ",
     "contact": "Kontak",
-    "register": "Daftar"
+    "register": "Daftar",
+    "upload": "Unggah"
   },
   "home": {
     "badge": "BARU",
@@ -354,12 +355,12 @@
     "title": "Daftarkan Sertifikat Anda",
     "userInfo": "INFORMASI PENGGUNA",
     "programDetail": "DETAIL PROGRAM",
-    "alreadyHavePdf": "Sudah punya file PDF sertifikat?",
+    "alreadyHavePdf": "Sudah punya file PDF sertifikat dengan ID/Hash?",
     "sending": "MENGIRIM...",
     "sent": "✓ TERKIRIM!",
     "send": "KIRIM",
-    "successTitle": "Pendaftaran berhasil dikirim!",
-    "successSubtitle": "Terima kasih telah mendaftar. Kami akan meninjau detail Anda dan segera menghubungi Anda.",
+    "successTitle": "Registrasi Telah Berhasil!",
+    "successSubtitle": "ID/Hash sudah dikirim lewat email, tolong cek email Anda. Jika sudah memasang ID/Hash di sertifikat, silakan pergi ke form upload.",
     "search": "Cari...",
     "noResults": "Hasil tidak ditemukan",
     "fields": {
@@ -403,6 +404,7 @@
     "backToHome": "Kembali Ke Beranda",
     "title": "Unggah Sertifikat Anda",
     "badge": "VALIDASI SERTIFIKAT",
+    "infoHint": "Catatan: Formulir validasi ini digunakan jika file PDF sertifikat Anda sudah memiliki ID Sertifikat dan SHA-256 Hash. Jika Anda belum memilikinya, silakan daftarkan sertifikat Anda terlebih dahulu.",
     "fields": {
       "idCertificate": "ID Sertifikat",
       "hashSha256": "HASH SHA 256",
@@ -544,5 +546,113 @@
         "content": "Jika Anda memiliki pertanyaan tentang Ketentuan Layanan ini, silakan hubungi kami di: hello@certify.io — Kami bertujuan untuk menanggapi semua pertanyaan dalam waktu 48 jam."
       }
     ]
+  },
+  "whyblockchain": {
+    "backToHome": "Kembali Ke Beranda",
+    "title": "Mengapa Certify Menggunakan Blockchain",
+    "subtitle": "dan mengapa kami memilih Polygon sebagai infrastruktur kepercayaan industri dan akademis kami.",
+    "conviction": {
+      "title": "Keyakinan Kami",
+      "p1": "Di Certify, kami memiliki keyakinan yang jelas: sertifikat digital harus dapat diverifikasi secara independen, sederhana, dan andal — hari ini dan di masa depan.",
+      "p2": "Di dunia di mana dokumen digital dapat dengan mudah disalin, diubah, atau dipalsukan, sertifikasi tradisional yang hanya mengandalkan file PDF atau basis data pribadi tidak lagi cukup. Karena alasan ini, Certify menggabungkan teknologi blockchain sebagai catatan verifikasi publik, yang dipilih dengan cermat dan diterapkan dengan penilaian institusional."
+    },
+    "problem": {
+      "title": "Masalah dengan sertifikat tradisional",
+      "subtitle": "Hari ini, jutaan sertifikat beredar dalam format digital dengan kelemahan mendasar yang sama: tidak ada cara sederhana dan independen untuk memverifikasi bahwa sertifikat tersebut belum diubah.",
+      "items": [
+        {
+          "title": "Sertifikasi dapat diedit tanpa meninggalkan jejak",
+          "desc": "File PDF mudah dimanipulasi tanpa meninggalkan bukti perubahan visual yang jelas."
+        },
+        {
+          "title": "Tautan verifikasi seringkali berhenti berfungsi",
+          "desc": "Link verifikasi ke server sekolah seringkali rusak atau kedaluwarsa setelah beberapa tahun."
+        },
+        {
+          "title": "Institusi penerbit harus dihubungi secara manual",
+          "desc": "Validasi manual via email atau telepon memerlukan waktu lama bagi staf administrasi."
+        },
+        {
+          "title": "Sistem sepenuhnya bergantung pada basis data pribadi",
+          "desc": "Peretasan atau kerusakan server pusat berisiko menghapus riwayat validasi secara permanen."
+        },
+        {
+          "title": "Ketidakpastian hukum tentang integritas file",
+          "desc": "Tanpa bukti digital on-chain, membuktikan keaslian dokumen di pengadilan sangatlah mahal."
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Apa yang dibawa blockchain ke sertifikasi",
+      "subtitle": "Blockchain memecahkan masalah ini secara elegan dan kuat. Di Certify, prosesnya bekerja seperti ini:",
+      "cards": [
+        {
+          "title": "Sidik Jari Unik",
+          "description": "Sidik jari kriptografi dibuat dan akan berubah secara total jika satu karakter saja dalam dokumen tersebut dimodifikasi."
+        },
+        {
+          "title": "Catatan Publik",
+          "description": "Sidik jari tersebut dicatat secara permanen dan tidak dapat diubah di jaringan blockchain publik yang terdesentralisasi."
+        },
+        {
+          "title": "Verifikasi",
+          "description": "Siapa pun dapat memverifikasi keberadaan, stempel waktu, dan ketidakberubahan catatan menggunakan alat on-chain publik standar."
+        }
+      ],
+      "fundamentalLabel": "Penting",
+      "fundamentalText": "Certify tidak menyimpan dokumen atau data pribadi di blockchain. Blockchain hanya berisi bukti integritas teknis, melindungi privasi pemilik."
+    },
+    "suitability": {
+      "title": "Tidak semua blockchain cocok",
+      "subtitle": "Untuk Certify, infrastruktur sertifikasi harus memenuhi kondisi yang sangat spesifik agar dianggap bertanggung jawab dan profesional:",
+      "conditions": [
+        "Publik dan Dapat Diverifikasi",
+        "Imutabilitas",
+        "Kematangan Teknis",
+        "Stabilitas Temporal",
+        "Audit Independen",
+        "Keberlanjutan"
+      ],
+      "whyNotEth": {
+        "title": "Mengapa bukan Ethereum?",
+        "description": "Ethereum adalah standar referensi, tetapi biaya operasionalnya yang tinggi (gas fee) membuat skalabilitas sulit dalam konteks pendidikan dan institusi. Ini bukan pilihan paling bertanggung jawab untuk layanan yang murah dan berkelanjutan."
+      },
+      "whyNotNew": {
+        "title": "Mengapa bukan jaringan baru?",
+        "description": "Jaringan eksperimental menghadirkan risiko ketidakstabilan, sentralisasi, dan pengakuan institusional yang lebih rendah. Dalam sertifikasi, kepercayaan jangka panjang lebih penting daripada tren teknologi baru."
+      }
+    },
+    "whyPolygon": {
+      "title": "Mengapa Certify Memilih Polygon",
+      "subtitle": "Polygon mewakili keseimbangan sempurna antara desentralisasi, kecepatan tinggi, standar yang diakui, dan biaya minimal.",
+      "badge": "Native Jaringan Polygon",
+      "poweredBy": "Didukung oleh Polygon",
+      "items": [
+        {
+          "title": "Verifikasi transparan",
+          "description": "Siapa pun dapat memverifikasi catatan Certify menggunakan penjelajah publik standar seperti Polygonscan, tanpa perantara."
+        },
+        {
+          "title": "Biaya yang berkelanjutan",
+          "description": "Memungkinkan pendaftaran ribuan sertifikat dengan biaya transaksi mikro-sen, membuat layanan ini dapat diakses oleh semua institusi."
+        },
+        {
+          "title": "Standar yang diakui",
+          "description": "Kompatibel dengan Ethereum Virtual Machine (EVM), menggunakan format yang diterima secara luas dalam audit dan kepatuhan internasional."
+        },
+        {
+          "title": "Reputasi institusional",
+          "description": "Dipercaya dan digunakan oleh banyak perusahaan global dan pemerintah, menyampaikan keseriusan dan stabilitas teknis yang tak tertandingi."
+        },
+        {
+          "title": "Visi jangka panjang",
+          "description": "Memiliki komunitas pengembang yang sangat aktif, likuiditas dalam, dan peta jalan teknologi yang dirancang untuk bertahan beberapa dekade."
+        }
+      ]
+    },
+    "commitment": {
+      "quote": "\"Certify menggunakan blockchain sebagai catatan verifikasi publik, bukan sebagai tren teknologi atau argumen pemasaran.\"",
+      "subtext": "Mereka yang menggunakan Certify dapat yakin bahwa sertifikat mereka didukung oleh infrastruktur publik yang dapat diverifikasi yang dirancang untuk tetap dapat dipercaya dari waktu ke waktu. Polygon resmi mewakili keseimbangan yang tepat antara kepercayaan, stabilitas, dan efisiensi."
+    }
   }
 }
