@@ -1,90 +1,132 @@
-# Certify — Platform Verifikasi Kredensial Berbasis Blockchain Polygon
+# certift - the future of certificate verification
 
-Certify adalah platform verifikasi sertifikat digital terdesentralisasi yang memanfaatkan infrastruktur blockchain **Polygon** untuk menjamin keaslian dan integritas dokumen secara instan, aman, dan efisien secara biaya. Dengan mengamankan hash sidik jari (*cryptographic signature*) dokumen secara langsung ke on-chain ledger, Certify mencegah segala bentuk pemalsuan kredensial dan memangkas waktu proses verifikasi dari berhari-hari menjadi sekian detik.
+![Certify Hero](./public/images/home.png)
 
----
-
-## 🔒 Mengapa Blockchain Polygon?
-
-Untuk menjamin skalabilitas dan efisiensi dalam verifikasi sertifikat digital, Certify mengintegrasikan jaringan blockchain **Polygon (MATIC)** sebagai fondasi penulisan bukti transaksi (*Proof of Existence*):
-- **Efisiensi Biaya Gas**: Polygon memungkinkan pencatatan sidik jari (*hash*) sertifikat dengan biaya transaksi yang sangat minim dibandingkan mainnet Ethereum, membuatnya ideal untuk volume publikasi massal oleh institusi akademis atau korporasi.
-- **Waktu Finalitas Instan**: Validasi transaksi on-chain terjadi dalam hitungan detik, memastikan respons verifikasi real-time tanpa penundaan.
-- **Keamanan Terdesentralisasi**: Sebagai layer-2 Ethereum, Polygon mewarisi standar keamanan tinggi namun dengan skalabilitas yang jauh lebih superior.
+Certify adalah platform verifikasi kredensial terdesentralisasi yang mengintegrasikan jaringan blockchain Polygon untuk memastikan keaslian, integritas, dan transparansi dokumen digital secara instan. Dengan mengamankan cryptographic signature (hash SHA-256) dokumen secara on-chain, Certify menawarkan proteksi mutlak terhadap pemalsuan sertifikat serta meniadakan kebutuhan akan verifikasi manual yang lambat dan rentan kesalahan.
 
 ---
 
-## 🛠️ Alur Kerja & Mekanisme Verifikasi
+## 🔄 Alur Kerja Sistem (System Workflow)
 
-Certify bekerja dengan pendekatan *zero-trust* di mana dokumen asli tidak pernah dikirimkan atau disimpan ke dalam server eksternal demi menjaga kerahasiaan data pengguna:
+Platform ini mengadopsi mekanisme verifikasi end-to-end yang aman dan terdistribusi. Berikut adalah alur kerja operasional dari penerbitan hingga validasi sertifikat:
+
 ```
-1. Dokumen PDF / Kredensial ──> Dihitung Hash Kriptografisnya (SHA-256) di Sisi Klien (Browser)
-2. ID / Hash Dicocokkan ──> Query On-Chain Terhadap Smart Contract di Jaringan Polygon
-3. Hasil Verifikasi ──> Menampilkan Audit Trail Lengkap (Issuer, Recipient, & Bukti Transaksi)
+[1. Registrasi] ──> Input Data Kredensial & Terbitkan hash ke Blockchain Polygon
+       │
+[2. Notifikasi] ──> Sistem mengirimkan Certificate ID & Transaction Hash via Email
+       │
+[3. Penyematan] ──> Penerbit menempelkan ID & Hash ke Sertifikat, lalu diekspor sebagai PDF
+       │
+[4. Pengunggahan] ──> Verifikator mengunggah PDF sertifikat & input kredensial ke Form Validasi
+       │
+[5. Validasi]   ──> PDF.js mengekstrak metadata untuk dicocokkan dengan data On-Chain
 ```
+
+### Penjelasan Detil Alur Kerja:
+
+1. **Registrasi & Input Data**:
+   Institusi penerbit mendaftarkan kredensial baru melalui dashboard dengan menginput rincian data sertifikat (seperti nama penerima, kompetensi, instansi penerbit, dan tanggal kelulusan). Sistem secara otomatis menghasilkan *Certificate ID* unik dan mencatatkan bukti digital (*cryptographic signature* berupa SHA-256 hash) ke dalam smart contract di jaringan Polygon.
+   
+2. **Pengiriman Kredensial via Email**:
+   Setelah pencatatan transaksi on-chain selesai, sistem secara otomatis mengirimkan rincian kredensial utama (terdiri atas **Certificate ID** dan **Transaction Hash**) ke alamat email terdaftar institusi atau penerima sebagai notifikasi resmi dan salinan arsip digital awal.
+
+3. **Penyematan Kredensial ke File PDF**:
+   Penerbit mengintegrasikan detail **Certificate ID** dan **Transaction Hash** ke dalam desain fisik/visual sertifikat (dapat berupa teks terformat atau disandikan dalam kode QR unik). Sertifikat kemudian diekspor ke dalam format dokumen **PDF** standar.
+
+4. **Pengunggahan & Form Validasi**:
+   Untuk membuktikan keaslian dokumen, verifikator atau pemegang dokumen mengunggah file PDF sertifikat tersebut ke dalam form upload yang disediakan di platform Certify pada fitur validasi, kemudian memasukkan kredensial (ID/hash) yang tertera.
+
+5. **Validasi Kriptografis Sisi Klien (Client-side Cross-Validation)**:
+   Menggunakan pustaka `PDF.js`, platform Certify melakukan ekstraksi metadata dari file PDF langsung di browser (tanpa perlu mengunggah file ke server eksternal, menjaga privasi 100%). Sistem mencocokkan data terdistribusi di blockchain Polygon berdasarkan Certificate ID / Hash yang dimasukkan. Jika data on-chain cocok dengan signature file PDF, sertifikat dinyatakan **Sah, Asli, dan Bebas Manipulasi**.
 
 ---
 
-## 🚀 Fitur Utama
+## 🔒 Infrastruktur Blockchain Polygon
 
-- **Validasi Multi-Saluran (Multi-Channel Verification)**:
-  - **Pencarian Manual**: Verifikasi instan menggunakan *Certificate ID* atau *Transaction Hash* Polygon.
-  - **Pemindai QR Code**: Menggunakan kamera perangkat untuk memindai kode QR unik pada sertifikat cetak/digital.
-  - **Validasi PDF Sisi Klien**: Deteksi keaslian file PDF langsung di browser melalui ekstraksi metadata tanpa mengunggah dokumen ke server.
-- **Transparansi Jejak Audit (Audit Trail)**: Menampilkan detail transaksi blockchain secara langsung (TX A untuk validasi identitas institusi penerbit dan TX B untuk integritas konten dokumen asli).
-- **Lokalisasi Multibahasa Terintegrasi**: Mendukung pergantian bahasa dinamis (English, Indonesia, Mandarin, French, German, Korean, Japanese).
-- **Antarmuka Premium (Liquid Glass)**: Didesain menggunakan estetika *glassmorphism* modern dengan transisi mikro bertenaga Framer Motion.
+Untuk menjamin keandalan berskala enterprise, Certify memanfaatkan jaringan **Polygon (L2 Ethereum)** sebagai basis pencatatan bukti keberadaan (*Proof of Existence*):
+* **Biaya Transaksi Efisien**: Polygon memangkas biaya gas secara signifikan dibandingkan mainnet Ethereum, memungkinkan penerbitan kredensial massal oleh institusi akademis atau korporasi dengan efisiensi biaya optimal.
+* **Finalitas Transaksi Instan**: Waktu konfirmasi blok rata-rata kurang dari 2 detik memastikan verifikasi real-time tanpa latensi tinggi.
+* **Keamanan Maksimal**: Mengandalkan sistem keamanan terdesentralisasi Ethereum L1 sambil mempertahankan skalabilitas tinggi L2.
+
+---
+
+## 🛠️ Fitur Unggulan
+
+* **Validasi Multi-Saluran (Multi-Channel Verification)**:
+  * **Pencarian Manual**: Pencarian langsung status kredensial menggunakan *Certificate ID* atau *Transaction Hash*.
+  * **Pemindai QR Code Terintegrasi**: Pindai QR Code pada sertifikat fisik/digital melalui kamera perangkat untuk auto-verifikasi instan.
+  * **Validasi PDF Sisi Klien**: Autentikasi file PDF langsung di browser melalui pembacaan metadata lokal tanpa kebocoran data ke server.
+* **Jejak Audit Transparan (Audit Trail)**: Menyajikan data on-chain lengkap secara detail, meliputi identitas *Issuer*, *Recipient*, timestamp transaksi, serta link explorer PolygonScan.
+* **Lokalisasi Multibahasa Terintegrasi**: Sistem pergantian bahasa real-time yang mendukung berbagai bahasa global (Indonesia, Inggris, Mandarin, Prancis, Jerman, Korea, dan Jepang).
+* **Desain UI Liquid Glass Premium**: Antarmuka berbasis *glassmorphism* modern, transisi mikro yang mulus bertenaga Framer Motion, dan visualisasi latar belakang interaktif berbasis Three.js/WebGL.
 
 ---
 
 ## 💻 Stack Teknologi & Arsitektur
 
-- **Frontend & Routing**: [Next.js](https://nextjs.org/) (React) untuk performa rendering optimal.
-- **Manajemen State**: React Context API (`LanguageContext.js`) untuk kontrol lokalisasi dan state UI dinamis.
-- **Bahasa & Pemrosesan PDF**: [PDF.js](https://mozilla.github.io/pdf.js/) untuk memproses dokumen langsung di peramban secara aman.
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) dikombinasikan dengan [Framer Motion](https://www.framer.com/motion/) untuk animasi transisi halus.
-- **Kriptografi & Blockchain**: Verifikasi hash sidik jari yang dijangkar (*anchored*) pada jaringan **Polygon**.
+* **Framework & Routing**: [Next.js](https://nextjs.org/) (React 19) untuk performa optimal dan SEO-friendly.
+* **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) dengan modul animasi terintegrasi.
+* **Animasi & Transisi**: [Framer Motion](https://www.framer.com/motion/) untuk interaksi mikro dan fluiditas antarmuka.
+* **Pemrosesan PDF**: [PDF.js](https://mozilla.github.io/pdf.js/) untuk ekstraksi dan verifikasi metadata PDF di sisi klien.
+* **Grafis Latar Belakang**: [Three.js](https://threejs.org/) untuk visualisasi grid kriptografis interaktif WebGL.
+* **Global State & Lokalisasi**: React Context API (`LanguageContext.js`) untuk manajemen bahasa dinamis.
 
 ---
 
 ## 📁 Struktur Folder Proyek
 
-* [`src/app/`](file:///c:/_lomba/certify/src/app) — Halaman utama dan routing Next.js.
-* [`src/components/home/`](file:///c:/_lomba/certify/src/components/home) — Komponen Landing Page & Hero Section.
-* [`src/components/about/`](file:///c:/_lomba/certify/src/components/about) — Komponen Alur Kerja & Statistik Pencapaian.
-* [`src/components/validation/`](file:///c:/_lomba/certify/src/components/validation) — Modul inti validasi (QR Scanner, PDF Parser, Manual Search).
-* [`src/context/`](file:///c:/_lomba/certify/src/context) — Global State Management & Language Context.
-* [`src/data/`](file:///c:/_lomba/certify/src/data) — Direktori penyimpanan data statis pendukung seperti contoh metadata sertifikat (`certificate.json`).
-* [`src/data/language/`](file:///c:/_lomba/certify/src/data/language) — Berkas lokalisasi bahasa terjemahan ([en.json](file:///c:/_lomba/certify/src/data/language/en.json), [id.json](file:///c:/_lomba/certify/src/data/language/id.json), [zh.json](file:///c:/_lomba/certify/src/data/language/zh.json), dsb.).
-* [`src/lib/utils.js`](file:///c:/_lomba/certify/src/lib/utils.js) — Utilitas pemrosesan data sertifikat & format timestamp.
+* [`src/app/`](file:///c:/_lomba/certify/src/app) — Halaman utama, router dinamis, dan layout global.
+* [`src/components/home/`](file:///c:/_lomba/certify/src/components/home) — Landing Page, Hero Section, dan interaksi visual 3D.
+* [`src/components/about/`](file:///c:/_lomba/certify/src/components/about) — Ilustrasi alur kerja sistem, statistik, dan panduan fitur.
+* [`src/components/validation/`](file:///c:/_lomba/certify/src/components/validation) — Modul utama verifikasi (Form Input Manual, Modul Drop PDF, QR Scanner).
+* [`src/context/`](file:///c:/_lomba/certify/src/context) — Manajemen state bahasa global (`LanguageContext.js`).
+* [`src/data/`](file:///c:/_lomba/certify/src/data) — Berkas data statis (`certificate.json`).
+* [`src/data/language/`](file:///c:/_lomba/certify/src/data/language) — Sumber daya lokalisasi multibahasa (`en.json`, `id.json`, `zh.json`, dll.).
+* [`src/lib/utils.js`](file:///c:/_lomba/certify/src/lib/utils.js) — Utilitas kriptografis, formatting waktu, pencarian data, dan helper PDF.
 
 ---
 
 ## ⚙️ Panduan Instalasi & Pengembangan Lokal
 
 ### Prasyarat Sistem
-- **Node.js** versi `18.x` atau versi terbaru (`20.x LTS` sangat direkomendasikan).
-- **Package Manager**: `npm` atau `yarn`.
+* **Node.js** versi `18.x` atau yang terbaru (`20.x LTS` direkomendasikan).
+* **Package Manager**: `npm` atau `yarn`.
 
 ### Langkah-Langkah Pemasangan
+
 1. **Clone Repositori**:
    ```bash
    git clone https://github.com/Fleurdelys-1/SEFEST26WEBDESIGN_PAKCIK-KUASE-TIGE.git
    cd SEFEST26WEBDESIGN_PAKCIK-KUASE-TIGE
    ```
-2. **Instalasi Dependensi**:
+
+2. **Instal Dependensi**:
    ```bash
    npm install
    ```
+
 3. **Jalankan Server Lokal**:
    ```bash
    npm run dev
    ```
-   Aplikasi akan dapat diakses secara lokal pada tautan: `http://localhost:3000`
+   Aplikasi dapat diakses secara lokal melalui peramban di: `http://localhost:3000`
 
 4. **Build untuk Produksi**:
    ```bash
    npm run build
    npm run start
    ```
+
+---
+
+## 👥 Kontributor Proyek
+
+Proyek ini dirancang dan didevelop secara kolaboratif oleh tim **PAKCIK KUASE TIGE**:
+
+| Kontributor | Kontribusi Utama | Kontak / Email |
+| :--- | :--- | :--- |
+| **AFIF ASMALENDRA PUTRA** | Core Architecture, Frontend Development, UI/UX Animations | [whriotesley@gmail.com](mailto:whriotesley@gmail.com) |
+| **xfar05** | Blockchain Integration, Logic Validation, Feature Integration | [xfarstore2@gmail.com](mailto:xfarstore2@gmail.com) |
+| **P0Ci** | Data Management, State Context, Localization System | [febriandry58@gmail.com](mailto:febriandry58@gmail.com) |
 
 ---
