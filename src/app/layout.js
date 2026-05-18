@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${outfit.variable} ${outfitMono.variable} h-full antialiased`}
+      className={`${poppins.variable} ${outfit.variable} ${outfitMono.variable} antialiased`}
     >
       <body className="min-h-screen flex flex-col relative overflow-x-hidden">
         <LanguageProvider>
