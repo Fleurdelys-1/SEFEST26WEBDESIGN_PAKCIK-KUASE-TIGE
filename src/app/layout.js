@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-screen flex flex-col relative overflow-x-hidden">
         <LanguageProvider>
-          <div className="fixed inset-0 -z-10">
+          <div className="fixed inset-0 -z-10" style={{ transform: 'translateZ(0)', willChange: 'transform' }}>
             <FloatingLines
               enabledWaves={["top", "middle", "bottom"]}
               lineCount={8}

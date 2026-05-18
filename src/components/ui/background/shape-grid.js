@@ -206,8 +206,16 @@ const ShapeGrid = ({
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     };
 
-    const updateAnimation = () => {
-      const effectiveSpeed = Math.max(speed, 0.1);
+    let lastTime = 0;
+    const updateAnimation = (time) => {
+      const isMobile = window.innerWidth < 768;
+      if (isMobile && time - lastTime < 1000 / 30) {
+        requestRef.current = requestAnimationFrame(updateAnimation);
+        return;
+      }
+      lastTime = time;
+
+      const effectiveSpeed = Math.max(isMobile ? speed * 0.5 : speed, 0.1);
       const wrapX = isHex ? hexHoriz * 2 : squareSize;
       const wrapY = isHex ? hexVert : isTri ? squareSize * 2 : squareSize;
 

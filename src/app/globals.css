@@ -202,6 +202,10 @@ body {
 
 body {
   overflow-y: scroll;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100vw;
+  overscroll-behavior-y: none;
 }
 
 
@@ -299,9 +303,27 @@ body {
 
 html {
   scroll-behavior: smooth;
-  
   scrollbar-color: #00B7B5 rgba(0, 0, 0, 0.3);
   scrollbar-width: thin;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100vw;
+}
+
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .backdrop-blur-xl, .backdrop-blur-md, .backdrop-blur-lg, .backdrop-blur-sm, [class*="backdrop-blur"] {
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+  }
+
+  [style*="backdrop-filter"] {
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+  }
 }
 
 

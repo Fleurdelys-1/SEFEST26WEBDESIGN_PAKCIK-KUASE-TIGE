@@ -132,7 +132,7 @@ export default function UploadPage() {
   const labelClass = "flex flex-col text-[10px] sm:text-[11px] text-[#F4F4F4]/60 font-medium tracking-wide";
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 pt-28 pb-10 lg:pb-36 bg-transparent relative">
+    <div className="min-h-screen flex flex-col items-center justify-start px-4 pt-28 pb-10 lg:pb-36 bg-transparent relative">
       {/* Back link */}
       <div className="w-full max-w-3xl flex items-start mb-3">
         <Link

@@ -347,7 +347,8 @@
     "documentation": "Documentation",
     "support": "Support",
     "platform": "Platform",
-    "help": "Help"
+    "help": "Help",
+    "whyBlockchain": "Why Blockchain?"
   },
   "register": {
     "backToHome": "Back To Home",

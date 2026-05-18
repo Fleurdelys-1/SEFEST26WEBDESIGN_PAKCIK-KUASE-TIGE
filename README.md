@@ -88,6 +88,3 @@ Certify bekerja dengan pendekatan *zero-trust* di mana dokumen asli tidak pernah
    ```
 
 ---
-
-## 📄 Lisensi
-Platform Certify dilisensikan di bawah lisensi **MIT**. Untuk detail selengkapnya silakan merujuk pada berkas [LICENSE](LICENSE).

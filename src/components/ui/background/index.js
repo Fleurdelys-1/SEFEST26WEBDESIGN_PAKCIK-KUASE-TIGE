@@ -268,9 +268,13 @@ export default function FloatingLines({
     return lineDistance[index] ?? 0.1;
   };
 
-  const topLineCount = enabledWaves.includes('top') ? getLineCount('top') : 0;
-  const middleLineCount = enabledWaves.includes('middle') ? getLineCount('middle') : 0;
-  const bottomLineCount = enabledWaves.includes('bottom') ? getLineCount('bottom') : 0;
+  const getMobileReducedCount = (count) => {
+    return typeof window !== 'undefined' && window.innerWidth < 768 ? Math.max(1, Math.floor(count / 2)) : count;
+  };
+
+  const topLineCount = enabledWaves.includes('top') ? getMobileReducedCount(getLineCount('top')) : 0;
+  const middleLineCount = enabledWaves.includes('middle') ? getMobileReducedCount(getLineCount('middle')) : 0;
+  const bottomLineCount = enabledWaves.includes('bottom') ? getMobileReducedCount(getLineCount('bottom')) : 0;
 
   const topLineDistance = enabledWaves.includes('top') ? getLineDistance('top') * 0.01 : 0.01;
   const middleLineDistance = enabledWaves.includes('middle') ? getLineDistance('middle') * 0.01 : 0.01;
@@ -424,12 +428,21 @@ export default function FloatingLines({
     }
 
     let raf = 0;
-    const renderLoop = () => {
+    let lastTime = 0;
+    const renderLoop = (time) => {
       if (!active) return;
+      
+      const isMobile = window.innerWidth < 768;
+      if (isMobile && time - lastTime < 1000 / 30) {
+        raf = requestAnimationFrame(renderLoop);
+        return;
+      }
+      lastTime = time;
 
-      uniforms.iTime.value = clock.getElapsedTime();
+      const currentAnimationSpeed = isMobile ? animationSpeed * 0.4 : animationSpeed;
+      uniforms.iTime.value = clock.getElapsedTime() * currentAnimationSpeed / animationSpeed;
 
-      if (interactive) {
+      if (interactive && !isMobile) {
         currentMouseRef.current.lerp(targetMouseRef.current, mouseDamping);
         uniforms.iMouse.value.copy(currentMouseRef.current);
 
@@ -437,7 +450,7 @@ export default function FloatingLines({
         uniforms.bendInfluence.value = currentInfluenceRef.current;
       }
 
-      if (parallax) {
+      if (parallax && !isMobile) {
         currentParallaxRef.current.lerp(targetParallaxRef.current, mouseDamping);
         uniforms.parallaxOffset.value.copy(currentParallaxRef.current);
       }
@@ -445,7 +458,7 @@ export default function FloatingLines({
       renderer.render(scene, camera);
       raf = requestAnimationFrame(renderLoop);
     };
-    renderLoop();
+    renderLoop(0);
 
     return () => {
       active = false;

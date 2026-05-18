@@ -708,7 +708,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 pt-28 pb-8 bg-transparent relative">
+    <div className="min-h-screen flex flex-col items-center justify-start px-4 pt-28 pb-8 bg-transparent relative overflow-x-hidden w-full">
       <div className="w-full max-w-6xl flex items-start mb-3">
         <Link
           href="/"
