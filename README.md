@@ -1,100 +1,93 @@
-# Certify — Decentralized & Tamper-Proof Certificate Verification Platform
+# Certify — Platform Verifikasi Kredensial Berbasis Blockchain Polygon
 
-![Certify Home Screenshot](public/images/home.png)
-
-**Certify** adalah platform verifikasi sertifikat digital berbasis blockchain kelas enterprise yang dirancang untuk menghadirkan keamanan mutlak, transparansi tanpa batas, dan validasi instan. Dengan mengintegrasikan keunggulan kriptografi modern dan sistem terdesentralisasi, Certify memecahkan masalah klasik manipulasi kredensial serta meminimalkan proses audit administratif bagi institusi akademis, korporasi global, dan lembaga sertifikasi profesional.
+Certify adalah platform verifikasi sertifikat digital terdesentralisasi yang memanfaatkan infrastruktur blockchain **Polygon** untuk menjamin keaslian dan integritas dokumen secara instan, aman, dan efisien secara biaya. Dengan mengamankan hash sidik jari (*cryptographic signature*) dokumen secara langsung ke on-chain ledger, Certify mencegah segala bentuk pemalsuan kredensial dan memangkas waktu proses verifikasi dari berhari-hari menjadi sekian detik.
 
 ---
 
-## 🌟 Nilai Unggul & Solusi
+## 🔒 Mengapa Blockchain Polygon?
 
-Dalam era transformasi digital, pemalsuan sertifikat, kredensial, dan dokumen lisensi masih menjadi celah keamanan kritis yang berisiko merusak reputasi institusi. Certify mengeliminasi risiko tersebut melalui arsitektur zero-trust:
+Untuk menjamin skalabilitas dan efisiensi dalam verifikasi sertifikat digital, Certify mengintegrasikan jaringan blockchain **Polygon (MATIC)** sebagai fondasi penulisan bukti transaksi (*Proof of Existence*):
+- **Efisiensi Biaya Gas**: Polygon memungkinkan pencatatan sidik jari (*hash*) sertifikat dengan biaya transaksi yang sangat minim dibandingkan mainnet Ethereum, membuatnya ideal untuk volume publikasi massal oleh institusi akademis atau korporasi.
+- **Waktu Finalitas Instan**: Validasi transaksi on-chain terjadi dalam hitungan detik, memastikan respons verifikasi real-time tanpa penundaan.
+- **Keamanan Terdesentralisasi**: Sebagai layer-2 Ethereum, Polygon mewarisi standar keamanan tinggi namun dengan skalabilitas yang jauh lebih superior.
 
-1. **Keamanan Kriptografi (Tamper-Proof)**: Setiap sertifikat digital dijangkar (*anchored*) secara kriptografis menggunakan algoritma hashing satu arah yang aman. Begitu informasi tercatat di ledger blockchain, data tersebut menjadi kekal dan mustahil dimanipulasi oleh pihak manapun.
-2. **Penyimpanan Terdesentralisasi & Independen**: Verifikasi kredensial tidak bergantung pada satu basis data pusat tunggal (*single point of failure*), melainkan diverifikasi secara langsung terhadap record on-chain yang terdistribusi dan tepercaya.
-3. **Privasi Tingkat Tinggi (Zero-Knowledge Validation)**: Dokumen asli yang diunggah diproses sepenuhnya di browser pengguna. Metadata sertifikat divalidasi tanpa perlu mengirimkan isi dokumen sensitif ke server eksternal.
+---
+
+## 🛠️ Alur Kerja & Mekanisme Verifikasi
+
+Certify bekerja dengan pendekatan *zero-trust* di mana dokumen asli tidak pernah dikirimkan atau disimpan ke dalam server eksternal demi menjaga kerahasiaan data pengguna:
+```
+1. Dokumen PDF / Kredensial ──> Dihitung Hash Kriptografisnya (SHA-256) di Sisi Klien (Browser)
+2. ID / Hash Dicocokkan ──> Query On-Chain Terhadap Smart Contract di Jaringan Polygon
+3. Hasil Verifikasi ──> Menampilkan Audit Trail Lengkap (Issuer, Recipient, & Bukti Transaksi)
+```
 
 ---
 
 ## 🚀 Fitur Utama
 
-### 1. **Sistem Validasi Multi-Saluran (Multi-Channel Verification)**
-* **Manual Verification**: Validasi status sertifikat seketika dengan memasukkan Certificate ID atau Transaction Hash unik.
-* **Auto-QR Scanner**: Cukup pindai kode QR yang tertera pada sertifikat cetak maupun digital menggunakan kamera perangkat seluler untuk proses otentikasi tanpa hambatan.
-* **Client-Side PDF Validator**: Unggah file PDF sertifikat secara langsung. Aplikasi secara otomatis melakukan ekstraksi teks serta metadata secara cerdas di sisi klien untuk mencocokkan tanda tangan kriptografinya.
-
-### 2. **Jejak Audit Blockchain yang Transparan (Audit Trail)**
-* Setiap hasil penelusuran menyajikan detail otentikasi komprehensif, meliputi status validitas (Valid/Invalid), tanggal penerbitan, tanggal kedaluwarsa, identitas institusi penerbit (*Issuer*), nama penerima, serta bukti transaksi blockchain (*Proof of Existence*).
-
-### 3. **UI/UX Premium dengan Liquid-Glass Aesthetic**
-* Desain antarmuka modern yang memukau mengadopsi gaya *glassmorphism* futuristik dengan transisi mikro super halus bertenaga **Framer Motion**, serta responsivitas tinggi di berbagai resolusi layar (Mobile, Tablet, dan Desktop).
-
-### 4. **Dukungan Internasionalisasi Dinamis**
-* Sistem terjemahan multibahasa terintegrasi penuh yang mendukung bahasa Inggris, Indonesia, dan Mandarin untuk memfasilitasi kebutuhan verifikasi lintas batas negara di tingkat global.
+- **Validasi Multi-Saluran (Multi-Channel Verification)**:
+  - **Pencarian Manual**: Verifikasi instan menggunakan *Certificate ID* atau *Transaction Hash* Polygon.
+  - **Pemindai QR Code**: Menggunakan kamera perangkat untuk memindai kode QR unik pada sertifikat cetak/digital.
+  - **Validasi PDF Sisi Klien**: Deteksi keaslian file PDF langsung di browser melalui ekstraksi metadata tanpa mengunggah dokumen ke server.
+- **Transparansi Jejak Audit (Audit Trail)**: Menampilkan detail transaksi blockchain secara langsung (TX A untuk validasi identitas institusi penerbit dan TX B untuk integritas konten dokumen asli).
+- **Lokalisasi Multibahasa Terintegrasi**: Mendukung pergantian bahasa dinamis (English, Indonesia, Mandarin, French, German, Korean, Japanese).
+- **Antarmuka Premium (Liquid Glass)**: Didesain menggunakan estetika *glassmorphism* modern dengan transisi mikro bertenaga Framer Motion.
 
 ---
 
-## 🛠️ Stack Teknologi
+## 💻 Stack Teknologi & Arsitektur
 
-Certify dibangun di atas ekosistem pengembangan web modern dengan fokus pada performa unggul, aksesibilitas, dan standar keamanan tinggi:
-
-* **Framework Utama**: [Next.js](https://nextjs.org/) (React) untuk Server-Side Rendering (SSR), performa optimal, serta keunggulan penjelajahan SEO.
-* **Desain & Animasi**: [Tailwind CSS](https://tailwindcss.com/) untuk sistem desain modern yang konsisten, berpadu dengan [Framer Motion](https://www.framer.com/motion/) untuk interaksi UI yang dinamis dan hidup.
-* **Pemrosesan Dokumen**: [PDF.js](https://mozilla.github.io/pdf.js/) (`pdfjs-dist`) untuk mengurai data PDF langsung di dalam browser secara aman tanpa server backend.
-* **Manajemen Ikon**: [Lucide React](https://lucide.dev/) & [Phosphor Icons](https://phosphoricons.com/) untuk aset visual yang tajam dan responsif.
-
----
-
-## 📁 Struktur Proyek & Komponen Utama
-
-Arsitektur aplikasi terstruktur secara modular untuk menjamin kemudahan pemeliharaan (*maintainability*) dan skalabilitas jangka panjang:
-
-* [`src/app/page.js`](file:///c:/_lomba/certify/src/app/page.js) — Landing page utama yang mengintegrasikan seluruh modul alur kerja aplikasi secara dinamis.
-* [`src/components/validation`](file:///c:/_lomba/certify/src/components/validation) — Inti modul mesin validasi, mencakup logika pencarian manual, parser dokumen PDF, pemindai QR, dan tampilan sertifikat terverifikasi.
-* [`src/components/home`](file:///c:/_lomba/certify/src/components/home) — Section Hero interaktif yang mengenalkan proposisi nilai platform.
-* [`src/components/about`](file:///c:/_lomba/certify/src/components/about) — Modul visualisasi statistik pencapaian, alur kerja blockchain, dan kredibilitas data.
-* [`src/data/`](file:///c:/_lomba/certify/src/data) — Direktori penyimpanan data statis pendukung, contoh metadata sertifikat, serta berkas lokalisasi bahasa ([en.json](file:///c:/_lomba/certify/src/data/en.json), [id.json](file:///c:/_lomba/certify/src/data/id.json), [zh.json](file:///c:/_lomba/certify/src/data/zh.json)).
-* [`src/context/`](file:///c:/_lomba/certify/src/context) — Pengelola state global aplikasi (Global State Management) untuk menangani navigasi gulir dinamis dan lokalisasi bahasa aktif.
+- **Frontend & Routing**: [Next.js](https://nextjs.org/) (React) untuk performa rendering optimal.
+- **Manajemen State**: React Context API (`LanguageContext.js`) untuk kontrol lokalisasi dan state UI dinamis.
+- **Bahasa & Pemrosesan PDF**: [PDF.js](https://mozilla.github.io/pdf.js/) untuk memproses dokumen langsung di peramban secara aman.
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) dikombinasikan dengan [Framer Motion](https://www.framer.com/motion/) untuk animasi transisi halus.
+- **Kriptografi & Blockchain**: Verifikasi hash sidik jari yang dijangkar (*anchored*) pada jaringan **Polygon**.
 
 ---
 
-## 💻 Panduan Instalasi & Pengembangan Lokal
+## 📁 Struktur Folder Proyek
 
-Ikuti langkah-langkah di bawah ini untuk memasang dan menjalankan salinan platform Certify pada lingkungan lokal Anda untuk keperluan pengembangan atau tinjauan kode.
+* [`src/app/`](file:///c:/_lomba/certify/src/app) — Halaman utama dan routing Next.js.
+* [`src/components/home/`](file:///c:/_lomba/certify/src/components/home) — Komponen Landing Page & Hero Section.
+* [`src/components/about/`](file:///c:/_lomba/certify/src/components/about) — Komponen Alur Kerja & Statistik Pencapaian.
+* [`src/components/validation/`](file:///c:/_lomba/certify/src/components/validation) — Modul inti validasi (QR Scanner, PDF Parser, Manual Search).
+* [`src/context/`](file:///c:/_lomba/certify/src/context) — Global State Management & Language Context.
+* [`src/data/`](file:///c:/_lomba/certify/src/data) — Direktori penyimpanan data statis pendukung seperti contoh metadata sertifikat (`certificate.json`).
+* [`src/data/language/`](file:///c:/_lomba/certify/src/data/language) — Berkas lokalisasi bahasa terjemahan ([en.json](file:///c:/_lomba/certify/src/data/language/en.json), [id.json](file:///c:/_lomba/certify/src/data/language/id.json), [zh.json](file:///c:/_lomba/certify/src/data/language/zh.json), dsb.).
+* [`src/lib/utils.js`](file:///c:/_lomba/certify/src/lib/utils.js) — Utilitas pemrosesan data sertifikat & format timestamp.
+
+---
+
+## ⚙️ Panduan Instalasi & Pengembangan Lokal
 
 ### Prasyarat Sistem
-* **Node.js** versi `18.x` atau yang terbaru (Direkomendasikan menggunakan versi `20.x LTS`).
-* **Package Manager**: `npm` (bawaan dari instalasi Node.js) atau alternatif seperti `yarn` / `pnpm`.
-* Browser modern dengan dukungan HTML5, CSS3, dan JavaScript modern (ES6+).
+- **Node.js** versi `18.x` atau versi terbaru (`20.x LTS` sangat direkomendasikan).
+- **Package Manager**: `npm` atau `yarn`.
 
-### Langkah Memulai Pengembangan
-
-1. **Salin Repositori**
+### Langkah-Langkah Pemasangan
+1. **Clone Repositori**:
    ```bash
-   git clone <repository-url>
-   cd certify
+   git clone https://github.com/Fleurdelys-1/SEFEST26WEBDESIGN_PAKCIK-KUASE-TIGE.git
+   cd SEFEST26WEBDESIGN_PAKCIK-KUASE-TIGE
    ```
-
-2. **Pasang Dependensi Dependen**
+2. **Instalasi Dependensi**:
    ```bash
    npm install
    ```
-
-3. **Jalankan Server Pengembangan Lokal**
+3. **Jalankan Server Lokal**:
    ```bash
    npm run dev
    ```
-   Aplikasi akan mulai berjalan di portal `http://localhost:3000`. Buka tautan tersebut di peramban web Anda.
+   Aplikasi akan dapat diakses secara lokal pada tautan: `http://localhost:3000`
 
-4. **Kompilasi Siap Produksi**
-   Guna mengemas aplikasi menjadi berkas teroptimasi tinggi untuk lingkungan produksi:
+4. **Build untuk Produksi**:
    ```bash
    npm run build
-   npm start
+   npm run start
    ```
 
 ---
 
 ## 📄 Lisensi
-
-Platform Certify dilisensikan di bawah ketentuan **MIT License** - silakan baca berkas [LICENSE](LICENSE) untuk informasi hak cipta dan izin lebih lanjut.
+Platform Certify dilisensikan di bawah lisensi **MIT**. Untuk detail selengkapnya silakan merujuk pada berkas [LICENSE](LICENSE).

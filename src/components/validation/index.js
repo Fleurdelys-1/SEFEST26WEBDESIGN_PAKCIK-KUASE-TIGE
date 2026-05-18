@@ -1119,11 +1119,11 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
                              {[
                                {
                                  label: t('validate.details.txA'),
-                                 tx: pdfSearchResult.certificate.blockchainEvidence.txA,
+                                 tx: searchResult.certificate.blockchainEvidence.txA,
                                },
                                {
                                  label: t('validate.details.txB'),
-                                 tx: pdfSearchResult.certificate.blockchainEvidence.txB,
+                                 tx: searchResult.certificate.blockchainEvidence.txB,
                                },
                              ].map((item, idx) => (
                                <div

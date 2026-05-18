@@ -1,13 +1,13 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect } from "react";
-import en from "../data/en.json";
-import id from "../data/id.json";
-import fr from "../data/fr.json";
-import de from "../data/de.json";
-import zh from "../data/zh.json";
-import ko from "../data/ko.json";
-import ja from "../data/ja.json";
+import en from "../data/language/en.json";
+import id from "../data/language/id.json";
+import fr from "../data/language/fr.json";
+import de from "../data/language/de.json";
+import zh from "../data/language/zh.json";
+import ko from "../data/language/ko.json";
+import ja from "../data/language/ja.json";
 
 const translations = { en, id, fr, de, zh, ko, ja };
 
