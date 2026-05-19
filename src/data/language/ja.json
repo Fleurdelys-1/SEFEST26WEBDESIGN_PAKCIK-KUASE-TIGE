@@ -361,6 +361,13 @@
     "send": "送信",
     "successTitle": "登録が完了しました！",
     "successSubtitle": "ID/ハッシュがメールで送信されました。受信トレイをご確認ください。すでに証明書にID/ハッシュを追加している場合は、アップロードページに進むことができます。",
+    "successCard": {
+      "certId": "証明書 ID",
+      "certHash": "証明書ハッシュ",
+      "copied": "コピーしました！",
+      "uploadPdf": "PDF証明書をアップロード",
+      "closeReset": "閉じる / フォームをリセット"
+    },
     "search": "検索...",
     "noResults": "結果が見つかりません",
     "fields": {
@@ -408,7 +415,7 @@
     "fields": {
       "idCertificate": "証明書 ID",
       "hashSha256": "SHA-256 ハッシュ",
-      "pdfFile": "PDF ファイル検証"
+      "pdfFile": "PDF ツール検証"
     },
     "placeholders": {
       "idCertificate": "証明書 ID を入力",
@@ -419,8 +426,10 @@
       "subtitle": "検証するオリジナルの PDF をここにドラッグ＆ドロップ",
       "meta": "プライバシー保護 · SHA-256 ローカル処理のみ · 最大 20 MB"
     },
-    "successTitle": "検証が正常に送信されました！",
-    "successSubtitle": "証明書を検証しています。まもなく通知いたします。",
+    "successTitle": "検証およびオンチェーン公開が成功しました！",
+    "successSubtitle": "証明書が正常に検証され、Polygonブロックチェーンに永久に公開されました！検証ページでその真実性を確認できるようになりました。",
+    "verifyOnValidate": "検証ページで確認する",
+    "resetForm": "フォームをリセット",
     "backToRegister": "登録フォームに戻る",
     "verifying": "検証中...",
     "verified": "✓ 検証完了！",
@@ -430,7 +439,12 @@
       "hashSha256": "SHA-256 ハッシュは必須項目です",
       "pdfRequired": "PDF ファイルは必須項目です",
       "pdfType": "PDF ファイルのみ受け付けます",
-      "pdfSize": "ファイルサイズは 20MB 未満である必要があります"
+      "pdfSize": "ファイルサイズは 20MB 未満である必要があります",
+      "notRegistered": "証明書IDはデータベースに登録されていません。",
+      "alreadyPublished": "この証明書はすでに検証され、オンチェーンに公開されています。再アップロードは許可されていません。",
+      "hashMismatch": "SHA-256ハッシュが登録された証明書と一致しません。",
+      "pdfExtractFailed": "PDFファイルからのテキスト抽出に失敗しました。",
+      "pdfNotMatch": "アップロードされたPDFに証明書IDまたはハッシュが含まれていません。"
     }
   },
   "privacy": {

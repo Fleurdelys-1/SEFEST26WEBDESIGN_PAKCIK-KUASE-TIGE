@@ -361,6 +361,13 @@
     "send": "发送",
     "successTitle": "注册成功！",
     "successSubtitle": "您的 ID/哈希已通过电子邮件发送，请检查您的收件箱。如果您已将 ID/哈希添加到证书中，您可以前往上传页面。",
+    "successCard": {
+      "certId": "证书 ID",
+      "certHash": "证书哈希值",
+      "copied": "已复制！",
+      "uploadPdf": "上传证书 PDF",
+      "closeReset": "关闭 / 重置表单"
+    },
     "search": "搜索...",
     "noResults": "未找到结果",
     "fields": {
@@ -419,8 +426,10 @@
       "subtitle": "将原始 PDF 拖放到此处进行验证",
       "meta": "隐私 · 仅限本地 SHA-256 处理 · 最大 20 MB"
     },
-    "successTitle": "验证已成功提交！",
-    "successSubtitle": "您的证书正在验证中。我们很快会通知您。",
+    "successTitle": "验证与链上发布成功！",
+    "successSubtitle": "您的证书已成功通过验证并永久发布在 Polygon 区块链上！您现在可以在验证页面验证其真实性。",
+    "verifyOnValidate": "在验证页面进行核对",
+    "resetForm": "重置表单",
     "backToRegister": "返回注册表单",
     "verifying": "验证中...",
     "verified": "✓ 已验证！",
@@ -430,7 +439,12 @@
       "hashSha256": "SHA 256 哈希值是必填项",
       "pdfRequired": "PDF 文件是必填项",
       "pdfType": "仅接受 PDF 文件",
-      "pdfSize": "文件大小必须在 20 MB 以下"
+      "pdfSize": "文件大小必须在 20 MB 以下",
+      "notRegistered": "该证书 ID 未在我们的数据库中注册。",
+      "alreadyPublished": "此证书已完成验证并发布在链上。不允许重复上传。",
+      "hashMismatch": "输入的 SHA-256 哈希值与注册的证书不匹配。",
+      "pdfExtractFailed": "无法从 PDF 文件中提取文本内容。",
+      "pdfNotMatch": "上传的 PDF 文件不包含输入的证书 ID 或哈希值。"
     }
   },
   "privacy": {

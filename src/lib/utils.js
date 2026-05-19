@@ -6,12 +6,25 @@ export function cn(...inputs) {
   return twMerge(clsx(inputs));
 }
 
-export function searchCertificate(searchTerm) {
+export async function searchCertificate(searchTerm) {
   if (!searchTerm.trim()) return null;
 
   const term = searchTerm.trim().toLowerCase();
 
-  const certificate = certificateData.certificates.find(cert =>
+  let certs = certificateData.certificates;
+  try {
+    const res = await fetch('/api/certificates');
+    if (res.ok) {
+      const dynamicData = await res.json();
+      if (dynamicData && dynamicData.certificates) {
+        certs = dynamicData.certificates;
+      }
+    }
+  } catch (error) {
+    console.warn("Using static certificate fallback:", error);
+  }
+
+  const certificate = certs.find(cert =>
     cert.id.toLowerCase() === term ||
     cert.hash.toLowerCase() === term
   );

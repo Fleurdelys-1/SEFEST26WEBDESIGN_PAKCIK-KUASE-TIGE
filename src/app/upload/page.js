@@ -5,9 +5,10 @@ import { ChevronLeft, FileText, Upload, X, CheckCircle2, ShieldCheck, Hash, Info
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../../context/LanguageContext";
+import { extractPdfText } from "../../lib/utils";
 
 export default function UploadPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [idCertificate, setIdCertificate] = useState("");
   const [hashSha256, setHashSha256] = useState("");
   const [file, setFile] = useState(null);
@@ -71,7 +72,16 @@ export default function UploadPage() {
     []
   );
 
-  const handleSubmit = (e) => {
+  const handleCloseSuccess = () => {
+    setSuccess(false);
+    setIdCertificate("");
+    setHashSha256("");
+    setFile(null);
+    setTouched({});
+    setErrors({});
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setTouched({ idCertificate: true, hashSha256: true, file: true });
     const errs = validate(idCertificate, hashSha256, file);
@@ -79,18 +89,78 @@ export default function UploadPage() {
     if (Object.keys(errs).length > 0) return;
 
     setLoading(true);
-    setTimeout(() => {
+    try {
+      const res = await fetch('/api/certificates');
+      if (!res.ok) {
+        throw new Error("Failed to fetch certificates from server.");
+      }
+      const data = await res.json();
+      const certificates = data.certificates || [];
+
+      const cert = certificates.find(c => c.id.toLowerCase() === idCertificate.trim().toLowerCase());
+      
+      if (!cert) {
+        setErrors({ idCertificate: t("upload.errors.notRegistered") });
+        setLoading(false);
+        return;
+      }
+
+      if (cert.blockchainEvidence && cert.blockchainEvidence.smartContractVerified) {
+        setErrors({ idCertificate: t("upload.errors.alreadyPublished") });
+        setLoading(false);
+        return;
+      }
+
+      if (cert.hash.toLowerCase() !== hashSha256.trim().toLowerCase()) {
+        setErrors({ hashSha256: t("upload.errors.hashMismatch") });
+        setLoading(false);
+        return;
+      }
+
+      let pdfText = "";
+      try {
+        pdfText = await extractPdfText(file);
+      } catch (pdfErr) {
+        console.error("PDF text extraction error:", pdfErr);
+        setErrors({ file: t("upload.errors.pdfExtractFailed") });
+        setLoading(false);
+        return;
+      }
+
+      const textLower = pdfText.toLowerCase();
+      const cleanId = idCertificate.trim().toLowerCase();
+      const cleanHash = hashSha256.trim().toLowerCase();
+
+      const hasId = textLower.includes(cleanId);
+      const hasHash = textLower.includes(cleanHash);
+
+      if (!hasId && !hasHash) {
+        setErrors({ file: t("upload.errors.pdfNotMatch") });
+        setLoading(false);
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('id', cert.id);
+      formData.append('file', file);
+
+      const publishRes = await fetch('/api/publish', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const publishData = await publishRes.json();
+      if (!publishData.success) {
+        throw new Error(publishData.error || "Failed to publish on-chain.");
+      }
+
       setLoading(false);
       setSuccess(true);
-      setTimeout(() => {
-        setSuccess(false);
-        setIdCertificate("");
-        setHashSha256("");
-        setFile(null);
-        setTouched({});
-        setErrors({});
-      }, 3200);
-    }, 1400);
+    } catch (err) {
+      setLoading(false);
+      console.error(err);
+      alert(language === 'id' ? "Terjadi kesalahan saat memproses unggahan: " + err.message : "An error occurred while processing the upload: " + err.message);
+    }
   };
 
   const inputClass = (field) =>
@@ -192,21 +262,59 @@ export default function UploadPage() {
             {success && !loading && (
               <motion.div
                 key="upload-success"
-                initial={{ opacity: 0, height: 0, filter: "blur(8px)" }}
-                animate={{ opacity: 1, height: "auto", filter: "blur(0px)" }}
-                exit={{ opacity: 0, height: 0, filter: "blur(8px)" }}
+                initial={{ opacity: 0, height: 0, filter: "blur(8px)", marginBottom: 0 }}
+                animate={{ opacity: 1, height: "auto", filter: "blur(0px)", marginBottom: 24 }}
+                exit={{ opacity: 0, height: 0, filter: "blur(8px)", marginBottom: 0 }}
                 transition={{ duration: 0.4 }}
-                className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#00B7B5]/10 via-[#0a2d33]/20 to-transparent px-6 py-5 shadow-[0_20px_60px_rgba(0,183,181,0.12)] backdrop-blur-xl"
+                className="relative overflow-hidden rounded-3xl border border-[#00B7B5]/40 bg-gradient-to-br from-[#00B7B5]/15 via-[#005461]/20 to-transparent p-6 shadow-[0_30px_90px_rgba(0,183,181,0.2)] backdrop-blur-xl"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#00B7B5]/10 to-transparent opacity-80" />
-                <div className="relative z-10 flex flex-col items-center gap-3 text-center">
-                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#00B7B5]/10 border border-[#00B7B5]/20 shadow-lg shadow-[#00B7B5]/10">
-                    <CheckCircle2 className="h-7 w-7 text-[#00B7B5]" />
+                
+                <button
+                  type="button"
+                  onClick={handleCloseSuccess}
+                  className="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-full transition-colors duration-200 z-20"
+                >
+                  <X className="w-5 h-5 text-white/50 hover:text-white" />
+                </button>
+
+                <div className="relative z-10 flex flex-col gap-5">
+                  <div className="flex flex-col items-center justify-center text-center gap-3">
+                    <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#00B7B5]/20 border border-[#00B7B5]/40 shadow-lg shadow-[#00B7B5]/25 animate-pulse">
+                      <CheckCircle2 className="h-8 w-8 text-[#00B7B5]" />
+                    </div>
+                    <p className="text-xl font-bold text-[#F4F4F4] font-outfit">
+                      {t("upload.successTitle") || "Validation & On-Chain Publishing Successful!"}
+                    </p>
+                    <p className="text-sm text-[#F4F4F4]/80 leading-relaxed font-poppins max-w-md mx-auto">
+                      {t("upload.successSubtitle") || "Certificate verified successfully and permanently published on Polygon blockchain! You can now verify its authenticity on the validation page."}
+                    </p>
                   </div>
-                  <p className="text-base font-bold text-[#F4F4F4]">{t("upload.successTitle")}</p>
-                  <p className="text-sm text-[#F4F4F4]/70">
-                    {t("upload.successSubtitle")}
-                  </p>
+
+                  <div className="flex flex-col sm:flex-row gap-3 mt-2 max-w-md mx-auto w-full">
+                    <Link
+                      href="/validate"
+                      className="flex-1 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md text-center flex items-center justify-center gap-2 relative overflow-hidden"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.45) 0%, rgba(0, 84, 97, 0.3) 100%)',
+                        border: '1px solid rgba(0, 183, 181, 0.4)',
+                        boxShadow: '0 12px 24px -5px rgba(0, 183, 181, 0.25)',
+                      }}
+                    >
+                      {t("upload.verifyOnValidate") || "Verify on Validate Page"}
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={handleCloseSuccess}
+                      className="flex-1 rounded-xl px-5 py-3 text-sm font-semibold text-white/80 hover:text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md text-center flex items-center justify-center gap-2"
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.08)',
+                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                      }}
+                    >
+                      {t("upload.resetForm") || "Reset Form"}
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             )}

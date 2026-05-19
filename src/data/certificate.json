@@ -3,7 +3,7 @@
     {
       "id": "CERT-C14B116C16F9",
       "status": "ACTIVE",
-      "statusReason": "File integrity validation processed successfully. All cryptographic proofs match the records on the Polygon blockchain.",
+      "statusReason": "File integrity validation processed successfully. All cryptographic proofs match the records on the Polygon blockchain. / Verifikasi integritas file diproses secara berhasil. Semua bukti kriptografis cocok dengan catatan di blockchain Polygon.",
       "hash": "bdab84b566f9460c7b27e616ca85d18d96fd07d7b25f1eae65104d2359cb9ce1",
       "userInformation": {
         "fullName": "Afif Asmalendra Putra",
@@ -38,14 +38,14 @@
       "blockchainEvidence": {
         "smartContractVerified": true,
         "txA": {
-          "hash": "0xa1090c9cf8539dc7d90dd5ccbb7ff9e24270a984f5c7d27c732b73a25c33c74a",
+          "hash": "0x7c19a0dd5bd95bbf34d88833e33c7b85b285a4e0f3bed9e2255cddecbfd5124a",
           "type": "IDENTITY_RECORD",
-          "scanLink": "https://amoy.polygonscan.com/tx/0xa1090c9cf8539dc7d90dd5ccbb7ff9e24270a984f5c7d27c732b73a25c33c74a"
+          "scanLink": "https://amoy.polygonscan.com/tx/0x7c19a0dd5bd95bbf34d88833e33c7b85b285a4e0f3bed9e2255cddecbfd5124a"
         },
         "txB": {
-          "hash": "0x2f618237905d77852c210b1f7f917d827baa68efd7fd1882a4f119c8fb643105",
-          "type": "IDENTITY_RECORD",
-          "scanLink": "https://amoy.polygonscan.com/tx/0x2f618237905d77852c210b1f7f917d827baa68efd7fd1882a4f119c8fb643105"
+          "hash": "0x0179d827d355e84421517ee7530a35b1508f52d8ee27a358c3af838ce73f16c2",
+          "type": "INTEGRITY_RECORD",
+          "scanLink": "https://amoy.polygonscan.com/tx/0x0179d827d355e84421517ee7530a35b1508f52d8ee27a358c3af838ce73f16c2"
         }
       },
       "validationStatus": {
@@ -100,7 +100,7 @@
         },
         "txB": {
           "hash": "0x6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a",
-          "type": "IDENTITY_RECORD",
+          "type": "INTEGRITY_RECORD",
           "scanLink": "https://amoy.polygonscan.com/tx/0x6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a"
         }
       },
@@ -155,7 +155,7 @@
         },
         "txB": {
           "hash": "0x8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c",
-          "type": "IDENTITY_RECORD",
+          "type": "INTEGRITY_RECORD",
           "scanLink": "https://amoy.polygonscan.com/tx/0x8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c"
         }
       },
@@ -210,8 +210,63 @@
         },
         "txB": {
           "hash": "0x4d83ae2c3e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f",
-          "type": "IDENTITY_RECORD",
+          "type": "INTEGRITY_RECORD",
           "scanLink": "https://amoy.polygonscan.com/tx/0x4d83ae2c3e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f"
+        }
+      },
+      "validationStatus": {
+        "fileIntegrityValidated": false,
+        "signatureVerified": false
+      },
+      "auditReportPdf": null,
+      "certificatePdf": null
+    },
+    {
+      "id": "CERT-3B7814B42BDC",
+      "status": "ACTIVE",
+      "statusReason": "Off-chain record validated in local registry. Blockchain evidence (on-chain proof) will be generated and signed upon PDF upload. / Catatan off-chain tervalidasi di registry lokal. Bukti blockchain (on-chain proof) akan dibuat dan ditandatangani saat PDF diunggah.",
+      "hash": "9a657b14e62ccb1c351d8a4d2fc783f8569fd2eebe88382536f6647091a4e0cb",
+      "userInformation": {
+        "fullName": "Fabillah Anand RB",
+        "idNumber": "62895619083555",
+        "email": "xfarkun@gmail.com",
+        "country": "INDONESIA (ID)"
+      },
+      "programDetail": {
+        "courseName": "Sefes26 Juara 1 Web Design",
+        "academicEventCode": "45-18-12E1",
+        "level": "Beginner",
+        "language": "Indonesian",
+        "grade": "Approved"
+      },
+      "issuingInstitution": {
+        "name": "Telkom University Surabaya",
+        "modality": "Online (Synchronous)"
+      },
+      "dates": {
+        "issueDate": "2026-04-27",
+        "studyPeriodStart": "2026-05-12",
+        "studyPeriodEnd": "2026-06-14"
+      },
+      "credentials": {
+        "instructors": [
+          "Adalah Pokoknya"
+        ],
+        "signatories": [
+          "Adalah Pokoknya"
+        ]
+      },
+      "blockchainEvidence": {
+        "smartContractVerified": false,
+        "txA": {
+          "hash": "Pending blockchain synchronization",
+          "type": "IDENTITY_RECORD",
+          "scanLink": "#"
+        },
+        "txB": {
+          "hash": "Pending blockchain synchronization",
+          "type": "INTEGRITY_RECORD",
+          "scanLink": "#"
         }
       },
       "validationStatus": {

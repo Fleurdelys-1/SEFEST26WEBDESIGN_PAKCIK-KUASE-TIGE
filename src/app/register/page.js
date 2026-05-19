@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, Mail, CalendarIcon, Check } from "lucide-react";
+import { ChevronLeft, Mail, CalendarIcon, Check, Copy, X } from "lucide-react";
 import Link from "next/link";
 import { addDays, format } from "date-fns";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,9 @@ import {
 } from "@/components/ui/popover";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../../context/LanguageContext";
+import languageOptionsData from "../../data/language.json";
+
+const { languageOptions, regionOptions } = languageOptionsData;
 
 const initialForm = {
   name: "",
@@ -48,226 +51,7 @@ const requiredFields = [
   "signer",
 ];
 
-const languageOptions = [
-  "English",
-  "Indonesian",
-  "Spanish",
-  "French",
-  "German",
-  "Italian",
-  "Portuguese",
-  "Russian",
-  "Japanese",
-  "Chinese (Mandarin)",
-  "Korean",
-  "Arabic",
-  "Hindi",
-  "Vietnamese",
-  "Thai",
-  "Dutch",
-  "Swedish",
-  "Polish",
-  "Turkish",
-  "Greek",
-  "Arabic",
-];
 
-const regionOptions = [
-  "Afghanistan (AF)",
-  "Albania (AL)",
-  "Algeria (DZ)",
-  "Andorra (AD)",
-  "Angola (AO)",
-  "Argentina (AR)",
-  "Armenia (AM)",
-  "Australia (AU)",
-  "Austria (AT)",
-  "Azerbaijan (AZ)",
-  "Bahamas (BS)",
-  "Bahrain (BH)",
-  "Bangladesh (BD)",
-  "Barbados (BB)",
-  "Belarus (BY)",
-  "Belgium (BE)",
-  "Belize (BZ)",
-  "Benin (BJ)",
-  "Bhutan (BT)",
-  "Bolivia (BO)",
-  "Bosnia and Herzegovina (BA)",
-  "Botswana (BW)",
-  "Brazil (BR)",
-  "Brunei (BN)",
-  "Bulgaria (BG)",
-  "Burkina Faso (BF)",
-  "Burundi (BI)",
-  "Cambodia (KH)",
-  "Cameroon (CM)",
-  "Canada (CA)",
-  "Cape Verde (CV)",
-  "Central African Republic (CF)",
-  "Chad (TD)",
-  "Chile (CL)",
-  "China (CN)",
-  "Colombia (CO)",
-  "Comoros (KM)",
-  "Congo (CG)",
-  "Costa Rica (CR)",
-  "Croatia (HR)",
-  "Cuba (CU)",
-  "Cyprus (CY)",
-  "Czech Republic (CZ)",
-  "Denmark (DK)",
-  "Djibouti (DJ)",
-  "Dominica (DM)",
-  "Dominican Republic (DO)",
-  "Ecuador (EC)",
-  "Egypt (EG)",
-  "El Salvador (SV)",
-  "Equatorial Guinea (GQ)",
-  "Eritrea (ER)",
-  "Estonia (EE)",
-  "Ethiopia (ET)",
-  "Fiji (FJ)",
-  "Finland (FI)",
-  "France (FR)",
-  "Gabon (GA)",
-  "Gambia (GM)",
-  "Georgia (GE)",
-  "Germany (DE)",
-  "Ghana (GH)",
-  "Greece (GR)",
-  "Grenada (GD)",
-  "Guatemala (GT)",
-  "Guinea (GN)",
-  "Guinea-Bissau (GW)",
-  "Guyana (GY)",
-  "Haiti (HT)",
-  "Honduras (HN)",
-  "Hong Kong (HK)",
-  "Hungary (HU)",
-  "Iceland (IS)",
-  "India (IN)",
-  "Indonesia (ID)",
-  "Iran (IR)",
-  "Iraq (IQ)",
-  "Ireland (IE)",
-  "Israel (IL)",
-  "Italy (IT)",
-  "Jamaica (JM)",
-  "Japan (JP)",
-  "Jordan (JO)",
-  "Kazakhstan (KZ)",
-  "Kenya (KE)",
-  "Kiribati (KI)",
-  "Kuwait (KW)",
-  "Kyrgyzstan (KG)",
-  "Laos (LA)",
-  "Latvia (LV)",
-  "Lebanon (LB)",
-  "Lesotho (LS)",
-  "Liberia (LR)",
-  "Libya (LY)",
-  "Liechtenstein (LI)",
-  "Lithuania (LT)",
-  "Luxembourg (LU)",
-  "Macao (MO)",
-  "Madagascar (MG)",
-  "Malawi (MW)",
-  "Malaysia (MY)",
-  "Maldives (MV)",
-  "Mali (ML)",
-  "Malta (MT)",
-  "Marshall Islands (MH)",
-  "Mauritania (MR)",
-  "Mauritius (MU)",
-  "Mexico (MX)",
-  "Micronesia (FM)",
-  "Moldova (MD)",
-  "Monaco (MC)",
-  "Mongolia (MN)",
-  "Montenegro (ME)",
-  "Morocco (MA)",
-  "Mozambique (MZ)",
-  "Myanmar (MM)",
-  "Namibia (NA)",
-  "Nauru (NR)",
-  "Nepal (NP)",
-  "Netherlands (NL)",
-  "New Zealand (NZ)",
-  "Nicaragua (NI)",
-  "Niger (NE)",
-  "Nigeria (NG)",
-  "North Korea (KP)",
-  "North Macedonia (MK)",
-  "Norway (NO)",
-  "Oman (OM)",
-  "Pakistan (PK)",
-  "Palau (PW)",
-  "Palestine (PS)",
-  "Panama (PA)",
-  "Papua New Guinea (PG)",
-  "Paraguay (PY)",
-  "Peru (PE)",
-  "Philippines (PH)",
-  "Poland (PL)",
-  "Portugal (PT)",
-  "Qatar (QA)",
-  "Romania (RO)",
-  "Russia (RU)",
-  "Rwanda (RW)",
-  "Saint Kitts and Nevis (KN)",
-  "Saint Lucia (LC)",
-  "Saint Vincent and the Grenadines (VC)",
-  "Samoa (WS)",
-  "San Marino (SM)",
-  "Sao Tome and Principe (ST)",
-  "Saudi Arabia (SA)",
-  "Senegal (SN)",
-  "Serbia (RS)",
-  "Seychelles (SC)",
-  "Sierra Leone (SL)",
-  "Singapore (SG)",
-  "Slovakia (SK)",
-  "Slovenia (SI)",
-  "Solomon Islands (SB)",
-  "Somalia (SO)",
-  "South Africa (ZA)",
-  "South Korea (KR)",
-  "South Sudan (SS)",
-  "Spain (ES)",
-  "Sri Lanka (LK)",
-  "Sudan (SD)",
-  "Suriname (SR)",
-  "Sweden (SE)",
-  "Switzerland (CH)",
-  "Syria (SY)",
-  "Taiwan (TW)",
-  "Tajikistan (TJ)",
-  "Tanzania (TZ)",
-  "Thailand (TH)",
-  "Timor-Leste (TL)",
-  "Togo (TG)",
-  "Tonga (TO)",
-  "Trinidad and Tobago (TT)",
-  "Tunisia (TN)",
-  "Turkey (TR)",
-  "Turkmenistan (TM)",
-  "Tuvalu (TV)",
-  "Uganda (UG)",
-  "Ukraine (UA)",
-  "United Arab Emirates (AE)",
-  "United Kingdom (GB)",
-  "United States (US)",
-  "Uruguay (UY)",
-  "Uzbekistan (UZ)",
-  "Vanuatu (VU)",
-  "Vatican City (VA)",
-  "Venezuela (VE)",
-  "Vietnam (VN)",
-  "Yemen (YE)",
-  "Zambia (ZM)",
-  "Zimbabwe (ZW)",
-];
 
 const levelOptions = ["Beginner", "Intermediate", "Advanced"];
 const modalityOptions = [
@@ -324,6 +108,32 @@ export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [openDropdowns, setOpenDropdowns] = useState({});
+  const [registeredData, setRegisteredData] = useState(null);
+  const [copiedId, setCopiedId] = useState(false);
+  const [copiedHash, setCopiedHash] = useState(false);
+
+  const handleCopy = async (text, type) => {
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      if (type === 'id') {
+        setCopiedId(true);
+        setTimeout(() => setCopiedId(false), 2000);
+      } else if (type === 'hash') {
+        setCopiedHash(true);
+        setTimeout(() => setCopiedHash(false), 2000);
+      }
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
+
+  const handleCloseSuccess = () => {
+    setSuccess(false);
+    setRegisteredData(null);
+    setForm(initialForm);
+    setTouched({});
+  };
 
   const getLevelLabel = (lvl) => {
     const levels = {
@@ -486,13 +296,13 @@ export default function RegisterPage() {
     const { name, value } = e.target;
     let formatted = value;
     if (name === "certificateIssue") formatted = formatDateInput(value);
-    
+
     if (name === "number") {
       formatted = value.replace(/\D/g, "");
     }
     const updatedForm = { ...form, [name]: formatted };
     setForm(updatedForm);
-    
+
     setOpenDropdowns({});
     if (touched[name]) {
       const newErrors = validate(updatedForm);
@@ -507,7 +317,7 @@ export default function RegisterPage() {
     setErrors((prev) => ({ ...prev, [name]: newErrors[name] }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const allTouched = requiredFields.reduce(
       (acc, f) => ({ ...acc, [f]: true }),
@@ -518,23 +328,38 @@ export default function RegisterPage() {
     setErrors(newErrors);
     if (Object.keys(newErrors).length > 0) return;
     setLoading(true);
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+      const data = await response.json();
       setLoading(false);
-      setSuccess(true);
-      if (window.innerWidth < 1024) {
-        setTimeout(() => {
-          const msgEl = document.getElementById("success-message");
-          if (msgEl) {
-            msgEl.scrollIntoView({ behavior: "smooth", block: "center" });
-          }
-        }, 100);
+      if (data.success) {
+        setRegisteredData({
+          id: data.id,
+          hash: data.hash
+        });
+        setSuccess(true);
+        if (window.innerWidth < 1024) {
+          setTimeout(() => {
+            const msgEl = document.getElementById("success-message");
+            if (msgEl) {
+              msgEl.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+          }, 100);
+        }
+      } else {
+        alert("Registration failed: " + data.error);
       }
-      setTimeout(() => {
-        setSuccess(false);
-        setForm(initialForm);
-        setTouched({});
-      }, 7000);
-    }, 1200);
+    } catch (err) {
+      setLoading(false);
+      console.error(err);
+      alert("Registration failed. Please try again.");
+    }
   };
 
   const getInputClass = (field) =>
@@ -610,13 +435,13 @@ export default function RegisterPage() {
       }
     };
 
-    const displayValue = field === "language" 
+    const displayValue = field === "language"
       ? getLanguageLabel(value)
       : field === "level"
-      ? getLevelLabel(value)
-      : field === "modality"
-      ? getModalityLabel(value)
-      : value;
+        ? getLevelLabel(value)
+        : field === "modality"
+          ? getModalityLabel(value)
+          : value;
 
     return (
       <div className="relative mt-1">
@@ -674,10 +499,10 @@ export default function RegisterPage() {
                     const optionLabel = field === "language"
                       ? getLanguageLabel(option)
                       : field === "level"
-                      ? getLevelLabel(option)
-                      : field === "modality"
-                      ? getModalityLabel(option)
-                      : option;
+                        ? getLevelLabel(option)
+                        : field === "modality"
+                          ? getModalityLabel(option)
+                          : option;
 
                     return (
                       <motion.button
@@ -863,27 +688,107 @@ export default function RegisterPage() {
             className="flex flex-col p-4 sm:p-6 lg:p-7 gap-4 relative z-10 rounded-b-3xl sm:rounded-b-[40px] lg:rounded-b-none lg:rounded-r-[40px]"
           >
             <AnimatePresence>
-              {success && !loading && (
+              {success && !loading && registeredData && (
                 <motion.div
                   key="register-success"
                   id="success-message"
                   initial={{ opacity: 0, height: 0, filter: "blur(8px)", marginBottom: 0 }}
-                  animate={{ opacity: 1, height: "auto", filter: "blur(0px)", marginBottom: 16 }}
+                  animate={{ opacity: 1, height: "auto", filter: "blur(0px)", marginBottom: 24 }}
                   exit={{ opacity: 0, height: 0, filter: "blur(8px)", marginBottom: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#00B7B5]/10 via-[#0a2d33]/20 to-transparent px-6 shadow-[0_30px_90px_rgba(0,183,181,0.12)] backdrop-blur-xl"
+                  className="relative overflow-hidden rounded-3xl border border-[#00B7B5]/40 bg-gradient-to-br from-[#00B7B5]/15 via-[#005461]/20 to-transparent p-6 shadow-[0_30px_90px_rgba(0,183,181,0.2)] backdrop-blur-xl"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-[#00B7B5]/10 to-transparent opacity-80" />
-                  <div className="relative z-10 flex flex-col items-center justify-center gap-4 text-center py-6">
-                    <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#00B7B5]/10 border border-[#00B7B5]/20 shadow-lg shadow-[#00B7B5]/10">
-                      <Check className="h-8 w-8 text-[#00B7B5]" />
+
+                  <button
+                    onClick={handleCloseSuccess}
+                    className="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-full transition-colors duration-200 z-20"
+                  >
+                    <X className="w-5 h-5 text-white/50 hover:text-white" />
+                  </button>
+
+                  <div className="relative z-10 flex flex-col gap-5">
+                    <div className="flex flex-col items-center justify-center text-center gap-3">
+                      <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#00B7B5]/20 border border-[#00B7B5]/40 shadow-lg shadow-[#00B7B5]/25 animate-pulse">
+                        <Check className="h-8 w-8 text-[#00B7B5]" />
+                      </div>
+                      <p className="text-xl font-bold text-[#F4F4F4] font-outfit">
+                        {t("register.successTitle")}
+                      </p>
+                      <p className="text-sm text-[#F4F4F4]/80 leading-relaxed font-poppins">
+                        {t("register.successSubtitle")}
+                      </p>
                     </div>
-                    <p className="text-lg font-bold text-[#F4F4F4]">
-                      {t("register.successTitle")}
-                    </p>
-                    <p className="max-w-[23rem] text-sm text-[#F4F4F4]/70">
-                      {t("register.successSubtitle")}
-                    </p>
+
+                    <div className="space-y-3 mt-2">
+                      <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 relative group">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] text-white/50 uppercase tracking-widest font-semibold font-poppins">
+                            {t("register.successCard.certId")}
+                          </span>
+                          <button
+                            onClick={() => handleCopy(registeredData.id, 'id')}
+                            className="p-1 hover:bg-white/10 rounded transition-all"
+                          >
+                            <Copy className={`w-4 h-4 ${copiedId ? 'text-[#00B7B5]' : 'text-white/40 hover:text-white'}`} />
+                          </button>
+                        </div>
+                        <p className="text-base font-mono font-bold text-[#00B7B5] mt-1 break-all select-all">
+                          {registeredData.id}
+                        </p>
+                        {copiedId && (
+                          <span className="absolute bottom-1 right-3 text-[9px] text-[#00B7B5] font-poppins animate-fade-in">
+                            {t("register.successCard.copied")}
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 relative group">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] text-white/50 uppercase tracking-widest font-semibold font-poppins">
+                            {t("register.successCard.certHash")}
+                          </span>
+                          <button
+                            onClick={() => handleCopy(registeredData.hash, 'hash')}
+                            className="p-1 hover:bg-white/10 rounded transition-all"
+                          >
+                            <Copy className={`w-4 h-4 ${copiedHash ? 'text-[#00B7B5]' : 'text-white/40 hover:text-white'}`} />
+                          </button>
+                        </div>
+                        <p className="text-sm font-mono text-[#00B7B5] mt-1 break-all select-all">
+                          {registeredData.hash}
+                        </p>
+                        {copiedHash && (
+                          <span className="absolute bottom-1 right-3 text-[9px] text-[#00B7B5] font-poppins animate-fade-in">
+                            {t("register.successCard.copied")}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-3 mt-2">
+                      <Link
+                        href="/upload"
+                        className="flex-1 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md text-center flex items-center justify-center gap-2 relative overflow-hidden"
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(0, 183, 181, 0.45) 0%, rgba(0, 84, 97, 0.3) 100%)',
+                          border: '1px solid rgba(0, 183, 181, 0.4)',
+                          boxShadow: '0 12px 24px -5px rgba(0, 183, 181, 0.25)',
+                        }}
+                      >
+                        {t("register.successCard.uploadPdf")}
+                      </Link>
+                      <button
+                        onClick={handleCloseSuccess}
+                        className="flex-1 rounded-xl px-5 py-3 text-sm font-semibold text-white/80 hover:text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] backdrop-blur-md text-center flex items-center justify-center gap-2"
+                        style={{
+                          background: 'rgba(255, 255, 255, 0.08)',
+                          border: '1px solid rgba(255, 255, 255, 0.1)',
+                        }}
+                      >
+                        {t("register.successCard.closeReset")}
+                      </button>
+                    </div>
                   </div>
                 </motion.div>
               )}

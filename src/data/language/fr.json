@@ -361,6 +361,13 @@
     "send": "ENVOYER",
     "successTitle": "Inscription réussie !",
     "successSubtitle": "Votre ID/Hash a été envoyé par e-mail, veuillez vérifier votre boîte de réception. Si vous avez déjà ajouté l'ID/Hash à votre certificat, vous pouvez accéder au formulaire d'envoi.",
+    "successCard": {
+      "certId": "ID du certificat",
+      "certHash": "Hachage du certificat",
+      "copied": "Copié !",
+      "uploadPdf": "Télécharger le certificat PDF",
+      "closeReset": "Fermer / Réinitialiser le formulaire"
+    },
     "search": "Rechercher...",
     "noResults": "Aucun résultat trouvé",
     "fields": {
@@ -419,8 +426,10 @@
       "subtitle": "Faites glisser le PDF original ici pour le vérifier",
       "meta": "PRIVÉ · TRAITEMENT LOCAL SHA-256 SEULEMENT · MAX 20 MO"
     },
-    "successTitle": "Validation soumise !",
-    "successSubtitle": "Votre certificat est en cours de vérification. Nous vous informerons sous peu.",
+    "successTitle": "Validation et publication on-chain réussies !",
+    "successSubtitle": "Certificat vérifié avec succès et publié de manière permanente sur la blockchain Polygon ! Vous pouvez maintenant vérifier son authenticity sur la page de validation.",
+    "verifyOnValidate": "Vérifier sur la page de validation",
+    "resetForm": "Réinitialiser le formulaire",
     "backToRegister": "Retour au formulaire d'enregistrement",
     "verifying": "VÉRIFICATION...",
     "verified": "✓ VÉRIFIÉ !",
@@ -430,7 +439,12 @@
       "hashSha256": "Le hachage SHA 256 est requis",
       "pdfRequired": "Le fichier PDF est requis",
       "pdfType": "Seuls les fichiers PDF sont acceptés",
-      "pdfSize": "La taille du fichier doit être inférieure à 20 Mo"
+      "pdfSize": "La taille du fichier doit être inférieure à 20 Mo",
+      "notRegistered": "L'ID du certificat n'est pas enregistré dans notre base de données.",
+      "alreadyPublished": "Ce certificat a déjà été validé et publié on-chain. La re-publication n'est pas autorisée.",
+      "hashMismatch": "Le hachage SHA256 ne correspond pas au certificat enregistré.",
+      "pdfExtractFailed": "Échec de l'extraction du texte du fichier PDF.",
+      "pdfNotMatch": "Le PDF téléchargé ne contient pas l'ID du certificat ni le hachage."
     }
   },
   "privacy": {

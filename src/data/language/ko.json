@@ -361,6 +361,13 @@
     "send": "전송",
     "successTitle": "등록이 완료되었습니다!",
     "successSubtitle": "ID/해시가 이메일로 전송되었습니다. 편지함을 확인해 주세요. 인증서에 ID/해시를 이미 추가했다면 업로드 페이지로 이동하여 검증을 진행할 수 있습니다.",
+    "successCard": {
+      "certId": "인증서 ID",
+      "certHash": "인증서 해시",
+      "copied": "복사 완료!",
+      "uploadPdf": "PDF 인증서 업로드",
+      "closeReset": "닫기 / 양식 초기화"
+    },
     "search": "검색...",
     "noResults": "결과가 없습니다",
     "fields": {
@@ -404,7 +411,7 @@
     "backToHome": "홈으로 돌아가기",
     "title": "인증서 업로드",
     "badge": "인증서 검증",
-    "infoHint": "참고: 이 검증 양식은 인증서 PDF 파일에 이미 인증서 ID 및 SHA-256 해시가 포함되어 있는 경우에 사용합니다. 해당 정보가 없는 경우, 먼저 인증서를 등록하여 발급받으십시오。",
+    "infoHint": "참고: 이 검증 양식은 인증서 PDF 파일에 이미 인증서 ID 및 SHA-256 해시가 포함되어 있는 경우에 사용합니다. 해당 정보가 없는 경우, 먼저 인증서를 등록하여 발급받으십시오.",
     "fields": {
       "idCertificate": "인증서 ID",
       "hashSha256": "SHA 256 해시",
@@ -419,8 +426,10 @@
       "subtitle": "검증할 원본 PDF를 여기에 드래그 앤 드롭하세요",
       "meta": "개인 정보 · SHA-256 로컬 처리 전용 · 최대 20 MB"
     },
-    "successTitle": "검증이 성공적으로 제출되었습니다!",
-    "successSubtitle": "인증서 검증이 진행 중입니다. 곧 알림을 보내드리겠습니다.",
+    "successTitle": "검증 및 온체인 공개 성공!",
+    "successSubtitle": "인증서가 성공적으로 검증되었으며 Polygon 블록체인에 영구적으로 공개되었습니다! 이제 검증 페이지에서 진위 여부를 확인할 수 있습니다.",
+    "verifyOnValidate": "검증 페이지에서 확인하기",
+    "resetForm": "양식 초기화",
     "backToRegister": "등록 양식으로 돌아가기",
     "verifying": "검증 중...",
     "verified": "✓ 검증 완료!",
@@ -430,7 +439,12 @@
       "hashSha256": "SHA 256 해시는 필수 항목입니다",
       "pdfRequired": "PDF 파일은 필수 항목입니다",
       "pdfType": "PDF 파일만 접수 가능합니다",
-      "pdfSize": "파일 크기는 20MB 이하이어야 합니다"
+      "pdfSize": "파일 크기는 20MB 이하이어야 합니다",
+      "notRegistered": "입력하신 인증서 ID는 데이터베이스에 등록되어 있지 않습니다.",
+      "alreadyPublished": "이 인증서는 이미 검증 및 온체인 공개가 완료되었습니다. 재업로드는 허용되지 않습니다.",
+      "hashMismatch": "입력하신 SHA-256 해시가 등록된 인증서와 일치하지 않습니다.",
+      "pdfExtractFailed": "PDF 파일에서 텍스트를 추출하는 데 실패했습니다.",
+      "pdfNotMatch": "업로드된 PDF 파일 내에 입력하신 인증서 ID 또는 해시가 포함되어 있지 않습니다."
     }
   },
   "privacy": {

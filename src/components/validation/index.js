@@ -162,10 +162,10 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
       setAutoValidateStatus(statuses[currentStatusIdx]);
     }, 450);
 
-    setTimeout(() => {
+    setTimeout(async () => {
       clearInterval(statusInterval);
       
-      const result = searchCertificate(value);
+      const result = await searchCertificate(value);
       setSearchResult(result);
       setSearchOrigin('qr');
       
@@ -193,8 +193,8 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
     setIsSearching(true);
 
     const delay = isInitial ? 0 : 1200;
-    setTimeout(() => {
-      const result = searchCertificate(trimmedValue);
+    setTimeout(async () => {
+      const result = await searchCertificate(trimmedValue);
       setSearchResult(result);
       setSearchOrigin(origin);
       setIsSearching(false);
@@ -327,7 +327,7 @@ export default function Validation({ initialTab = 'manual', initialQueryValue = 
 
         const searchTerm = certData.certId || certData.hash;
         if (searchTerm) {
-          const result = searchCertificate(searchTerm);
+          const result = await searchCertificate(searchTerm);
           setPdfSearchResult(result);
           setPdfSearchOrigin('pdf');
           scrollToResultSection();

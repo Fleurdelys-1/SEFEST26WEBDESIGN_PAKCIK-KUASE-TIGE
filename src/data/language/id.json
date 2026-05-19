@@ -361,6 +361,13 @@
     "send": "KIRIM",
     "successTitle": "Registrasi Telah Berhasil!",
     "successSubtitle": "ID/Hash sudah dikirim lewat email, tolong cek email Anda. Jika sudah memasang ID/Hash di sertifikat, silakan pergi ke form upload.",
+    "successCard": {
+      "certId": "ID Sertifikat",
+      "certHash": "Hash Sertifikat",
+      "copied": "Disalin!",
+      "uploadPdf": "Unggah PDF Sertifikat",
+      "closeReset": "Tutup / Reset Formulir"
+    },
     "search": "Cari...",
     "noResults": "Hasil tidak ditemukan",
     "fields": {
@@ -419,9 +426,11 @@
       "subtitle": "Seret PDF asli ke sini untuk memverifikasi",
       "meta": "PRIBADI · HANYA PEMROSESAN LOKAL SHA-256 · MAKS 20 MB"
     },
-    "successTitle": "Validasi berhasil dikirim!",
-    "successSubtitle": "Sertifikat Anda sedang diverifikasi. Kami akan segera memberi tahu Anda.",
-    "backToRegister": "Kembali ke formulir Pendaftaran",
+    "successTitle": "Validasi & Penerbitan On-Chain Sukses!",
+    "successSubtitle": "Sertifikat berhasil diverifikasi dan diterbitkan secara permanen di blockchain Polygon! Anda sekarang dapat memverifikasi keasliannya di halaman validasi.",
+    "verifyOnValidate": "Verifikasi di Halaman Validasi",
+    "resetForm": "Reset Formulir",
+    "backToRegister": "Kembali ke pendaftaran",
     "verifying": "MEMVERIFIKASI...",
     "verified": "✓ TERVERIFIKASI!",
     "send": "KIRIM",
@@ -430,7 +439,12 @@
       "hashSha256": "HASH SHA 256 wajib diisi",
       "pdfRequired": "File PDF wajib diisi",
       "pdfType": "Hanya file PDF yang diterima",
-      "pdfSize": "Ukuran file harus di bawah 20 MB"
+      "pdfSize": "Ukuran file harus di bawah 20 MB",
+      "notRegistered": "ID Sertifikat tidak terdaftar di database kami.",
+      "alreadyPublished": "Sertifikat ini sudah divalidasi dan terbit di blockchain. Tidak dapat diunggah ulang.",
+      "hashMismatch": "Hash SHA256 tidak cocok dengan sertifikat yang terdaftar.",
+      "pdfExtractFailed": "Gagal membaca teks dari file PDF.",
+      "pdfNotMatch": "PDF yang diunggah tidak mengandung ID atau Hash sertifikat."
     }
   },
   "privacy": {

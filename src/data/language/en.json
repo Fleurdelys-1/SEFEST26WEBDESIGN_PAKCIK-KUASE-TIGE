@@ -362,6 +362,13 @@
     "send": "SEND",
     "successTitle": "Registration Successful!",
     "successSubtitle": "Your ID/Hash has been sent via email, please check your inbox. If you have already added the ID/Hash to your certificate, you can proceed to the upload form.",
+    "successCard": {
+      "certId": "Certificate ID",
+      "certHash": "Certificate Hash",
+      "copied": "Copied!",
+      "uploadPdf": "Upload PDF Certificate",
+      "closeReset": "Close / Reset Form"
+    },
     "search": "Search...",
     "noResults": "No results found",
     "fields": {
@@ -416,12 +423,14 @@
       "hashSha256": "e.g. a3f9b2c1..."
     },
     "dragDrop": {
-      "title": "PDF File Validation",
+      "title": "Validasi File PDF",
       "subtitle": "Drag the original PDF here to verify",
       "meta": "PRIVATE · LOCAL PROCESSING ONLY · MAX 20 MB"
     },
-    "successTitle": "Validation submitted!",
-    "successSubtitle": "Your certificate is being verified. We'll notify you shortly.",
+    "successTitle": "Validation & On-Chain Publishing Successful!",
+    "successSubtitle": "Certificate verified successfully and permanently published on Polygon blockchain! You can now verify its authenticity on the validation page.",
+    "verifyOnValidate": "Verify on Validate Page",
+    "resetForm": "Reset Form",
     "backToRegister": "Back to Register form",
     "verifying": "VERIFYING...",
     "verified": "✓ VERIFIED!",
@@ -431,7 +440,12 @@
       "hashSha256": "HASH SHA 256 is required",
       "pdfRequired": "PDF file is required",
       "pdfType": "Only PDF files are accepted",
-      "pdfSize": "File size must be under 20 MB"
+      "pdfSize": "File size must be under 20 MB",
+      "notRegistered": "ID Certificate is not registered in our database.",
+      "alreadyPublished": "This certificate has already been validated and published on-chain. Re-upload is not allowed.",
+      "hashMismatch": "SHA256 Hash does not match the registered certificate.",
+      "pdfExtractFailed": "Failed to extract text from PDF file.",
+      "pdfNotMatch": "The uploaded PDF does not contain the Certificate ID or Hash."
     }
   },
   "privacy": {

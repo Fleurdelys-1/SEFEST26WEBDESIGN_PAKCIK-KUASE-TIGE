@@ -332,6 +332,103 @@
     "platform": "Plataforma",
     "help": "Ayuda"
   },
+  "register": {
+    "backToHome": "Volver al Inicio",
+    "title": "Registremos Su Certificado",
+    "userInfo": "INFORMACIÓN DE USUARIO",
+    "programDetail": "DETALLE DEL PROGRAMA",
+    "alreadyHavePdf": "¿Ya tiene un PDF de certificado con ID/Hash?",
+    "sending": "ENVIANDO...",
+    "sent": "¡✓ ENVIADO!",
+    "send": "ENVIAR",
+    "successTitle": "¡Registro Exitoso!",
+    "successSubtitle": "Su ID/Hash ha sido enviado por correo electrónico, revise su bandeja de entrada. Si ya ha agregado el ID/Hash a su certificado, puede proceder al formulario de carga.",
+    "successCard": {
+      "certId": "ID de Certificado",
+      "certHash": "Hash de Certificado",
+      "copied": "¡Copiado!",
+      "uploadPdf": "Cargar Certificado PDF",
+      "closeReset": "Cerrar / Restablecer Formulario"
+    },
+    "search": "Buscar...",
+    "noResults": "No se encontraron resultados",
+    "fields": {
+      "name": "Nombre",
+      "number": "Número",
+      "digitalContact": "Contacto Digital",
+      "region": "Región",
+      "certificateName": "Nombre Certificado",
+      "eventCode": "Código de Evento",
+      "issuingInstitution": "Institución Emisora",
+      "language": "Idioma",
+      "level": "Nivel",
+      "certificateIssue": "Emisión del Certificado",
+      "modality": "Modalidad",
+      "studyPeriod": "Periodo de Estudio",
+      "instructors": "Instructores",
+      "signer": "Firmante / Autoridades"
+    },
+    "placeholders": {
+      "name": "Su Nombre",
+      "number": "Teléfono o Número de ID",
+      "digitalContact": "Correo o Red Social",
+      "region": "Seleccione Región",
+      "certificateName": "Nombre del Certificado",
+      "eventCode": "Código de Evento",
+      "issuingInstitution": "Nombre de la Institución",
+      "language": "Idioma",
+      "level": "Nivel",
+      "certificateIssue": "MM/DD/AA",
+      "modality": "Modalidad",
+      "studyPeriod": "MM/DD/AA - MM/DD/AA",
+      "instructors": "Nombre del Instructor",
+      "signer": "Nombre del Firmante"
+    },
+    "errors": {
+      "required": "es requerido",
+      "validEmail": "Se requiere un correo válido"
+    }
+  },
+  "upload": {
+    "backToHome": "Volver al Inicio",
+    "title": "Cargue Su Certificado",
+    "badge": "VALIDACIÓN DE CERTIFICADO",
+    "infoHint": "Nota: Este formulario de validación se utiliza si el PDF de su certificado ya tiene un ID de Certificado y un Hash SHA-256 integrados. Si no tiene estos detalles, registre su certificado primero para obtenerlos.",
+    "fields": {
+      "idCertificate": "ID de Certificado",
+      "hashSha256": "HASH SHA 256",
+      "pdfFile": "Validasi File PDF"
+    },
+    "placeholders": {
+      "idCertificate": "Ingrese ID del Certificado",
+      "hashSha256": "ej. a3f9b2c1..."
+    },
+    "dragDrop": {
+      "title": "Validación de Archivo PDF",
+      "subtitle": "Arrastre el PDF original aquí para verificar",
+      "meta": "PRIVADO · SOLO PROCESAMIENTO LOCAL · MÁX 20 MB"
+    },
+    "successTitle": "¡Validación y Publicación en Cadena Exitosas!",
+    "successSubtitle": "¡Certificado verificado con éxito y publicado permanentemente en la blockchain de Polygon! Ahora puede verificar su autenticidad en la página de validación.",
+    "verifyOnValidate": "Verificar en Página de Validación",
+    "resetForm": "Restablecer Formulario",
+    "backToRegister": "Volver al formulario de Registro",
+    "verifying": "VERIFICANDO...",
+    "verified": "¡✓ VERIFICADO!",
+    "send": "ENVIAR",
+    "errors": {
+      "idCertificate": "El ID del Certificado es requerido",
+      "hashSha256": "El HASH SHA 256 es requerido",
+      "pdfRequired": "El archivo PDF es requerido",
+      "pdfType": "Solo se aceptan archivos PDF",
+      "pdfSize": "El tamaño del archivo debe ser menor a 20 MB",
+      "notRegistered": "El ID del Certificado no está registrado en nuestra base de datos.",
+      "alreadyPublished": "Este certificado ya ha sido verificado y publicado on-chain. No se permite volver a cargarlo.",
+      "hashMismatch": "El Hash SHA256 no coincide con el certificado registrado.",
+      "pdfExtractFailed": "Error al extraer el texto del archivo PDF.",
+      "pdfNotMatch": "El PDF cargado no contiene el ID del Certificado o el Hash."
+    }
+  },
   "whyblockchain": {
     "backToHome": "Volver al Inicio",
     "title": "Por qué Certify usa Blockchain",

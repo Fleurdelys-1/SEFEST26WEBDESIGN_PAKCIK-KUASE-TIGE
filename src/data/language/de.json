@@ -361,6 +361,13 @@
     "send": "SENDEN",
     "successTitle": "Registrierung erfolgreich!",
     "successSubtitle": "Ihre ID/Hash wurde per E-Mail gesendet, bitte überprüfen Sie Ihren Posteingang. Wenn Sie die ID/Hash bereits zu Ihrem Zertifikat hinzugefügt haben, können Sie zum Upload-Formular wechseln.",
+    "successCard": {
+      "certId": "Zertifikats-ID",
+      "certHash": "Zertifikats-Hash",
+      "copied": "Kopiert!",
+      "uploadPdf": "PDF-Zertifikat Hochladen",
+      "closeReset": "Schließen / Formular Zurücksetzen"
+    },
     "search": "Suchen...",
     "noResults": "Keine Ergebnisse gefunden",
     "fields": {
@@ -419,8 +426,10 @@
       "subtitle": "Ziehen Sie das Original-PDF hierher, um es zu überprüfen",
       "meta": "PRIVAT · NUR LOKALE SHA-256-VERARBEITUNG · MAX 20 MB"
     },
-    "successTitle": "Validierung übermittelt!",
-    "successSubtitle": "Ihr Zertifikat wird überprüft. Wir werden Sie in Kürze benachrichtigen.",
+    "successTitle": "Validierung und On-Chain-Veröffentlichung erfolgreich!",
+    "successSubtitle": "Zertifikat erfolgreich verifiziert und dauerhaft auf der Polygon-Blockchain veröffentlicht! Sie können nun seine Echtheit auf der Validierungsseite überprüfen.",
+    "verifyOnValidate": "Auf Validierungsseite Überprüfen",
+    "resetForm": "Formular Zurücksetzen",
     "backToRegister": "Zurück zum Registrierungsformular",
     "verifying": "ÜBERPRÜFUNG...",
     "verified": "✓ ÜBERPRÜFT!",
@@ -430,7 +439,12 @@
       "hashSha256": "SHA-256-Hash ist erforderlich",
       "pdfRequired": "PDF-Datei ist erforderlich",
       "pdfType": "Es werden nur PDF-Dateien akzeptiert",
-      "pdfSize": "Dateigröße muss unter 20 MB liegen"
+      "pdfSize": "Dateigröße muss unter 20 MB liegen",
+      "notRegistered": "Die Zertifikats-ID ist nicht in unserer Datenbank registriert.",
+      "alreadyPublished": "Dieses Zertifikat wurde bereits validiert und on-chain veröffentlicht. Ein erneutes Hochladen ist nicht gestattet.",
+      "hashMismatch": "Der SHA-256-Hash stimmt nicht mit dem registrierten Zertifikat überein.",
+      "pdfExtractFailed": "Fehler beim Extrahieren des Texts aus der PDF-Datei.",
+      "pdfNotMatch": "Das hochgeladene PDF enthält nicht die Zertifikats-ID oder den Hash."
     }
   },
   "privacy": {
