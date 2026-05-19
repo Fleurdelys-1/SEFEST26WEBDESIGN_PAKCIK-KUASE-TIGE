@@ -24,14 +24,14 @@ export default function PrivacyPage() {
     <main className="min-h-screen flex flex-col items-center px-4 sm:px-6 lg:px-8 pt-28 pb-20">
 
       <motion.div
-        className="w-full max-w-4xl mb-8"
+        className="w-full max-w-4xl mb-8 relative z-10"
         initial={{ opacity: 0, x: -24, filter: "blur(8px)" }}
         animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm text-[#F4F4F4]/60 hover:text-[#00B7B5] transition-colors duration-200 group"
+          className="inline-flex items-center gap-2 text-sm text-[#F4F4F4]/60 hover:text-[#00B7B5] transition-colors duration-200 group font-poppins"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
           {t("privacy.backToHome")}

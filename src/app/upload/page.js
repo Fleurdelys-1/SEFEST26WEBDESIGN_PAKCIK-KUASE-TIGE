@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
-import { ChevronLeft, FileText, Upload, X, CheckCircle2, ShieldCheck, Hash, Info } from "lucide-react";
+import { ArrowLeft, ChevronLeft, FileText, Upload, X, CheckCircle2, ShieldCheck, Hash, Info } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../../context/LanguageContext";
@@ -197,15 +197,20 @@ export default function UploadPage() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-start px-4 pt-28 pb-10 lg:pb-36 bg-transparent relative">
-      <div className="w-full max-w-3xl flex items-start mb-3">
+      <motion.div
+        className="w-full max-w-3xl mb-8 relative z-10"
+        initial={{ opacity: 0, x: -24, filter: "blur(8px)" }}
+        animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      >
         <Link
           href="/"
-          className="flex items-center gap-1 text-[#F4F4F4]/70 text-sm hover:text-[#00b7b5] transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-[#F4F4F4]/60 hover:text-[#00B7B5] transition-colors duration-200 group font-poppins"
         >
-          <ChevronLeft size={16} />
+          <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" />
           {t("upload.backToHome")}
         </Link>
-      </div>
+      </motion.div>
 
       <motion.h1
         initial={{ opacity: 0, y: -16 }}
