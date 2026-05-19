@@ -249,14 +249,14 @@ export default function Navbar() {
 				<div className="hidden md:block">
 					{}
 					<motion.div
-						className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 flex items-center gap-2 cursor-pointer z-40 pointer-events-auto"
+						className="absolute left-4 sm:left-6 lg:left-8 xl:left-12 top-1/2 -translate-y-1/2 flex items-center gap-2 cursor-pointer z-40 pointer-events-auto"
 						variants={logoContainerVariants}
 						initial="hidden"
 						animate="visible"
 						onClick={(e) => handleNavClick(e, '#home')}
 					>
-						<motion.img src="/images/certify.png" alt="Certify Logo" className="w-6 h-6 sm:w-7 sm:h-7" variants={navLogoVariants} />
-						<motion.span className="text-xl sm:text-2xl text-[#F4F4F4] font-lexend" variants={navTextVariants}>Certify</motion.span>
+						<motion.img src="/images/certify.png" alt="Certify Logo" className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" variants={navLogoVariants} />
+						<motion.span className="text-lg md:text-xl lg:text-2xl font-bold text-[#F4F4F4] font-lexend" variants={navTextVariants}>Certify</motion.span>
 					</motion.div>
 
 					{}
@@ -289,7 +289,7 @@ export default function Navbar() {
 
 					{}
 					<motion.div
-						className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 flex items-center gap-1 sm:gap-2 font-lexend px-2 sm:px-4 py-2 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg pointer-events-auto"
+						className="absolute right-4 sm:right-6 lg:right-8 xl:right-12 top-1/2 -translate-y-1/2 flex items-center gap-1 sm:gap-2 font-lexend px-2 sm:px-4 py-2 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 shadow-lg pointer-events-auto"
 						variants={switchButtonVariants}
 						initial="hidden"
 						animate="visible"
@@ -367,8 +367,8 @@ export default function Navbar() {
 							onClick={(e) => handleNavClick(e, '#home')}
 							className="flex items-center gap-1.5 px-1"
 						>
-							<img src="/images/certify.png" alt="Certify Logo" className="w-5 h-5" />
-							<span className="text-base text-[#F4F4F4] font-lexend font-semibold">Certify</span>
+							<img src="/images/certify.png" alt="Certify Logo" className="w-5 h-5 sm:w-6 sm:h-6" />
+							<span className="text-base sm:text-lg text-[#F4F4F4] font-lexend font-bold">Certify</span>
 						</button>
 					</div>
 
