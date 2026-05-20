@@ -59,7 +59,10 @@ Berikut adalah folder-folder utama dalam direktori `src` yang menggerakkan platf
 ## ⚙️ Panduan Instalasi & Pengembangan Lokal
 
 ### Prasyarat Sistem
-* **Node.js** versi `18.x` atau yang terbaru (`20.x LTS` direkomendasikan).
+* **Node.js** versi `Latest LTS` (disarankan menggunakan versi terbaru yang stabil).
+  * Download: [Node.js](https://nodejs.org/)
+* **Git** untuk cloning repository dan version control.
+  * Download: [Git](https://git-scm.com/downloads)
 * **Package Manager**: `npm` atau `yarn`.
 
 ### Langkah-Langkah Pemasangan
